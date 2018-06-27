@@ -1,22 +1,23 @@
 <template>
-		<div class="video-wrap">
-        <video playsinline poster='images/videos/explore.jpg' preload muted autoplay loop>
-          <source src='/static/media/codebattle.mpg' type='video/mp4' />
-          <source src='/static/media/codebattle.webm' type='video/webm' />
-        </video>                  
-        <v-card class="video-overlay" tile full-width>
-          <v-card-title>
-            <h1>Мы готовим для вас новый сайт</h1>
-          </v-card-title>
-          <v-card-text>
-            <span>Приходите к нам через указанное время и получайте дозу драйва и фана!!!</span>
-            <Countdown deadline="May 17, 2018"></Countdown>
-          </v-card-text>
-          <v-card-media>
-          </v-card-media>          
-        </v-card>          
-		</div>
+
+      <div class="banner">
+          <img src="static\img\Banner.jpg" alt="Parallax" width="100%" height="600px">
+
+         
+          <div class="about">
+              <div class="about-text">
+                  Code Battle - это мини-хакатон для тех, кто любит программирование, 
+                  искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
+                  любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+                  Все сражения демонстрируются на большом экране в режиме реального времени.
+              </div>
+          </div>
+
+      </div>
 </template>
+
+
+
 
 <script>
 import Countdown from 'vuejs-countdown'
@@ -28,7 +29,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="css" scoped>
-.video-overlay {
-  background-color: rgba(255,255,255,0.9);
-}
+  .about{
+    color: black;
+    background-color: white;
+    min-height: 100px;
+  }
+  .about-text{
+    margin-top: 40px;
+  }
 </style>
