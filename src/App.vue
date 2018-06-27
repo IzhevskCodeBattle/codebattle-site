@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import AppFooter from '@/components/Footer'
+import auth from '@/service/auth'
+import AppFooter from '@/component/Footer'
 
 export default {
   name: 'app',
@@ -22,6 +23,13 @@ export default {
   }),
   components: {
     'app-footer': AppFooter
+  },
+  methods: {
+    logout () {
+      auth.getAuthHeader().then((val) => {
+        auth.logout(this, { headers: val })
+      })
+    }
   }
 }
 </script>

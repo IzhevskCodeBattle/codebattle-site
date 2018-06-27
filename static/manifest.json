@@ -1,6 +1,6 @@
 {
-  "name": "codebattle-site.vue",
-  "short_name": "codebattle-site.vue",
+  "name": "Code Battle",
+  "short_name": "codebattle",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",

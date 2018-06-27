@@ -1,21 +1,9 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import CommingSoon from '@/components/CommingSoon'
+import VueRouter from 'vue-router'
+import routes from './routes'
 
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'CommingSoon',
-      component: CommingSoon
-    },
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
+Vue.use(VueRouter)
+export default new VueRouter({
+  routes,
+  mode: 'history'
 })
