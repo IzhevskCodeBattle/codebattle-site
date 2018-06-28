@@ -1,34 +1,15 @@
 <template>
   <div id="app">
-    <v-app dark fill-height >
-        <v-toolbar app absolute fixed="true" class="toolbar">
-          <!-- <v-toolbar-title v-text="title"></v-toolbar-title> -->
-
-        <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-
-        <v-toolbar-items class="left_menu">
-          <v-btn flat>About</v-btn>
-          <v-btn flat>Events</v-btn>
-          <v-btn flat>Games</v-btn>
-        </v-toolbar-items>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="right_menu">
-          <v-btn flat>Login</v-btn>
-          <v-btn flat>Sing up</v-btn>
-        </v-toolbar-items>
- 
-        </v-toolbar>
-      <v-content>
-        <router-view></router-view>
-      </v-content>
+    
+      <app-header app></app-header>
       <app-footer app></app-footer>
-    </v-app>
   </div>
 </template>
 
 <script>
 import auth from '@/service/auth'
 import AppFooter from '@/component/Footer'
+import AppHeader from '@/component/Header'
 
 export default {
   name: 'app',
@@ -36,7 +17,8 @@ export default {
     title: 'Code Battle'
   }),
   components: {
-    'app-footer': AppFooter
+    'app-footer': AppFooter,
+    'app-header': AppHeader
   },
   methods: {
     logout () {
@@ -48,11 +30,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.toolbar{
-  background:#76cdd8;
-}
-.btn{
-  padding-left: 50px;
-}
-</style>
+

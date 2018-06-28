@@ -64,3 +64,9 @@
     })
   }
 </script>
+
+<style>
+  .footer{
+    position: relative;
+  }
+</style>
