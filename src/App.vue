@@ -8,7 +8,7 @@
         <v-toolbar-side-icon></v-toolbar-side-icon>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
-          <v-btn flat>Link One</v-btn>
+          <button><singin-form></singin-form></button>
           <v-btn flat>Link Two</v-btn>
           <v-btn flat>Link Three</v-btn>
         </v-toolbar-items>
@@ -26,6 +26,7 @@
 <script>
 import auth from '@/service/auth'
 import AppFooter from '@/component/Footer'
+import Signin from '@/view/Auth/Signin'
 
 export default {
   name: 'app',
@@ -33,7 +34,8 @@ export default {
     title: 'Code Battle'
   }),
   components: {
-    'app-footer': AppFooter
+    'app-footer': AppFooter,
+    'singin-form': Signin
   },
   methods: {
     logout () {

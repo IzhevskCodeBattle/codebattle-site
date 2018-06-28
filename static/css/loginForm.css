@@ -2,6 +2,6 @@
   width:60px;
   height:60px;
 }
-.login-page, .register-page, .login-form, .register-form {
+.login-form, .register-form {
   font-family: 'Source Sans Pro';
 }

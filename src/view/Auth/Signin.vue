@@ -1,7 +1,7 @@
 <template>
-<div class="register-page">
+<div class="login-page">
   <v-dialog v-if="login" v-model="dialog" persistent max-width="500px">
-    <v-btn slot="activator" color="primary">Signin</v-btn>
+    <v-btn flat slot="activator">Signin</v-btn>
     <form class="login-form" @submit.prevent="login">
       <v-card max-width="500px">
         <v-card-title class="justify-center">
