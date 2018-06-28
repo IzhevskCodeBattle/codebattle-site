@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <v-app light fill-height>
-      <div class="toolbar">
-        <v-toolbar app absolute fixed="true">
-          <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-app dark fill-height >
+        <v-toolbar app absolute fixed="true" class="toolbar">
+          <!-- <v-toolbar-title v-text="title"></v-toolbar-title> -->
 
-        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+
+        <v-toolbar-items class="left_menu">
+          <v-btn flat>About</v-btn>
+          <v-btn flat>Events</v-btn>
+          <v-btn flat>Games</v-btn>
+        </v-toolbar-items>
         <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
-          <v-btn flat>Link One</v-btn>
-          <v-btn flat>Link Two</v-btn>
-          <v-btn flat>Link Three</v-btn>
+        <v-toolbar-items class="right_menu">
+          <v-btn flat>Login</v-btn>
+          <v-btn flat>Sing up</v-btn>
         </v-toolbar-items>
  
         </v-toolbar>
-      </div>
       <v-content>
         <router-view></router-view>
       </v-content>
@@ -45,9 +48,11 @@ export default {
 }
 </script>
 
-<style>
-  .toolbar{
-    position: fixed; 
-  }
+<style scoped>
+.toolbar{
+  background:#76cdd8;
+}
+.btn{
+  padding-left: 50px;
+}
 </style>
-
