@@ -1,6 +1,5 @@
 /* import Home from '@/view/Home' */
 import Signin from '@/view/Auth/Signin'
-import Signup from '@/view/Auth/Signup'
 import CommingSoon from '@/view/CommingSoon'
 
 // import Vue from 'vue'
@@ -34,6 +33,5 @@ export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
   { path: '/', component: CommingSoon },
   { path: '/signin', component: Signin },
-  { path: '/signup', component: Signup },
   { path: '*', redirect: '/' }
 ]
