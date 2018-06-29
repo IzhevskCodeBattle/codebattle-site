@@ -1,9 +1,6 @@
 <template>
   <md-card>
     <md-card-actions>
-      <div class="md-subhead">
-        <span>Autoplay</span>
-      </div>
       <md-button class="md-icon-button"
                  target="_blank"
                  href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/28-autoplay.vue">
@@ -12,17 +9,17 @@
     </md-card-actions>
     <md-card-media>
       <!-- swiper -->
-      <swiper :options="swiperOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <swiper :options="swiperOption" class="swiper">
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
@@ -49,6 +46,9 @@ export default {
     return {
       swiperOption: {
         spaceBetween: 30,
+        slidesPerView: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
         centeredSlides: true,
         autoplay: {
           delay: 2500,
@@ -67,6 +67,59 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 
+img{
+  width: 90%;
+  height: 90%;
+}
+
+.img_center{
+  position	: relative;
+  padding: 15px;
+}
+
+  .swiper{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    width: 100%;
+    background-color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .swiper-container {
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+
+  .swiper-slide {
+    width: 60%;
+    /* background-color: #eee; */
+    margin-right: 30px;
+    flex-shrink: 0;
+    height: 100%;
+    
+  }
+  .swiper-slide:nth-child(2n) {
+      width: 40%;
+  }
+  .swiper-slide:nth-child(3n) {
+      width: 20%;
+  }
 </style>
