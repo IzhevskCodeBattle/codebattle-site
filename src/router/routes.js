@@ -2,7 +2,6 @@
 import Signin from '@/view/Auth/Signin'
 import Signup from '@/view/Auth/Signup'
 import CommingSoon from '@/view/CommingSoon'
-
 // import Vue from 'vue'
 
 /*
