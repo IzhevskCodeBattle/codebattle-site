@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    
       <app-header app></app-header>
+      <!-- <router-view></router-view> -->
+      <app-slider app></app-slider>
       <app-footer app></app-footer>
   </div>
 </template>
+
+
 
 <script>
 import auth from '@/service/auth'
 import AppFooter from '@/component/Footer'
 import AppHeader from '@/component/Header'
+import AppSlider from '@/component/Slider'
 
 export default {
   name: 'app',
@@ -18,7 +22,8 @@ export default {
   }),
   components: {
     'app-footer': AppFooter,
-    'app-header': AppHeader
+    'app-header': AppHeader,
+    'app-slider': AppSlider
   },
   methods: {
     logout () {

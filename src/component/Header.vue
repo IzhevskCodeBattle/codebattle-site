@@ -1,6 +1,6 @@
 <template>
-  <v-app dark fill-height >
-        <v-toolbar app absolute fixed="true">
+  <v-app fill-height >
+        <v-toolbar  app absolute fixed="true">
           <!-- <v-toolbar-title v-text="title"></v-toolbar-title> -->
 
         <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
@@ -25,6 +25,7 @@
 </template>
 
 <style scoped>
+
 .toolbar{
   background:#76cdd8;
   position: fixed;
@@ -32,6 +33,7 @@
 .btn{
   padding-left: 25px;
   padding-right: 25px;
+  color: white;
 }
 
 </style>
