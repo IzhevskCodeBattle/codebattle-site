@@ -1,4 +1,5 @@
 <template>
+
   <v-app fill-height >
         <v-toolbar  app absolute fixed="true">
           <!-- <v-toolbar-title v-text="title"></v-toolbar-title> -->
@@ -22,6 +23,7 @@
       </v-content>
       
     </v-app>
+
 </template>
 
 <style scoped>
@@ -35,5 +37,4 @@
   padding-right: 25px;
   color: white;
 }
-
 </style>

@@ -1,10 +1,20 @@
 <template>
+
   <div id="app">
       <app-header app></app-header>
       <!-- <router-view></router-view> -->
       <app-slider app></app-slider>
       <app-footer app></app-footer>
   </div>
+
+  <!-- <v-app>
+    <app-header/>  
+    <v-content fluid>
+      <router-view></router-view>
+    </v-content>
+    <app-footer/>      
+  </v-app> -->
+
 </template>
 
 
