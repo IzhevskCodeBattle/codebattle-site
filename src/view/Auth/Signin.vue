@@ -33,13 +33,13 @@
           <span class="headline">Войти через:</span>
         </v-card-title>
         <v-card-text class="text-xs-center">
-          <a class="social" href="http://212.158.174.142:4333/api/auth/vkontakte"><img src="static/img/icons/vk.png"></a>
-          <a class="social" href=""><img src="static/img/icons/fb.png"></a>
-          <a class="social" href=""><img src="static/img/icons/twitter.png"></a>
-          <a class="social" href=""><img src="static/img/icons/linkedin.png"></a>
-          <a class="social" href=""><img src="static/img/icons/github.png"></a>
-          <a class="social" href=""><img src="static/img/icons/ggl.png"></a>
-        </v-card-text>
+          <a href="http://212.158.174.142:4333/api/auth/vkontakte"><v-icon>fab fa-vk</v-icon></a>
+          <a href=""><v-icon>fab fa-facebook</v-icon></a>
+          <a href=""><v-icon>fab fa-twitter</v-icon></a>
+          <a href=""><v-icon>fab fa-linkedin-in</v-icon></a>
+          <a href=""><v-icon>fab fa-github</v-icon></a>
+          <a href=""><v-icon>fab fa-google</v-icon></a>
+                </v-card-text>
       </v-card>
     </form>
   </v-dialog>
@@ -153,3 +153,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.login-form,
+.register-form {
+  font-family: 'Source Sans Pro';
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 50px;
+}
+</style>

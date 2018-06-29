@@ -12,7 +12,6 @@ import router from '@/router'
 // ������
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import '../static/css/loginForm.css'
 
 // ����������
 import axios from 'axios'
