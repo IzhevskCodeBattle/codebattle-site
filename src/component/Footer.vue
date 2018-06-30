@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="auto" app absolute>
+  <v-footer>
     <v-card flat tile class="flex">
       <v-card-text class="grey lighten-3">
         <v-layout>
@@ -64,3 +64,9 @@
     })
   }
 </script>
+
+<style>
+  .footer{
+    padding-top: 100px;
+  }
+</style>
