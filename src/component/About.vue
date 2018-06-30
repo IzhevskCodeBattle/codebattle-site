@@ -4,7 +4,7 @@
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">
-          <CB-text>Code Battle</CB-text>
+          <span class="cb-text">Code Battle</span>
           - это мини-хакатон для тех, кто любит программирование, 
           искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
           любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
@@ -29,7 +29,7 @@ export default {
     font: 23px sans-serif;
     text-align: justify;
   }
-  CB-text{
+  .cb-text{
     font: 30px sans-serif;
     text-shadow: 1px 1px 2px black;
   } 
