@@ -3,19 +3,13 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение 
 -->
 <template>
-  <v-app>
-    <app-header app></app-header> 
+  <v-app app>
+    <app-header></app-header> 
     <router-view></router-view>      
-    <app-footer app></app-footer>    
   </v-app>
-
 </template>
-
-
-
 <script>
 import auth from '@/service/auth'
-import AppFooter from '@/component/Footer'
 import AppHeader from '@/component/Header'
 
 export default {
@@ -26,7 +20,6 @@ export default {
     title: 'Code Battle'
   }),
   components: {
-    'app-footer': AppFooter,
     'app-header': AppHeader
   },
   methods: {
@@ -45,4 +38,3 @@ export default {
   }
 }
 </script>
-
