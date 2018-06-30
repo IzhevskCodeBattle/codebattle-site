@@ -1,12 +1,5 @@
 <template>
-  <md-card>
-    <md-card-actions>
-      <md-button class="md-icon-button"
-                 target="_blank"
-                 href="https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/28-autoplay.vue">
-        <md-icon>code</md-icon>
-      </md-button>
-    </md-card-actions>
+  <section>    
     <md-card-media>
       <!-- swiper -->
       <swiper :options="swiperOption" class="swiper">
@@ -25,19 +18,13 @@
         <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
     </md-card-media>
-  </md-card>
+  </section>
 </template>
-
-
-
-
-
 <script>
 import 'swiper/dist/css/swiper.css'
-
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
 export default {
+  name: 'Partners',
   components: {
     swiper,
     swiperSlide

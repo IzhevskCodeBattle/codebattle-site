@@ -1,7 +1,7 @@
 /* import Home from '@/view/Home' */
 import Signin from '@/view/Auth/Signin'
 import Signup from '@/view/Auth/Signup'
-import CommingSoon from '@/view/CommingSoon'
+import Home from '@/view/Home'
 // import Vue from 'vue'
 
 /*
@@ -31,7 +31,7 @@ const afterAuth = (_to, from, next) => {
 
 export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
-  { path: '/', component: CommingSoon },
+  { path: '/', component: Home },
   { path: '/signin', component: Signin },
   { path: '/signup', component: Signup },
   { path: '*', redirect: '/' }
