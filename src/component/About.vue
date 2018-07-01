@@ -51,11 +51,11 @@
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">
-          <div class="CB-text">Code Battle</div><br>
-          Это мини-хакатон для тех, кто любит программирование, 
-          искусственный интеллект и сражения ботов. <br>Порог вхождения в Code Battle минимален: 
-          любой может прийти<br> и уже через 45 минут запустить своего бота сражаться с соперниками. 
-         <br> Все сражения демонстрируются на большом экране в режиме реального времени.
+          <span class="cb-text">Code Battle</span>
+          - это мини-хакатон для тех, кто любит программирование, 
+          искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
+          любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+          Все сражения демонстрируются на большом экране в режиме реального времени.
         </v-card-text>
       </v-card>
     </v-flex>
@@ -80,10 +80,10 @@ export default {
     text-align: center;
     line-height: 1.5;
   }
-  .CB-text{
+  .cb-text{
+    font: 30px sans-serif;
     padding-top: 55px;
     padding-bottom: 15px;
-    font-size: 30px;
     text-shadow: 1px 1px 2px black;
     text-transform: uppercase;
   } 
@@ -99,4 +99,3 @@ export default {
     font-size: 3ex;
   }
 </style>
-

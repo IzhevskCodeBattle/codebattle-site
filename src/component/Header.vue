@@ -1,10 +1,10 @@
 <template>  
-  <v-toolbar app absolute fixed="true">
+  <v-toolbar absolute fixed app>
     <v-toolbar-items class="left_menu">
       <v-btn flat>About</v-btn>
       <v-btn flat>Events</v-btn>
       <v-btn flat>Games</v-btn>
-      <v-btn flat @click="goPartners">Partners</v-btn>
+      <v-btn flat>Partners</v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items class="right_menu">

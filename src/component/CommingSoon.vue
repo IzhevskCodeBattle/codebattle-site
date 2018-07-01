@@ -1,5 +1,5 @@
 <template>
-  <div class="background">  
+  <div class="background" style="background-image: url(/static/img/Banner.jpg);">
   </div>
 </template>
 
@@ -14,12 +14,15 @@ export default {
 
 <style scoped>
 .background {
+  position: relative;
   display: flex;
-  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
   background-image: url(/static/img/Banner.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  position: fixed;
   background-attachment: scroll;
   background-position: 50% 50%;
   top: 0;
@@ -27,13 +30,9 @@ export default {
   bottom: 0;
   left: 0;
   content: "";
-  /* z-index: 0;  */
   align-items: center;
   justify-content: center;
   font-weight: bold;   
 }
-  
-  
-
 </style>
 
