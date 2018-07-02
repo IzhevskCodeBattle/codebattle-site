@@ -1,41 +1,26 @@
+
+<!-- данный компонент является базовым и размещать в нем какое либо содержание не надо
+в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
+-->
 <template>
-  <div id="app">
-    <v-app light fill-height>
-      <div class="toolbar">
-        <v-toolbar app absolute fixed="true">
-          <v-toolbar-title v-text="title"></v-toolbar-title>
-
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
-          <button><singin-form></singin-form></button>
-          <v-btn flat>Link Two</v-btn>
-          <v-btn flat>Link Three</v-btn>
-        </v-toolbar-items>
- 
-        </v-toolbar>
-      </div>
-      <v-content>
-        <router-view></router-view>
-      </v-content>
-      <app-footer app></app-footer>
-    </v-app>
-  </div>
+  <v-app app>
+    <app-header></app-header>
+    <router-view></router-view>
+  </v-app>
 </template>
-
 <script>
 import auth from '@/service/auth'
-import AppFooter from '@/component/Footer'
-import Signin from '@/view/Auth/Signin'
+import AppHeader from '@/component/Header'
 
 export default {
   name: 'app',
   data: () => ({
+    // toggle: false,
+    // offsetTop: 0,
     title: 'Code Battle'
   }),
   components: {
-    'app-footer': AppFooter,
-    'singin-form': Signin
+    'app-header': AppHeader
   },
   methods: {
     logout () {
@@ -43,13 +28,13 @@ export default {
         auth.logout(this, { headers: val })
       })
     }
+    // ,
+    // goPartners () {
+    //   this.$vuetify.goTo('#partners')
+    // },
+    // onScroll (e) {
+    //   this.offsetTop = e.target.scrollTop
+    // }
   }
 }
 </script>
-
-<style>
-  .toolbar{
-    position: fixed; 
-  }
-</style>
-
