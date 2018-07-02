@@ -1,7 +1,7 @@
 <template>
 <div class="login-page">
   <v-dialog v-if="login" v-model="dialog" persistent max-width="500px">
-    <v-btn flat slot="activator">Signin</v-btn>
+    <v-btn flat slot="activator">Sign in</v-btn>
     <form class="login-form" @submit.prevent="login">
       <v-card max-width="500px">
         <v-card-title class="justify-center">
@@ -11,23 +11,23 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="credentials.username" label="Username" required></v-text-field>
+                <v-text-field prepend-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field v-model="credentials.password" label="Password" type="password" required></v-text-field>
+                <v-text-field prepend-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn outline @click.native="dialog = false">Close</v-btn>
-          <v-btn outline type="submit">Login</v-btn>
+          <v-btn @click.native="dialog = false">Close</v-btn>
+          <v-btn type="submit">Login</v-btn>
         </v-card-actions>
-        <p class="message text-xs-center">
+        <v-card-text class="text-xs-center">
           Not registered?
-          <v-btn flat @click.native="login=false">Create an account</v-btn>
-        </p>
+          <a class="create-account" @click="login=false">Create an account</a>
+        </v-card-text>
         <v-card-title class="justify-center">
           <span class="headline">Войти через:</span>
         </v-card-title>
@@ -44,36 +44,36 @@
   </v-dialog>
 
   <v-dialog v-if="!login" v-model="dialog" persistent max-width="500px">
-    <v-btn flat slot="activator">Signin</v-btn>
+    <v-btn flat slot="activator">Sign in</v-btn>
     <form class="register-form" @submit.prevent="signup()">
       <v-card max-width="500px">
         <v-card-title class="justify-center">
-          <span class="headline">REGISTER</span>
+          <span class="headline">Sign up</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="credentials.username" label="Username" required></v-text-field>
+                <v-text-field prepend-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field v-model="credentials.email" label="Email" required></v-text-field>
+                <v-text-field prepend-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field v-model="credentials.password" label="Password" type="password" required></v-text-field>
+                <v-text-field prepend-icon="person" v-model="credentials.password" label="Password" type="password" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn outline @click.native="dialog = false; login=true">Close</v-btn>
-          <v-btn outline type="submit">Signup</v-btn>
+          <v-btn @click.native="dialog = false; login=true">Close</v-btn>
+          <v-btn type="submit">Sign up</v-btn>
         </v-card-actions>
-           <p class="message text-xs-center">
-            Already registered?
-            <v-btn flat @click.native="login=true">Signin</v-btn>
-          </p>
+          <v-card-text class="text-xs-center">
+          Already registered?
+          <a class="login" @click="login=true">Sign in</a>
+          </v-card-text>
       </v-card>
     </form>
   </v-dialog>
@@ -157,14 +157,14 @@ export default {
 }
 
 span {
-  color: #464547;
+  color: #454547;
 }
 
 .card__text {
   padding: 0px 16px 0px 16px;
 }
 
-a {
+.vk, .fb, .twitter, .linkedin, .github, .google {
   text-decoration: none;
   display: flex;
   width: 50px;
@@ -176,8 +176,9 @@ a {
   justify-content: center;
 }
 
-p {
-  margin-bottom: 0px;
+.create-account, .login {
+  text-decoration: none;
+  color: #263852;
 }
 
 .vk:hover {
@@ -210,12 +211,12 @@ p {
 }
 
 .btn {
-  color: #263852;
+  color: white;
+  background-color: #76cdd8 !important;
 }
 
-
 @media only screen and (max-width: 370px) {
-  a {
+  .vk, .fb, .twitter, .linkedin, .github, .google {
     text-decoration: none;
     display: flex;
     width: 40px;
@@ -226,7 +227,6 @@ p {
     margin: 3px;
     justify-content: center;
   }
-
   .icon {
     font-size: 30px;
     color: white;
