@@ -1,8 +1,8 @@
 {
-  "name": "wow.cp.admin",
+  "name": "CodeBattle",
   "version": "1.0.0",
-  "description": "Personal Space for WoW players",
-  "author": "wow@dpankratov.ru",
+  "description": "Open Source CodeBattle Community",
+  "author": "developers@codebattle.ru",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
