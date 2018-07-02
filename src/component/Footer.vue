@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="auto" app absolute>
+  <v-footer>
     <v-card flat tile class="flex">
       <v-card-text class="grey lighten-3">
         <v-layout>
@@ -37,7 +37,7 @@
         </v-layout>
       </v-card-text>
       <v-card-actions class="grey lighten-2 justify-center">
-        &copy;2018 � <strong>Vuetify</strong>
+        &copy;2018 �
       </v-card-actions>
     </v-card>
   </v-footer>
@@ -64,3 +64,9 @@
     })
   }
 </script>
+
+<style>
+  .footer{
+    padding-top: 100px;
+  }
+</style>
