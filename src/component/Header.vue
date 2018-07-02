@@ -8,11 +8,22 @@
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items class="right_menu">
-      <v-btn flat>Login</v-btn>
+      <button><singin-form></singin-form></button>
       <v-btn flat>Sing up</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
+
+<script>
+import Signin from '@/view/Auth/Signin'
+
+export default {
+  components: {
+    'singin-form': Signin
+  },
+}
+</script>
+
 
 <style scoped>
 
