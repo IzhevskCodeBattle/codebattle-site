@@ -1,4 +1,4 @@
-<template>  
+<template>
   <v-toolbar absolute fixed app>
     <v-toolbar-items class="left_menu">
       <v-btn flat>About</v-btn>
@@ -8,31 +8,52 @@
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items class="right_menu">
-      <button><singin-form></singin-form></button>
-      <v-btn flat>Sing up</v-btn>
+      <v-btn flat @click="loginDialog=true">Sign in</v-btn>
+      <v-btn flat @click="signupDialog=true">Sign up</v-btn>
+      <LoginForm :loginDialog="loginDialog" :changeLoginDialog="changeLoginDialog" :switchDialogs="switchDialogs"/>
+      <SignupForm :signupDialog="signupDialog" :changeSignupDialog="changeSignupDialog" :switchDialogs="switchDialogs"/>
     </v-toolbar-items>
   </v-toolbar>
 </template>
 
 <script>
-import Signin from '@/view/Auth/Signin'
+import LoginForm from "@/component/LoginForm";
+import SignupForm from "@/component/SignupForm";
 
 export default {
-  components: {
-    'singin-form': Signin
+  data: function() {
+    return {
+      loginDialog: false,
+      signupDialog: false
+    };
   },
-}
+  methods: {
+    changeLoginDialog: function() {
+      this.loginDialog = !this.loginDialog;
+    },
+    changeSignupDialog: function() {
+      this.signupDialog = !this.signupDialog;
+    },
+    switchDialogs: function() {
+      this.changeLoginDialog();
+      this.changeSignupDialog();
+    }
+  },
+  components: {
+    LoginForm,
+    SignupForm
+  }
+};
 </script>
 
 
 <style scoped>
-
-.toolbar{
-  background:#76cdd8;
+.toolbar {
+  background: #76cdd8;
   position: fixed;
   margin: 0;
 }
-.btn{
+.btn {
   padding-left: 25px;
   padding-right: 25px;
   color: white;

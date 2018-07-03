@@ -1,5 +1,4 @@
 /* import Home from '@/view/Home' */
-import Signin from '@/view/Auth/Signin'
 import Home from '@/view/Home'
 // import Vue from 'vue'
 
@@ -31,6 +30,5 @@ const afterAuth = (_to, from, next) => {
 export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
   { path: '/', component: Home },
-  { path: '/signin', component: Signin },
   { path: '*', redirect: '/' }
 ]
