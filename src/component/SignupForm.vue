@@ -29,6 +29,17 @@
           Already registered?
           <a class="login" @click="switchDialogs">Sign in</a>
           </v-card-text>
+          <v-card-title class="justify-center">
+          <span class="headline">Войти через:</span>
+        </v-card-title>
+        <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
+          <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte"><v-icon>fab fa-vk</v-icon></a>
+          <a class="fb" href=""><v-icon>fab fa-facebook-f</v-icon></a>
+          <a class="twitter" href=""><v-icon>fab fa-twitter</v-icon></a>
+          <a class="linkedin" href=""><v-icon>fab fa-linkedin-in</v-icon></a>
+          <a class="github" href=""><v-icon>fab fa-github-alt</v-icon></a>
+          <a class="google" href=""><v-icon>fab fa-google</v-icon></a>
+        </v-card-text>
       </v-card>
     </form>
   </v-dialog>
