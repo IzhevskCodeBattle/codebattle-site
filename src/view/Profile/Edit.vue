@@ -51,31 +51,31 @@
 </template>
 
 <script>
-import Form from 'form-backend-validation';
+import Form from 'form-backend-validation'
 
 export default {
-    metaInfo: { title: 'Update your profile' },
-    data () {
-        return {
-            form: new Form([
-                'firstname',
-                'lastname',
-                'location'
-            ], { resetOnSuccess: false })
-        };
-    },
-    methods: {
-        onSubmitUpdate () {
-            this.form.put('/profile')
-                .then((response) => {
-                    const user = Object.assign({}, this.$_auth.user, this.form.data());
-                    this.$store.commit('setUser', user);
-                })
-                .catch((error) => console.log(error.response));
-        }
-    },
-    created () {
-        this.form.populate(this.$_auth.user);
+  metaInfo: { title: 'Update your profile' },
+  data () {
+    return {
+      form: new Form([
+        'firstname',
+        'lastname',
+        'location'
+      ], { resetOnSuccess: false })
     }
-};
+  },
+  methods: {
+    onSubmitUpdate () {
+      this.form.put('/profile')
+        .then((response) => {
+          const user = Object.assign({}, this.$_auth.user, this.form.data())
+          this.$store.commit('setUser', user)
+        })
+        .catch((error) => console.log(error.response))
+    }
+  },
+  created () {
+    this.form.populate(this.$_auth.user)
+  }
+}
 </script>

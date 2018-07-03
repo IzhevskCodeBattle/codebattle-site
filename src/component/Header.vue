@@ -20,7 +20,7 @@ import Signin from '@/view/Auth/Signin'
 export default {
   components: {
     'singin-form': Signin
-  },
+  }
 }
 </script>
 

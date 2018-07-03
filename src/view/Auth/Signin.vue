@@ -86,9 +86,8 @@
 import auth from '@/service/auth'
 
 export default {
-  data() {
+  data () {
     return {
-
       login: true,
       credentials: {
         username: '',
@@ -99,9 +98,8 @@ export default {
       dialog: false
     }
   },
-
   methods: {
-    login() {
+    login () {
       this._validateLoginForm()
       /*
       const credentials = {
@@ -123,7 +121,7 @@ export default {
       }
     },
 
-    _validateLoginForm() {
+    _validateLoginForm () {
       this.error = ''
       if (!this.credentials.username && !this.credentials.password) {
         this.errors = {
