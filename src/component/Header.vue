@@ -17,33 +17,33 @@
 </template>
 
 <script>
-import LoginForm from "@/component/LoginForm";
-import SignupForm from "@/component/SignupForm";
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
 
 export default {
-  data: function() {
+  data: function () {
     return {
       loginDialog: false,
       signupDialog: false
-    };
+    }
   },
   methods: {
-    changeLoginDialog: function() {
-      this.loginDialog = !this.loginDialog;
+    changeLoginDialog: function () {
+      this.loginDialog = !this.loginDialog
     },
-    changeSignupDialog: function() {
-      this.signupDialog = !this.signupDialog;
+    changeSignupDialog: function () {
+      this.signupDialog = !this.signupDialog
     },
-    switchDialogs: function() {
-      this.changeLoginDialog();
-      this.changeSignupDialog();
+    switchDialogs: function () {
+      this.changeLoginDialog()
+      this.changeSignupDialog()
     }
   },
   components: {
     LoginForm,
     SignupForm
   }
-};
+}
 </script>
 
 <style scoped>
