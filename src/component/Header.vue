@@ -1,5 +1,5 @@
 <template>  
-  <v-toolbar absolute fixed app>
+  <v-toolbar absolute fixed app >
     <v-toolbar-items class="left_menu">
       <v-btn flat>About</v-btn>
       <v-btn flat>Events</v-btn>

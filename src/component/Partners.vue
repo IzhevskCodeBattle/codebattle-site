@@ -1,20 +1,27 @@
 <template>
-  <!-- swiper -->
-  <swiper :options="swiperOption" class="swiper">
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
+  <section>
+    
+    <v-flex>
+      <h2>Partners</h2>
+    </v-flex>
+    <!-- swiper -->
+    <swiper :options="swiperOption" class="swiper">
+      <div class="swiper-button-prev" slot="button-prev"></div>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+      
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
+  </section>
 </template>
 <script>
 import 'swiper/dist/css/swiper.css'
@@ -34,13 +41,13 @@ export default {
         loopFillGroupWithBlank: true,
         centeredSlides: true,
         autoplay: {
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false
         },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
+        // pagination: {
+        //   el: '.swiper-pagination',
+        //   clickable: true
+        // },
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
@@ -61,11 +68,15 @@ img{
   position	: relative;
   padding: 15px;
 }
-
+  h2{
+    text-align: center;
+    font-size: 3em;
+    /* padding-bottom: 15px; */
+  }
   .swiper{
     text-align: center;
-    font-size: 38px;
-    font-weight: 700;
+    /* font-size: 38px;
+    font-weight: 700; */
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -88,7 +99,10 @@ img{
     padding: 0;
     z-index: 1;
 }
-
+  .swiper_padding{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 
   .swiper-slide {
     width: 60%;

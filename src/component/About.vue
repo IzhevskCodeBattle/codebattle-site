@@ -2,48 +2,29 @@
 <template>
   <section>
 
-    <v-layout row class="icons">
+    <v-layout row >
       <v-flex xs12 sm6 md3 order-md1>
-        <v-card light tile flat>
-          <v-card-text><v-icon x-large disabled>extension</v-icon></v-card-text>
+        <v-card flat>
+          <v-icon color="black" class="xsize" >extension</v-icon>
+          <v-card-text class="card_text">Интересно</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 order-md2>
-        <v-card light tile flat>
-          <v-card-text><v-icon x-large disabled>supervisor_account</v-icon></v-card-text>
+        <v-card flat>
+          <v-icon color="black" class="xsize" >supervisor_account</v-icon>
+          <v-card-text class="card_text">Для всех</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 order-md3>
-        <v-card light tile flat>
-          <v-card-text><v-icon x-large disabled>code</v-icon></v-card-text>
+        <v-card flat>
+          <v-icon color="black" class="xsize" >code</v-icon>
+          <v-card-text class="card_text">Практика, а не теория</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 order-md4>
-        <v-card light tile flat>
-          <v-card-text><v-icon x-large disabled>thumb_up</v-icon></v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-
-    <v-layout row wrap class="icons_text">
-      <v-flex xs12 sm6 md3 order-md5>
-        <v-card light tile flat>
-          <v-card-text>Интересно</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm6 md3 order-md6>
-        <v-card light tile flat>
-          <v-card-text>Для всех</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm6 md3 order-md7>
-        <v-card light tile flat>
-          <v-card-text>Практика, а не теория</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm6 md3 order-md8>
-        <v-card light tile flat>
-          <v-card-text>Стань лучшим</v-card-text>
+        <v-card flat>
+          <v-icon color="black" class="xsize" >thumb_up</v-icon>
+          <v-card-text class="card_text">Стань лучшим</v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
@@ -89,13 +70,26 @@ export default {
   } 
 
   .icon{
-    padding-top: 50px;
+    margin-top: 50px;
+    cursor: default;  
   }
-  .icons{
+  .card{
     text-align: center;
   }
-   .icons_text{
+  .card_text{
     text-align: center;
-    font-size: 3ex;
+    font-size: 25px;
+  }
+  .xsize{
+    padding: 20px;
+    font-size: 80px;
+    /* background-color: gray; */
+    border-radius: 80px;
+    border: 3px solid black;
+  }
+
+  .card>:first-child:not(.btn){
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
   }
 </style>
