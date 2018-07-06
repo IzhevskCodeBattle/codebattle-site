@@ -8,6 +8,7 @@
           <v-icon color="grey darken-1">close</v-icon>
         </a>
       </v-card-title>
+      <v-divider></v-divider>
       <v-card-text>
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
@@ -170,7 +171,7 @@ span {
 .create-account,
 .login,
 .forgot {
-  text-decoration: none;
+  text-decoration: underline;
   color: #263852;
 }
 

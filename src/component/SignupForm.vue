@@ -2,12 +2,13 @@
 <v-dialog v-model="signupDialog" persistent max-width="500px">
   <form class="register-form" @submit.prevent="signup()">
     <v-card max-width="500px">
-      <v-card-title class="justify-center">
+      <v-card-title>
         <span style="margin-left: auto;" class="headline">SIGN UP</span>
         <a style="margin-left:auto;" @click="changeSignupDialog">
           <v-icon color="grey darken-1">close</v-icon>
         </a>
       </v-card-title>
+      <v-divider></v-divider>
       <v-card-text>
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
@@ -165,7 +166,7 @@ span {
 
 .create-account,
 .login {
-  text-decoration: none;
+  text-decoration: underline;
   color: #263852;
 }
 
