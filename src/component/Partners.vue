@@ -6,20 +6,35 @@
     </v-flex>
     <!-- swiper -->
     <swiper :options="swiperOption" class="swiper">
-      <div class="swiper-button-prev" slot="button-prev"></div>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-        <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
       
-      <div class="swiper-button-next" slot="button-next"></div>
+        <swiper-slide>
+          <v-btn block flat @click="epam_site" href="epam.com">
+            <!-- <a id="myLink" href="http://www.example.com/"> -->
+             <img  src="/static/img/partners/epam_logo.jpg" alt="EPAM Systems" >
+            <!-- </a> -->
+          </v-btn>
+        </swiper-slide>
+
+        <swiper-slide>
+          <v-btn block flat>
+            <img  src="/static/img/partners/1.png" alt="1">
+          </v-btn>
+        </swiper-slide>
+
+        <swiper-slide>
+          <v-btn block flat>
+            <img  src="/static/img/partners/2.jpg" alt="2">
+          </v-btn>
+        </swiper-slide>
+
+        <swiper-slide>
+          <v-btn block flat>
+            <img  src="/static/img/partners/3.jpg" alt="3">
+          </v-btn>
+        </swiper-slide>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+      <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
   </section>
 </template>
@@ -32,6 +47,10 @@ export default {
     swiper,
     swiperSlide
   },
+  // methods: {
+  //   epam_site () {
+  //   }
+  // },
   data () {
     return {
       swiperOption: {
@@ -41,7 +60,7 @@ export default {
         loopFillGroupWithBlank: true,
         centeredSlides: true,
         autoplay: {
-          delay: 4000,
+          delay: 3500,
           disableOnInteraction: false
         },
         // pagination: {
@@ -59,15 +78,18 @@ export default {
 </script>
 <style scoped>
 
-img{
-  width: 90%;
-  height: 90%;
-}
+  img{
+    width: 100%;
+    height: 100%;
+  }
 
-.img_center{
-  position	: relative;
-  padding: 15px;
-}
+  .btn{
+    width: 90%;
+    height: 90%;
+    position: relative;
+    /* padding: 15px; */
+  }
+
   h2{
     text-align: center;
     font-size: 3em;
