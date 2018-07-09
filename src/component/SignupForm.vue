@@ -62,22 +62,22 @@
 </template>
 
 <script>
-import auth from "@/service/auth";
+import auth from '@/service/auth'
 
 export default {
-  data() {
+  data () {
     return {
       credentials: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
-      error: "",
+      error: '',
       errors: Object.assign({}, this.credentials)
-    };
+    }
   },
   methods: {
-    login() {
-      this._validateLoginForm();
+    login () {
+      this._validateLoginForm()
       /*
       const credentials = {
         username: this.credentials.username,
@@ -90,38 +90,38 @@ export default {
             username: this.credentials.username,
             password: this.credentials.password
           },
-          "/"
-        );
+          '/'
+        )
         this.errors = {
-          username: "",
-          password: ""
-        };
+          username: '',
+          password: ''
+        }
         // this.$store.dispatch('signin', {session: credentials})
         // this.$router.push(/* window.storage.pull('url.intended') || */ '/')
       }
     },
 
-    _validateLoginForm() {
-      this.error = "";
+    _validateLoginForm () {
+      this.error = ''
       if (!this.credentials.username && !this.credentials.password) {
         this.errors = {
           username: "can't be blank",
           password: "can't be blank"
-        };
+        }
       }
 
       if (!this.credentials.username) {
         this.errors = {
           username: "can't be blank",
-          password: ""
-        };
+          password: ''
+        }
       }
 
       if (!this.credentials.password) {
         this.errors = {
-          username: "",
+          username: '',
           password: "can't be blank"
-        };
+        }
       }
     }
   },
@@ -130,7 +130,7 @@ export default {
     hideSignup: Function,
     switchSignUpToLogin: Function
   }
-};
+}
 </script>
 
 <style scoped>

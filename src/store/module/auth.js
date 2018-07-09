@@ -1,5 +1,5 @@
 import {get, set, del} from 'idb-keyval' // async!
-import auth from '@/service/auth'
+// import auth from '@/service/auth' - не использовать
 
 export default {
   state: {
@@ -25,42 +25,35 @@ export default {
     removeToken: (state) => (state.token = '')
   },
   actions: {
-    signin ({ commit }, payload) {
-      return set('auth.token', payload.token).then(() => {
-        commit('setUser', payload.user)
-        commit('setToken', payload.token)
+    signin ({ commit, dispatch }, token) {
+      return set('auth.token', token).then(() => {
+        commit('setToken', token)
+        return dispatch('fetchUser')
       })
     },
     signout ({ commit }) {
       return del('auth.token').then(() => {
-        auth.signout(this).then(() => {
-          commit('removeUser')
-          commit('removeToken')
-        })
+        commit('removeUser')
+        commit('removeToken')
       })
     },
     removeToken ({ commit }) {
       return del('auth.token').then(() => {
-        auth.signout(this).then(() => {
-          commit('removeToken')
-        })
+        commit('removeToken')
       })
     },
-    refreshToken ({ dispatch, commit }) {
+    refreshToken ({ commit }, token) {
       return del('auth.token').then(() => {
         commit('removeToken')
-        return auth.refreshToken(this).then((token) => {
-          commit('setToken', {token: token})
-          return dispatch('fetchUser')
-        })
+        commit('setToken', token)
       })
     },
-    fetchUser ({ commit, state }) {
-      return get('auth.token'.then((token) => {
-        return state.user.token !== token || state.user.token === false || token === false
-          ? Promise.reject(new Error('Token is epired'))
-          : auth.currentUser(this).then((user) => { commit('setUser', { user: user }) })
-      }))
+    fetchUser ({ commit, state }, user) {
+      return get('auth.token').then((token) => {
+        return state.token !== token || token === false
+          ? Promise.reject(new Error('Token is expired'))
+          : commit('setUser', { user: user })
+      })
     }
   }
 }

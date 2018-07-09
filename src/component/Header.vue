@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import LoginForm from "@/component/LoginForm";
-import SignupForm from "@/component/SignupForm";
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
 
 export default {
   data: function () {
     return {
       loginDialog: false,
       signupDialog: false
-    };
+    }
   },
   methods: {
     switchLoginToSignUp: function () {
@@ -53,7 +53,7 @@ export default {
     LoginForm,
     SignupForm
   }
-};
+}
 </script>
 
 <style scoped>

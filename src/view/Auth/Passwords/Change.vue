@@ -39,27 +39,27 @@
 </template>
 
 <script>
-import Form from 'form-backend-validation';
-import PasswordMeter from '@/components/PasswordMeter';
+import Form from 'form-backend-validation'
+import PasswordMeter from '@/components/PasswordMeter'
 
 export default {
-    metaInfo: { title: 'Change password' },
-    components: { PasswordMeter },
-    data () {
-        return {
-            form: new Form([
-                'old_password',
-                'password',
-                'password_confirmation'
-            ])
-        };
-    },
-    methods: {
-        onSubmitChangePassword () {
-            this.form.post('/password/change')
-                .then((response) => this.$router.push('/'))
-                .catch((error) => console.log(error.response));
-        }
+  metaInfo: { title: 'Change password' },
+  components: { PasswordMeter },
+  data () {
+    return {
+      form: new Form([
+        'old_password',
+        'password',
+        'password_confirmation'
+      ])
     }
-};
+  },
+  methods: {
+    onSubmitChangePassword () {
+      this.form.post('/password/change')
+        .then((response) => this.$router.push('/'))
+        .catch((error) => console.log(error.response))
+    }
+  }
+}
 </script>

@@ -39,31 +39,31 @@
 </template>
 
 <script>
-import Form from 'form-backend-validation';
-import PasswordMeter from '@/components/PasswordMeter';
+import Form from 'form-backend-validation'
+import PasswordMeter from '@/components/PasswordMeter'
 
 export default {
-    metaInfo: { title: 'Reset password' },
-    components: { PasswordMeter },
-    data () {
-        return {
-            form: new Form({
-                token: this.$route.params.token,
-                email: '',
-                password: '',
-                password_confirmation: ''
-            })
-        };
-    },
-    methods: {
-        onSubmitResetPassword () {
-            this.form.post('/password/reset')
-                .then((response) => {
-                    this.$store.dispatch('login', response);
-                    this.$router.push('/');
-                })
-                .catch((error) => console.log(error.response));
-        }
+  metaInfo: { title: 'Reset password' },
+  components: { PasswordMeter },
+  data () {
+    return {
+      form: new Form({
+        token: this.$route.params.token,
+        email: '',
+        password: '',
+        password_confirmation: ''
+      })
     }
-};
+  },
+  methods: {
+    onSubmitResetPassword () {
+      this.form.post('/password/reset')
+        .then((response) => {
+          this.$store.dispatch('login', response)
+          this.$router.push('/')
+        })
+        .catch((error) => console.log(error.response))
+    }
+  }
+}
 </script>
