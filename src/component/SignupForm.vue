@@ -1,10 +1,10 @@
 <template>
-<v-dialog v-model="signupDialog" persistent max-width="500px">
+<modal adaptive name="signup" height="510px" width="500px">
   <form class="register-form" @submit.prevent="signup()">
     <v-card max-width="500px">
       <v-card-title>
         <span style="margin-left: auto;" class="headline">SIGN UP</span>
-        <a style="margin-left:auto;" @click="changeSignupDialog">
+        <a style="margin-left:auto;" @click="hideSignup">
           <v-icon color="grey darken-1">close</v-icon>
         </a>
       </v-card-title>
@@ -31,7 +31,7 @@
       </v-card-actions>
       <v-card-text class="text-xs-center">
         Already registered?
-        <a class="login" @click="switchDialogs">Sign in</a>
+        <a class="login" @click="switchSignUpToLogin">Sign in</a>
       </v-card-text>
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
@@ -58,7 +58,7 @@
       </v-card-text>
     </v-card>
   </form>
-</v-dialog>
+</modal>
 </template>
 
 <script>
@@ -126,9 +126,9 @@ export default {
     }
   },
   props: {
-    signupDialog: Boolean,
-    changeSignupDialog: Function,
-    switchDialogs: Function
+    showSignup: Function,
+    hideSignup: Function,
+    switchSignUpToLogin: Function
   }
 };
 </script>
