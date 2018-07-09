@@ -1,5 +1,5 @@
 <template>  
-  <v-toolbar absolute fixed app >
+  <v-toolbar fixed app >
     <v-toolbar-items class="left_menu">
       <v-btn flat>About</v-btn>
       <v-btn flat>Events</v-btn>
@@ -21,32 +21,32 @@ import LoginForm from '@/component/LoginForm'
 import SignupForm from '@/component/SignupForm'
 
 export default {
-  data: function () {
+  data () {
     return {
       loginDialog: false,
       signupDialog: false
     }
   },
   methods: {
-    switchLoginToSignUp: function () {
-      this.showSignup();
-      this.hideLogin();
+    switchLoginToSignUp () {
+      this.showSignup()
+      this.hideLogin()
     },
-    switchSignUpToLogin: function () {
-      this.showLogin();
-      this.hideSignup();
+    switchSignUpToLogin () {
+      this.showLogin()
+      this.hideSignup()
     },
-    showLogin() {
-      this.$modal.show('login');
+    showLogin () {
+      this.$modal.show('login')
     },
-    hideLogin() {
-      this.$modal.hide('login');
+    hideLogin () {
+      this.$modal.hide('login')
     },
-    showSignup() {
-      this.$modal.show('signup');
+    showSignup () {
+      this.$modal.show('signup')
     },
-    hideSignup() {
-      this.$modal.hide('signup');
+    hideSignup () {
+      this.$modal.hide('signup')
     }
   },
   components: {
@@ -57,12 +57,6 @@ export default {
 </script>
 
 <style scoped>
-.toolbar {
-  background: #76cdd8;
-  position: fixed;
-  margin: 0;
-}
-
 .btn {
   padding-left: 25px;
   padding-right: 25px;
