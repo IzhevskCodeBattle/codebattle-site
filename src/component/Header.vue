@@ -8,8 +8,10 @@
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items class="right_menu">
-      <v-btn flat>Login</v-btn>
-      <v-btn flat>Sing up</v-btn>
+      <v-btn flat @click="showLogin">Sign in</v-btn>
+      <v-btn flat @click="showSignup">Sign up</v-btn>
+      <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
+      <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
     </v-toolbar-items>
   </v-toolbar>
 </template>
