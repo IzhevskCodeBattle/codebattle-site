@@ -19,11 +19,15 @@ import interceptors from '@/util/interceptors'
 
 import App from '@/App'
 
+import VModal from 'vue-js-modal'
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(Vuetify)
+
+Vue.use(VModal)
 
 axios.defaults.baseURL = 'http://212.158.174.142:4333/api'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

@@ -1,4 +1,20 @@
 <template>
+  <v-toolbar absolute fixed app >
+    <v-toolbar-items class="left_menu">
+      <v-btn flat>About</v-btn>
+      <v-btn flat>Events</v-btn>
+      <v-btn flat>Games</v-btn>
+      <v-btn flat>Partners</v-btn>
+    </v-toolbar-items>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="right_menu">
+      <v-btn flat @click="showLogin">Sign in</v-btn>
+      <v-btn flat @click="showSignup">Sign up</v-btn>
+      <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
+      <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
+    </v-toolbar-items>
+  </v-toolbar>
+<template>
 <v-toolbar absolute fixed app>
   <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-navigation-drawer style="height: 10000%;" v-model="drawer" absolute temporary hide-overlay>
@@ -128,15 +144,25 @@ export default {
     }
   },
   methods: {
-    changeLoginDialog: function () {
-      this.loginDialog = !this.loginDialog
+    switchLoginToSignUp: function () {
+      this.showSignup();
+      this.hideLogin();
     },
-    changeSignupDialog: function () {
-      this.signupDialog = !this.signupDialog
+    switchSignUpToLogin: function () {
+      this.showLogin();
+      this.hideSignup();
     },
-    switchDialogs: function () {
-      this.changeLoginDialog()
-      this.changeSignupDialog()
+    showLogin() {
+      this.$modal.show('login');
+    },
+    hideLogin() {
+      this.$modal.hide('login');
+    },
+    showSignup() {
+      this.$modal.show('signup');
+    },
+    hideSignup() {
+      this.$modal.hide('signup');
     }
   },
   components: {
