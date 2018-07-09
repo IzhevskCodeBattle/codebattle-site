@@ -14,14 +14,54 @@
   </v-toolbar>
 </template>
 
-<style scoped>
+<script>
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
 
-.toolbar{
-  background:#76cdd8;
+export default {
+  data: function () {
+    return {
+      loginDialog: false,
+      signupDialog: false
+    }
+  },
+  methods: {
+    switchLoginToSignUp: function () {
+      this.showSignup();
+      this.hideLogin();
+    },
+    switchSignUpToLogin: function () {
+      this.showLogin();
+      this.hideSignup();
+    },
+    showLogin() {
+      this.$modal.show('login');
+    },
+    hideLogin() {
+      this.$modal.hide('login');
+    },
+    showSignup() {
+      this.$modal.show('signup');
+    },
+    hideSignup() {
+      this.$modal.hide('signup');
+    }
+  },
+  components: {
+    LoginForm,
+    SignupForm
+  }
+}
+</script>
+
+<style scoped>
+.toolbar {
+  background: #76cdd8;
   position: fixed;
   margin: 0;
 }
-.btn{
+
+.btn {
   padding-left: 25px;
   padding-right: 25px;
   color: white;

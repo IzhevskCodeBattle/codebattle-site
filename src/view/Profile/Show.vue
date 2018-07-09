@@ -48,69 +48,69 @@
 </template>
 
 <script>
-import UserBlock from '@/components/UserBlock';
-import Friendship from '@/components/Friendship';
-import Timeline from '@/components/Status/Timeline';
-import Spinner from '@/components/Spinner';
-import { removeById } from '@/util/helpers';
+import UserBlock from '@/components/UserBlock'
+import Friendship from '@/components/Friendship'
+import Timeline from '@/components/Status/Timeline'
+import Spinner from '@/components/Spinner'
+import { removeById } from '@/util/helpers'
 
 export default {
-    metaInfo () {
-        const user = this.user;
-        return { title: (user ? `${user.firstname} ${user.lastname}` : '') };
-    },
-    components: { UserBlock, Friendship, Timeline, Spinner },
-    data () {
-        return {
-            user: null,
-            friends: [],
-            friends_total: 0,
-            friendship: ''
-        };
-    },
-    computed: {
-        showFriendship () {
-            return !['unauthenticated', 'same_user'].includes(this.friendship);
-        },
-        displayedFriends () {
-            return this.friends.slice(0, 6);
-        }
-    },
-    methods: {
-        loadProfile () {
-            this.user = null;
-            this.$http.get(`/profile/${this.$route.params.username}`)
-                .then(({ data }) => {
-                    this.user = data.user;
-                    this.friends = data.friends;
-                    this.friends_total = data.friends_total;
-                    this.friendship = data.friendship;
-                })
-                .catch((error) => {
-                    console.log(error.response);
-                    if (error.response.status === 404) {
-                        this.$_error(404);
-                    }
-                });
-        }
-    },
-    created () {
-        this.loadProfile();
-    },
-    watch: {
-        friendship (current, old) {
-            const change = `${old} > ${current}`;
-            if (change === 'friends > not_friends') {
-                this.friends_total--;
-                removeById(this.friends, this.$_auth.id);
-            } else if (change === 'pending > friends') {
-                this.friends_total++;
-                this.friends.unshift(this.$_auth.user);
-            }
-        },
-        '$route.params.username' () {
-            this.loadProfile();
-        }
+  metaInfo () {
+    const user = this.user
+    return { title: (user ? `${user.firstname} ${user.lastname}` : '') }
+  },
+  components: { UserBlock, Friendship, Timeline, Spinner },
+  data () {
+    return {
+      user: null,
+      friends: [],
+      friends_total: 0,
+      friendship: ''
     }
-};
+  },
+  computed: {
+    showFriendship () {
+      return !['unauthenticated', 'same_user'].includes(this.friendship)
+    },
+    displayedFriends () {
+      return this.friends.slice(0, 6)
+    }
+  },
+  methods: {
+    loadProfile () {
+      this.user = null
+      this.$http.get(`/profile/${this.$route.params.username}`)
+        .then(({ data }) => {
+          this.user = data.user
+          this.friends = data.friends
+          this.friends_total = data.friends_total
+          this.friendship = data.friendship
+        })
+        .catch((error) => {
+          console.log(error.response)
+          if (error.response.status === 404) {
+            this.$_error(404)
+          }
+        })
+    }
+  },
+  created () {
+    this.loadProfile()
+  },
+  watch: {
+    friendship (current, old) {
+      const change = `${old} > ${current}`
+      if (change === 'friends > not_friends') {
+        this.friends_total--
+        removeById(this.friends, this.$_auth.id)
+      } else if (change === 'pending > friends') {
+        this.friends_total++
+        this.friends.unshift(this.$_auth.user)
+      }
+    },
+    '$route.params.username' () {
+      this.loadProfile()
+    }
+  }
+}
 </script>

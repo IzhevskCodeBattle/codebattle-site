@@ -23,18 +23,18 @@
 </template>
 
 <script>
-import Form from 'form-backend-validation';
+import Form from 'form-backend-validation'
 
 export default {
-    metaInfo: { title: 'Reset password' },
-    data () {
-        return { form: new Form(['email']) };
-    },
-    methods: {
-        onSubmitSendLink () {
-            this.form.post('/password/email')
-                .catch((error) => console.log(error.response));
-        }
+  metaInfo: { title: 'Reset password' },
+  data () {
+    return { form: new Form(['email']) }
+  },
+  methods: {
+    onSubmitSendLink () {
+      this.form.post('/password/email')
+        .catch((error) => console.log(error.response))
     }
-};
+  }
+}
 </script>

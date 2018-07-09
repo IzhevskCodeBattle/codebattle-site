@@ -16,36 +16,36 @@
 </template>
 
 <script>
-import UserBlock from '@/components/UserBlock';
-import Spinner from '@/components/Spinner';
+import UserBlock from '@/components/UserBlock'
+import Spinner from '@/components/Spinner'
 
 export default {
-    metaInfo: { title: 'Friends' },
-    components: { UserBlock, Spinner },
-    data () {
-        return {
-            tab: 0,
-            friends: [],
-            requests: [],
-            loading: true
-        };
-    },
-    computed: {
-        users () {
-            return [this.friends, this.requests][this.tab];
-        }
-    },
-    created () {
-        this.$http.get('/friendships')
-            .then(({ data }) => {
-                this.loading = false;
-                this.friends = data.friends;
-                this.requests = data.requests;
-            })
-            .catch((error) => {
-                this.loading = false;
-                console.log(error.response);
-            });
+  metaInfo: { title: 'Friends' },
+  components: { UserBlock, Spinner },
+  data () {
+    return {
+      tab: 0,
+      friends: [],
+      requests: [],
+      loading: true
     }
-};
+  },
+  computed: {
+    users () {
+      return [this.friends, this.requests][this.tab]
+    }
+  },
+  created () {
+    this.$http.get('/friendships')
+      .then(({ data }) => {
+        this.loading = false
+        this.friends = data.friends
+        this.requests = data.requests
+      })
+      .catch((error) => {
+        this.loading = false
+        console.log(error.response)
+      })
+  }
+}
 </script>
