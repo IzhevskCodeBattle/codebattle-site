@@ -1,19 +1,19 @@
 <template>
-  <v-toolbar absolute fixed app>
-    <v-toolbar-items class="left_menu">
-      <v-btn flat>About</v-btn>
-      <v-btn flat>Events</v-btn>
-      <v-btn flat>Games</v-btn>
-      <v-btn flat>Partners</v-btn>
-    </v-toolbar-items>
-    <v-spacer></v-spacer>
-    <v-toolbar-items class="right_menu">
-      <v-btn flat @click="loginDialog=true">Sign in</v-btn>
-      <v-btn flat @click="signupDialog=true">Sign up</v-btn>
-      <LoginForm :loginDialog="loginDialog" :changeLoginDialog="changeLoginDialog" :switchDialogs="switchDialogs"/>
-      <SignupForm :signupDialog="signupDialog" :changeSignupDialog="changeSignupDialog" :switchDialogs="switchDialogs"/>
-    </v-toolbar-items>
-  </v-toolbar>
+<v-toolbar absolute fixed app>
+  <v-toolbar-items class="left_menu">
+    <v-btn flat>About</v-btn>
+    <v-btn flat>Events</v-btn>
+    <v-btn flat>Games</v-btn>
+    <v-btn flat>Partners</v-btn>
+  </v-toolbar-items>
+  <v-spacer></v-spacer>
+  <v-toolbar-items class="right_menu">
+    <v-btn flat @click="showLogin">Sign in</v-btn>
+    <v-btn flat @click="showSignup">Sign up</v-btn>
+    <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
+    <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
+  </v-toolbar-items>
+</v-toolbar>
 </template>
 
 <script>
@@ -28,15 +28,25 @@ export default {
     }
   },
   methods: {
-    changeLoginDialog: function () {
-      this.loginDialog = !this.loginDialog
+    switchLoginToSignUp: function () {
+      this.showSignup();
+      this.hideLogin();
     },
-    changeSignupDialog: function () {
-      this.signupDialog = !this.signupDialog
+    switchSignUpToLogin: function () {
+      this.showLogin();
+      this.hideSignup();
     },
-    switchDialogs: function () {
-      this.changeLoginDialog()
-      this.changeSignupDialog()
+    showLogin() {
+      this.$modal.show('login');
+    },
+    hideLogin() {
+      this.$modal.hide('login');
+    },
+    showSignup() {
+      this.$modal.show('signup');
+    },
+    hideSignup() {
+      this.$modal.hide('signup');
     }
   },
   components: {
@@ -52,6 +62,7 @@ export default {
   position: fixed;
   margin: 0;
 }
+
 .btn {
   padding-left: 25px;
   padding-right: 25px;

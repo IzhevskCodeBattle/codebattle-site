@@ -1,45 +1,68 @@
 <template>
-  <v-dialog v-model="loginDialog" persistent max-width="500px">
-    <form class="login-form" @submit.prevent="login">
-      <v-card max-width="500px">
-        <v-card-title class="justify-center">
-          <span class="headline">LOGIN</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container grid-list-md>
-            <v-layout wrap>
-              <v-flex xs12>
-                <v-text-field prepend-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
-              </v-flex>
-              <v-flex xs12>
-                <v-text-field prepend-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn @click.native="changeLoginDialog">Close</v-btn>
-          <v-btn type="submit">Login</v-btn>
-        </v-card-actions>
-        <v-card-text class="text-xs-center">
-          Not registered?
-          <a class="create-account" @click="switchDialogs">Create an account</a>
-        </v-card-text>
-        <v-card-title class="justify-center">
-          <span class="headline">Войти через:</span>
-        </v-card-title>
-        <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
-          <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte"><v-icon>fab fa-vk</v-icon></a>
-          <a class="fb" href=""><v-icon>fab fa-facebook-f</v-icon></a>
-          <a class="twitter" href=""><v-icon>fab fa-twitter</v-icon></a>
-          <a class="linkedin" href=""><v-icon>fab fa-linkedin-in</v-icon></a>
-          <a class="github" href=""><v-icon>fab fa-github-alt</v-icon></a>
-          <a class="google" href=""><v-icon>fab fa-google</v-icon></a>
-        </v-card-text>
-      </v-card>
-    </form>
-  </v-dialog>
+<modal adaptive name="login" height="455px" width="500px">
+  <form class="login-form" @submit.prevent="login">
+    <v-card max-width="500px">
+      <v-card-title>
+        <span style="margin-left: auto;" class="headline">LOGIN</span>
+        <a style="margin-left:auto;" @click="hideLogin">
+          <v-icon color="grey darken-1">close</v-icon>
+        </a>
+      </v-card-title>
+      <v-divider></v-divider>
+      <v-card-text>
+        <v-container grid-list-md>
+          <v-layout class="justify-center" wrap>
+            <v-flex xs8>
+              <v-text-field append-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+            </v-flex>
+            <v-flex xs8>
+              <v-text-field append-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+            </v-flex>
+            <v-flex xs8>
+              <span>
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Remember me</label>
+              </span>
+              <a class="forgot">Forgot password?</a>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card-text>
+      <v-card-actions class="justify-center">
+        <v-flex xs8>
+          <v-btn class="login-btn" type="submit">Login</v-btn>
+        </v-flex>
+      </v-card-actions>
+      <v-card-text class="text-xs-center">
+        Not registered?
+        <a class="create-account" @click="switchLoginToSignUp">Create an account</a>
+      </v-card-text>
+      <v-card-title class="justify-center">
+        <span class="headline">Войти через:</span>
+      </v-card-title>
+      <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
+        <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte">
+          <v-icon>fab fa-vk</v-icon>
+        </a>
+        <a class="fb" href="">
+          <v-icon>fab fa-facebook-f</v-icon>
+        </a>
+        <a class="twitter" href="">
+          <v-icon>fab fa-twitter</v-icon>
+        </a>
+        <a class="linkedin" href="">
+          <v-icon>fab fa-linkedin-in</v-icon>
+        </a>
+        <a class="github" href="">
+          <v-icon>fab fa-github-alt</v-icon>
+        </a>
+        <a class="google" href="">
+          <v-icon>fab fa-google</v-icon>
+        </a>
+      </v-card-text>
+    </v-card>
+  </form>
+</modal>
 </template>
 
 <script>
@@ -67,8 +90,7 @@ export default {
       */
       if (this.credentials.username && this.credentials.password) {
         auth.signin(
-          this,
-          {
+          this, {
             username: this.credentials.username,
             password: this.credentials.password
           },
@@ -108,9 +130,9 @@ export default {
     }
   },
   props: {
-    loginDialog: Boolean,
-    changeLoginDialog: Function,
-    switchDialogs: Function
+    showLogin: Function,
+    hideLogin: Function,
+    switchLoginToSignUp: Function
   }
 }
 </script>
@@ -147,9 +169,17 @@ span {
 }
 
 .create-account,
-.login {
-  text-decoration: none;
+.login,
+.forgot {
+  text-decoration: underline;
   color: #263852;
+}
+
+.flex {
+  display: -webkit-flex;
+  -webkit-justify-content: flex-start;
+  display: flex;
+  justify-content: space-between;
 }
 
 .vk:hover {
@@ -181,9 +211,10 @@ span {
   color: white;
 }
 
-.btn {
+.login-btn {
   color: white;
   background-color: #76cdd8 !important;
+  width: 100%;
 }
 
 @media only screen and (max-width: 370px) {
@@ -209,4 +240,3 @@ span {
   }
 }
 </style>
-
