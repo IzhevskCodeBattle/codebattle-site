@@ -1,19 +1,19 @@
-<template>
-<v-toolbar absolute fixed app>
-  <v-toolbar-items class="left_menu">
-    <v-btn flat>About</v-btn>
-    <v-btn flat>Events</v-btn>
-    <v-btn flat>Games</v-btn>
-    <v-btn flat>Partners</v-btn>
-  </v-toolbar-items>
-  <v-spacer></v-spacer>
-  <v-toolbar-items class="right_menu">
-    <v-btn flat @click="showLogin">Sign in</v-btn>
-    <v-btn flat @click="showSignup">Sign up</v-btn>
-    <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
-    <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
-  </v-toolbar-items>
-</v-toolbar>
+<template>  
+  <v-toolbar absolute fixed app >
+    <v-toolbar-items class="left_menu">
+      <v-btn flat>About</v-btn>
+      <v-btn flat>Events</v-btn>
+      <v-btn flat>Games</v-btn>
+      <v-btn flat>Partners</v-btn>
+    </v-toolbar-items>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="right_menu">
+      <v-btn flat @click="showLogin">Sign in</v-btn>
+      <v-btn flat @click="showSignup">Sign up</v-btn>
+      <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
+      <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
+    </v-toolbar-items>
+  </v-toolbar>
 </template>
 
 <script>

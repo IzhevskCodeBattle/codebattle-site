@@ -1,5 +1,5 @@
 <template>
-  <div class="background" style="background-image: url(/static/img/Banner.jpg);">
+  <div class="background">
   </div>
 </template>
 
