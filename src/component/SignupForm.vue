@@ -1,5 +1,5 @@
 <template>
-<modal adaptive name="signup" height="510px" width="500px">
+<modal adaptive name="signup" height="525px" width="500px">
   <form class="register-form" @submit.prevent="signup()">
     <v-card max-width="500px">
       <v-card-title>
@@ -65,7 +65,7 @@
 import auth from '@/service/auth'
 
 export default {
-  data () {
+  data() {
     return {
       credentials: {
         username: '',
@@ -76,7 +76,7 @@ export default {
     }
   },
   methods: {
-    login () {
+    login() {
       this._validateLoginForm()
       /*
       const credentials = {
@@ -101,7 +101,7 @@ export default {
       }
     },
 
-    _validateLoginForm () {
+    _validateLoginForm() {
       this.error = ''
       if (!this.credentials.username && !this.credentials.password) {
         this.errors = {

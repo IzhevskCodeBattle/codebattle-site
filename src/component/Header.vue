@@ -1,20 +1,4 @@
 <template>
-  <v-toolbar absolute fixed app >
-    <v-toolbar-items class="left_menu">
-      <v-btn flat>About</v-btn>
-      <v-btn flat>Events</v-btn>
-      <v-btn flat>Games</v-btn>
-      <v-btn flat>Partners</v-btn>
-    </v-toolbar-items>
-    <v-spacer></v-spacer>
-    <v-toolbar-items class="right_menu">
-      <v-btn flat @click="showLogin">Sign in</v-btn>
-      <v-btn flat @click="showSignup">Sign up</v-btn>
-      <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
-      <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
-    </v-toolbar-items>
-  </v-toolbar>
-<template>
 <v-toolbar absolute fixed app>
   <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-navigation-drawer style="height: 10000%;" v-model="drawer" absolute temporary hide-overlay>
@@ -52,7 +36,7 @@
         </v-list-tile-content>
       </v-list-tile>
       <v-divider></v-divider>
-      <v-list-tile @click="loginDialog=true" v-if="!loggedIn">
+      <v-list-tile @click="showLogin" v-if="!loggedIn">
         <v-list-tile-avatar>
           <v-icon>fas fa-sign-in-alt</v-icon>
         </v-list-tile-avatar>
@@ -60,7 +44,7 @@
           <v-list-tile-title>Sign in</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile @click="signupDialog=true" v-if="!loggedIn">
+      <v-list-tile @click="showSignup" v-if="!loggedIn">
         <v-list-tile-avatar>
           <v-icon>fas fa-user-plus</v-icon>
         </v-list-tile-avatar>
@@ -87,7 +71,8 @@
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
-
+  <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
+  <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
   <v-toolbar-items class="left_menu hidden-sm-and-down">
     <v-btn flat>About</v-btn>
     <v-btn flat>Events</v-btn>
@@ -96,10 +81,8 @@
   </v-toolbar-items>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!loggedIn">
-    <v-btn flat @click="loginDialog=true">Sign in</v-btn>
-    <v-btn flat @click="signupDialog=true">Sign up</v-btn>
-    <LoginForm :loginDialog="loginDialog" :changeLoginDialog="changeLoginDialog" :switchDialogs="switchDialogs" />
-    <SignupForm :signupDialog="signupDialog" :changeSignupDialog="changeSignupDialog" :switchDialogs="switchDialogs" />
+    <v-btn flat @click="showLogin">Sign in</v-btn>
+    <v-btn flat @click="showSignup">Sign up</v-btn>
   </v-toolbar-items>
 
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="loggedIn">
@@ -137,8 +120,6 @@ import SignupForm from '@/component/SignupForm'
 export default {
   data: function () {
     return {
-      loginDialog: false,
-      signupDialog: false,
       drawer: false,
       loggedIn: false
     }
