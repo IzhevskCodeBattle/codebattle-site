@@ -1,7 +1,8 @@
 <template>
-  <v-content>    
+  <v-content>
     <CommingSoon/>
     <About/>
+    <Games/>
     <Partners/>
     <Footer/>
   </v-content>
@@ -9,6 +10,7 @@
 
 <script>
 import About from '@/component/About'
+import Games from '@/component/Games'
 import Partners from '@/component/Partners'
 import Footer from '@/component/Footer'
 import CommingSoon from '@/component/CommingSoon'
@@ -18,12 +20,9 @@ export default {
   components: {
     CommingSoon,
     About,
+    Games,
     Partners,
     Footer
   }
 }
 </script>
-<style scoped>
- 
-</style>
-

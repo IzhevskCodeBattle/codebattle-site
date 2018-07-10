@@ -15,8 +15,6 @@ import AppHeader from '@/component/Header'
 export default {
   name: 'app',
   data: () => ({
-    // toggle: false,
-    // offsetTop: 0,
     title: 'Code Battle'
   }),
   components: {
@@ -28,13 +26,13 @@ export default {
         auth.logout(this, { headers: val })
       })
     }
-    // ,
-    // goPartners () {
-    //   this.$vuetify.goTo('#partners')
-    // },
-    // onScroll (e) {
-    //   this.offsetTop = e.target.scrollTop
-    // }
   }
 }
 </script>
+<style>
+  .toolbar{
+    background:#76cdd8!important;
+    margin: 0;
+  }
+</style>
+

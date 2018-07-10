@@ -1,20 +1,17 @@
 <template>
-  <!-- swiper -->
-  <swiper :options="swiperOption" class="swiper">
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <swiper-slide><img class="img_center" src="/static/img/Banner.jpg" alt="EPAM"></swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
+  <section>
+    <h2 class="toolbar">Partners</h2>
+    <swiper :options="swiperOption" class="swiper">
+      <swiper-slide v-for="partner in partners" :key="partner.title">
+        <v-btn block flat @click="epam_site" :href="partner.href">
+          <img :src="partner.src" :alt="partner.title" />
+        </v-btn>
+      </swiper-slide>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+      <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div> -->
+    </swiper>
+  </section>
 </template>
 <script>
 import 'swiper/dist/css/swiper.css'
@@ -25,47 +22,75 @@ export default {
     swiper,
     swiperSlide
   },
-  data () {
-    return {
-      swiperOption: {
-        spaceBetween: 30,
-        slidesPerView: 4,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        centeredSlides: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
+  // methods: {
+  //   epam_site () {
+  //   }
+  // },
+  data: () => ({
+    partners: [
+      { title: 'EPAM Systems',
+        src: '/static/img/partners/epam_logo.jpg',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 1',
+        src: '/static/img/partners/1.png',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 2',
+        src: '/static/img/partners/2.jpg',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 3',
+        src: '/static/img/partners/3.jpg',
+        href: 'http://epam.com'
+      }
+    ],
+    swiperOption: {
+      spaceBetween: 30,
+      slidesPerView: 4,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false
+      },
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true
+      // },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
     }
-  }
+  })
 }
 </script>
 <style scoped>
+  img{
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
 
-img{
-  width: 90%;
-  height: 90%;
-}
+  .btn{
+    width: 90%;
+    height: 90%;
+    position: relative;
+    /* padding: 15px; */
+  }
 
-.img_center{
-  position	: relative;
-  padding: 15px;
-}
-
+  h2{
+    text-align: center;
+    font-size: 3em;
+    /* padding-bottom: 15px; */
+  }
   .swiper{
     text-align: center;
-    font-size: 38px;
-    font-weight: 700;
+    /* font-size: 38px;
+    font-weight: 700; */
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -88,7 +113,10 @@ img{
     padding: 0;
     z-index: 1;
 }
-
+  .swiper_padding{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 
   .swiper-slide {
     width: 60%;
