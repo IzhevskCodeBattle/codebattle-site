@@ -8,10 +8,10 @@
   </v-toolbar-items>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu">
-    <v-btn flat @click="showLogin">Sign in</v-btn>
-    <v-btn flat @click="showSignup">Sign up</v-btn>
-    <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
-    <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
+    <v-btn flat @click="$events.$emit('login-form:show')">Sign in</v-btn>
+    <v-btn flat @click="$events.$emit('signup-form:show')">Sign up</v-btn>
+    <LoginForm/>
+    <SignupForm/>
   </v-toolbar-items>
 </v-toolbar>
 </template>
@@ -21,34 +21,6 @@ import LoginForm from '@/component/LoginForm'
 import SignupForm from '@/component/SignupForm'
 
 export default {
-  data: function () {
-    return {
-      loginDialog: false,
-      signupDialog: false
-    }
-  },
-  methods: {
-    switchLoginToSignUp: function () {
-      this.showSignup();
-      this.hideLogin();
-    },
-    switchSignUpToLogin: function () {
-      this.showLogin();
-      this.hideSignup();
-    },
-    showLogin() {
-      this.$modal.show('login');
-    },
-    hideLogin() {
-      this.$modal.hide('login');
-    },
-    showSignup() {
-      this.$modal.show('signup');
-    },
-    hideSignup() {
-      this.$modal.hide('signup');
-    }
-  },
   components: {
     LoginForm,
     SignupForm

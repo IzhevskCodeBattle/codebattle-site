@@ -35,6 +35,7 @@ axios.interceptors.request.use(...interceptors.request)
 axios.interceptors.response.use(...interceptors.response)
 
 Vue.prototype.$http = axios
+Vue.prototype.$events = new Vue()
 
 /* eslint-disable no-new */
 new Vue({
