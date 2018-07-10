@@ -92,4 +92,8 @@ export default {
     border-radius: 80px;
     border: 3px solid black;
   }
+  .card>:first-child:not(.btn) {
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
 </style>

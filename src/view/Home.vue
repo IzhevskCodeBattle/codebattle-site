@@ -2,6 +2,7 @@
   <v-content>
     <CommingSoon/>
     <About/>
+    <Events/>
     <Games/>
     <Partners/>
     <Footer/>
@@ -10,6 +11,7 @@
 
 <script>
 import About from '@/component/About'
+import Events from '@/component/Events'
 import Games from '@/component/Games'
 import Partners from '@/component/Partners'
 import Footer from '@/component/Footer'
@@ -20,6 +22,7 @@ export default {
   components: {
     CommingSoon,
     About,
+    Events,
     Games,
     Partners,
     Footer
