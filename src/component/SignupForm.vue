@@ -76,7 +76,7 @@ export default {
       errors: Object.assign({}, this.credentials)
     }
   },
-   mounted: function () {
+  mounted: function () {
     this.$events.$on('signup-form:show', () => {
       this.show = true
     })

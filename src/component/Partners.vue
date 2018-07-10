@@ -3,7 +3,7 @@
     <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">
-        <v-btn block flat @click="epam_site" :href="partner.href">
+        <v-btn block flat :href="partner.href">
           <img :src="partner.src" :alt="partner.title" />
         </v-btn>
       </swiper-slide>

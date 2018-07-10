@@ -11,8 +11,6 @@ import router from '@/router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-import VModal from 'vue-js-modal'
-
 import axios from 'axios'
 import interceptors from '@/util/interceptors'
 
@@ -23,7 +21,6 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(Vuetify)
-Vue.use(VModal)
 
 axios.defaults.baseURL = 'http://212.158.174.142:4333/api'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
