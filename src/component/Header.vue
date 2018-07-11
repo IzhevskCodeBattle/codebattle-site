@@ -36,7 +36,7 @@
         </v-list-tile-content>
       </v-list-tile>
       <v-divider></v-divider>
-      <v-list-tile @click="showLogin" v-if="!loggedIn">
+      <v-list-tile @click="$events.$emit('login-form:show')" v-if="!loggedIn">
         <v-list-tile-avatar>
           <v-icon>fas fa-sign-in-alt</v-icon>
         </v-list-tile-avatar>
@@ -44,7 +44,7 @@
           <v-list-tile-title>Sign in</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile @click="showSignup" v-if="!loggedIn">
+      <v-list-tile @click="$events.$emit('signup-form:show')" v-if="!loggedIn">
         <v-list-tile-avatar>
           <v-icon>fas fa-user-plus</v-icon>
         </v-list-tile-avatar>
@@ -71,8 +71,8 @@
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
-  <LoginForm :showLogin="showLogin" :hideLogin="hideLogin" :switchLoginToSignUp="switchLoginToSignUp" />
-  <SignupForm :showSignup="showSignup" :hideSignup="hideSignup" :switchSignUpToLogin="switchSignUpToLogin" />
+  <LoginForm/>
+  <SignupForm/>
   <v-toolbar-items class="left_menu hidden-sm-and-down">
     <v-btn flat>About</v-btn>
     <v-btn flat>Events</v-btn>
@@ -81,8 +81,8 @@
   </v-toolbar-items>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!loggedIn">
-    <v-btn flat @click="showLogin">Sign in</v-btn>
-    <v-btn flat @click="showSignup">Sign up</v-btn>
+    <v-btn flat @click="$events.$emit('login-form:show')">Sign in</v-btn>
+    <v-btn flat @click="$events.$emit('signup-form:show')">Sign up</v-btn>
   </v-toolbar-items>
 
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="loggedIn">
@@ -116,34 +116,11 @@
 <script>
 import LoginForm from '@/component/LoginForm'
 import SignupForm from '@/component/SignupForm'
-
 export default {
   data: function () {
     return {
       drawer: false,
       loggedIn: false
-    }
-  },
-  methods: {
-    switchLoginToSignUp: function () {
-      this.showSignup();
-      this.hideLogin();
-    },
-    switchSignUpToLogin: function () {
-      this.showLogin();
-      this.hideSignup();
-    },
-    showLogin() {
-      this.$modal.show('login');
-    },
-    hideLogin() {
-      this.$modal.hide('login');
-    },
-    showSignup() {
-      this.$modal.show('signup');
-    },
-    hideSignup() {
-      this.$modal.hide('signup');
     }
   },
   components: {
@@ -152,14 +129,7 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-.toolbar {
-  background: #76cdd8;
-  position: fixed;
-  margin: 0;
-}
-
 .btn {
   padding-left: 25px;
   padding-right: 25px;

@@ -1,37 +1,12 @@
 <template>
   <section>
-    
-    <v-flex>
-      <h2>Partners</h2>
-    </v-flex>
-    <!-- swiper -->
+    <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
-      
-        <swiper-slide>
-          <v-btn block flat @click="epam_site" href="epam.com">
-            <!-- <a id="myLink" href="http://www.example.com/"> -->
-             <img  src="/static/img/partners/epam_logo.jpg" alt="EPAM Systems" >
-            <!-- </a> -->
-          </v-btn>
-        </swiper-slide>
-
-        <swiper-slide>
-          <v-btn block flat>
-            <img  src="/static/img/partners/1.png" alt="1">
-          </v-btn>
-        </swiper-slide>
-
-        <swiper-slide>
-          <v-btn block flat>
-            <img  src="/static/img/partners/2.jpg" alt="2">
-          </v-btn>
-        </swiper-slide>
-
-        <swiper-slide>
-          <v-btn block flat>
-            <img  src="/static/img/partners/3.jpg" alt="3">
-          </v-btn>
-        </swiper-slide>
+      <swiper-slide v-for="partner in partners" :key="partner.title">
+        <v-btn block flat :href="partner.href">
+          <img :src="partner.src" :alt="partner.title" />
+        </v-btn>
+      </swiper-slide>
       <!-- <div class="swiper-pagination" slot="pagination"></div> -->
       <!-- <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div> -->
@@ -51,34 +26,51 @@ export default {
   //   epam_site () {
   //   }
   // },
-  data () {
-    return {
-      swiperOption: {
-        spaceBetween: 30,
-        slidesPerView: 4,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        centeredSlides: true,
-        autoplay: {
-          delay: 3500,
-          disableOnInteraction: false
-        },
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true
-        // },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
+  data: () => ({
+    partners: [
+      { title: 'EPAM Systems',
+        src: '/static/img/partners/epam_logo.jpg',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 1',
+        src: '/static/img/partners/1.png',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 2',
+        src: '/static/img/partners/2.jpg',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 3',
+        src: '/static/img/partners/3.jpg',
+        href: 'http://epam.com'
+      }
+    ],
+    swiperOption: {
+      spaceBetween: 30,
+      slidesPerView: 4,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false
+      },
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true
+      // },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
     }
-  }
+  })
 }
 </script>
 <style scoped>
-
   img{
+    min-width: 100%;
+    min-height: 100%;
     width: 100%;
     height: 100%;
   }

@@ -12,11 +12,9 @@
         </v-card-text>
       </v-card>
     </v-flex>
-
     <v-flex>
       <h2>Приемущества Code Battle</h2>
     </v-flex>
-
     <v-layout row >
       <v-flex xs12 sm6 md3>
         <v-card flat>
@@ -43,9 +41,7 @@
         </v-card>
       </v-flex>
     </v-layout>
-
   </section>
-
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
@@ -95,10 +91,5 @@ export default {
     /* background-color: gray; */
     border-radius: 80px;
     border: 3px solid black;
-  }
-
-  .card>:first-child:not(.btn){
-    border-top-left-radius: 80px;
-    border-top-right-radius: 80px;
   }
 </style>

@@ -1,5 +1,6 @@
 /* import Home from '@/view/Home' */
 import Home from '@/view/Home'
+import Game from '@/view/Game'
 // import Vue from 'vue'
 
 /*
@@ -30,5 +31,6 @@ const afterAuth = (_to, from, next) => {
 export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
   { path: '/', component: Home },
+  { path: '/game/:id', component: Game },
   { path: '*', redirect: '/' }
 ]
