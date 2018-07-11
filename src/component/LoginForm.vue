@@ -41,22 +41,22 @@
         <span class="headline">Войти через:</span>
       </v-card-title>
       <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
-        <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte">
+        <a class="vk" href="/api/auth/vkontakte">
           <v-icon>fab fa-vk</v-icon>
         </a>
-        <a class="fb" href="">
+        <a class="fb" href="/api/auth/facebook">
           <v-icon>fab fa-facebook-f</v-icon>
         </a>
-        <a class="twitter" href="">
+        <a class="twitter" href="/api/auth/twitter">
           <v-icon>fab fa-twitter</v-icon>
         </a>
-        <a class="linkedin" href="">
+        <a class="linkedin" href="/api/auth/linkedin">
           <v-icon>fab fa-linkedin-in</v-icon>
         </a>
-        <a class="github" href="">
+        <a class="github" href="/api/auth/github">
           <v-icon>fab fa-github-alt</v-icon>
         </a>
-        <a class="google" href="">
+        <a class="google" href="/api/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
       </v-card-text>
