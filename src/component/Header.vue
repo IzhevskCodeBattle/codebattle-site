@@ -143,4 +143,8 @@ export default {
 .navigation-drawer {
   background-color: #EEEEEE;
 }
+
+.toolbar {
+  position: fixed;
+}
 </style>
