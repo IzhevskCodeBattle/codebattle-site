@@ -9,9 +9,9 @@
           </v-btn>
         </div>
         <div class="text-xs-center">
-          <a>ABOUT</a>
-          <a>EVENTS</a>
-          <a>GAMES</a>
+          <a href="#about">ABOUT</a>
+          <a href="#events">EVENTS</a>
+          <a href="#games">GAMES</a>
           <a>CONTACTS</a>
           <a>HELP</a>
         </div>
@@ -45,7 +45,9 @@ export default {
 }
 
 a {
+  text-decoration: none;
   color: #263852;
+  margin: 5px;
 }
 
 @media only screen and (max-width: 960px) {

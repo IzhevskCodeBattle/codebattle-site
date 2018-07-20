@@ -3,7 +3,7 @@
   <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-navigation-drawer style="height: 10000%;" v-model="drawer" absolute temporary hide-overlay>
     <v-list>
-      <v-list-tile>
+      <v-list-tile :href="`#about`">
         <v-list-tile-avatar>
           <v-icon>far fa-question-circle</v-icon>
         </v-list-tile-avatar>
@@ -11,7 +11,7 @@
           <v-list-tile-title>About</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile>
+      <v-list-tile :href="`#events`">
         <v-list-tile-avatar>
           <v-icon>far fa-calendar-alt</v-icon>
         </v-list-tile-avatar>
@@ -19,7 +19,7 @@
           <v-list-tile-title>Events</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile>
+      <v-list-tile :href="`#games`">
         <v-list-tile-avatar>
           <v-icon>fas fa-gamepad</v-icon>
         </v-list-tile-avatar>
@@ -27,7 +27,7 @@
           <v-list-tile-title>Games</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile>
+      <v-list-tile :href="`#partners`">
         <v-list-tile-avatar>
           <v-icon>fas fa-handshake</v-icon>
         </v-list-tile-avatar>
@@ -74,10 +74,10 @@
   <LoginForm/>
   <SignupForm/>
   <v-toolbar-items class="left_menu hidden-sm-and-down">
-    <v-btn flat>About</v-btn>
-    <v-btn flat>Events</v-btn>
-    <v-btn flat>Games</v-btn>
-    <v-btn flat>Partners</v-btn>
+    <v-btn :href="`#about`" flat>About</v-btn>
+    <v-btn :href="`#events`" flat>Events</v-btn>
+    <v-btn :href="`#games`" flat>Games</v-btn>
+    <v-btn :href="`#partners`" flat>Partners</v-btn>
   </v-toolbar-items>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!loggedIn">
@@ -145,6 +145,8 @@ export default {
 }
 
 .toolbar {
+  background: #76cdd8;
+  margin: 0;
   position: fixed;
 }
 </style>

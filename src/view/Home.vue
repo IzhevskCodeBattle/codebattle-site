@@ -1,9 +1,9 @@
 <template>
   <v-content>
     <CommingSoon/>
-    <About/>
-    <Games/>
-    <Partners/>
+    <About id="about"/>
+    <Games id="games"/>
+    <Partners id="partners"/>
     <Footer/>
   </v-content>
 </template>
