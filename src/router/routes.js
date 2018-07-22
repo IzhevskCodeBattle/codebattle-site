@@ -32,7 +32,7 @@ const afterAuth = (_to, from, next) => {
 export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
   { path: '/', component: Home },
-  { path: '/game/:id', component: Game },
-  { path: '/event/:id', component: myEvent },
+  { name: 'game', path: '/game/:id', component: Game },
+  { name: 'event', path: '/event/:id', component: myEvent },
   { path: '*', redirect: '/' }
 ]
