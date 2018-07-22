@@ -3,13 +3,8 @@
     <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">
-        <v-btn block flat :href="partner.href">
-          <img :src="partner.src" :alt="partner.title" />
-        </v-btn>
+        <img :href="partner.href" :src="partner.src" :alt="partner.title" />
       </swiper-slide>
-      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
-      <!-- <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
   </section>
 </template>
@@ -75,13 +70,6 @@ export default {
     height: 100%;
   }
 
-  .btn{
-    width: 90%;
-    height: 90%;
-    position: relative;
-    /* padding: 15px; */
-  }
-
   h2{
     text-align: center;
     font-size: 3em;
@@ -113,23 +101,5 @@ export default {
     padding: 0;
     z-index: 1;
 }
-  .swiper_padding{
-    padding-left: 50px;
-    padding-right: 50px;
-  }
 
-  .swiper-slide {
-    width: 60%;
-    /* background-color: #eee; */
-    margin-right: 30px;
-    flex-shrink: 0;
-    height: 100%;
-    
-  }
-  .swiper-slide:nth-child(2n) {
-      width: 40%;
-  }
-  .swiper-slide:nth-child(3n) {
-      width: 20%;
-  }
 </style>

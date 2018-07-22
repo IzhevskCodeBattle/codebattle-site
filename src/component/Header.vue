@@ -3,8 +3,11 @@
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-toolbar-items class="left_menu hidden-sm-and-down">
     <v-btn flat>About</v-btn>
+    <v-divider vertical></v-divider>
     <v-btn flat>Events</v-btn>
+    <v-divider vertical></v-divider>
     <v-btn flat>Games</v-btn>
+    <v-divider vertical></v-divider>
     <v-btn flat>Partners</v-btn>
   </v-toolbar-items>
   <v-spacer></v-spacer>

@@ -4,9 +4,13 @@
 -->
 <template>
   <v-app app>
+    <app-header></app-header>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <Footer/>
+
     <Navigation/>
-    <app-header></app-header>    
-    <router-view></router-view>
     <LoginForm/>
     <SignupForm/>
   </v-app>
@@ -17,6 +21,7 @@ import AppHeader from '@/component/Header'
 import LoginForm from '@/component/LoginForm'
 import SignupForm from '@/component/SignupForm'
 import Navigation from '@/component/Navigation'
+import Footer from '@/component/Footer'
 
 export default {
   name: 'app',
@@ -27,7 +32,8 @@ export default {
     'app-header': AppHeader,
     LoginForm,
     SignupForm,
-    Navigation
+    Navigation,
+    Footer
   },
   methods: {
     logout () {
