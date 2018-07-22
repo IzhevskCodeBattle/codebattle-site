@@ -3,6 +3,7 @@
     <CommingSoon/>
     <About/>
     <Games/>
+    <Events/>
     <Partners/>
   </div>
 </template>
@@ -11,6 +12,7 @@
 import About from '@/component/About'
 import Games from '@/component/Games'
 import Partners from '@/component/Partners'
+import Events from '@/component/Events'
 import CommingSoon from '@/component/CommingSoon'
 
 export default {
@@ -19,7 +21,8 @@ export default {
     CommingSoon,
     About,
     Games,
-    Partners
+    Partners,
+    Events
   }
 }
 </script>

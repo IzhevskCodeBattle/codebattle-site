@@ -9,7 +9,6 @@
       <router-view></router-view>
     </v-content>
     <Footer/>
-
     <Navigation/>
     <LoginForm/>
     <SignupForm/>

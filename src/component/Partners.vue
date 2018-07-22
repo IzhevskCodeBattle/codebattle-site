@@ -1,5 +1,6 @@
 <template>
   <section>
+    <a name="partners"/>
     <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">

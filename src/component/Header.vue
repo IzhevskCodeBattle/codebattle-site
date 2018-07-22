@@ -2,13 +2,13 @@
 <v-toolbar fixed app id="header">
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-toolbar-items class="left_menu hidden-sm-and-down">
-    <v-btn flat>About</v-btn>
+    <v-btn flat href="#about">About</v-btn>
     <v-divider vertical></v-divider>
-    <v-btn flat>Events</v-btn>
+    <v-btn flat href="#events">Events</v-btn>
     <v-divider vertical></v-divider>
-    <v-btn flat>Games</v-btn>
+    <v-btn flat href="#games">Games</v-btn>
     <v-divider vertical></v-divider>
-    <v-btn flat>Partners</v-btn>
+    <v-btn flat href="#partners">Partners</v-btn>
   </v-toolbar-items>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">
