@@ -1,5 +1,5 @@
 <template>
-  <div class="video-cover">
+  <div ref="video" class="video-cover">
     <video class="video" muted loop autoplay preload="auto">
         <source src="/static/media/codebattle.webm" type="video/webm">
     </video>
@@ -11,7 +11,25 @@ import Countdown from 'vuejs-countdown'
 
 export default {
   name: 'CommingSoon',
-  components: { Countdown }
+  components: { Countdown },
+  mounted () {
+    this.headerElement = document.getElementById('header')
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
+  },
+  beforeDestroy () {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.onResize, { passive: true })
+    }
+  },
+  methods: {
+    onResize () {
+      var _height = window.innerHeight ? window.innerHeight : window.height()
+      var _headerHeight = document.getElementById('header').clientHeight
+      this.$refs.video.style.width = window.innerWidth + 'px'
+      this.$refs.video.style.height = _height - _headerHeight + 'px'
+    }
+  }
 }
 </script>
 

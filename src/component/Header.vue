@@ -1,5 +1,5 @@
 <template>
-<v-toolbar fixed app>
+<v-toolbar fixed app id="header">
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
   <v-toolbar-items class="left_menu hidden-sm-and-down">
     <v-btn flat>About</v-btn>
@@ -45,7 +45,6 @@ import {DRAWER} from '@/store/mutations'
 export default {
   methods: {
     setDrawer () {
-      console.log('1')
       this.$store.commit(DRAWER, !this.$store.state.navigation.drawer)
     }
   }
