@@ -1,4 +1,5 @@
 import {get, set, del} from 'idb-keyval' // async!
+import {SIGNIN, SIGNOUT, REMOVE_TOKEN, REFRESH_TOKEN, FETCH_USER} from '../actions'
 // import auth from '@/service/auth' - не использовать
 
 export default {
@@ -25,30 +26,30 @@ export default {
     removeToken: (state) => (state.token = '')
   },
   actions: {
-    signin ({ commit, dispatch }, token) {
+    [SIGNIN] ({ commit, dispatch }, token) {
       return set('auth.token', token).then(() => {
         commit('setToken', token)
         return dispatch('fetchUser')
       })
     },
-    signout ({ commit }) {
+    [SIGNOUT] ({ commit }) {
       return del('auth.token').then(() => {
         commit('removeUser')
         commit('removeToken')
       })
     },
-    removeToken ({ commit }) {
+    [REMOVE_TOKEN] ({ commit }) {
       return del('auth.token').then(() => {
         commit('removeToken')
       })
     },
-    refreshToken ({ commit }, token) {
+    [REFRESH_TOKEN] ({ commit }, token) {
       return del('auth.token').then(() => {
         commit('removeToken')
         commit('setToken', token)
       })
     },
-    fetchUser ({ commit, state }, user) {
+    [FETCH_USER] ({ commit, state }, user) {
       return get('auth.token').then((token) => {
         return state.token !== token || token === false
           ? Promise.reject(new Error('Token is expired'))

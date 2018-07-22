@@ -4,13 +4,19 @@
 -->
 <template>
   <v-app app>
-    <app-header></app-header>
+    <Navigation/>
+    <app-header></app-header>    
     <router-view></router-view>
+    <LoginForm/>
+    <SignupForm/>
   </v-app>
 </template>
 <script>
 import auth from '@/service/auth'
 import AppHeader from '@/component/Header'
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
+import Navigation from '@/component/Navigation'
 
 export default {
   name: 'app',
@@ -18,7 +24,10 @@ export default {
     title: 'Code Battle'
   }),
   components: {
-    'app-header': AppHeader
+    'app-header': AppHeader,
+    LoginForm,
+    SignupForm,
+    Navigation
   },
   methods: {
     logout () {

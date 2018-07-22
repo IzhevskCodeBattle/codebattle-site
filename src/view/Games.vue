@@ -23,6 +23,7 @@
 // import FrameworkInfo from '@/components/FrameworkInfo';
 
 export default {
+  name: 'Game',
   metaInfo () {
     return { title: (this.$_auth.check ? 'Timeline' : '') }
   }
