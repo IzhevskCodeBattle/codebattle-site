@@ -1,9 +1,9 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section class="games">
-    <a name="games"/>
+  <section class="events">
+    <a name="events"/>
     <v-layout column>
-      <h2 class="toolbar">Games</h2>
+      <h2 class="toolbar">Events</h2>
       <v-layout row wrap>
         <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.title">
           <v-card :to="{ name: 'game', params: { id: card.id }}">
@@ -75,7 +75,7 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  .games{
+  .events{
     padding-top: 25px;
     padding-bottom: 50px;
   }
