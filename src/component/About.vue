@@ -1,6 +1,7 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
   <section>
+    <a name="about"/>
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">

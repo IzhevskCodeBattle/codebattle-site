@@ -1,10 +1,10 @@
 <template>
-<modal adaptive name="signup" height="510px" width="500px">
-  <form class="register-form" @submit.prevent="signup()">
+<v-dialog v-model="show"  max-width="500px">
+  <form class="signup-form" @submit.prevent="signup()">
     <v-card max-width="500px">
       <v-card-title>
         <span style="margin-left: auto;" class="headline">SIGN UP</span>
-        <a style="margin-left:auto;" @click="hideSignup">
+        <a style="margin-left:auto;" @click.stop="show = false">
           <v-icon color="grey darken-1">close</v-icon>
         </a>
       </v-card-title>
@@ -31,7 +31,7 @@
       </v-card-actions>
       <v-card-text class="text-xs-center">
         Already registered?
-        <a class="login" @click="switchSignUpToLogin">Sign in</a>
+        <a class="login" @click="show=false; $events.$emit('login-form:show')">Sign in</a>
       </v-card-text>
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
@@ -58,7 +58,7 @@
       </v-card-text>
     </v-card>
   </form>
-</modal>
+</v-dialog>
 </template>
 
 <script>
@@ -67,6 +67,7 @@ import auth from '@/service/auth'
 export default {
   data () {
     return {
+      show: false,
       credentials: {
         username: '',
         password: ''
@@ -74,6 +75,11 @@ export default {
       error: '',
       errors: Object.assign({}, this.credentials)
     }
+  },
+  mounted: function () {
+    this.$events.$on('signup-form:show', () => {
+      this.show = true
+    })
   },
   methods: {
     login () {
@@ -124,11 +130,6 @@ export default {
         }
       }
     }
-  },
-  props: {
-    showSignup: Function,
-    hideSignup: Function,
-    switchSignUpToLogin: Function
   }
 }
 </script>

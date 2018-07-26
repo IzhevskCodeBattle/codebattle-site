@@ -5,12 +5,22 @@
 <template>
   <v-app app>
     <app-header></app-header>
-    <router-view></router-view>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <Footer/>
+    <Navigation/>
+    <LoginForm/>
+    <SignupForm/>
   </v-app>
 </template>
 <script>
 import auth from '@/service/auth'
 import AppHeader from '@/component/Header'
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
+import Navigation from '@/component/Navigation'
+import Footer from '@/component/Footer'
 
 export default {
   name: 'app',
@@ -18,7 +28,11 @@ export default {
     title: 'Code Battle'
   }),
   components: {
-    'app-header': AppHeader
+    'app-header': AppHeader,
+    LoginForm,
+    SignupForm,
+    Navigation,
+    Footer
   },
   methods: {
     logout () {

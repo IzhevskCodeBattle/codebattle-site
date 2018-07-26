@@ -1,7 +1,7 @@
 <!-- содержимое секции компонента. -->
 <template>
   <section class="events">
-    <v-layout column>
+    
       <h2 class="toolbar">Events</h2>
       <v-layout row wrap>
         <v-flex class='xs12 sm6 md4 lg4' v-for="event in events" :key="event.name">
@@ -22,10 +22,9 @@
           </v-card>
         </v-flex>
       </v-layout>
-    </v-layout>
+   
   </section>
 </template>
-
 
 <!-- код, который относится непосредственно к компоненту -->
 <script>

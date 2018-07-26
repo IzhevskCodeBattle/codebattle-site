@@ -1,11 +1,12 @@
 <!-- содержимое секции компонента. -->
 <template>
   <section class="games">
+    <a name="games"/>
     <v-layout column>
       <h2 class="toolbar">Games</h2>
       <v-layout row wrap>
         <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.title">
-          <v-card>
+          <v-card :to="{ name: 'game', params: { id: card.id }}">
             <img :src="card.src"/>
             <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
             <v-card-text class="title_all">
@@ -35,27 +36,33 @@
 export default {
   data: () => ({
     cards: [
-      { title: 'Название игры №1',
+      { id: 1,
+        title: 'Название игры №1',
         src: '/static/img/games/games1.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       },
-      { title: 'Название игры №2',
+      { id: 2,
+        title: 'Название игры №2',
         src: '/static/img/games/games2.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       },
-      { title: 'Название игры №3',
+      { id: 3,
+        title: 'Название игры №3',
         src: '/static/img/games/games1.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       },
-      { title: 'Название игры №4',
+      { id: 4,
+        title: 'Название игры №4',
         src: '/static/img/games/games2.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       },
-      { title: 'Название игры №5',
+      { id: 5,
+        title: 'Название игры №5',
         src: '/static/img/games/games1.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       },
-      { title: 'Название игры №6',
+      { id: 6,
+        title: 'Название игры №6',
         src: '/static/img/games/games2.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
       }

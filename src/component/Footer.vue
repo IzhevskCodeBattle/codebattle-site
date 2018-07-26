@@ -1,72 +1,57 @@
 <template>
-  <v-footer>
-    <v-card flat tile class="flex">
-      <v-card-text class="grey lighten-3">
-        <v-layout>
-          <v-flex
-            v-for="(col, i) in rows"
-            :key="i"
-            xs3
-          >
-            <span class="body-2" v-text="col.title.toUpperCase()"></span>
-            <div
-              v-for="(child, i) in col.children"
-              :key="i"
-              v-text="child"
-            ></div>
-          </v-flex>
-          <v-flex xs3 layout column>
-            <span class="body-2">CONTACT</span>
-            <div>
-              <v-icon size="18px" class="mr-3">fas fa-home</v-icon>
-              New York, NY 10012, US
-            </div>
-            <div>
-              <v-icon size="18px" class="mr-3">fas fa-envelope</v-icon>
-              info@example.com
-            </div>
-            <div>
-              <v-icon size="18px" class="mr-3">fas fa-phone</v-icon>
-              + 01 234 567 88
-            </div>
-            <div>
-              <v-icon size="18px" class="mr-3">fas fa-print</v-icon>
-              + 01 234 567 89
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-      <v-card-actions class="grey lighten-2 justify-center">
-        &copy;2018 �
-      </v-card-actions>
-    </v-card>
-  </v-footer>
+<v-footer absolute>
+  <v-card flat tile class="flex">
+    <v-card-text class="grey lighten-3">
+      <div class="footer-layout">
+         <div class="text-xs-center">
+          <v-btn v-for="icon in icons" :key="icon" icon>
+            <v-icon size="25px">{{ icon }}</v-icon>
+          </v-btn>
+        </div>
+        <div class="text-xs-center">
+          <a>ABOUT</a>
+          <a>EVENTS</a>
+          <a>GAMES</a>
+          <a>CONTACTS</a>
+          <a>HELP</a>
+        </div>
+      </div>
+    </v-card-text>
+    <v-divider></v-divider>
+    <v-card-actions class="grey lighten-3 justify-center">
+      &copy;2018
+    </v-card-actions>
+  </v-card>
+</v-footer>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      icons: ['fab fa-facebook', 'fab fa-twitter', 'fab fa-google-plus', 'fab fa-linkedin', 'fab fa-instagram'],
-      rows: [
-        {
-          title: 'Company Name',
-          children: ['Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit']
-        },
-        {
-          title: 'Products',
-          children: ['MDBootstrap', 'MDWordPress', 'BrandFlow', 'Bootstrap Angular']
-        },
-        {
-          title: 'Useful Links',
-          children: ['Your account', 'Become an Affiliate', 'Shipping Rates', 'Helper']
-        }
-      ]
-    })
-  }
+export default {
+  data: () => ({
+    icons: ['fab fa-vk', 'fab fa-facebook', 'fab fa-twitter', 'fab fa-linkedin', 'fab fa-github-alt', 'fab fa-google']
+  })
+}
 </script>
 
-<style>
-  .footer{
-    padding-top: 100px;
+<style scoped>
+.footer {
+  padding-top: 100px;
+  background: white !important;
+}
+
+.footer-layout {
+  width: 50%;
+  margin: auto;
+}
+
+a {
+  color: #263852;
+}
+
+@media only screen and (max-width: 960px) {
+  .footer-layout {
+    width: 80%;
+    margin: auto;
   }
+}
 </style>
