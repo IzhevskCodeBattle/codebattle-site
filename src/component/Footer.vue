@@ -4,16 +4,16 @@
     <v-card-text class="grey lighten-3">
       <div class="footer-layout">
          <div class="text-xs-center">
-          <v-btn v-for="icon in icons" :key="icon" icon>
-            <v-icon size="25px">{{ icon }}</v-icon>
+          <v-btn :href="icon.href" v-for="icon in icons" :key="icon" icon>
+            <v-icon size="25px">{{ icon.icon }}</v-icon>
           </v-btn>
         </div>
         <div class="text-xs-center">
-          <a>ABOUT</a>
-          <a>EVENTS</a>
-          <a>GAMES</a>
-          <a>CONTACTS</a>
-          <a>HELP</a>
+          <v-btn href="#about">ABOUT</v-btn>
+          <v-btn href="#events">EVENTS</v-btn>
+          <v-btn href="#games">GAMES</v-btn>
+          <v-btn href="#contacts">CONTACTS</v-btn>
+          <v-btn href="#help">HELP</v-btn>
         </div>
       </div>
     </v-card-text>
@@ -28,7 +28,14 @@
 <script>
 export default {
   data: () => ({
-    icons: ['fab fa-vk', 'fab fa-facebook', 'fab fa-twitter', 'fab fa-linkedin', 'fab fa-github-alt', 'fab fa-google']
+    icons: [
+      { icon: 'fab fa-vk', href: 'http://vk.com' },
+      { icon: 'fab fa-facebook', href: 'http://facebook.com' },
+      { icon: 'fab fa-twitter', href: 'http://twitter.com' },
+      { icon: 'fab fa-linkedin', href: 'http://linkedin.com' },
+      { icon: 'fab fa-github-alt', href: 'http://github.com' },
+      { icon: 'fab fa-google', href: 'http://google.com' }
+    ]
   })
 }
 </script>
