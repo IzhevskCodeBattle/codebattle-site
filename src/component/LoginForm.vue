@@ -13,10 +13,10 @@
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
             </v-flex>
             <v-flex xs8>
               <span>
@@ -144,10 +144,6 @@ export default {
   font-family: "Source Sans Pro";
 }
 
-span {
-  color: #454547;
-}
-
 .card__text {
   padding: 0px 16px 0px 16px;
 }
@@ -173,7 +169,6 @@ span {
 .login,
 .forgot {
   text-decoration: underline;
-  color: #263852;
 }
 
 .flex {
