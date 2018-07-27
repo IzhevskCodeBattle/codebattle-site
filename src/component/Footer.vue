@@ -19,7 +19,7 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions class="grey lighten-3 justify-center">
-      &copy;2018
+      &copy;2018; {{ $vuetify.t('app.title') }} : {{ $vuetify.t('title') }} :{{ $vuetify.t('rrr') }} : {{ $vuetify.t('Footer.rrr') }}
     </v-card-actions>
   </v-card>
 </v-footer>

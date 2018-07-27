@@ -14,13 +14,22 @@ import 'vuetify/dist/vuetify.min.css'
 import axios from 'axios'
 import interceptors from '@/util/interceptors'
 
+// localization
+import en from '@/locale/en'
+import ru from '@/locale/ru'
+
 import App from '@/App'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  lang: {
+    locales: { en, ru },
+    current: 'ru'
+  }
+})
 
 axios.defaults.baseURL = 'http://212.158.174.142:4333/api'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
