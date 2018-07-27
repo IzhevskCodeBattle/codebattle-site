@@ -14,13 +14,10 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <!-- <v-btn icon>
+              <v-btn icon>
                 <v-icon>favorite</v-icon>
               </v-btn>
-              <v-btn icon>
-                <v-icon>bookmark</v-icon>
-              </v-btn>
-              <v-btn icon>
+              <!-- <v-btn icon>
                 <v-icon>share</v-icon>
               </v-btn> -->
             </v-card-actions>
@@ -37,34 +34,34 @@ export default {
   data: () => ({
     cards: [
       { id: 1,
-        title: 'Название игры №1',
-        src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Assassin’s Creed IV: Black Flag',
+        src: '/static/img/games/game1.jpg',
+        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
       },
       { id: 2,
-        title: 'Название игры №2',
-        src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Grand Theft Auto V',
+        src: '/static/img/games/game2.jpg',
+        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
       },
       { id: 3,
-        title: 'Название игры №3',
-        src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Assassin’s Creed IV: Black Flag',
+        src: '/static/img/games/game1.jpg',
+        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
       },
       { id: 4,
-        title: 'Название игры №4',
-        src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Grand Theft Auto V',
+        src: '/static/img/games/game2.jpg',
+        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
       },
       { id: 5,
-        title: 'Название игры №5',
-        src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Assassin’s Creed IV: Black Flag',
+        src: '/static/img/games/game1.jpg',
+        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
       },
       { id: 6,
-        title: 'Название игры №6',
-        src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title: 'Grand Theft Auto V',
+        src: '/static/img/games/game2.jpg',
+        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
       }
     ]
   })
@@ -77,7 +74,7 @@ export default {
 <style scoped>
   img{
     width: 100%;
-    height: 250px;
+    height: 100%;
   }
   .games{
     padding-top: 25px;

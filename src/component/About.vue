@@ -87,14 +87,15 @@ export default {
     font-size: 30px;
   }
   .xsize{
+    margin-top: 50px;
     padding: 20px;
     font-size: 80px;
     /* background-color: gray; */
     border-radius: 80px;
     border: 3px solid black;
   }
-  .card>:first-child:not(.btn) {
-    border-top-left-radius: 80px;
-    border-top-right-radius: 80px;
-}
+  .layout{
+    text-align: center;
+  }
+ 
 </style>

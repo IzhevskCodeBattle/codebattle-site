@@ -18,10 +18,6 @@ export default {
     swiper,
     swiperSlide
   },
-  // methods: {
-  //   epam_site () {
-  //   }
-  // },
   data: () => ({
     partners: [
       { title: 'EPAM Systems',
