@@ -1,18 +1,18 @@
 <template>
-  <v-content>
+  <div>
     <CommingSoon/>
-    <About id="about"/>
-    <Games id="games"/>
-    <Partners id="partners"/>
-    <Footer/>
-  </v-content>
+    <About/>
+    <Games/>
+    <Events/>
+    <Partners/>
+  </div>
 </template>
 
 <script>
 import About from '@/component/About'
 import Games from '@/component/Games'
 import Partners from '@/component/Partners'
-import Footer from '@/component/Footer'
+import Events from '@/component/Events'
 import CommingSoon from '@/component/CommingSoon'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     About,
     Games,
     Partners,
-    Footer
+    Events
   }
 }
 </script>

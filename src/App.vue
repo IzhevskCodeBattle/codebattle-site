@@ -3,22 +3,36 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
 <template>
-  <v-app app>
+  <v-app app dark>
     <app-header></app-header>
-    <router-view></router-view>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <Footer/>
+    <Navigation/>
+    <LoginForm/>
+    <SignupForm/>
   </v-app>
 </template>
 <script>
 import auth from '@/service/auth'
 import AppHeader from '@/component/Header'
+import LoginForm from '@/component/LoginForm'
+import SignupForm from '@/component/SignupForm'
+import Navigation from '@/component/Navigation'
+import Footer from '@/component/Footer'
 
 export default {
   name: 'app',
   data: () => ({
-    title: 'Code Battle'
+    title: this.$vuetify.t('app.title')
   }),
   components: {
-    'app-header': AppHeader
+    'app-header': AppHeader,
+    LoginForm,
+    SignupForm,
+    Navigation,
+    Footer
   },
   methods: {
     logout () {
