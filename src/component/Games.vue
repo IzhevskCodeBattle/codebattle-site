@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section class="games">
-    <a name="games"/>
+  <section id="games">
     <v-layout column>
       <h2 class="toolbar">Games</h2>
       <v-layout row wrap>
@@ -82,9 +81,8 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  .games{
-    padding-top: 25px;
-    padding-bottom: 50px;
+  #games{
+    padding-top: 45px;
   }
   h2{
     text-align: center;

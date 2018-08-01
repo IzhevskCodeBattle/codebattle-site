@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section class="events">
-    <a name="events"/>
+  <section id="events">
     <v-layout column>
       <h2 class="toolbar">Events</h2>
       <v-layout row wrap>
@@ -75,9 +74,8 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  .events{
-    padding-top: 25px;
-    padding-bottom: 50px;
+  #events{
+    padding-top: 45px;
   }
   h2{
     text-align: center;

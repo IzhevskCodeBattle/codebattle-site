@@ -11,6 +11,8 @@ import router from '@/router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
+import Scrollactive from 'vue-scrollactive'
+
 import axios from 'axios'
 import interceptors from '@/util/interceptors'
 
@@ -24,6 +26,7 @@ Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
+Vue.use(Scrollactive)
 Vue.use(Vuetify, {
   lang: {
     locales: { en, ru },

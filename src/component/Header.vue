@@ -1,15 +1,12 @@
 <template>
 <v-toolbar fixed app id="header">
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
-  <v-toolbar-items class="left_menu hidden-sm-and-down">
-    <v-btn flat href="#about">About</v-btn>
-    <v-divider vertical></v-divider>
-    <v-btn flat href="#events">Events</v-btn>
-    <v-divider vertical></v-divider>
-    <v-btn flat href="#games">Games</v-btn>
-    <v-divider vertical></v-divider>
-    <v-btn flat href="#partners">Partners</v-btn>
-  </v-toolbar-items>
+    <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down">
+    <v-btn flat class="scrollactive-item" href="#about">About</v-btn>
+    <v-btn flat class="scrollactive-item" href="#games">Games</v-btn>
+    <v-btn flat class="scrollactive-item" href="#events">Events</v-btn>
+    <v-btn flat class="scrollactive-item" href="#partners">Partners</v-btn>
+  </scrollactive>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">
     <v-btn flat @click="$events.$emit('login-form:show')">Sign in</v-btn>
@@ -58,5 +55,9 @@ export default {
   padding-left: 25px;
   padding-right: 25px;
   color: white;
+}
+
+.is-active {
+  color:#76cdd8;
 }
 </style>
