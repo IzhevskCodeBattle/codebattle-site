@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section class="games">
-    <a name="games"/>
+  <section id="games">
     <v-layout column>
       <h2 class="toolbar">Games</h2>
       <v-layout row wrap>
@@ -9,6 +8,7 @@
           <v-card :to="{ name: 'game', params: { id: card.id }}">
             <img :src="card.src"/>
             <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
+            <v-card-title primary-title class="headline cards">{{card.author}}</v-card-title>
             <v-card-text class="title_all">
               {{card.title_all}}
             </v-card-text>
@@ -39,32 +39,38 @@ export default {
       { id: 1,
         title: 'Название игры №1',
         src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 2,
         title: 'Название игры №2',
         src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 3,
         title: 'Название игры №3',
         src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 4,
         title: 'Название игры №4',
         src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 5,
         title: 'Название игры №5',
         src: '/static/img/games/games1.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 6,
         title: 'Название игры №6',
         src: '/static/img/games/games2.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       }
     ]
   })
@@ -75,9 +81,8 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  .games{
-    padding-top: 25px;
-    padding-bottom: 50px;
+  #games{
+    padding-top: 45px;
   }
   h2{
     text-align: center;

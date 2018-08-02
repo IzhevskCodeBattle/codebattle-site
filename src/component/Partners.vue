@@ -1,6 +1,5 @@
 <template>
-  <section>
-    <a name="partners"/>
+  <section id="partners">
     <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">
@@ -18,10 +17,6 @@ export default {
     swiper,
     swiperSlide
   },
-  // methods: {
-  //   epam_site () {
-  //   }
-  // },
   data: () => ({
     partners: [
       { title: 'EPAM Systems',
@@ -64,6 +59,9 @@ export default {
 }
 </script>
 <style scoped>
+#partners{
+  padding-top: 45px;
+}
   img{
     min-width: 100%;
     min-height: 100%;

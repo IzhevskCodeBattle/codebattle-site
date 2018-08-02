@@ -3,7 +3,7 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
 <template>
-  <v-app app>
+  <v-app app dark>
     <app-header></app-header>
     <v-content>
       <router-view></router-view>
@@ -25,7 +25,7 @@ import Footer from '@/component/Footer'
 export default {
   name: 'app',
   data: () => ({
-    title: 'Code Battle'
+    title: this.$vuetify.t('app.title')
   }),
   components: {
     'app-header': AppHeader,

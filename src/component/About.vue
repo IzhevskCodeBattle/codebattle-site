@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
-  <section>
-    <a name="about"/>
+  <section id="about">
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">
@@ -16,10 +15,10 @@
     <v-flex>
       <h2>Приемущества Code Battle</h2>
     </v-flex>
-    <v-layout row >
+    <v-layout row style="text-align:center">
       <v-flex xs12 sm6 md3>
         <v-card flat>
-          <v-icon color="black" class="xsize" >extension</v-icon>
+          <v-icon color="black" class="xsize">extension</v-icon>
           <v-card-text class="card_text">Программирование в виде игры</v-card-text>
         </v-card>
       </v-flex>
