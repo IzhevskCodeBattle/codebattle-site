@@ -1,11 +1,11 @@
 <template>
-<v-dialog v-model="show" max-width="500px">
+<v-dialog v-model="show" dark max-width="500px">
   <form class="login-form" @submit.prevent="login">
-    <v-card max-width="500px">
+    <v-card>
       <v-card-title>
         <span style="margin-left: auto;" class="headline">LOGIN</span>
         <a style="margin-left:auto;" @click.stop="show = false">
-          <v-icon color="grey darken-1">close</v-icon>
+          <v-icon>close</v-icon>
         </a>
       </v-card-title>
       <v-divider></v-divider>
@@ -40,7 +40,7 @@
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
-      <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
+      <v-layout flex justify-center style="padding-bottom: 16px">
         <a class="vk" href="/api/auth/vkontakte">
           <v-icon>fab fa-vk</v-icon>
         </a>
@@ -59,7 +59,7 @@
         <a class="google" href="/api/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-card-text>
+      </v-layout>
     </v-card>
   </form>
 </v-dialog>
@@ -144,14 +144,6 @@ export default {
   font-family: "Source Sans Pro";
 }
 
-span {
-  color: #454547;
-}
-
-.card__text {
-  padding: 0px 16px 0px 16px;
-}
-
 .vk,
 .fb,
 .twitter,
@@ -169,19 +161,6 @@ span {
   justify-content: center;
 }
 
-.create-account,
-.login,
-.forgot {
-  text-decoration: underline;
-  color: #263852;
-}
-
-.flex {
-  display: -webkit-flex;
-  -webkit-justify-content: flex-start;
-  display: flex;
-  justify-content: space-between;
-}
 
 .vk:hover {
   background: #597da3;
@@ -237,7 +216,6 @@ span {
   }
   .icon {
     font-size: 30px;
-    color: white;
   }
 }
 </style>
