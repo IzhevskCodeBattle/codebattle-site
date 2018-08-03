@@ -6,16 +6,17 @@
       <v-layout row wrap>
         <v-flex class='xs12 sm6 md4 lg4' v-for="event in events" :key="event.name">
           <v-card :to="{ name: 'event', params: { id: event.id }}">
-            <v-card-media height="250px" :src="event.src">
-              <v-container fill-height>
-                <v-layout>
-                  <v-flex class='xs12 sm12 md12 lg12'>
-                    <span class="headline cards">{{event.name}}</span><br>
-                    <span class="autor">{{event.autor}}</span>
-                  </v-flex>
-                </v-layout>
-              </v-container>
+            <v-card-media height="250px" style="opacity:0.5" :src="event.src">
             </v-card-media>
+            <v-container fill-height style="position:absolute; top:0">
+              <v-layout>
+                <v-flex class='xs12 sm12 md12 lg12'>
+                  <span class="headline cards">{{event.name}}</span><br>
+                  <span class="autor">{{event.autor}}</span>
+                </v-flex>
+              </v-layout>
+            </v-container>
+
             <v-card-text class="title_all">
               {{event.title_all}}
             </v-card-text>
