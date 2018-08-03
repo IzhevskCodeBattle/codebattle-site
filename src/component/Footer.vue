@@ -1,6 +1,6 @@
 <template>
-<v-footer absolute>
-  <v-card flat tile class="flex">
+<v-footer app absolute>
+  <v-card flat class="flex">
     <v-card-text>
       <div class="footer-layout">
          <div class="text-xs-center">

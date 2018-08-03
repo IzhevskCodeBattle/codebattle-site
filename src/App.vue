@@ -3,12 +3,12 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
 <template>
-  <v-app app>
+  <v-app dark>
     <app-header></app-header>
     <v-content>
       <router-view></router-view>
     </v-content>
-    <Footer/>
+    <Footer/>    
     <Navigation/>
     <LoginForm/>
     <SignupForm/>
