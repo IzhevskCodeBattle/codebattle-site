@@ -4,7 +4,7 @@
     <v-card-text>
       <div class="footer-layout">
          <div class="text-xs-center">
-          <v-btn :href="icon.href" v-for="icon in icons" :key="icon" icon>
+          <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
             <v-icon size="25px">{{ icon.icon }}</v-icon>
           </v-btn>
         </div>
@@ -21,7 +21,7 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-card-actions class="justify-center">
-      &copy;2018; {{ $vuetify.t('app.title') }} : {{ $vuetify.t('title') }} :{{ $vuetify.t('rrr') }} : {{ $vuetify.t('Footer.rrr') }}
+      &copy;2018 {{ 'app.title'|translate(this) }} {{ $vuetify.t('locales.ru') }}
     </v-card-actions>
   </v-card>
 </v-footer>
