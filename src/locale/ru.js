@@ -3,7 +3,7 @@ export default {
     'title': 'CodeBattle'
   },
   'Footer': {
-    'rrr': 'rerer'
+    'rrr': 'Footer - RRRRRR'
   },
   'locales': {
     'ru': 'Русский',

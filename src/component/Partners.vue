@@ -1,7 +1,6 @@
 <template>
-  <section>
-    <a name="partners"/>
-    <h2>Partners</h2>
+  <section id="partners">
+    <h2 class="toolbar">Partners</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">
         <img :href="partner.href" :src="partner.src" :alt="partner.title" />
@@ -60,6 +59,9 @@ export default {
 }
 </script>
 <style scoped>
+#partners{
+  padding-top: 45px;
+}
   img{
     min-width: 100%;
     min-height: 100%;
@@ -89,7 +91,7 @@ export default {
   }
 
   .swiper-container {
-    height: 300px;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     position: relative;
