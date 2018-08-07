@@ -1,7 +1,8 @@
 /* import Home from '@/view/Home' */
 import Home from '@/view/Home'
 import Game from '@/view/Game'
-import myEvent from '@/view/Event'
+import Event from '@/view/Event'
+import Main from '@/view/Main'
 // import Vue from 'vue'
 
 /*
@@ -31,8 +32,13 @@ const afterAuth = (_to, from, next) => {
 
 export default [
 /*  { path: '/profile', component: Home, beforeEnter: requireAuth }, */
-  { path: '/', component: Home },
-  { name: 'game', path: '/game/:id', component: Game },
-  { name: 'event', path: '/event/:id', component: myEvent },
-  { path: '*', redirect: '/' }
+  { path: '/',
+    component: Main,
+    children: [
+      { path: '', name: 'home', component: Home },
+      { path: 'game/:id', name: 'game', component: Game },
+      { path: 'event/:id', name: 'event', component: Event }
+    ]
+  }
+//  { path: '*', redirect: '/' }
 ]

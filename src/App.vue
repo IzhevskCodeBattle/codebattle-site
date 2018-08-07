@@ -3,12 +3,10 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
 <template>
-  <v-app dark>
+  <v-app>
     <app-header></app-header>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
-    <Footer/>    
+    <router-view></router-view>
+    <Footer/>
     <Navigation/>
     <LoginForm/>
     <SignupForm/>
@@ -40,7 +38,10 @@ export default {
   }
 }
 </script>
-<style>
+<style scope>
+  .application.theme--light {
+    background-color: white;
+  }
   .toolbar{
     background:#76cdd8!important;
     margin: 0;

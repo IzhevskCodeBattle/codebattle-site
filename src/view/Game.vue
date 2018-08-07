@@ -1,32 +1,26 @@
 <template>
-    <div class="columns">
-        <div class="column is-6-widescreen">
-            <div
-                v-if="$_auth.check"
-                endpoint="/statuses"
-                empty="There's nothing in your timeline yet."
-                can-post
-            />
-            <template v-else>
-                <h1 class="title">Welcome to {{ $_config.app.name }}</h1>
-                <p>The actual best social network ever.</p>
-            </template>
-        </div>
-        <div v-if="$_auth.guest" class="column is-6-widescreen">
-            Guest
-        </div>
-    </div>
+  <v-content>
+    <h1>Title</h1>
+    <h2>Description</h2>
+    <game-gallery/>
+    <v-divider/>
+    <h2>Players</h2>
+    <game-players/>
+    <v-divider/>
+    <h2>Events</h2>
+    <game-events/>
+  </v-content>
 </template>
-
 <script>
-// import Timeline from '@/components/Status/Timeline';
-// import FrameworkInfo from '@/components/FrameworkInfo';
-
+import GamePlayers from '@/component/GamePlayers'
+import GameEvents from '@/component/GameEvents'
+import GameGallery from '@/component/GameGallery'
 export default {
   name: 'Game',
-  metaInfo () {
-    return { title: (this.$_auth.check ? 'Timeline' : '') }
+  components: {
+    GamePlayers,
+    GameEvents,
+    GameGallery
   }
-  // components: { Timeline, FrameworkInfo }
 }
 </script>
