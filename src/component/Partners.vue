@@ -91,7 +91,7 @@ export default {
   }
 
   .swiper-container {
-    height: 300px;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     position: relative;

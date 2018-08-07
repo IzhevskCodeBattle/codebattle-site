@@ -1,25 +1,30 @@
 <template>
-<v-footer absolute>
-  <v-card flat tile class="flex">
-    <v-card-text class="grey lighten-3">
+<v-footer app absolute>
+  <v-card flat class="flex">
+    <v-card-text>
+      <a href="https://github.com/IzhevskCodeBattle/codebattle-site">
+        <img alt="link git" class="link_git" src="/static/img/fork-me.png" />
+      </a>
       <div class="footer-layout">
          <div class="text-xs-center">
-          <v-btn :href="icon.href" v-for="icon in icons" :key="icon" icon>
+          <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
             <v-icon size="25px">{{ icon.icon }}</v-icon>
           </v-btn>
         </div>
         <div class="text-xs-center">
-          <v-btn href="#about">ABOUT</v-btn>
-          <v-btn href="#events">EVENTS</v-btn>
-          <v-btn href="#games">GAMES</v-btn>
-          <v-btn href="#contacts">CONTACTS</v-btn>
-          <v-btn href="#help">HELP</v-btn>
+          <scrollactive ref="scrollactive">
+          <a href="#about" class="scrollactive-item">ABOUT</a>
+          <a href="#events" class="scrollactive-item">EVENTS</a>
+          <a href="#games" class="scrollactive-item">GAMES</a>
+          <a href="#contacts">CONTACTS</a>
+          <a href="#help">HELP</a>
+          </scrollactive>
         </div>
       </div>
     </v-card-text>
     <v-divider></v-divider>
-    <v-card-actions class="grey lighten-3 justify-center">
-      &copy;2018; {{ $vuetify.t('app.title') }} : {{ $vuetify.t('title') }} :{{ $vuetify.t('rrr') }} : {{ $vuetify.t('Footer.rrr') }}
+    <v-card-actions class="justify-center">
+      &copy;2018 {{ 'app.title'|translate(this) }} {{ $vuetify.t('locales.ru') }}
     </v-card-actions>
   </v-card>
 </v-footer>
@@ -41,19 +46,22 @@ export default {
 </script>
 
 <style scoped>
-.footer {
-  padding-top: 100px;
-  background: white !important;
-}
-
 .footer-layout {
   width: 50%;
   margin: auto;
 }
 
+.link_git{
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* bottom: 0;
+  left: 0; */
+}
+
 a {
   text-decoration: none;
-  color: #263852;
+  color: white;
   margin: 5px;
 }
 

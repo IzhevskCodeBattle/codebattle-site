@@ -23,23 +23,26 @@ import ru from '@/locale/ru'
 import App from '@/App'
 
 Vue.config.productionTip = false
-
-Vue.use(Vuex)
-Vue.use(VueRouter)
-Vue.use(Scrollactive)
 Vue.use(Vuetify, {
   lang: {
     locales: { en, ru },
     current: 'ru'
   }
 })
+const _core = new Vue()
+Vue.prototype.$events = _core
+Vue.filter('translate', (value) => {
+  return _core.$vuetify.t(value)
+})
 
-axios.defaults.baseURL = 'http://212.158.174.142:4333/api'
+Vue.use(Vuex)
+Vue.use(VueRouter)
+Vue.use(Scrollactive)
+axios.defaults.baseURL = 'http://server.codebattle.ru:4333/api'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.interceptors.request.use(...interceptors.request)
 axios.interceptors.response.use(...interceptors.response)
 Vue.prototype.$http = axios
-Vue.prototype.$events = new Vue()
 
 /* eslint-disable no-new */
 new Vue({

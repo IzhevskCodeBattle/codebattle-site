@@ -3,12 +3,12 @@
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
 <template>
-  <v-app app dark>
+  <v-app dark>
     <app-header></app-header>
     <v-content>
       <router-view></router-view>
     </v-content>
-    <Footer/>
+    <Footer/>    
     <Navigation/>
     <LoginForm/>
     <SignupForm/>
@@ -24,9 +24,6 @@ import Footer from '@/component/Footer'
 
 export default {
   name: 'app',
-  data: () => ({
-    title: this.$vuetify.t('app.title')
-  }),
   components: {
     'app-header': AppHeader,
     LoginForm,
