@@ -2,10 +2,10 @@
 <v-toolbar fixed app id="header">
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
     <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down">
-    <v-btn flat class="scrollactive-item" href="#about">About</v-btn>
-    <v-btn flat class="scrollactive-item" href="#games">Games</v-btn>
-    <v-btn flat class="scrollactive-item" href="#events">Events</v-btn>
-    <v-btn flat class="scrollactive-item" href="#partners">Partners</v-btn>
+    <v-btn flat class="scrollactive-item" href="/#about">About</v-btn>
+    <v-btn flat class="scrollactive-item" href="/#games">Games</v-btn>
+    <v-btn flat class="scrollactive-item" href="/#events">Events</v-btn>
+    <v-btn flat class="scrollactive-item" href="/#partners">Partners</v-btn>
   </scrollactive>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">

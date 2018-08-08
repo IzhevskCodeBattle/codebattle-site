@@ -19,7 +19,6 @@ import interceptors from '@/util/interceptors'
 // localization
 import en from '@/locale/en'
 import ru from '@/locale/ru'
-
 import App from '@/App'
 
 Vue.config.productionTip = false

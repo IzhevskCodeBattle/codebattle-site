@@ -1,32 +1,26 @@
 <template>
-<v-footer app absolute>
-  <v-card flat class="flex">
-    <v-card-text>
-      <a href="https://github.com/IzhevskCodeBattle/codebattle-site">
-        <img alt="link git" class="link_git" src="/static/img/fork-me.png" />
-      </a>
-      <div class="footer-layout">
-         <div class="text-xs-center">
-          <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
-            <v-icon size="25px">{{ icon.icon }}</v-icon>
-          </v-btn>
-        </div>
-        <div class="text-xs-center">
-          <scrollactive ref="scrollactive">
-          <a href="#about" class="scrollactive-item">ABOUT</a>
-          <a href="#events" class="scrollactive-item">EVENTS</a>
-          <a href="#games" class="scrollactive-item">GAMES</a>
-          <a href="#contacts">CONTACTS</a>
-          <a href="#help">HELP</a>
-          </scrollactive>
-        </div>
-      </div>
-    </v-card-text>
-    <v-divider></v-divider>
-    <v-card-actions class="justify-center">
-      &copy;2018 {{ 'app.title'|translate(this) }} {{ $vuetify.t('locales.ru') }}
-    </v-card-actions>
-  </v-card>
+<v-footer app absolute class="footer-layout" height="64px">
+  <a href="https://github.com/IzhevskCodeBattle/codebattle-site">
+    <img alt="link git" class="link_git" src="/static/img/fork-me.png" />
+  </a>
+  <div class="justify-center" d-block>
+    <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
+      <v-icon size="25px">{{ icon.icon }}</v-icon>
+    </v-btn>
+  </div>
+  <div class="justify-center" d-block>
+    <scrollactive ref="scrollactive">
+      <a href="#about" class="scrollactive-item">ABOUT</a>
+      <a href="#events" class="scrollactive-item">EVENTS</a>
+      <a href="#games" class="scrollactive-item">GAMES</a>
+      <a href="#contacts">CONTACTS</a>
+      <a href="#help">HELP</a>
+    </scrollactive>
+  </div>
+  <v-divider d-block></v-divider>
+  <v-layout class="justify-center" d-block>
+    &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
+  </v-layout>
 </v-footer>
 </template>
 
@@ -47,8 +41,10 @@ export default {
 
 <style scoped>
 .footer-layout {
-  width: 50%;
+  width: 100%;
   margin: auto;
+  display: block;
+  text-align: center;
 }
 
 .link_git{
@@ -61,14 +57,14 @@ export default {
 
 a {
   text-decoration: none;
-  color: white;
   margin: 5px;
 }
 
 @media only screen and (max-width: 960px) {
   .footer-layout {
-    width: 80%;
+    width: 100%;
     margin: auto;
+    display: block;
   }
 }
 </style>

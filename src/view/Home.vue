@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <v-content>
+    <router-view></router-view>
     <CommingSoon/>
     <About/>
     <Games/>
     <Events/>
     <Partners/>
-  </div>
+  </v-content>
 </template>
 
 <script>

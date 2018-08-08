@@ -1,6 +1,8 @@
 {
   "editor.tabSize": 2,
-   "files.exclude": {
-      "node_modules": true
-    },
+  "files.autoSave": "afterDelay",
+  "editor.renderWhitespace": "all",
+  "files.exclude": {
+    "node_modules": true
+  },
 }
