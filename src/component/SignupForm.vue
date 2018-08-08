@@ -1,5 +1,5 @@
 <template>
-<v-dialog v-model="show"  max-width="500px">
+<v-dialog v-model="show" max-width="500px">
   <form class="signup-form" @submit.prevent="signup()">
     <v-card>
       <v-card-title>
@@ -13,13 +13,13 @@
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
+              <v-text-field prepend-inner-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
             </v-flex>
           </v-layout>
         </v-container>
@@ -160,7 +160,6 @@ export default {
 .create-account,
 .login {
   text-decoration: underline;
-  color: #263852;
 }
 
 .vk:hover {
