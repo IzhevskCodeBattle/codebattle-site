@@ -1,5 +1,8 @@
 <template>
 <v-footer app absolute class="footer-layout" height="64px">
+  <a href="https://github.com/IzhevskCodeBattle/codebattle-site">
+    <img alt="link git" class="link_git" src="/static/img/fork-me.png" />
+  </a>
   <div class="justify-center" d-block>
     <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
       <v-icon size="25px">{{ icon.icon }}</v-icon>
@@ -42,6 +45,14 @@ export default {
   margin: auto;
   display: block;
   text-align: center;
+}
+
+.link_git{
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* bottom: 0;
+  left: 0; */
 }
 
 a {
