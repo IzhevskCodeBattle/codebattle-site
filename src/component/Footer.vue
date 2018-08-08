@@ -32,7 +32,7 @@ export default {
       { icon: 'fab fa-facebook', href: 'http://facebook.com' },
       { icon: 'fab fa-twitter', href: 'http://twitter.com' },
       { icon: 'fab fa-linkedin', href: 'http://linkedin.com' },
-      { icon: 'fab fa-github-alt', href: 'http://github.com' },
+      { icon: 'fab fa-github-alt', href: 'https://github.com/IzhevskCodeBattle' },
       { icon: 'fab fa-google', href: 'http://google.com' }
     ]
   })
