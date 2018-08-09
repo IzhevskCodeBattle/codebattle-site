@@ -1,14 +1,11 @@
 <template>
-<v-footer app absolute class="footer-layout" height="64px">
-  <a href="https://github.com/IzhevskCodeBattle/codebattle-site">
-    <img alt="link git" class="link_git" src="/static/img/fork-me.png" />
-  </a>
-  <div class="justify-center" d-block>
+<v-footer app absolute class="footer-layout justify-center" height="64px">
+  <div class="justify-center">
     <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
       <v-icon size="25px">{{ icon.icon }}</v-icon>
     </v-btn>
   </div>
-  <div class="justify-center" d-block>
+  <div class="justify-center">
     <scrollactive ref="scrollactive">
       <a href="#about" class="scrollactive-item">ABOUT</a>
       <a href="#events" class="scrollactive-item">EVENTS</a>
@@ -18,9 +15,10 @@
     </scrollactive>
   </div>
   <v-divider d-block></v-divider>
-  <v-layout class="justify-center" d-block>
-    &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
-  </v-layout>
+  &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
+  <a href="https://github.com/IzhevskCodeBattle/codebattle-site" class="link_git">
+    <img alt="link git" src="/static/img/fork-me.png" />
+  </a>
 </v-footer>
 </template>
 
@@ -48,9 +46,9 @@ export default {
 }
 
 .link_git{
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: fixed;
+  right: -5px;
+  bottom: -10px;
 }
 
 a {
