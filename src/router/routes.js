@@ -2,6 +2,7 @@
 import Home from '@/view/Home'
 import Game from '@/view/Game'
 import Event from '@/view/Event'
+import Account from '@/view/Account'
 import Main from '@/view/Main'
 // import Vue from 'vue'
 
@@ -37,8 +38,9 @@ export default [
     children: [
       { path: '', name: 'home', component: Home },
       { path: 'game/:id', name: 'game', component: Game },
-      { path: 'event/:id', name: 'event', component: Event }
+      { path: 'event/:id', name: 'event', component: Event },
+      { path: 'user/:id', name: 'user', component: Account }
     ]
-  }
-//  { path: '*', redirect: '/' }
+  },
+  { path: '*', redirect: '/' }
 ]
