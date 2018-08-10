@@ -182,4 +182,8 @@ export default {
     margin-left: 8px!important;
   }
 
+  .v-btn__content .v-icon {
+    font-size: 1.4em;
+  }
+
 </style>

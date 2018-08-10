@@ -1,6 +1,0 @@
-{
-    "require": {
-        "jenssegers/proxy": "^3.0",
-        "zendframework/zend-diactoros": "^1.8"
-    }
-}

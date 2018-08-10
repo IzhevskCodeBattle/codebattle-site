@@ -1,5 +1,5 @@
 <template>
-   <v-layout row>
+   <v-layout row wrap>
     <v-flex xs12 sm6 md6 lg6 xl6>
       <v-card>
         <v-toolbar color="pink" dark>
@@ -15,7 +15,7 @@
                 <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
               </v-list-tile-content>
               <v-list-tile-action>
-                <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
+                <v-list-tile-action-text><v-chip label outline small color="red">{{ item.type }}</v-chip>{{ item.duration }}&nbsp;<v-icon small>fa-clock</v-icon>{{ item.members }}&nbsp;<v-icon small>fa-users</v-icon></v-list-tile-action-text>                
                 <v-icon v-if="selectedEvents.indexOf(index) < 0" color="grey lighten-1">
                   star_border
                 </v-icon>
@@ -48,7 +48,7 @@
                 <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
               </v-list-tile-content>
               <v-list-tile-action>
-                <v-list-tile-action-text>{{ item.expirience }}</v-list-tile-action-text>
+                <v-list-tile-action-text>{{ item.expirience }}</v-list-tile-action-text>                
                 <v-icon v-if="selectedMembers.indexOf(index) < 0" color="grey lighten-1">
                   star_border
                 </v-icon>
@@ -101,31 +101,41 @@ export default {
     selectedMembers: [2],
     events: [
       {
-        action: '4 hr',
+        type: 'Online',
+        duration: '4 hr',
+        members: 10,
         headline: '10:00-14:00',
         title: 'Ali Connors',
         subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
       },
       {
-        action: '4 hr',
+        type: 'Online',
+        duration: '4 hr',
+        members: 10,
         headline: 'Summer BBQ',
         title: 'me, Scrott, Jennifer',
         subtitle: "Wish I could come, but I'm out of town this weekend."
       },
       {
-        action: '4 hr',
+        type: 'Online',
+        duration: '4 hr',
+        members: 10,
         headline: 'Oui oui',
         title: 'Sandra Adams',
         subtitle: 'Do you have Paris recommendations? Have you ever been?'
       },
       {
-        action: '4 hr',
+        duration: '8 hr',
+        members: 50,
+        type: 'Offline',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
         subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
       },
       {
-        action: '4 hr',
+        duration: '4 hr',
+        members: 10,
+        type: 'Online',
         headline: 'Recipe to try',
         title: 'Britta Holt',
         subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
