@@ -16,26 +16,26 @@
     <v-flex>
       <h2>Приемущества Code Battle</h2>
     </v-flex>
-    <v-layout row >
-      <v-flex xs12 sm6 md3>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon color="black" class="xsize" >extension</v-icon>
           <v-card-text class="card_text">Программирование в виде игры</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon color="black" class="xsize" >supervisor_account</v-icon>
           <v-card-text class="card_text">Новые знакомства</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon color="black" class="xsize" >code</v-icon>
           <v-card-text class="card_text">Практика, а не теория</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon color="black" class="xsize" >thumb_up</v-icon>
           <v-card-text class="card_text">Море эмоций</v-card-text>
