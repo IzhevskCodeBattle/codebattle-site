@@ -5,7 +5,7 @@
     <v-layout column>
       <h2 class="toolbar">Games</h2>
       <v-layout row wrap>
-        <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.title">
+        <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.id">
           <v-card :to="{ name: 'game', params: { id: card.id }}">
             <img :src="card.src"/>
             <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
