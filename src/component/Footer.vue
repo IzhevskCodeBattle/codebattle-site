@@ -7,16 +7,16 @@
   </div>
   <div class="justify-center">
     <scrollactive ref="scrollactive">
-      <a href="#about" class="scrollactive-item">ABOUT</a>
-      <a href="#events" class="scrollactive-item">EVENTS</a>
-      <a href="#games" class="scrollactive-item">GAMES</a>
-      <a href="#contacts">CONTACTS</a>
-      <a href="#help">HELP</a>
+      <router-link to="/home#about" class="scrollactive-item">ABOUT</router-link>
+      <router-link to="/home#events" class="scrollactive-item">EVENTS</router-link>
+      <router-link to="/home#games" class="scrollactive-item">GAMES</router-link>
+      <router-link to="/home#contacts">CONTACTS</router-link>
+      <router-link to="/home#help">HELP</router-link>
     </scrollactive>
   </div>
   <v-divider d-block></v-divider>
   &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
-  <a href="https://github.com/IzhevskCodeBattle/codebattle-site" class="link_git">
+  <a href="https://github.com/IzhevskCodeBattle" class="link_git">
     <img alt="link git" src="/static/img/fork-me.png" />
   </a>
 </v-footer>
