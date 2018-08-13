@@ -1,15 +1,16 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section class="games">
-    <a name="games"/>
-    <v-layout column>
-      <h2 class="toolbar">Games</h2>
-      <v-layout row wrap>
-        <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.id">
-          <v-card :to="{ name: 'game', params: { id: card.id }}">
-            <img :src="card.src"/>
-            <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
-
+  <section id="games">
+    <h2 class="toolbar">Games</h2>
+    <v-container fluid grid-list-md>
+      <v-layout row wrap >
+        <v-flex class='xs12 sm4 md3 lg2' v-for="card in cards" :key="card.id">
+          <v-card :to="{ name: 'game', params: { id: card.id }}" hover tile>
+            <v-card-media :src="card.src" :height="imageHeight" contain/>
+            <v-card-title primary-title>
+              {{card.title}}
+              <v-layout d-inline style="text-align: right">by {{card.author}}</v-layout>
+            </v-card-title>
             <v-card-text class="title_all">
               {{card.title_all}}
             </v-card-text>
@@ -30,7 +31,6 @@
     </v-container>
   </section>
 </template>
-
 <!-- код, который относится непосредственно к компоненту -->
 <script>
 export default {
@@ -142,6 +142,7 @@ export default {
   }),
   computed: {
     imageHeight () {
+      console.log(this.$vuetify.breakpoint.name)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
         case 'sm': return '300px'
@@ -185,9 +186,8 @@ export default {
   .margin-left {
     margin-left: 8px!important;
   }
-
   .v-btn__content .v-icon {
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 
 </style>

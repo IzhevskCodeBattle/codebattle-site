@@ -1,10 +1,10 @@
 <template>
   <swiper :options="swiperOptionPlayers" :style="{ height: imageHeight }">
-    <swiper-slide v-for="partner in partners" :key="partner.place" style="margin: 10px; weight:250px; height:250px">
+    <swiper-slide v-for="partner in partners" :key="partner.place">
       <v-badge overlap color="orange">
         <span slot="badge">{{partner.place}}</span>
         <v-card flat>
-          <v-card-media contain >
+          <v-card-media contain d-block>
               <img :href="partner.href" :src="partner.src" :alt="partner.title" />
           </v-card-media>
           <v-card-text>
