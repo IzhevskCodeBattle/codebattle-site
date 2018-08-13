@@ -1,57 +1,66 @@
 <template>
-<v-footer absolute>
-  <v-card flat tile class="flex">
-    <v-card-text class="grey lighten-3">
-      <div class="footer-layout">
-         <div class="text-xs-center">
-          <v-btn v-for="icon in icons" :key="icon" icon>
-            <v-icon size="25px">{{ icon }}</v-icon>
-          </v-btn>
-        </div>
-        <div class="text-xs-center">
-          <a>ABOUT</a>
-          <a>EVENTS</a>
-          <a>GAMES</a>
-          <a>CONTACTS</a>
-          <a>HELP</a>
-        </div>
-      </div>
-    </v-card-text>
-    <v-divider></v-divider>
-    <v-card-actions class="grey lighten-3 justify-center">
-      &copy;2018
-    </v-card-actions>
-  </v-card>
+<v-footer app absolute class="footer-layout justify-center" height="64px">
+  <div class="justify-center">
+    <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
+      <v-icon size="25px">{{ icon.icon }}</v-icon>
+    </v-btn>
+  </div>
+  <div class="justify-center">
+    <scrollactive ref="scrollactive">
+      <router-link to="/home#about" class="scrollactive-item">ABOUT</router-link>
+      <router-link to="/home#events" class="scrollactive-item">EVENTS</router-link>
+      <router-link to="/home#games" class="scrollactive-item">GAMES</router-link>
+      <router-link to="/home#contacts">CONTACTS</router-link>
+      <router-link to="/home#help">HELP</router-link>
+    </scrollactive>
+  </div>
+  <v-divider d-block></v-divider>
+  &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
+  <a href="https://github.com/IzhevskCodeBattle" class="link_git">
+    <img alt="link git" src="/static/img/fork-me.png" />
+  </a>
 </v-footer>
 </template>
 
 <script>
 export default {
   data: () => ({
-    icons: ['fab fa-vk', 'fab fa-facebook', 'fab fa-twitter', 'fab fa-linkedin', 'fab fa-github-alt', 'fab fa-google']
+    icons: [
+      { icon: 'fab fa-vk', href: 'http://vk.com' },
+      { icon: 'fab fa-facebook', href: 'http://facebook.com' },
+      { icon: 'fab fa-twitter', href: 'http://twitter.com' },
+      { icon: 'fab fa-linkedin', href: 'http://linkedin.com' },
+      { icon: 'fab fa-github-alt', href: 'https://github.com/IzhevskCodeBattle' },
+      { icon: 'fab fa-google', href: 'http://google.com' }
+    ]
   })
 }
 </script>
 
 <style scoped>
-.footer {
-  padding-top: 100px;
-  background: white !important;
+.footer-layout {
+  width: 100%;
+  margin: auto;
+  display: block;
+  text-align: center;
 }
 
-.footer-layout {
-  width: 50%;
-  margin: auto;
+.link_git{
+  position: fixed;
+  right: -5px;
+  bottom: -10px;
 }
 
 a {
-  color: #263852;
+  text-decoration: none;
+  margin: 5px;
 }
 
 @media only screen and (max-width: 960px) {
   .footer-layout {
-    width: 80%;
+    width: 100%;
     margin: auto;
+    display: block;
   }
 }
 </style>

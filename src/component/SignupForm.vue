@@ -1,7 +1,7 @@
 <template>
-<v-dialog v-model="show"  max-width="500px">
+<v-dialog v-model="show" max-width="500px">
   <form class="signup-form" @submit.prevent="signup()">
-    <v-card max-width="500px">
+    <v-card>
       <v-card-title>
         <span style="margin-left: auto;" class="headline">SIGN UP</span>
         <a style="margin-left:auto;" @click.stop="show = false">
@@ -13,13 +13,13 @@
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
+              <v-text-field prepend-inner-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
             </v-flex>
           </v-layout>
         </v-container>
@@ -36,8 +36,8 @@
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
-      <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
-        <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte">
+      <v-layout justify-center flex style="padding-bottom: 16px">
+        <a class="vk" href="vkontakte">
           <v-icon>fab fa-vk</v-icon>
         </a>
         <a class="fb" href="">
@@ -55,7 +55,7 @@
         <a class="google" href="">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-card-text>
+      </v-layout>
     </v-card>
   </form>
 </v-dialog>
@@ -140,14 +140,6 @@ export default {
   font-family: "Source Sans Pro";
 }
 
-span {
-  color: #454547;
-}
-
-.card__text {
-  padding: 0px 16px 0px 16px;
-}
-
 .vk,
 .fb,
 .twitter,
@@ -168,7 +160,6 @@ span {
 .create-account,
 .login {
   text-decoration: underline;
-  color: #263852;
 }
 
 .vk:hover {
@@ -225,7 +216,6 @@ span {
   }
   .icon {
     font-size: 30px;
-    color: white;
   }
 }
 </style>

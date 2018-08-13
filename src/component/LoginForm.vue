@@ -1,11 +1,11 @@
 <template>
-<v-dialog v-model="show" max-width="500px">
+<v-dialog v-model="show" dark max-width="500px">
   <form class="login-form" @submit.prevent="login">
-    <v-card max-width="500px">
+    <v-card>
       <v-card-title>
         <span style="margin-left: auto;" class="headline">LOGIN</span>
         <a style="margin-left:auto;" @click.stop="show = false">
-          <v-icon color="grey darken-1">close</v-icon>
+          <v-icon>close</v-icon>
         </a>
       </v-card-title>
       <v-divider></v-divider>
@@ -13,10 +13,10 @@
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
             <v-flex xs8>
-              <v-text-field append-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
             </v-flex>
             <v-flex xs8>
-              <v-text-field append-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
             </v-flex>
             <v-flex xs8>
               <span>
@@ -40,26 +40,26 @@
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
-      <v-card-text style="display:flex; justify-content:center; padding-bottom: 16px">
-        <a class="vk" href="http://212.158.174.142:4333/api/auth/vkontakte">
+      <v-layout flex justify-center style="padding-bottom: 16px">
+        <a class="vk" href="/api/auth/vkontakte">
           <v-icon>fab fa-vk</v-icon>
         </a>
-        <a class="fb" href="">
+        <a class="fb" href="/api/auth/facebook">
           <v-icon>fab fa-facebook-f</v-icon>
         </a>
-        <a class="twitter" href="">
+        <a class="twitter" href="/api/auth/twitter">
           <v-icon>fab fa-twitter</v-icon>
         </a>
-        <a class="linkedin" href="">
+        <a class="linkedin" href="/api/auth/linkedin">
           <v-icon>fab fa-linkedin-in</v-icon>
         </a>
-        <a class="github" href="">
+        <a class="github" href="/api/auth/github">
           <v-icon>fab fa-github-alt</v-icon>
         </a>
-        <a class="google" href="">
+        <a class="google" href="/api/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-card-text>
+      </v-layout>
     </v-card>
   </form>
 </v-dialog>
@@ -144,14 +144,6 @@ export default {
   font-family: "Source Sans Pro";
 }
 
-span {
-  color: #454547;
-}
-
-.card__text {
-  padding: 0px 16px 0px 16px;
-}
-
 .vk,
 .fb,
 .twitter,
@@ -169,19 +161,6 @@ span {
   justify-content: center;
 }
 
-.create-account,
-.login,
-.forgot {
-  text-decoration: underline;
-  color: #263852;
-}
-
-.flex {
-  display: -webkit-flex;
-  -webkit-justify-content: flex-start;
-  display: flex;
-  justify-content: space-between;
-}
 
 .vk:hover {
   background: #597da3;
@@ -237,7 +216,6 @@ span {
   }
   .icon {
     font-size: 30px;
-    color: white;
   }
 }
 </style>

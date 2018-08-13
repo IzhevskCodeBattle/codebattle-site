@@ -9,22 +9,25 @@
           <v-card :to="{ name: 'game', params: { id: card.id }}">
             <img :src="card.src"/>
             <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
+
             <v-card-text class="title_all">
               {{card.title_all}}
             </v-card-text>
             <v-card-actions>
+              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
+              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
+              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
+              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
+              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
               <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon>favorite</v-icon>
-              </v-btn>
-              <!-- <v-btn icon>
-                <v-icon>share</v-icon>
-              </v-btn> -->
+              <v-btn icon small><v-icon>favorite</v-icon></v-btn>
+              <v-btn icon small class="margin-left"><v-icon>bookmark</v-icon></v-btn>
+              <v-btn icon small class="margin-left"><v-icon>share</v-icon></v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
-    </v-layout>
+    </v-container>
   </section>
 </template>
 
@@ -34,37 +37,120 @@ export default {
   data: () => ({
     cards: [
       { id: 1,
-        title: 'Assassin’s Creed IV: Black Flag',
-        src: '/static/img/games/game1.jpg',
-        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
+        title: 'Название игры №1',
+        src: '/static/img/games/2048.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 2,
-        title: 'Grand Theft Auto V',
-        src: '/static/img/games/game2.jpg',
-        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
+        title: 'Название игры №2',
+        src: '/static/img/games/battle-city.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 3,
-        title: 'Assassin’s Creed IV: Black Flag',
-        src: '/static/img/games/game1.jpg',
-        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
+        title: 'Название игры №3',
+        src: '/static/img/games/bomberman.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 4,
-        title: 'Grand Theft Auto V',
-        src: '/static/img/games/game2.jpg',
-        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
+        title: 'Название игры №4',
+        src: '/static/img/games/collapse.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 5,
-        title: 'Assassin’s Creed IV: Black Flag',
-        src: '/static/img/games/game1.jpg',
-        title_all: 'Четвертая часть Assassins Creed перенесет вас в эпоху пиратства. Вам придется побывать в шкуре знаменитого пирата – ассасина Эдварда Кенуэйя, его история расскажет много интересных подробностей о культе тихих убийц во времена Золотой эпохи пиратства.'
+        title: 'Название игры №5',
+        src: '/static/img/games/fifthteen.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       },
       { id: 6,
-        title: 'Grand Theft Auto V',
-        src: '/static/img/games/game2.jpg',
-        title_all: 'Действие игры происходит в вымышленном штате Сан-Андреас, прообразом которого послужила Южная Калифорния. Сюжет в однопользовательском режиме строится вокруг приключений троих грабителей, устраивающих всё более дерзкие ограбления и противостоящих как организованной преступности, так и правоохранительным ведомствам. '
+        title: 'Название игры №6',
+        src: '/static/img/games/hex.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 7,
+        title: 'Название игры №6',
+        src: '/static/img/games/kubik.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 8,
+        title: 'Название игры №6',
+        src: '/static/img/games/loderunner.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 9,
+        title: 'Название игры №6',
+        src: '/static/img/games/minesweeper.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 10,
+        title: 'Название игры №6',
+        src: '/static/img/games/moebius.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 11,
+        title: 'Название игры №6',
+        src: '/static/img/games/puzzlebox.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 12,
+        title: 'Название игры №6',
+        src: '/static/img/games/quake2d.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 13,
+        title: 'Название игры №6',
+        src: '/static/img/games/reversi.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 14,
+        title: 'Название игры №6',
+        src: '/static/img/games/snake.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 15,
+        title: 'Название игры №6',
+        src: '/static/img/games/snakebattle.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 17,
+        title: 'Название игры №6',
+        src: '/static/img/games/spacerace.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
+      },
+      { id: 18,
+        title: 'Название игры №6',
+        src: '/static/img/games/sudoku.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        author: 'Cool Man'
       }
     ]
-  })
+  }),
+  computed: {
+    imageHeight () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return '300px'
+        case 'sm': return '300px'
+        case 'md': return '300px'
+        case 'lg': return '300px'
+        case 'xl': return '300px'
+      }
+    }
+  }
 }
 </script>
 
@@ -91,6 +177,17 @@ export default {
   }  
   .title_all{
     text-align: justify;
-    font-size: 1.3em;
+    font-size: 1em;
   }
+  .v-card__actions .v-btn  + .v-btn {
+    margin-left: 0px;
+  }
+  .margin-left {
+    margin-left: 8px!important;
+  }
+
+  .v-btn__content .v-icon {
+    font-size: 1.4em;
+  }
+
 </style>

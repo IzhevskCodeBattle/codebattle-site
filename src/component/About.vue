@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
-  <section>
-    <a name="about"/>
+  <section id="about">
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">
@@ -19,25 +18,25 @@
     <v-layout row wrap>
       <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
-          <v-icon color="black" class="xsize" >extension</v-icon>
+          <v-icon class="xsize">extension</v-icon>
           <v-card-text class="card_text">Программирование в виде игры</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
-          <v-icon color="black" class="xsize" >supervisor_account</v-icon>
+          <v-icon class="xsize" >supervisor_account</v-icon>
           <v-card-text class="card_text">Новые знакомства</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
-          <v-icon color="black" class="xsize" >code</v-icon>
+          <v-icon class="xsize" >code</v-icon>
           <v-card-text class="card_text">Практика, а не теория</v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
-          <v-icon color="black" class="xsize" >thumb_up</v-icon>
+          <v-icon class="xsize" >thumb_up</v-icon>
           <v-card-text class="card_text">Море эмоций</v-card-text>
         </v-card>
       </v-flex>
@@ -70,7 +69,6 @@ export default {
   }
   .cb-text{
     font-size: 50px;
-    text-shadow: 1px 1px 2px black;
     text-transform: uppercase;
   } 
 
@@ -92,7 +90,6 @@ export default {
     font-size: 80px;
     /* background-color: gray; */
     border-radius: 80px;
-    border: 3px solid black;
   }
   .layout{
     text-align: center;
