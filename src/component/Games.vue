@@ -1,16 +1,15 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="games">
-    <h2 class="toolbar">Games</h2>
-    <v-container fluid grid-list-md>
-      <v-layout row wrap >
-        <v-flex class='xs12 sm4 md3 lg2' v-for="card in cards" :key="card.title">
-          <v-card :to="{ name: 'game', params: { id: card.id }}" hover tile>
-            <v-card-media :src="card.src" :height="imageHeight" contain/>
-            <v-card-title primary-title>
-              {{card.title}}
-              <v-layout d-inline style="text-align: right">by {{card.author}}</v-layout>
-            </v-card-title>
+  <section class="games">
+    <a name="games"/>
+    <v-layout column>
+      <h2 class="toolbar">Games</h2>
+      <v-layout row wrap>
+        <v-flex class='xs12 sm6 md4 lg4' v-for="card in cards" :key="card.id">
+          <v-card :to="{ name: 'game', params: { id: card.id }}">
+            <img :src="card.src"/>
+            <v-card-title primary-title class="headline cards">{{card.title}}</v-card-title>
+
             <v-card-text class="title_all">
               {{card.title_all}}
             </v-card-text>
@@ -159,8 +158,13 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  #games{
-    padding-top: 45px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .games{
+    padding-top: 25px;
+    padding-bottom: 50px;
   }
   h2{
     text-align: center;
@@ -170,7 +174,7 @@ export default {
   .card{
     overflow: hidden;
     margin: 2px;
-  }
+  }  
   .title_all{
     text-align: justify;
     font-size: 1em;

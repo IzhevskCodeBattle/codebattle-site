@@ -12,26 +12,29 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-layout row style="text-align:center">
-      <v-flex xs12 sm6 md3>
+    <v-flex>
+      <h2>Приемущества Code Battle</h2>
+    </v-flex>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon class="xsize">extension</v-icon>
           <v-card-text class="card_text">Программирование в виде игры</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon class="xsize" >supervisor_account</v-icon>
           <v-card-text class="card_text">Новые знакомства</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon class="xsize" >code</v-icon>
           <v-card-text class="card_text">Практика, а не теория</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6 md3>
+      <v-flex xs12 sm6 md3 lg3>
         <v-card flat>
           <v-icon class="xsize" >thumb_up</v-icon>
           <v-card-text class="card_text">Море эмоций</v-card-text>
@@ -82,9 +85,14 @@ export default {
     font-size: 30px;
   }
   .xsize{
+    margin-top: 50px;
     padding: 20px;
     font-size: 80px;
     /* background-color: gray; */
     border-radius: 80px;
   }
+  .layout{
+    text-align: center;
+  }
+ 
 </style>
