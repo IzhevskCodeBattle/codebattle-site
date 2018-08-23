@@ -5,4 +5,5 @@
   "files.exclude": {
     "node_modules": true
   },
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe"
 }
