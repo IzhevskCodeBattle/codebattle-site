@@ -23,7 +23,7 @@
         </v-flex>
         <v-flex xs12 sm6 md3 lg3>
             <v-card-text class='t_d'>Дата: 15.02.2018</v-card-text>
-            <button class='reg-button v-btn' id='twf' data-twf-target-state='{"event_id": 795011}'>Регистрация</button>
+            <button class='reg-button v-btn' id='twf' v-bind:data-twf-target-state="this.registrationLink">Регистрация</button>
         </v-flex>
      </v-layout>
     <v-layout px-5 row wrap>
@@ -44,7 +44,8 @@ import timePadService from '@/service/timePadService'
 
 export default {
   data: () => ({
-    currentEvent: {}
+    currentEvent: {},
+    registrationLink: ''
   }),
   name: 'Event',
   components: {
@@ -52,6 +53,7 @@ export default {
   },
   created () {
     timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res }).then(() => console.log(this.currentEvent))
+    this.registrationLink = `{"event_id": ${this.$route.params.id}}`
   }
 }
 </script>
