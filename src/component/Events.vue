@@ -1,6 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="Events">
+  <section id="events">
     <h2 class="toolbar">Events</h2>
     <v-container fluid grid-list-md>
       <v-layout row wrap >
