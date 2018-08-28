@@ -9,7 +9,7 @@
             <v-card-media :src="event.poster_image.default_url" :height="imageHeight" style="opacity:0.4"/>
             <div text-xs-center fill-height style="position:absolute; top:0;">
               <v-card-text class="event_name">{{event.name}}</v-card-text>
-              <v-card-text style="text-align: right">{{event.starts_at}} {{event.time}}</v-card-text>
+              <v-card-text style="text-align: right">{{event.starts_at | TimeFilter }}</v-card-text>
               <v-card-text class="description">{{event.description}}</v-card-text>
             </div>
             <v-card-actions>
@@ -169,6 +169,11 @@ export default {
         case 'lg': return '300px'
         case 'xl': return '300px'
       }
+    }
+  },
+  filters: {
+    TimeFilter (val) {
+      return new Date(val).toTimeString().split('').splice(0, 5).join('')
     }
   },
   created: function () {
