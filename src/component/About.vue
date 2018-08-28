@@ -68,7 +68,7 @@ export default {
     line-height: 1.5;
   }
   .cb-text{
-    font-size: 50px;
+    font-size: 4em;
     text-transform: uppercase;
   } 
 

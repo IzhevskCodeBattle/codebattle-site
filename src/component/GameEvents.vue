@@ -1,8 +1,8 @@
 <template>
-   <v-layout row wrap>
+   <v-layout row wrap style="margin-top: 30px; margin-bottom: 30px;">
     <v-flex xs12 sm6 md6 lg6 xl6>
       <v-card>
-        <v-toolbar color="pink" dark>
+        <v-toolbar color="green darken-2" dark>
           <v-toolbar-title>Запланированные сессии</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
@@ -31,11 +31,11 @@
           </template>
         </v-list>
       </v-card>
-    
     </v-flex>
+
     <v-flex xs12 sm6 md6 lg6 xl6>
       <v-card>
-        <v-toolbar color="pink" dark>
+        <v-toolbar color="green darken-2" dark>
           <v-toolbar-title>Участники</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
