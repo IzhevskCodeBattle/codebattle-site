@@ -1,6 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="Events">
+  <section id="events">
     <h2 class="toolbar">Events</h2>
     <v-container fluid grid-list-md>
       <v-layout row wrap >
@@ -177,9 +177,9 @@ export default {
   .v-btn__content .v-icon {
     font-size: 1.5em;
   }
-  .events {
-    padding-top: 25px;
-    padding-bottom: 50px;
+  #events {
+    padding-top: 45px;
+    padding-bottom: 30px;
     font-family: source sans pro;
   }
   h2 {

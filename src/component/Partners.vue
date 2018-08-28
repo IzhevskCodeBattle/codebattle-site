@@ -59,9 +59,9 @@ export default {
 }
 </script>
 <style scoped>
-#partners{
-  padding-top: 45px;
-}
+  #partners{
+    padding-top: 45px;
+  }
   img{
     min-width: 100%;
     min-height: 100%;

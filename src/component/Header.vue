@@ -3,8 +3,8 @@
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
     <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down">
     <v-btn flat class="scrollactive-item" to="/home#about">About</v-btn>
-    <v-btn flat class="scrollactive-item" to="/home#games">Games</v-btn>
     <v-btn flat class="scrollactive-item" to="/home#events">Events</v-btn>
+    <v-btn flat class="scrollactive-item" to="/home#games">Games</v-btn>
     <v-btn flat class="scrollactive-item" to="/home#partners">Partners</v-btn>
   </scrollactive>
   <v-spacer></v-spacer>
