@@ -1,9 +1,9 @@
 <template>
   <swiper :options="swiperOptionTop" :style="{ height: imageHeight }">
-    <swiper-slide v-for="partner in partners" :key="partner.title">
+    <swiper-slide v-for="partner in partners" :key="partner.title">  
       <img :href="partner.href" :src="partner.src" :alt="partner.title" />
     </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <!-- <div class="swiper-pagination" slot="pagination"></div> -->
   </swiper>
 </template>
 <script>
@@ -30,28 +30,40 @@ export default {
     swiperOptionTop: {
       centeredSlides: true,
       loop: true,
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
       pagination: {
         el: '.swiper-pagination',
         clickable: true
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false
       }
     },
     partners: [
       { title: 'EPAM Systems',
-        src: '/static/img/partners/epam_logo.jpg',
+        src: '/static/img/games/2048.png',
         href: 'http://epam.com'
       },
       { title: 'Partner 1',
-        src: '/static/img/partners/1.png',
+        src: '/static/img/games/battle-city.png',
         href: 'http://epam.com'
       },
       { title: 'Partner 2',
-        src: '/static/img/partners/2.jpg',
+        src: '/static/img/games/bomberman.png',
         href: 'http://epam.com'
       },
       { title: 'Partner 3',
-        src: '/static/img/partners/3.jpg',
+        src: '/static/img/games/collapse.png',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 3',
+        src: '/static/img/games/fifthteen.png',
+        href: 'http://epam.com'
+      },
+      { title: 'Partner 3',
+        src: '/static/img/games/hex.png',
         href: 'http://epam.com'
       }
     ]
@@ -59,8 +71,10 @@ export default {
 }
 </script>
 <style scoped>
-.swiper-slide img {
-  height: 100%;
-}
+    .swiper-slide img {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+    }
 </style>
 

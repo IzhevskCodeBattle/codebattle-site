@@ -1,13 +1,13 @@
 <template>
-  <swiper :options="swiperOptionPlayers" :style="{ height: imageHeight }">
+  <swiper :options="swiperOptionPlayers">
     <swiper-slide v-for="partner in partners" :key="partner.place">
-      <v-badge overlap color="orange">
+      <v-badge overlap color="orange" style="margin-top: 10px;">
         <span slot="badge">{{partner.place}}</span>
         <v-card flat>
-          <v-card-media contain d-block>
+          <v-card-media contain d-block >
               <img :href="partner.href" :src="partner.src" :alt="partner.title" />
           </v-card-media>
-          <v-card-text>
+          <v-card-text style="text-align: center;">
             {{partner.title}}
           </v-card-text>
         </v-card>
@@ -25,73 +25,73 @@ export default {
     swiper,
     swiperSlide
   },
-  computed: {
-    imageHeight () {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs': return '50'
-        case 'sm': return '100'
-        case 'md': return '125'
-        case 'lg': return '250'
-        case 'xl': return '250'
-      }
-    }
-  },
+  // computed: {
+  //   imageHeight () {
+  //     switch (this.$vuetify.breakpoint.name) {
+  //       case 'xs': return '50'
+  //       case 'sm': return '100'
+  //       case 'md': return '125'
+  //       case 'lg': return '250'
+  //       case 'xl': return '250'
+  //     }
+  //   }
+  // },
   data: () => ({
     partners: [
       { place: 1,
-        title: 'EPAM Systems',
+        title: 'Player 1',
         src: '/static/img/partners/epam_logo.jpg',
         href: 'http://epam.com'
       },
       { place: 2,
-        title: 'Partner 1',
+        title: 'Player 2',
         src: '/static/img/partners/1.png',
         href: 'http://epam.com'
       },
       { place: 3,
-        title: 'Partner 2',
+        title: 'Player 3',
         src: '/static/img/partners/2.jpg',
         href: 'http://epam.com'
       },
       { place: 4,
-        title: 'Partner 3',
+        title: 'Player 4',
         src: '/static/img/partners/3.jpg',
         href: 'http://epam.com'
       },
       { place: 5,
-        title: 'EPAM Systems',
+        title: 'Player 5',
         src: '/static/img/partners/epam_logo.jpg',
         href: 'http://epam.com'
       },
       { place: 6,
-        title: 'Partner 1',
+        title: 'Player 6',
         src: '/static/img/partners/1.png',
         href: 'http://epam.com'
       },
       { place: 7,
-        title: 'Partner 2',
+        title: 'Player 7',
         src: '/static/img/partners/2.jpg',
         href: 'http://epam.com'
       },
       { place: 8,
-        title: 'Partner 3',
+        title: 'Player 8',
         src: '/static/img/partners/3.jpg',
         href: 'http://epam.com'
       },
       { place: 9,
-        title: 'Partner 3',
+        title: 'Player 9',
         src: '/static/img/partners/3.jpg',
         href: 'http://epam.com'
       },
       { place: 10,
-        title: 'Partner 3',
+        title: 'Player 10',
         src: '/static/img/partners/3.jpg',
         href: 'http://epam.com'
       }
     ],
     swiperOptionPlayers: {
-      centeredSlides: true,
-      slidesPerView: 10,
+      centeredSlides: false,
+      slidesPerView: 5,
       spaceBetween: 30,
       pagination: {
         el: '.swiper-pagination',
@@ -102,6 +102,11 @@ export default {
 }
 </script>
 <style scoped>
-
+    img{
+      min-width: 100%;
+      min-height: 100%;
+      width: 100%;
+      height: 100%;
+    }
 </style>
 

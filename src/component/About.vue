@@ -66,7 +66,7 @@ export default {
     line-height: 1.5;
   }
   .cb-text{
-    font-size: 120px;
+    font-size: 5em;
     text-transform: uppercase;
     color: #222222;
   } 
