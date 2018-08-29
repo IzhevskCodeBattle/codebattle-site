@@ -6,16 +6,16 @@
     </v-btn>
   </div>
   <div class="justify-center">
-    <scrollactive ref="scrollactive">
-      <router-link to="/home#about" class="scrollactive-item">ABOUT</router-link>
-      <router-link to="/home#events" class="scrollactive-item">EVENTS</router-link>
-      <router-link to="/home#games" class="scrollactive-item">GAMES</router-link>
-      <router-link to="/home#contacts">CONTACTS</router-link>
-      <router-link to="/home#help">HELP</router-link>
+    <scrollactive ref="scrollactive" class="footer__links">
+      <router-link to="/home#about" class="scrollactive-item">О НАС</router-link>
+      <router-link to="/home#events" class="scrollactive-item">СОБЫТИЯ</router-link>
+      <router-link to="/home#games" class="scrollactive-item">ИГРЫ</router-link>
+      <router-link to="/home#contacts">КОНТАКТЫ</router-link>
+      <router-link to="/home#help">ПОМОЩЬ</router-link>
     </scrollactive>
   </div>
   <v-divider d-block></v-divider>
-  &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }}
+  <!-- &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }} -->
   <a href="https://github.com/IzhevskCodeBattle" class="link_git">
     <img alt="link git" src="/static/img/fork-me.png" />
   </a>
@@ -28,8 +28,6 @@ export default {
     icons: [
       { icon: 'fab fa-vk', href: 'http://vk.com' },
       { icon: 'fab fa-facebook', href: 'http://facebook.com' },
-      { icon: 'fab fa-twitter', href: 'http://twitter.com' },
-      { icon: 'fab fa-linkedin', href: 'http://linkedin.com' },
       { icon: 'fab fa-github-alt', href: 'https://github.com/IzhevskCodeBattle' },
       { icon: 'fab fa-google', href: 'http://google.com' }
     ]
@@ -38,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+.footer__links a{
+  color: #008ACE;
+}
 .footer-layout {
   width: 100%;
   margin: auto;

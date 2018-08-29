@@ -4,16 +4,15 @@
     <v-flex>
       <v-card flat>
         <v-card-text class="info_text">
-          <span class="cb-text">Code Battle</span><br><br>
-          Это мини-хакатон для тех, кто любит программирование, 
-          искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
-          любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
-          Все сражения демонстрируются на большом экране в режиме реального времени.
+          <span class="cb-text">Code Battle</span>
+          <p>
+            Это мини-хакатон для тех, кто любит программирование, 
+            искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
+            любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+            Все сражения демонстрируются на большом экране в режиме реального времени.
+          </p>
         </v-card-text>
       </v-card>
-    </v-flex>
-    <v-flex>
-      <h2>Приемущества Code Battle</h2>
     </v-flex>
     <v-layout row wrap>
       <v-flex xs12 sm6 md3 lg3>
@@ -54,7 +53,6 @@ export default {
   h2{
     text-align: center;
     font-size: 3em;
-    /* padding-bottom: 15px; */
   }
 
   .info_text{
@@ -68,8 +66,9 @@ export default {
     line-height: 1.5;
   }
   .cb-text{
-    font-size: 50px;
+    font-size: 120px;
     text-transform: uppercase;
+    color: #222222;
   } 
 
   .icon{
@@ -88,7 +87,7 @@ export default {
     margin-top: 50px;
     padding: 20px;
     font-size: 80px;
-    /* background-color: gray; */
+    color: #CEDB56;
     border-radius: 80px;
   }
   .layout{
