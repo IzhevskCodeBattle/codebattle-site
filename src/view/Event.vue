@@ -147,7 +147,8 @@ export default {
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-family: SourceSansPro-lt;
+      font-family: Roboto;
+      font-size: 1vw;
       color: #96979d;
       font-size: 1.2em;
       border-right: 1px solid darkgrey;
@@ -185,15 +186,19 @@ export default {
       height: 300px;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 1024px) {
       .event-registration__name {
         font-size: 3em;
       }
       .event-main__description {
         font-size: 1.2em;
       }
+      .event-date__item {
+        font-size: 1em;
+      }
+
     }
-    @media (max-width: 600px) {
+    @media (max-width: 780px) {
       .event-image {
         height: 20%;
       }
@@ -203,10 +208,15 @@ export default {
       } 
       .event-registration__name {
         font-size: 2em;
+        text-align: left;
+      }
+      .reg-button {
+        font-size: .65em;
       }
       .game-button {
         margin-left: 0;
         margin-top: 2%;
+        font-size: .65em;
       }
       .event-date {
         flex-direction: column;
@@ -215,6 +225,7 @@ export default {
         border-right: none;
         border-bottom: 1px solid darkgrey;
         width: 100%;
+        font-size: 0.9em;
       }
       .event-main {
         display: flex;
