@@ -43,5 +43,10 @@ export default {
   justify-content: space-around;
   align-items: flex-start;
 }
+@media (max-width: 600px) {
+  .video__wrapper{
+    display: none;
+  }
+}
 </style>
 

@@ -52,5 +52,13 @@ export default {
     height: 64px;
     margin-top: -64px;
   }
+  .application .theme--light.v-footer, .theme--light .v-footer{
+    background-color: #fff;
+  }
+  @media (max-width: 600px) {
+    .toolbar{
+      font-size: 2.5em;
+    }
+  }
 </style>
 

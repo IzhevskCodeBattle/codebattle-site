@@ -15,10 +15,6 @@
       <div class="game__dummy"></div>
       <div class="game__dummy"></div>
       <div class="game__dummy"></div>
-      <div class="game__dummy"></div>
-      <div class="game__dummy"></div>
-      <div class="game__dummy"></div>
-      <div class="game__dummy"></div>
     </div>
   </section>
 </template>
@@ -56,78 +52,6 @@ export default {
         src: '/static/img/games/fifthteen.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         author: 'Cool Man'
-      },
-      { id: 6,
-        title: 'Название игры №6',
-        src: '/static/img/games/hex.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 7,
-        title: 'Название игры №6',
-        src: '/static/img/games/kubik.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 8,
-        title: 'Название игры №6',
-        src: '/static/img/games/loderunner.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 9,
-        title: 'Название игры №6',
-        src: '/static/img/games/minesweeper.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 10,
-        title: 'Название игры №6',
-        src: '/static/img/games/moebius.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 11,
-        title: 'Название игры №6',
-        src: '/static/img/games/puzzlebox.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 12,
-        title: 'Название игры №6',
-        src: '/static/img/games/quake2d.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 13,
-        title: 'Название игры №6',
-        src: '/static/img/games/reversi.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 14,
-        title: 'Название игры №6',
-        src: '/static/img/games/snake.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 15,
-        title: 'Название игры №6',
-        src: '/static/img/games/snakebattle.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 17,
-        title: 'Название игры №6',
-        src: '/static/img/games/spacerace.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 18,
-        title: 'Название игры №6',
-        src: '/static/img/games/sudoku.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
       }
     ]
   }),
@@ -154,33 +78,35 @@ export default {
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
   .games__wrapper{
+    padding: 0 3%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
     align-content: center;
+    justify-content: space-between;
   }
   .game {
-    width: 200px;
-    height: 400px;
+    width: 45%;
     cursor: pointer;
     margin: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     transition: all .4s cubic-bezier(.25,.8,.25,1);
     transition-property: box-shadow;
   }
   .game:last-child{
-    margin: 0;
+    /* margin: 0; */
   }
   .game:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .game__image{
-    width: 200px;
     height: 200px;
+  }
+  .game__info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .game__name{
     font-size: 20px;
@@ -201,5 +127,24 @@ export default {
   }
   .game__dummy{
     width: 200px;
+  }
+  @media (max-width: 850px) {
+    .game{
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 600px) {
+    .game__image{
+      height: 100px;
+      margin-right: 5px;
+    }
+    .game{
+      width: 100%;
+      justify-content: center;
+    }
+    .game__author, .game__description {
+      display: none;
+    }
   }
 </style>
