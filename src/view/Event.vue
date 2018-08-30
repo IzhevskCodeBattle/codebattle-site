@@ -17,7 +17,7 @@
             Дата: <br>{{ currentEvent.starts_at | DateFilter}}
           </div>
           <div class="event-date__item">
-            г. {{ currentEvent.location.city }}
+            Место проведения: <br>{{ currentEvent.location.address }}
           </div>  
       </div>  
     </div>
