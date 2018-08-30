@@ -1,16 +1,16 @@
 <template>
-<v-toolbar fixed app id="header">
+<v-toolbar fixed app id="header" class="header__wrapper">
   <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
     <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down">
-    <v-btn flat class="scrollactive-item" to="/home#about">About</v-btn>
-    <v-btn flat class="scrollactive-item" to="/home#events">Events</v-btn>
-    <v-btn flat class="scrollactive-item" to="/home#games">Games</v-btn>
-    <v-btn flat class="scrollactive-item" to="/home#partners">Partners</v-btn>
+    <v-btn flat class="scrollactive-item" to="/home#about">О проекте</v-btn>
+    <v-btn flat class="scrollactive-item" to="/home#events">События</v-btn>
+    <v-btn flat class="scrollactive-item" to="/home#games">Игры</v-btn>
+    <v-btn flat class="scrollactive-item" to="/home#partners">Наши партнеры</v-btn>
   </scrollactive>
   <v-spacer></v-spacer>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">
-    <v-btn flat @click="$events.$emit('login-form:show')">Sign in</v-btn>
-    <v-btn flat @click="$events.$emit('signup-form:show')">Sign up</v-btn>
+    <v-btn flat @click="$events.$emit('login-form:show')" class="scrollactive-item">Войти</v-btn>
+    <v-btn flat @click="$events.$emit('signup-form:show')" class="scrollactive-item">Регистрация</v-btn>
   </v-toolbar-items>
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="this.$store.getters.authenticated">
     <v-menu offset-y nudge-right="26px" max-width="212px">
@@ -59,5 +59,16 @@ export default {
 
 .is-active {
   color:#76cdd8;
+}
+
+.header__wrapper{
+  background-color: #464547;
+  padding-right: 30%;
+  padding-left: 30%;
+}
+
+.scrollactive-item{
+  color: #ffffff;
+  height: 64px;
 }
 </style>

@@ -1,34 +1,25 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="games">
-    <h2 class="toolbar">Games</h2>
-    <v-container fluid grid-list-md>
-      <v-layout row wrap >
-        <v-flex class='xs12 sm4 md3 lg2' v-for="card in cards" :key="card.id">
-          <v-card :to="{ name: 'game', params: { id: card.id }}" hover tile>
-            <v-card-media :src="card.src" :height="imageHeight" contain/>
-            <v-card-title primary-title>
-              {{card.title}}
-              <v-layout d-inline style="text-align: right">by {{card.author}}</v-layout>
-            </v-card-title>
-            <v-card-text class="title_all">
-              {{card.title_all}}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon small><v-icon>favorite</v-icon></v-btn>
-              <v-btn icon small class="margin-left"><v-icon>bookmark</v-icon></v-btn>
-              <v-btn icon small class="margin-left"><v-icon>share</v-icon></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+  <section>
+    <div id="games" class="anchor"></div>
+    <h2 class="toolbar">Игры</h2>
+    <div class="games__wrapper">
+      <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
+        <img class="game__image" v-bind:src="card.src">
+        <div class="game__info">
+          <p class="game__name">{{card.title}}</p>
+          <p class="game__author">{{card.author}}</p>
+          <p class="game__description">{{card.title_all}}</p>
+        </div>
+      </div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+    </div>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
@@ -142,7 +133,7 @@ export default {
   }),
   computed: {
     imageHeight () {
-      console.log(this.$vuetify.breakpoint.name)
+      // console.log(this.$vuetify.breakpoint.name)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
         case 'sm': return '300px'
@@ -151,43 +142,64 @@ export default {
         case 'xl': return '300px'
       }
     }
+  },
+  methods: {
+    redirect: function (id) {
+      this.$router.push({name: 'game', params: { id }})
+    }
   }
 }
 </script>
 
-
-
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  img{
-    width: 100%;
-    height: 100%;
+  .games__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
   }
-  #games{
-    padding-top: 45px;
-    padding-bottom: 30px;
+  .game {
+    width: 200px;
+    height: 400px;
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: all .4s cubic-bezier(.25,.8,.25,1);
+    transition-property: box-shadow;
   }
-  h2{
+  .game:last-child{
+    margin: 0;
+  }
+  .game:hover{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  }
+  .game__image{
+    width: 200px;
+    height: 200px;
+  }
+  .game__name{
+    font-size: 20px;
+    color: #464547;
+    font-weight: bolder;
+    margin: 10px;
     text-align: center;
-    font-size: 3em;
-    padding-bottom: 15px;
   }
-  .card{
-    overflow: hidden;
-    margin: 2px;
-  }  
-  .title_all{
+  .game__author{
+    text-align: right;
+    font-size: 15px;
+    font-style: italic;
+    margin: 10px;
+  }
+  .game__description{
     text-align: justify;
-    font-size: 1em;
+    padding: 0 5px;
   }
-  .v-card__actions .v-btn  + .v-btn {
-    margin-left: 0px;
+  .game__dummy{
+    width: 200px;
   }
-  .margin-left {
-    margin-left: 8px!important;
-  }
-  .v-btn__content .v-icon {
-    font-size: 1.5em;
-  }
-
 </style>
