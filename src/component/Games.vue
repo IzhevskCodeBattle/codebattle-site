@@ -163,9 +163,9 @@ export default {
     width: 100%;
     height: 100%;
   }
-  .games{
-    padding-top: 25px;
-    padding-bottom: 50px;
+  #games{
+    padding-top: 45px;
+    padding-bottom: 30px;
   }
   h2{
     text-align: center;
