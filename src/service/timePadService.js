@@ -10,4 +10,5 @@ export default {
     return fetch(`https://api.timepad.ru/v1/events/${id}`).then((res) => { return res.json() })
   }
 }
-// 139349
+// 139349 - codebattle
+// 101198 - epam
