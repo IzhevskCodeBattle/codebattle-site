@@ -41,7 +41,7 @@ export default {
 <style scope>
 
   * {
-    font-family: Roboto,sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   .application.theme--light {
     background-color: white;
