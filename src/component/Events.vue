@@ -152,7 +152,6 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      console.log(val)
       return val.toString().split('').splice(0, 10).join('')
     }
   },

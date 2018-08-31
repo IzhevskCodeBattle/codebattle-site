@@ -56,7 +56,7 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      return new Date(val).toLocaleString().split('').splice(0, 9).join('')
+      return val.toString().split('').splice(0, 10).join('')
     }
   },
   created () {
