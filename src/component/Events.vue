@@ -156,6 +156,7 @@ export default {
     }
   },
   created: function () {
+    timePadService.getEventList().then(res => { console.log(res) })
     timePadService.getEventList().then(res => { this.events = res.values })
   },
   methods: {
