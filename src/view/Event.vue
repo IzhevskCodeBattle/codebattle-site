@@ -34,6 +34,7 @@
       </div>
     </div>
     <!-- <EventPage/> -->
+  
   </v-content>
 </template>
 <script>
