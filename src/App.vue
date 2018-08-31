@@ -39,6 +39,10 @@ export default {
 }
 </script>
 <style scope>
+
+  * {
+    font-family: Roboto,sans-serif;
+  }
   .application.theme--light {
     background-color: white;
   }

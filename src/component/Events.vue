@@ -152,12 +152,12 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      return new Date(val).toLocaleString().split('').splice(0, 9).join('')
+      console.log(val)
+      return val.toString().split('').splice(0, 10).join('')
     }
   },
   created: function () {
-    timePadService.getEventList().then(res => { console.log(res) })
-    timePadService.getEventList().then(res => { this.events = res.values })
+    timePadService.getEventList().then(res => { this.events = res.values; console.log(this.events) })
   },
   methods: {
     redirect: function (id) {
