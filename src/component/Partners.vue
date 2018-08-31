@@ -81,7 +81,7 @@ export default {
   }
 
   .swiper-container {
-    height: 400px;
+    height: 200px;
     width: 100%;
     margin: 0 auto;
     position: relative;
@@ -89,11 +89,28 @@ export default {
     list-style: none;
     padding: 0;
     z-index: 1;
-    background-color: #CEDB56;
   }
   .swiper-slide{
     display: flex;
     align-items: center;
     margin-right: 0;
+  }
+  @media (max-width: 850px) {
+    .swiper-container{
+      height: 150px;
+    }
+    .partner__logo{
+      width: 100px;
+      height: 100px;
+    }
+  }
+  @media (max-width: 600px) {
+    .swiper-container{
+      height: 100px;
+    }
+    .partner__logo{
+      width: 80px;
+      height: 80px;
+    }
   }
 </style>
