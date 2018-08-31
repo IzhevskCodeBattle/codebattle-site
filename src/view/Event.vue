@@ -61,6 +61,7 @@ export default {
   created () {
     timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res }).then(() => console.log(this.currentEvent))
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
+    window.scrollTo(0, 0)
   }
 }
 </script>
