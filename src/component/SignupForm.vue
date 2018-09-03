@@ -1,9 +1,9 @@
 <template>
-<v-dialog v-model="show" max-width="500px">
+<v-dialog v-model="show" :fullscreen="$vuetify.breakpoint.height<=640" max-width="500px">
   <form class="signup-form" @submit.prevent="signup()">
     <v-card>
       <v-card-title>
-        <span style="margin-left: auto;" class="headline">SIGN UP</span>
+        <span style="margin-left: auto;" class="headline">РЕГИСТРАЦИЯ</span>
         <a style="margin-left:auto;" @click.stop="show = false">
           <v-icon color="grey darken-1">close</v-icon>
         </a>
@@ -12,26 +12,26 @@
       <v-card-text>
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
-            <v-flex xs8>
-              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+            <v-flex xs10>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Имя пользователя" required></v-text-field>
             </v-flex>
-            <v-flex xs8>
+            <v-flex xs10>
               <v-text-field prepend-inner-icon="email" v-model="credentials.email" label="Email" required></v-text-field>
             </v-flex>
-            <v-flex xs8>
-              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+            <v-flex xs10>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Пароль" type="password" required></v-text-field>
             </v-flex>
           </v-layout>
         </v-container>
       </v-card-text>
       <v-card-actions class="justify-center">
-        <v-flex xs8>
-          <v-btn class="signin-btn" type="submit">Sign up</v-btn>
+        <v-flex xs10>
+          <v-btn class="signin-btn" type="submit">Зарегистрироваться</v-btn>
         </v-flex>
       </v-card-actions>
       <v-card-text class="text-xs-center">
-        Already registered?
-        <a class="login" @click="show=false; $events.$emit('login-form:show')">Sign in</a>
+        Уже зарегистрированы?
+        <a class="login" @click="show=false; $events.$emit('login-form:show')">Войти</a>
       </v-card-text>
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
@@ -135,9 +135,10 @@ export default {
 </script>
 
 <style scoped>
-.login-form,
-.register-form {
+.signup-form, .v-card {
   font-family: "Source Sans Pro";
+  width: 100%;
+  height: 100%;
 }
 
 .vk,
@@ -179,7 +180,7 @@ export default {
 }
 
 .github:hover {
-  background: black;
+  background: #F5F5F5;
 }
 
 .google:hover {
@@ -197,7 +198,7 @@ export default {
   width: 100%;
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 376px) {
   .vk,
   .fb,
   .twitter,
