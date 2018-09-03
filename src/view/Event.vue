@@ -252,7 +252,6 @@ export default {
         margin-top: 2%;
         margin-bottom: 50%;
       }
-
     }
 
 </style>
