@@ -4,8 +4,10 @@
     <div class="event-registration">
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name">{{ currentEvent.name }}</div>
-      <button class="reg-button" id='twf' v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-      <button class="game-button">ПРЕДСТОЯЩАЯ ИГРА</button>
+      <div class="event-registration__buttons">
+        <button class="reg-button" id='twf' v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button class="game-button">ПРЕДСТОЯЩАЯ ИГРА</button>
+      </div>  
     </div>
     <div class="event-date__wrapper">    
       <div class="event-date">
@@ -83,12 +85,14 @@ export default {
       left: 5%;
     }
     .event-registration__name {
+      width: 400px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       font-size: 4em;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
+      padding-left: 0;
       color: #464547;
     }
     .event-registration__logo {
@@ -98,11 +102,12 @@ export default {
     .event-image {
       position: relative;
       width: 100%;
-      height: 40%;
+      height: 400px;
       display: flex;
       margin: 0 auto;
       opacity: .5;
     }
+
     .reg-button {
       text-align: center;
       padding: 10px;
@@ -150,9 +155,8 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 1vw;
+      font-size: 1.1vw;
       color: #96979d;
-      font-size: 1.2em;
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;
@@ -209,8 +213,12 @@ export default {
         left: 6%;
       } 
       .event-registration__name {
+        width: 100%;
         font-size: 2em;
         text-align: left;
+      }
+      .event-registration__buttons {
+       
       }
       .reg-button {
         font-size: .65em;
@@ -245,7 +253,6 @@ export default {
         margin-top: 2%;
         margin-bottom: 50%;
       }
-
     }
 
 </style>
