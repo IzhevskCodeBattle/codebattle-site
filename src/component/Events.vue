@@ -152,16 +152,18 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      console.log(val)
-      return val.toString().split('').splice(0, 10).join('')
+      return val.toString().split('').splice(0, 9).join('')
     }
   },
   created: function () {
-    timePadService.getEventList().then(res => { this.events = res.values })
+    this.createEventList()
   },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
+    },
+    createEventList () {
+      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()]).then(res => { this.events = res[0].values.concat(res[1].values) })
     }
   }
 }
@@ -172,6 +174,8 @@ export default {
   .events__wrapper{
     display: flex;
     align-items: center;
+    padding: 0 10%;
+    flex-wrap: wrap;
   }
   .event {
     width: 300px;

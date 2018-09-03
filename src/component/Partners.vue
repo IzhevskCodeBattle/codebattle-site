@@ -24,17 +24,21 @@ export default {
         src: '/static/img/partners/epam_logo.jpg',
         href: 'http://epam.com'
       },
-      { title: 'Partner 1',
-        src: '/static/img/partners/1.png',
-        href: 'http://epam.com'
+      { title: 'ISTU',
+        src: '/static/img/partners/istu_logo.png',
+        href: 'http://www.istu.ru/'
       },
-      { title: 'Partner 2',
-        src: '/static/img/partners/2.jpg',
-        href: 'http://epam.com'
+      { title: 'UDSU',
+        src: '/static/img/partners/udgu_logo.png',
+        href: 'http://udsu.ru/'
       },
-      { title: 'Partner 3',
-        src: '/static/img/partners/3.jpg',
-        href: 'http://epam.com'
+      { title: 'KVANTORIUM',
+        src: '/static/img/partners/kvantorium_logo.png',
+        href: 'http://kvant18.ru/'
+      },
+      { title: 'GGPI',
+        src: '/static/img/partners/ggpi_logo.png',
+        href: 'http://www.ggpi.org/news.php'
       }
     ],
     swiperOption: {
@@ -95,7 +99,7 @@ export default {
     align-items: center;
     margin-right: 0;
   }
-  @media (max-width: 850px) {
+  @media (max-width: 1144px) {
     .swiper-container{
       height: 150px;
     }

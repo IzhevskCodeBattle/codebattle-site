@@ -14,7 +14,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-layout row wrap>
+    <v-layout row wrap class="advantage">
       <v-flex xs6 sm6 md3 lg3>
         <v-card flat>
           <v-icon class="xsize">extension</v-icon>
@@ -54,7 +54,9 @@ export default {
     text-align: center;
     font-size: 3em;
   }
-
+  .advantage{
+    padding: 0 5%;
+  }
   .info_text{
     padding: 80px 80px 40px 80px;
     margin: 0;
@@ -63,6 +65,7 @@ export default {
     line-height: 1.5;
   }
   .cb-text{
+    font-weight: 100;
     font-size: 4.5em;
     text-transform: uppercase;
     color: #222222;
@@ -84,7 +87,7 @@ export default {
     margin-top: 50px;
     padding: 20px;
     font-size: 80px;
-    color: #CEDB56;
+    color: #76cdd8;
     border-radius: 80px;
   }
   .layout{
