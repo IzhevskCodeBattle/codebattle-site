@@ -97,7 +97,7 @@ export default {
     .event-image {
       position: relative;
       width: 100%;
-      height: 40%;
+      max-height: 40%;
       display: flex;
       margin: 0 auto;
       opacity: .5;
