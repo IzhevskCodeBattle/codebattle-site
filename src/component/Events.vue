@@ -7,13 +7,14 @@
       <div v-if="!events" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      <div class="event" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
+      <div class="event" v-bind:class="{ pastevent: new Date(event.starts_at) < new Date() }" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
         <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
         <div class="event__info">
           <p class="event__name">{{ event.name }}</p>
           <div class="event__line"></div>
           <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
         </div>
+        <div class="past-mark" v-if=" new Date(event.starts_at) < new Date()"></div>
       </div>
     </div>
   </section>
@@ -23,128 +24,6 @@
 import timePadService from '@/service/timePadService'
 export default {
   data: () => ({
-    // events: [
-    //   { id: 1,
-    //     name: 'Мероприятие №1',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 2,
-    //     name: 'Мероприятие №2',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 3,
-    //     name: 'Мероприятие №3',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 4,
-    //     name: 'Мероприятие №4',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 11,
-    //     name: 'Мероприятие №1',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 12,
-    //     name: 'Мероприятие №2',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 13,
-    //     name: 'Мероприятие №3',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 14,
-    //     name: 'Мероприятие №4',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 21,
-    //     name: 'Мероприятие №1',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 22,
-    //     name: 'Мероприятие №2',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 23,
-    //     name: 'Мероприятие №3',
-    //     status: 'Online',
-    //     src: '/static/img/events/event1.jpg',
-    //     time: '16:00',
-    //     date: '15.02.18',
-    //     period: '2 дня',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   },
-    //   { id: 24,
-    //     name: 'Мероприятие №4',
-    //     status: 'Offline',
-    //     src: '/static/img/events/event2.jpg',
-    //     time: '18:00',
-    //     date: '15.02.18',
-    //     period: '3 часа',
-    //     members: 15,
-    //     description: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...Located two hours south of Sydney in the Southern Highlands of New South Wales, ...'
-    //   }
-    // ]
     events: []
   }),
   filters: {
@@ -152,7 +31,7 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 9).join('')
+      return val.toString().split('').splice(0, 10).join('')
     }
   },
   created: function () {
@@ -178,6 +57,7 @@ export default {
     flex-wrap: wrap;
   }
   .event {
+    position: relative;
     width: 300px;
     height: 300px;
     position: relative;
@@ -185,6 +65,21 @@ export default {
     margin: 20px;
     transition: all .4s cubic-bezier(.25,.8,.25,1);
     transition-property: box-shadow;
+  }
+  .pastevent {
+    opacity: .6;
+  }
+  .past-mark {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 20px;
+    left: 240px;
+    width: 40px;
+    height: 40px;
+    background: url("../../static/img/done.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);

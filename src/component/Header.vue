@@ -57,10 +57,6 @@ export default {
   color: white;
 }
 
-.is-active {
-  color:#76cdd8;
-}
-
 .header__wrapper{
   background-color: #464547;
   padding-right: 30%;
@@ -70,5 +66,9 @@ export default {
 .scrollactive-item{
   color: #ffffff;
   height: 64px;
+}
+
+.is-active {
+  color:#76cdd8;
 }
 </style>

@@ -50,7 +50,7 @@ export default {
     background-color: #f7f7f7;
   }
   .main-content__wrapper{
-    margin: 0 15%;
+    margin: 0 10%;
     background-color: #fff;
     box-shadow: -4px 0px 8px 0px rgba(193,193,193,0.82), 4px 0px 8px 0px rgba(193,193,193,0.82);
   }
