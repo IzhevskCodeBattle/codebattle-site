@@ -43,8 +43,14 @@ export default {
     background-color: white;
   }
   .toolbar{
-    background:#76cdd8!important;
-    margin: 0;
+    background:rgb(170, 244, 255);
+    text-align: center;
+    font-size: 50px;
+    font-weight: normal;
+  }
+  .anchor{
+    height: 64px;
+    margin-top: -64px;
   }
 </style>
 

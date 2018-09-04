@@ -89,10 +89,10 @@ export default {
     login () {
       this._validateLoginForm()
       /*
-      const credentials = {
-        username: this.credentials.username,
-        password: this.credentials.password
-      }
+        const credentials = {
+          username: this.credentials.username,
+          password: this.credentials.password
+        }
       */
       if (this.credentials.username && this.credentials.password) {
         auth.signin(
