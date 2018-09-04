@@ -158,7 +158,6 @@ export default {
       width: 90%;
       font-size: 1.6em;
       font-family: 'Play', sans-serif;
-      /* font-weight: bold; */
       color: #464547; 
     }
 
