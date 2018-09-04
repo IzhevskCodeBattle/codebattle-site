@@ -1,10 +1,9 @@
 <template>
-  <section class="partners">
-    <div id="partners" class="anchor"></div>
-    <h2 class="toolbar">Наши партнеры</h2>
+  <section>
+    <h2>Sponsors</h2>
     <swiper :options="swiperOption" class="swiper">
-      <swiper-slide v-for="partner in partners" :key="partner.title">
-        <img class="partner__logo" :href="partner.href" :src="partner.src" :alt="partner.title" />
+      <swiper-slide v-for="sponsor in sponsors" :key="sponsor.title">
+        <img :href="sponsor.href" :src="sponsor.src" :alt="sponsor.title" />
       </swiper-slide>
     </swiper>
   </section>
@@ -13,32 +12,28 @@
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-  name: 'Partners',
+  name: 'sponsors',
   components: {
     swiper,
     swiperSlide
   },
   data: () => ({
-    partners: [
+    sponsors: [
       { title: 'EPAM Systems',
-        src: '/static/img/partners/epam_logo.jpg',
+        src: '/static/img/sponsors/epam_logo.jpg',
         href: 'http://epam.com'
       },
-      { title: 'ISTU',
-        src: '/static/img/partners/istu_logo.png',
-        href: 'http://www.istu.ru/'
+      { title: 'Sponsor 1',
+        src: '/static/img/sponsors/1.png',
+        href: 'http://epam.com'
       },
-      { title: 'UDSU',
-        src: '/static/img/partners/udgu_logo.png',
-        href: 'http://udsu.ru/'
+      { title: 'Sponsor 2',
+        src: '/static/img/sponsors/2.jpg',
+        href: 'http://epam.com'
       },
-      { title: 'KVANTORIUM',
-        src: '/static/img/partners/kvantorium_logo.png',
-        href: 'http://kvant18.ru/'
-      },
-      { title: 'GGPI',
-        src: '/static/img/partners/ggpi_logo.png',
-        href: 'http://www.ggpi.org/news.php'
+      { title: 'Sponsor 3',
+        src: '/static/img/sponsors/3.jpg',
+        href: 'http://epam.com'
       }
     ],
     swiperOption: {
@@ -64,11 +59,18 @@ export default {
 }
 </script>
 <style scoped>
-  .partner__logo{
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    cursor: pointer;
+  img{
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  h2{
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 25px;
+    background-color: rgba(235, 235, 235);
   }
   .swiper{
     text-align: center;
@@ -85,7 +87,7 @@ export default {
   }
 
   .swiper-container {
-    height: 200px;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     position: relative;
@@ -93,28 +95,6 @@ export default {
     list-style: none;
     padding: 0;
     z-index: 1;
-  }
-  .swiper-slide{
-    display: flex;
-    align-items: center;
-    margin-right: 0;
-  }
-  @media (max-width: 1144px) {
-    .swiper-container{
-      height: 150px;
-    }
-    .partner__logo{
-      width: 100px;
-      height: 100px;
-    }
-  }
-  @media (max-width: 600px) {
-    .swiper-container{
-      height: 100px;
-    }
-    .partner__logo{
-      width: 80px;
-      height: 80px;
-    }
-  }
+}
+
 </style>

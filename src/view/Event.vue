@@ -4,12 +4,14 @@
     <div class="event-registration">
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name">{{ currentEvent.name }}</div>
-      <button class="reg-button" id='twf' v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-      <button class="game-button">ПРЕДСТОЯЩАЯ ИГРА</button>
+      <div class="event-registration__buttons">
+        <button class="reg-button" id='twf' v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button class="game-button">ПРЕДСТОЯЩАЯ ИГРА</button>
+      </div>  
     </div>
     <div class="event-date__wrapper">    
       <div class="event-date">
-          <div class="event-date__item">Организатор: <br>{{ currentEvent.organization.name }}</div>
+          <div class="event-date__item">Организатор: <br> CodeBattle</div>
           <div class="event-date__item">
             Начало мероприятия: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
@@ -34,6 +36,7 @@
       </div>
     </div>
     <!-- <EventPage/> -->
+  
   </v-content>
 </template>
 <script>
@@ -55,12 +58,13 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      return new Date(val).toLocaleString().split('').splice(0, 9).join('')
+      return val.toString().split('').splice(0, 10).join('')
     }
   },
   created () {
     timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res }).then(() => console.log(this.currentEvent))
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
+    window.scrollTo(0, 0)
   }
 }
 </script>
@@ -81,12 +85,14 @@ export default {
       left: 5%;
     }
     .event-registration__name {
+      width: 400px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       font-size: 4em;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
+      padding-left: 0;
       color: #464547;
     }
     .event-registration__logo {
@@ -96,11 +102,12 @@ export default {
     .event-image {
       position: relative;
       width: 100%;
-      height: 40%;
+      height: 400px;
       display: flex;
       margin: 0 auto;
       opacity: .5;
     }
+
     .reg-button {
       text-align: center;
       padding: 10px;
@@ -148,9 +155,8 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 1vw;
+      font-size: 1.1vw;
       color: #96979d;
-      font-size: 1.2em;
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;
@@ -207,8 +213,12 @@ export default {
         left: 6%;
       } 
       .event-registration__name {
+        width: 100%;
         font-size: 2em;
         text-align: left;
+      }
+      .event-registration__buttons {
+       
       }
       .reg-button {
         font-size: .65em;
@@ -243,7 +253,6 @@ export default {
         margin-top: 2%;
         margin-bottom: 50%;
       }
-
     }
 
 </style>

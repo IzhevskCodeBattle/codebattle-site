@@ -4,6 +4,9 @@
     <div id="events" class="anchor"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
+      <div v-if="!events" class="event__timepad-error">
+        В настоящий момент TimePad недоступен :(
+      </div>
       <div class="event" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
         <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
         <div class="event__info">
@@ -149,15 +152,18 @@ export default {
       return val.toString().split('').splice(11, 5).join('')
     },
     DateFilter (val) {
-      return new Date(val).toLocaleString().split('').splice(0, 9).join('')
+      return val.toString().split('').splice(0, 9).join('')
     }
   },
   created: function () {
-    timePadService.getEventList().then(res => { this.events = res.values })
+    this.createEventList()
   },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
+    },
+    createEventList () {
+      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()]).then(res => { this.events = res[0].values.concat(res[1].values) })
     }
   }
 }
@@ -168,6 +174,8 @@ export default {
   .events__wrapper{
     display: flex;
     align-items: center;
+    padding: 0 10%;
+    flex-wrap: wrap;
   }
   .event {
     width: 300px;
@@ -214,5 +222,17 @@ export default {
   .event__date{
     margin: 30px 0;
     font-size: 20px;
+  }
+  .event__timepad-error{
+    height: 200px;
+    margin: 5% auto;
+    font-size: 2em;
+    text-align: center;
+    color: #D35D47;
+  }
+  @media (max-width: 600px) {
+    .events__wrapper{
+      justify-content: space-around;
+    }
   }
 </style>
