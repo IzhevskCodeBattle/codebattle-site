@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <a name="content"></a>
-    <img class="game-image" :src="img" alt='Картинка мероприятия' width='60%' height='100%'>
+    <img class="game-image" :src="img" alt='Картинка мероприятия' width='60%'  height='auto'>
     <div class="game">
       <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="game__name">{{ name }}</div>
@@ -52,7 +52,7 @@
           <swiper-slide v-for="pic in pictures" :key="pic.title">
             <img class="pictures" :src="pic.src" :alt="pic.title" />
           </swiper-slide>
-          <div class="swiper-pagination"  slot="pagination"></div>
+           <div class="swiper-pagination"  slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
@@ -72,31 +72,29 @@ export default {
     swiperSlide
   },
   data: () => ({
-    name: 'Танчики',
+    name: 'Bomberman',
     img: '/static/img/games/fon.jpg',
     pictures: [
-      { title: 'EPAM Systems',
-        src: '/static/img/partners/epam_logo.jpg'
+      { title: 'Картинка 1',
+        src: '/static/img/games/mit1.jpg'
       },
-      { title: 'Partner 1',
-        src: '/static/img/partners/1.png'
+      { title: 'Картинка 2',
+        src: '/static/img/games/mit2.jpg'
       },
-      { title: 'Partner 2',
-        src: '/static/img/partners/2.jpg'
-      },
-      { title: 'Partner 3',
-        src: '/static/img/partners/3.jpg'
+      { title: 'Картинка 3',
+        src: '/static/img/games/mit3.jpg'
       }
     ],
     swiperOption: {
       slidesPerView: 1,
+      spaceBetween: 30,
       loop: true,
       loopFillGroupWithBlank: true,
       centeredSlides: true,
-      autoplay: {
-        delay: 3500,
-        disableOnInteraction: false
-      },
+      // autoplay: {
+      //   delay: 3500,
+      //   disableOnInteraction: false
+      // },
       pagination: {
         el: '.swiper-pagination'
       },
@@ -124,26 +122,28 @@ export default {
     }
     .game{
       position: absolute;
-      top: 8%;
+      top: 5%;
       left: 5%;
     }
     .game__name {
+      width: 400px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       font-size: 4em;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
+      padding-left: 0;
       color: #464547;
     }
     .game__logo {
-      width: 50%;
+      width: 30%;
       height: 10%;
     }
     .game-image {
       position: relative;
       width: 100%;
-      max-height: 20%;
+      height: 400px;
       display: flex;
       margin: 0 auto;
       opacity: .5;
@@ -218,7 +218,29 @@ export default {
     align-items: center;
     margin-right: 0;
   }
-    
+
+  .swiper-button-prev{
+    filter: opacity(70%) grayscale(.80) 
+  }
+  .swiper-button-next{
+    filter: opacity(70%) grayscale(.80)
+  }
+
+
+    @media (max-width: 3000px) {
+      .game__main{
+        display: block;
+      }
+      .game__description{
+        width: 100%;
+      }
+      .game__gallery{
+        width: 100%;
+      }
+      .pictures{
+        max-height: 500px;
+      }
+    }
     @media (max-width: 850px) {
       .game__main{
         display: block;
@@ -239,6 +261,12 @@ export default {
       .pictures{
         max-height: 400px;
       }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
     }
     @media (max-width: 600px) {
       .game{
@@ -263,7 +291,13 @@ export default {
         width: 100%;
       }
       .pictures{
-        max-height: 200px;
+        max-height: 150px;
       }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
     }
 </style>
