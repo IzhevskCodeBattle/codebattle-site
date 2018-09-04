@@ -7,29 +7,29 @@
 </template>
 
 <script>
-import Countdown from 'vuejs-countdown'
+// import Countdown from 'vuejs-countdown'
 
 export default {
-  name: 'CommingSoon',
-  components: { Countdown },
-  mounted () {
-    this.headerElement = document.getElementById('header')
-    this.onResize()
-    window.addEventListener('resize', this.onResize, { passive: true })
-  },
-  beforeDestroy () {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', this.onResize, { passive: true })
-    }
-  },
-  methods: {
-    onResize () {
-      var _height = window.innerHeight ? window.innerHeight : window.height()
-      var _headerHeight = document.getElementById('header').clientHeight
-      this.$refs.video.style.width = window.innerWidth + 'px'
-      this.$refs.video.style.height = _height - _headerHeight + 'px'
-    }
-  }
+  // name: 'CommingSoon',
+  // components: { Countdown },
+  // mounted () {
+  //   this.headerElement = document.getElementById('header')
+  //   this.onResize()
+  //   window.addEventListener('resize', this.onResize, { passive: true })
+  // },
+  // beforeDestroy () {
+  //   if (typeof window !== 'undefined') {
+  //     window.removeEventListener('resize', this.onResize, { passive: true })
+  //   }
+  // },
+  // methods: {
+  //   onResize () {
+  //     var _height = window.innerHeight ? window.innerHeight : window.height()
+  //     var _headerHeight = document.getElementById('header').clientHeight
+  //     this.$refs.video.style.width = window.innerWidth + 'px'
+  //     this.$refs.video.style.height = _height - _headerHeight + 'px'
+  //   }
+  // }
 }
 </script>
 
@@ -49,4 +49,5 @@ export default {
   }
 }
 </style>
+
 
