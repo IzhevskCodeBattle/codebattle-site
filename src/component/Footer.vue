@@ -1,12 +1,10 @@
 <template>
   <footer>
     <div class="footer__wrapper">
-      <div class="justify-center footer__icons">
         <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
           <v-icon size="25px">{{ icon.icon }}</v-icon>
         </v-btn>
-      </div>
-      <div class="justify-center footer__links">
+             
         <scrollactive ref="scrollactive">
           <router-link to="/home#about" class="scrollactive-item">О НАС</router-link>
           <router-link to="/home#events" class="scrollactive-item">СОБЫТИЯ</router-link>
@@ -14,7 +12,7 @@
           <router-link to="/home#contacts">КОНТАКТЫ</router-link>
           <router-link to="/home#help">ПОМОЩЬ</router-link>
         </scrollactive>
-      </div>
+     
     </div>
     <v-divider d-block></v-divider>
     <!-- &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }} -->
@@ -39,7 +37,7 @@ export default {
 
 <style scoped>
 .footer__wrapper{
-  margin: 0 10%;
+  margin: 0 auto;
 }
 .footer__links a{
   color: #008ACE;

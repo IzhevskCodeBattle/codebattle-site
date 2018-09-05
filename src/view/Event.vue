@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия' width='60%' height='auto'>
+    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name">{{ currentEvent.name }}</div>
