@@ -51,14 +51,6 @@ export default {
     opacity: .4;
     border-bottom: 1px solid #39C2D7;
   }
-  .shadow {
-    height: 500px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(top, rgba(0,0,0,0.50));
-  }
   .about__wrapper {
     height: 500px;
     width: 100%;
@@ -85,9 +77,6 @@ export default {
     text-align: center;
     font-size: 1.6em;
     font-weight: bolder;
-  }
-  .about__card-icon {
-
   }
   .about__card-text {
     font-family: 'Play', sans-serif;
@@ -147,15 +136,49 @@ export default {
   .layout{
     text-align: center;
   }
- @media (max-width: 600px) {
+
+ @media (max-width: 1024px) {
+   .about__title {
+    font-size: 5em;
+   }
+   .xsize{
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+  }
+  .about__card-text {
+    font-size: .8em;
+  }
+  .about__image {
+    height: 300px;
+  }
+
+ }
+   
+ @media (max-width: 650px) {
+  .about__title {
+    font-size: 3em;
+  }
+  .about__image {
+    height: 300px;
+  }
+  .about__card-wrapper {
+    margin-top: 2%;
+  }
+  .about__card {
+    width: 40%;
+  }
+  .about__card-text {
+    font-size: .7em;
+  }
   .cb-text{
     font-size: 2.7em;
   }
   .info_text{
     padding: 10px;
   }
-  .description{
-    font-size: 0.7em;
+  .about__description {
+    font-size: 1em;
   }
   .xsize{
     font-size: 50px;
@@ -164,6 +187,9 @@ export default {
   }
   .card_text{
     font-size: 1.3em;
+  }
+  .about__card-wrapper {
+    flex-wrap: wrap;
   }
 }
 </style>

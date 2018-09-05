@@ -65,7 +65,7 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .game {
     width: 300px;
@@ -128,7 +128,8 @@ export default {
     opacity: 0.38;
   }
   .game__dummy{
-    width: 200px;
+    width: 300px;
+    margin: 20px;
   }
   @media (max-width: 600px) {
     .games__wrapper{
