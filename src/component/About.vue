@@ -91,7 +91,6 @@ export default {
     font-family: 'Play', sans-serif;
   }
   
-  
   /* --------------- */
   h2{
     text-align: center;
