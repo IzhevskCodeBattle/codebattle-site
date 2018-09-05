@@ -16,6 +16,9 @@
         </div>
         <div class="past-mark" v-if=" new Date(event.starts_at) < new Date()"></div>
       </div>
+      <div class="event__dummy"></div>
+      <div class="event__dummy"></div>
+      <div class="event__dummy"></div>
     </div>
   </section>
 </template>
@@ -50,11 +53,12 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  .events__wrapper{
+   .events__wrapper{
     display: flex;
     align-items: center;
     padding: 0 10%;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   .event {
     position: relative;
@@ -124,6 +128,10 @@ export default {
     font-size: 2em;
     text-align: center;
     color: #D35D47;
+  }
+  .event__dummy{
+    width: 300px;
+    margin: 20px;
   }
   @media (max-width: 600px) {
     .events__wrapper{

@@ -1,5 +1,5 @@
 <template>
-  <v-footer app absolute class="footer-layout justify-center" height="64px">
+  <footer>
     <div class="footer__wrapper">
       <div class="justify-center footer__icons">
         <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
@@ -21,7 +21,7 @@
     <a href="https://github.com/IzhevskCodeBattle" class="link_git">
       <img alt="link git" src="/static/img/fork-me.png" />
     </a>
-  </v-footer>
+  </footer>
 </template>
 
 <script>
