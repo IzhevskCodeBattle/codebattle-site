@@ -149,7 +149,7 @@ export default {
     font-size: .8em;
   }
   .about__image {
-    height: 350px;
+    height: 300px;
   }
 
  }
