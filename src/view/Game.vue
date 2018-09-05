@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <a name="content"></a>
-    <img class="game-image" :src="img" alt='Картинка мероприятия' width='60%'  height='auto'>
+    <img class="game-image" :src="img" alt='Картинка мероприятия'>
     <div class="game">
       <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="game__name">{{ name }}</div>
@@ -91,10 +91,6 @@ export default {
       loop: true,
       loopFillGroupWithBlank: true,
       centeredSlides: true,
-      // autoplay: {
-      //   delay: 3500,
-      //   disableOnInteraction: false
-      // },
       pagination: {
         el: '.swiper-pagination'
       },
@@ -149,7 +145,7 @@ export default {
       opacity: .5;
     }
     .game__main{
-      display: flex;
+      display: block;
       align-items: top;
       margin: 0 auto;
       margin-top: 5%;
@@ -162,7 +158,7 @@ export default {
     }
     .game__description{
       padding: 15px;
-      width: 50%;
+      width: 100%;
     }
     .description__tittle{
       font-size: 1.4em;
@@ -179,14 +175,15 @@ export default {
       text-decoration-line: underline;
       font-weight: bold;
     }
+
     /* ГАЛЕРЕЯ */
     .game__gallery{
       padding: 15px;
-      width: 50%;
+      width: 100%;
     }
     
     .pictures{
-    max-height: 400px;
+    max-height: 500px;
     object-fit: cover;
     cursor: pointer;
     margin: 0 auto;
@@ -227,20 +224,6 @@ export default {
   }
 
 
-    @media (max-width: 3000px) {
-      .game__main{
-        display: block;
-      }
-      .game__description{
-        width: 100%;
-      }
-      .game__gallery{
-        width: 100%;
-      }
-      .pictures{
-        max-height: 500px;
-      }
-    }
     @media (max-width: 850px) {
       .game__main{
         display: block;
