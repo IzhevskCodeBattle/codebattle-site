@@ -44,7 +44,7 @@ export default {
 </script>
 <style scope>
   * {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: 'Play', sans-serif;
   }
   .main-content{
     background-color: #f7f7f7;

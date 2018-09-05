@@ -1,45 +1,37 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
   <section id="about">
-    <v-flex>
-      <v-card flat>
-        <v-card-text class="info_text">
-          <span class="cb-text">Code Battle</span>
-          <p class="description">
-            Это мини-хакатон для тех, кто любит программирование, 
-            искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
-            любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
-            Все сражения демонстрируются на большом экране в режиме реального времени.
-          </p>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-    <v-layout row wrap class="advantage">
-      <v-flex xs6 sm6 md3 lg3>
-        <v-card flat>
-          <v-icon class="xsize">extension</v-icon>
-          <v-card-text class="card_text">Программирование в виде игры</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs6 sm6 md3 lg3>
-        <v-card flat>
-          <v-icon class="xsize" >supervisor_account</v-icon>
-          <v-card-text class="card_text">Новые знакомства</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs6 sm6 md3 lg3>
-        <v-card flat>
-          <v-icon class="xsize" >code</v-icon>
-          <v-card-text class="card_text">Практика, а не теория</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs6 sm6 md3 lg3>
-        <v-card flat>
-          <v-icon class="xsize" >thumb_up</v-icon>
-          <v-card-text class="card_text">Море эмоций</v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <div class="about__image"></div>
+    <div class="about__wrapper">
+        <h2 class="about__title">
+          Code Battle
+        </h2>
+        <div class="about__card-wrapper">
+          <div class="about__card">
+            <v-icon class="xsize">extension</v-icon>
+            <div class="about__card-text">Программирование в виде игры</div>  
+          </div>
+          <div class="about__card">
+            <v-icon class="xsize" >supervisor_account</v-icon>
+            <div class="about__card-text">Новые знакомства</div>  
+          </div>
+          <div class="about__card">
+            <v-icon class="xsize" >code</v-icon>
+            <div class="about__card-text">Практика, а не теория</div>  
+          </div>
+          <div class="about__card">
+            <v-icon class="xsize" >thumb_up</v-icon>
+            <div class="about__card-text">Море эмоций</div>  
+          </div>
+          
+        </div>
+    </div>
+    <p class="about__description">
+      Это мини-хакатон для тех, кто любит программирование, 
+      искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
+      любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+      Все сражения демонстрируются на большом экране в режиме реального времени.
+    </p>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
@@ -50,6 +42,68 @@ export default {
 </script>
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+  .about__image {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    background-image: url('../../static/img/main.jpg');
+    background-size: cover;
+    opacity: .4;
+    border-bottom: 1px solid #39C2D7;
+  }
+  .shadow {
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(top, rgba(0,0,0,0.50));
+  }
+  .about__wrapper {
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .about__title {
+    margin-top: 5%;
+    font-size: 7em;
+    font-family: 'Orbitron', sans-serif;
+    color: #222222;
+    font-weight: bold;
+  }
+  .about__card-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: top;
+    margin-top: 1%;
+  }
+  .about__card {
+    width: 20%;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bolder;
+  }
+  .about__card-icon {
+
+  }
+  .about__card-text {
+    font-family: 'Play', sans-serif;
+    color: #222222;
+  }
+  .about__description {
+    margin: 0 auto;
+    font-size: 2em;
+    text-align: center;
+    width: 80%;
+    padding-top: 50px;
+    font-family: 'Play', sans-serif;
+  }
+  
+  
+  /* --------------- */
   h2{
     text-align: center;
     font-size: 3em;
@@ -86,8 +140,8 @@ export default {
   .xsize{
     margin-top: 50px;
     padding: 20px;
-    font-size: 80px;
-    color: #76cdd8;
+    font-size: 90px;
+    color: #464547;
     border-radius: 80px;
   }
   .layout{

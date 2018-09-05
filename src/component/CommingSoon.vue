@@ -1,9 +1,9 @@
 <template>
-  <div class="video__wrapper">
+  <!-- <div class="video__wrapper">
     <video class="video" muted loop autoplay preload="auto">
       <source src="/static/media/codebattle.webm" type="video/webm">
     </video>
-  </div>
+  </div> -->
 </template>
 
 <script>
