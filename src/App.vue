@@ -47,7 +47,11 @@ export default {
     font-family: 'Play', sans-serif;
   }
   .main-content{
-    background-color: #f7f7f7;
+    background-image: url('../static/img/robot.svg');
+    background-size: 55px;
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-color: #222222;
   }
   .main-content__wrapper{
     margin: 0 10%;
