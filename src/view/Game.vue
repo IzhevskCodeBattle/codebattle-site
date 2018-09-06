@@ -52,7 +52,7 @@
           <swiper-slide v-for="pic in pictures" :key="pic.title">
             <img class="pictures" :src="pic.src" :alt="pic.title" />
           </swiper-slide>
-           <div class="swiper-pagination"  slot="pagination"></div>
+           <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
@@ -91,9 +91,9 @@ export default {
       loop: true,
       loopFillGroupWithBlank: true,
       centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination'
-      },
+      // pagination: {
+      //   el: '.swiper-pagination'
+      // },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
@@ -153,7 +153,6 @@ export default {
       width: 90%;
       font-size: 1.6em;
       font-family: 'Play', sans-serif;
-      /* font-weight: bold; */
       color: #464547; 
     }
     .game__description{
