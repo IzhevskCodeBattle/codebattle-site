@@ -1,5 +1,5 @@
 <template>
-<v-navigation-drawer v-model="drawer" disable-resize-watcher fixed floating temporary>
+<v-navigation-drawer v-model="drawer" width="240" disable-resize-watcher fixed floating temporary>
   <scrollactive ref="scrollactive">
     <v-btn flat class="scrollactive-item" to="/home#about">
       <v-list-tile-avatar>
