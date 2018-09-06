@@ -1,7 +1,25 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @marselkhisamov Sign out
+1
+0 0 IzhevskCodeBattle/codebattle-site
+ Code  Issues 0  Pull requests 4  Projects 1  Wiki  Insights
+codebattle-site/src/view/Game.vue
+be7308a  an hour ago
+@NikaClemente NikaClemente Re game page v0.5
+@NikaClemente @IzhevskCodeBattle
+     
+285 lines (275 sloc)  8.3 KB
 <template>
   <v-content>
     <a name="content"></a>
-    <img class="game-image" :src="img" alt='Картинка мероприятия' width='60%' height='100%'>
+    <img class="game-image" :src="img" alt='Картинка мероприятия'>
     <div class="game">
       <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="game__name">{{ name }}</div>
@@ -52,7 +70,7 @@
           <swiper-slide v-for="pic in pictures" :key="pic.title">
             <img class="pictures" :src="pic.src" :alt="pic.title" />
           </swiper-slide>
-          <div class="swiper-pagination"  slot="pagination"></div>
+           <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
@@ -72,34 +90,28 @@ export default {
     swiperSlide
   },
   data: () => ({
-    name: 'Танчики',
+    name: 'Bomberman',
     img: '/static/img/games/fon.jpg',
     pictures: [
-      { title: 'EPAM Systems',
-        src: '/static/img/partners/epam_logo.jpg'
+      { title: 'Картинка 1',
+        src: '/static/img/games/mit1.jpg'
       },
-      { title: 'Partner 1',
-        src: '/static/img/partners/1.png'
+      { title: 'Картинка 2',
+        src: '/static/img/games/mit2.jpg'
       },
-      { title: 'Partner 2',
-        src: '/static/img/partners/2.jpg'
-      },
-      { title: 'Partner 3',
-        src: '/static/img/partners/3.jpg'
+      { title: 'Картинка 3',
+        src: '/static/img/games/mit3.jpg'
       }
     ],
     swiperOption: {
       slidesPerView: 1,
+      spaceBetween: 30,
       loop: true,
       loopFillGroupWithBlank: true,
       centeredSlides: true,
-      autoplay: {
-        delay: 3500,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination'
-      },
+      // pagination: {
+      //   el: '.swiper-pagination'
+      // },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
@@ -112,6 +124,7 @@ export default {
 }
 </script>
 
+
 <style scoped>
     @font-face {
       font-family: SourceSansPro;
@@ -123,32 +136,34 @@ export default {
     }
     .game{
       position: absolute;
-      top: 8%;
+      top: 5%;
       left: 5%;
     }
     .game__name {
+      width: 400px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       font-size: 4em;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
+      padding-left: 0;
       color: #464547;
     }
     .game__logo {
-      width: 50%;
+      width: 30%;
       height: 10%;
     }
     .game-image {
       position: relative;
       width: 100%;
-      max-height: 20%;
+      height: 400px;
       display: flex;
       margin: 0 auto;
       opacity: .5;
     }
     .game__main{
-      display: flex;
+      display: block;
       align-items: top;
       margin: 0 auto;
       margin-top: 5%;
@@ -156,12 +171,11 @@ export default {
       width: 90%;
       font-size: 1.6em;
       font-family: 'Play', sans-serif;
-      /* font-weight: bold; */
       color: #464547; 
     }
     .game__description{
       padding: 15px;
-      width: 50%;
+      width: 100%;
     }
     .description__tittle{
       font-size: 1.4em;
@@ -181,11 +195,11 @@ export default {
     /* ГАЛЕРЕЯ */
     .game__gallery{
       padding: 15px;
-      width: 50%;
+      width: 100%;
     }
     
     .pictures{
-    max-height: 400px;
+    max-height: 500px;
     object-fit: cover;
     cursor: pointer;
     margin: 0 auto;
@@ -217,7 +231,12 @@ export default {
     align-items: center;
     margin-right: 0;
   }
-    
+  .swiper-button-prev{
+    filter: opacity(70%) grayscale(.80) 
+  }
+  .swiper-button-next{
+    filter: opacity(70%) grayscale(.80)
+  }
     @media (max-width: 850px) {
       .game__main{
         display: block;
@@ -238,6 +257,12 @@ export default {
       .pictures{
         max-height: 400px;
       }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
     }
     @media (max-width: 600px) {
       .game{
@@ -262,7 +287,26 @@ export default {
         width: 100%;
       }
       .pictures{
-        max-height: 200px;
+        max-height: 150px;
       }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
     }
 </style>
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
