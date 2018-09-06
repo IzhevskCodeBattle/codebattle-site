@@ -1,9 +1,9 @@
 <template>
-<v-dialog v-model="show" dark max-width="500px">
+<v-dialog v-model="show" dark :fullscreen="$vuetify.breakpoint.height<=640" max-width="500px">
   <form class="login-form" @submit.prevent="login">
     <v-card>
       <v-card-title>
-        <span style="margin-left: auto;" class="headline">LOGIN</span>
+        <span style="margin-left: auto;" class="headline">ВОЙТИ</span>
         <a style="margin-left:auto;" @click.stop="show = false">
           <v-icon>close</v-icon>
         </a>
@@ -12,30 +12,30 @@
       <v-card-text>
         <v-container grid-list-md>
           <v-layout class="justify-center" wrap>
-            <v-flex xs8>
-              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Username" required></v-text-field>
+            <v-flex xs10>
+              <v-text-field prepend-inner-icon="person" v-model="credentials.username" label="Имя пользователя" required></v-text-field>
             </v-flex>
-            <v-flex xs8>
-              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Password" type="password" required></v-text-field>
+            <v-flex xs10>
+              <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Пароль" type="password" required></v-text-field>
             </v-flex>
-            <v-flex xs8>
+            <v-flex xs10>
               <span>
                 <input type="checkbox" id="checkbox">
-                <label for="checkbox">Remember me</label>
+                <label for="checkbox">Запомнить меня</label>
               </span>
-              <a class="forgot">Forgot password?</a>
+              <a class="forgot">Забыли пароль?</a>
             </v-flex>
           </v-layout>
         </v-container>
       </v-card-text>
       <v-card-actions class="justify-center">
-        <v-flex xs8>
-          <v-btn class="login-btn" type="submit">Login</v-btn>
+        <v-flex xs10>
+          <v-btn class="login-btn" type="submit">Войти</v-btn>
         </v-flex>
       </v-card-actions>
       <v-card-text class="text-xs-center">
-        Not registered?
-        <a class="create-account" @click="show=false; $events.$emit('signup-form:show')">Create an account</a>
+        Не зарегистрированы?
+        <a class="create-account" @click="show=false; $events.$emit('signup-form:show')">Создать аккаунт</a>
       </v-card-text>
       <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
@@ -89,10 +89,10 @@ export default {
     login () {
       this._validateLoginForm()
       /*
-      const credentials = {
-        username: this.credentials.username,
-        password: this.credentials.password
-      }
+        const credentials = {
+          username: this.credentials.username,
+          password: this.credentials.password
+        }
       */
       if (this.credentials.username && this.credentials.password) {
         auth.signin(
@@ -139,9 +139,14 @@ export default {
 </script>
 
 <style scoped>
-.login-form,
-.register-form {
+.login-form, .v-card {
   font-family: "Source Sans Pro";
+  width: 100%;
+  height: 100%;
+}
+ 
+.forgot {
+  margin-left: 1%;
 }
 
 .vk,
@@ -179,7 +184,7 @@ export default {
 }
 
 .github:hover {
-  background: black;
+  background: #F5F5F5;
 }
 
 .google:hover {
@@ -197,7 +202,7 @@ export default {
   width: 100%;
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 376px) {
   .vk,
   .fb,
   .twitter,

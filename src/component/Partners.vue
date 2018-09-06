@@ -1,9 +1,10 @@
 <template>
-  <section id="partners">
-    <h2 class="toolbar">Partners</h2>
+  <section class="partners">
+    <div id="partners" class="anchor"></div>
+    <h2 class="toolbar">Наши партнеры</h2>
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide v-for="partner in partners" :key="partner.title">
-        <img :href="partner.href" :src="partner.src" :alt="partner.title" />
+        <img class="partner__logo" :href="partner.href" :src="partner.src" :alt="partner.title" />
       </swiper-slide>
     </swiper>
   </section>
@@ -23,17 +24,21 @@ export default {
         src: '/static/img/partners/epam_logo.jpg',
         href: 'http://epam.com'
       },
-      { title: 'Partner 1',
-        src: '/static/img/partners/1.png',
-        href: 'http://epam.com'
+      { title: 'ISTU',
+        src: '/static/img/partners/istu_logo.png',
+        href: 'http://www.istu.ru/'
       },
-      { title: 'Partner 2',
-        src: '/static/img/partners/2.jpg',
-        href: 'http://epam.com'
+      { title: 'UDSU',
+        src: '/static/img/partners/udgu_logo.png',
+        href: 'http://udsu.ru/'
       },
-      { title: 'Partner 3',
-        src: '/static/img/partners/3.jpg',
-        href: 'http://epam.com'
+      { title: 'KVANTORIUM',
+        src: '/static/img/partners/kvantorium_logo.png',
+        href: 'http://kvant18.ru/'
+      },
+      { title: 'GGPI',
+        src: '/static/img/partners/ggpi_logo.png',
+        href: 'http://www.ggpi.org/news.php'
       }
     ],
     swiperOption: {
@@ -59,25 +64,14 @@ export default {
 }
 </script>
 <style scoped>
-#partners{
-  padding-top: 45px;
-}
-  img{
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-  }
-
-  h2{
-    text-align: center;
-    font-size: 3em;
-    /* padding-bottom: 15px; */
+  .partner__logo{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
   }
   .swiper{
     text-align: center;
-    /* font-size: 38px;
-    font-weight: 700; */
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -91,7 +85,7 @@ export default {
   }
 
   .swiper-container {
-    height: 100%;
+    height: 200px;
     width: 100%;
     margin: 0 auto;
     position: relative;
@@ -99,6 +93,28 @@ export default {
     list-style: none;
     padding: 0;
     z-index: 1;
-}
-
+  }
+  .swiper-slide{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+  }
+  @media (max-width: 1144px) {
+    .swiper-container{
+      height: 150px;
+    }
+    .partner__logo{
+      width: 100px;
+      height: 100px;
+    }
+  }
+  @media (max-width: 600px) {
+    .swiper-container{
+      height: 100px;
+    }
+    .partner__logo{
+      width: 80px;
+      height: 80px;
+    }
+  }
 </style>

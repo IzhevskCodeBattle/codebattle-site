@@ -5,8 +5,12 @@
 <template>
   <v-app>
     <app-header></app-header>
-    <router-view></router-view>
-    <Footer/>
+    <div class="main-content">
+      <div class="main-content__wrapper">
+        <router-view></router-view>
+      </div>
+      <Footer/>
+    </div>
     <Navigation/>
     <LoginForm/>
     <SignupForm/>
@@ -39,12 +43,54 @@ export default {
 }
 </script>
 <style scope>
+  * {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  }
+  .main-content{
+    background-color: #f7f7f7;
+  }
+  .main-content__wrapper{
+    margin: 0 10%;
+    background-color: #fff;
+    box-shadow: -4px 0px 8px 0px rgba(193,193,193,0.82), 4px 0px 8px 0px rgba(193,193,193,0.82);
+  }
   .application.theme--light {
     background-color: white;
   }
   .toolbar{
-    background:#76cdd8!important;
-    margin: 0;
+    text-align: center;
+    font-size: 60px;
+    font-weight: normal;
+    border-bottom: 1px solid darkgrey;
+    color: #464547;
+    margin: 30px 10% 50px;
+  }
+  .anchor{
+    height: 64px;
+    margin-top: -64px;
+  }
+  .application .theme--light.v-footer, .theme--light .v-footer{
+    background-color: #fff;
+  }
+  @media (max-width: 950px) {
+    .main-content__wrapper{
+      margin: 0;
+      background-color: #fff;
+      box-shadow: -4px 0px 8px 0px rgba(193,193,193,0.82), 4px 0px 8px 0px rgba(193,193,193,0.82);
+    }
+    .card_text{
+      font-size: 28px;
+    }
+  }
+  @media (max-width: 600px) {
+    .toolbar{
+      font-size: 2.5em;
+    }
+    .main-content__wrapper{
+      margin: 0;
+      background-color: #fff;
+      box-shadow: none;
+    }
   }
 </style>
 
