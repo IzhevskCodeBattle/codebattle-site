@@ -165,7 +165,10 @@ export default {
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;
-      width: 33%;
+      width: 30%;
+    }
+    .event-date__item:last-child {
+      width: 40%;
     }
     .event-date__item:last-child {
       border: none;

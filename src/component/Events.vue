@@ -14,7 +14,10 @@
           <div class="event__line"></div>
           <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
         </div>
-        <div class="past-mark" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()"></div>
+        <!-- <div class="past-mark" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()"></div> -->
+        <div class="panzer" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()">
+          <div class="banner">Событие завершено</div>
+        </div>
       </div>
       <div class="event__dummy"></div>
       <div class="event__dummy"></div>
@@ -68,6 +71,7 @@ export default {
   }
   .event {
     position: relative;
+    overflow: hidden;
     width: 300px;
     height: 300px;
     position: relative;
@@ -93,6 +97,30 @@ export default {
     background-repeat: no-repeat;
     animation: showMark 1s forwards;
     transform: translate(-50%, -50%)
+  }
+  .panzer {
+    display: none; 
+    content: "";
+    position: absolute;
+    z-index: 5;
+    width: 50px;
+    height: 50px;
+    top: 250px;
+    left: 0;
+    background: url("../../static/img/panzer.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: panzer 2s forwards;
+  }
+  .banner {
+    width: 240px;
+    height: 40px;
+    margin-left: -240px;
+    background-color: #D35D47;
+    opacity: 1;
+    padding-left: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
   }
   .event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
@@ -154,5 +182,8 @@ export default {
 		50% {width: 100px; height: 100px;}
     75% {top: 150px; left: 150px;}
     /* 100% {top:50px; left: 250px; width: 50px; height: 50px;} */
+  }
+  @keyframes panzer {
+    100% {margin-left: 240px;}
   }
 </style>
