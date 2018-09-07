@@ -64,6 +64,9 @@ export default {
 }
 </script>
 <style scoped>
+  .partners {
+    margin-bottom: 4%;
+  }
   .partner__logo{
     width: 200px;
     height: 200px;
