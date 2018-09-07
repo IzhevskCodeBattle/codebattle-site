@@ -159,10 +159,10 @@ export default {
     font-size: 3em;
   }
   .about__image {
-    height: 300px;
+    height: 350px;
   }
   .about__card-wrapper {
-    margin-top: 2%;
+    margin-top: 4%;
   }
   .about__card {
     width: 40%;

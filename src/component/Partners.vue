@@ -2,11 +2,13 @@
   <section class="partners">
     <div id="partners" class="anchor"></div>
     <h2 class="toolbar">Наши партнеры</h2>
-    <swiper :options="swiperOption" class="swiper">
-      <swiper-slide v-for="partner in partners" :key="partner.title">
-        <img class="partner__logo" :href="partner.href" :src="partner.src" :alt="partner.title" />
-      </swiper-slide>
-    </swiper>
+    <div class="swiper-wrapper">
+      <swiper :options="swiperOption" class="swiper">
+        <swiper-slide v-for="partner in partners" :key="partner.title">
+          <img class="partner__logo" :href="partner.href" :src="partner.src" :alt="partner.title" />
+        </swiper-slide>
+      </swiper>
+    </div>
   </section>
 </template>
 <script>
@@ -64,11 +66,19 @@ export default {
 }
 </script>
 <style scoped>
+  .partners {
+    margin-bottom: 4%;
+  }
   .partner__logo{
     width: 200px;
     height: 200px;
     object-fit: cover;
     cursor: pointer;
+  }
+  .swiper-wrapper {
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
   }
   .swiper{
     text-align: center;
@@ -113,8 +123,8 @@ export default {
       height: 100px;
     }
     .partner__logo{
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
     }
   }
 </style>

@@ -1,17 +1,16 @@
 <template>
   <v-content>
-    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия' width='60%' height='auto'>
+    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
-        <button class="reg-button" id='twf' v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-        <button class="game-button">ПРЕДСТОЯЩАЯ ИГРА</button>
+        <button class="reg-button" id='twf' v-if="!(new Date(currentEvent.starts_at) < new Date())" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button class="game-button">ПОСМОТРЕТЬ ИГРУ</button>
       </div>  
     </div>
     <div class="event-date__wrapper">    
       <div class="event-date">
-          <div class="event-date__item">Организатор: <br> CodeBattle</div>
           <div class="event-date__item">
             Начало мероприятия: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
@@ -160,7 +159,7 @@ export default {
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;
-      width: 25%;
+      width: 33%;
     }
     .event-date__item:last-child {
       border: none;
