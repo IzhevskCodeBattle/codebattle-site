@@ -7,14 +7,14 @@
       <div v-if="!events" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      <div class="event" v-bind:class="{ pastevent: new Date(event.starts_at) < new Date() }" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
+      <div class="event" @mouseover="showMark(event.id)" @mouseout="hideMark(event.id)" v-bind:class="{ pastevent: new Date(event.starts_at) < new Date() }" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
         <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
-        <div class="event__info">
+        <div class="event__info" id="">
           <p class="event__name">{{ event.name }}</p>
           <div class="event__line"></div>
           <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
         </div>
-        <div class="past-mark" v-if=" new Date(event.starts_at) < new Date()"></div>
+        <div class="past-mark" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()"></div>
       </div>
       <div class="event__dummy"></div>
       <div class="event__dummy"></div>
@@ -46,6 +46,12 @@ export default {
     },
     createEventList () {
       Promise.all([timePadService.getEventList(), timePadService.getPastEventList()]).then(res => { this.events = res[0].values.concat(res[1].values) })
+    },
+    showMark (id) {
+      document.getElementById(id).style.display = 'block'
+    },
+    hideMark (id) {
+      // document.getElementById(id).style.display = 'none'
     }
   }
 }
@@ -74,16 +80,19 @@ export default {
     opacity: .6;
   }
   .past-mark {
+    display: none;
     content: "";
     position: absolute;
     z-index: 5;
-    top: 20px;
-    left: 240px;
-    width: 40px;
-    height: 40px;
+    top: 150px;
+    left: 150px;
+    width: 150px;
+    height: 150px;
     background: url("../../static/img/done.svg");
     background-size: cover;
     background-repeat: no-repeat;
+    animation: showMark 1s forwards;
+    transform: translate(-50%, -50%)
   }
   .event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
@@ -137,5 +146,13 @@ export default {
     .events__wrapper{
       justify-content: space-around;
     }
+  }
+
+  @keyframes showMark {
+    0% {width: 0; height: 0;}
+    25% {width: 200px; height: 200px;}
+		50% {width: 100px; height: 100px;}
+    75% {top: 150px; left: 150px;}
+    /* 100% {top:50px; left: 250px; width: 50px; height: 50px;} */
   }
 </style>
