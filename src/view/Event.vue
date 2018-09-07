@@ -35,7 +35,13 @@
       </div>
     </div>
     <!-- <EventPage/> -->
-  
+    <div class="event-video" v-if="currentEvent.id == 658608">
+      <div class="video__wrapper">
+        <video class="video" controls preload="auto">
+          <source src="/static/media/codebattle.webm" type="video/webm">
+        </video>
+       </div>
+    </div>
   </v-content>
 </template>
 <script>
@@ -171,6 +177,17 @@ export default {
       width: 70%;
       margin: 0 auto;
       margin-bottom: 10%;
+    }
+    .event-video {
+      margin-bottom: 10%;
+    }
+    .video {
+      width: 80%;
+    }
+    .video__wrapper{
+      display: flex;
+      justify-content: space-around;
+     align-items: flex-start;
     }
     .event-main__description {
       width: 70%;
