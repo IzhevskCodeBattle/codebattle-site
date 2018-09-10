@@ -170,9 +170,6 @@ export default {
   .past-event__description {
     max-width: 300px;
   }
-
-
-
   .event__timepad-error{
     height: 200px;
     margin: 5% auto;
@@ -181,20 +178,34 @@ export default {
     color: #D35D47;
   }
 
+  @media (max-width: 760px) {
+    .past-events {
+      display: none;
+    }
+    .comming-events {
+      width: 100%;
+      border-right: none;
+    }
+    .event {
+      width: 300px;  
+      height: 300px;
+      margin: 0 auto;
+    }
+ }
+
   @media (max-width: 600px) {
     .events__wrapper{
       justify-content: space-around;
     }
+    .event {
+      width: 250px;  
+      height: 250px;
+      margin: 0 auto;
+    }
+    .event__name {
+      font-size: 35px;
+      margin: 4% 0;
+    }
   }
 
-  @keyframes showMark {
-    0% {width: 0; height: 0;}
-    25% {width: 200px; height: 200px;}
-		50% {width: 100px; height: 100px;}
-    75% {top: 150px; left: 150px;}
-    /* 100% {top:50px; left: 250px; width: 50px; height: 50px;} */
-  }
-  @keyframes panzer {
-    100% {margin-left: 240px;}
-  }
 </style>

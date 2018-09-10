@@ -55,10 +55,10 @@ export default {
     box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);   
   }
   .about__wrapper {
-    height: 500px;
     position: absolute;
     top: 1%;
-    left: 18%;
+    left: 50%;
+    transform: translate(-50%, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,14 +69,14 @@ export default {
     font-size: 1.8em;
     padding: 10px 20px;
     border: 2px solid white;
-    margin-top: 3%;
+    margin-top: 2%;
   }
   .registration-button:focus {
     outline: none;
   }
   .about__wrapper img {
-    width: 70%;
-    height: 70%;
+    width: auto;
+    height: 380px;
   }
   .about__title {
     margin-top: 5%;
@@ -153,9 +153,7 @@ export default {
     color: #464547;
     border-radius: 80px;
   }
-  .layout{
-    text-align: center;
-  }
+  
 
  @media (max-width: 1024px) {
    .about__title {
@@ -170,7 +168,16 @@ export default {
     font-size: .8em;
   }
   .about__image {
-    height: 300px;
+    height: 320px;
+  }
+  .about__wrapper img {
+    width: 90%;
+    height: 90%;
+  }
+  .registration-button {
+    font-size: 1.4em;
+    padding: 10px 20px;
+    margin-top: 4%;
   }
  }
 
@@ -179,15 +186,23 @@ export default {
      width: 100%;
      margin: 0;
    }
+   .about__wrapper img {
+    width: 80%;
+    height: 80%;
+  }
  }
-   
+
  @media (max-width: 650px) {
   .about__title {
     font-size: 3em;
   }
   .about__image {
-    height: 350px;
+    height: 300px;
     width: 100%;
+  }
+  .about__wrapper img {
+    width: 100%;
+    height: 100%;
   }
   .about__card-wrapper {
     margin-top: 4%;
@@ -217,6 +232,12 @@ export default {
   }
   .about__card-wrapper {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  .about__wrapper img {
+    width: 120%;
+    height: 120%;
   }
 }
 </style>
