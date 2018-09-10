@@ -3,10 +3,16 @@
   <section id="about">
     <div class="about__image"></div>
     <div class="about__wrapper">
-        <h2 class="about__title">
-          Code Battle
-        </h2>
-        <div class="about__card-wrapper">
+      <img src="../../static/img/logo_with_text.png" alt="main_logo">
+      <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">зарегистрироваться</button>
+    </div>
+    <p class="about__description">
+      Это мини-хакатон для тех, кто любит программирование, 
+      искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
+      любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+      Все сражения демонстрируются на большом экране в режиме реального времени.
+    </p>
+    <div class="about__card-wrapper">
           <div class="about__card">
             <v-icon class="xsize">extension</v-icon>
             <div class="about__card-text">Программирование в виде игры</div>  
@@ -25,19 +31,15 @@
           </div>
           
         </div>
-    </div>
-    <p class="about__description">
-      Это мини-хакатон для тех, кто любит программирование, 
-      искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
-      любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
-      Все сражения демонстрируются на большом экране в режиме реального времени.
-    </p>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  data: () => ({
+    registrationLink: `{"event_id": 798207}`
+  })
 }
 </script>
 <!-- стили, которые относятся непосредственно к компоненту -->
@@ -45,18 +47,36 @@ export default {
   .about__image {
     position: relative;
     height: 500px;
-    width: 100%;
-    background-image: url('../../static/img/main.jpg');
+    width: 125.5%;
+    margin-left: -13%;
+    background-image: url('../../static/img/main-banner.jpg');
     background-size: cover;
-    opacity: .4;
-    border-bottom: 1px solid #39C2D7;
+    background-position: 0 15%;
+    box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);   
   }
   .about__wrapper {
     height: 500px;
-    width: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1%;
+    left: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .registration-button {
+    background-color: #730606;
+    color: white;
+    font-size: 1.8em;
+    padding: 10px 20px;
+    border: 2px solid white;
+    margin-top: 3%;
+  }
+  .registration-button:focus {
+    outline: none;
+  }
+  .about__wrapper img {
+    width: 70%;
+    height: 70%;
   }
   .about__title {
     margin-top: 5%;
@@ -66,6 +86,8 @@ export default {
     font-weight: bold;
   }
   .about__card-wrapper {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -79,16 +101,15 @@ export default {
     font-weight: bolder;
   }
   .about__card-text {
-    font-family: 'Play', sans-serif;
     color: #222222;
   }
   .about__description {
     margin: 0 auto;
     font-size: 2em;
-    text-align: center;
+    text-indent: 2em;
+    text-align: justify;
     width: 80%;
     padding-top: 50px;
-    font-family: 'Play', sans-serif;
   }
   
   /* --------------- */
@@ -151,7 +172,13 @@ export default {
   .about__image {
     height: 300px;
   }
+ }
 
+ @media (max-width: 950px) {
+   .about__image {
+     width: 100%;
+     margin: 0;
+   }
  }
    
  @media (max-width: 650px) {
@@ -160,6 +187,7 @@ export default {
   }
   .about__image {
     height: 350px;
+    width: 100%;
   }
   .about__card-wrapper {
     margin-top: 4%;

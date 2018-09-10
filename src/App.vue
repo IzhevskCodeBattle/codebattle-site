@@ -44,7 +44,7 @@ export default {
 </script>
 <style scope>
   * {
-    font-family: 'Play', sans-serif;
+    font-family: 'Oswald', sans-serif;
   }
   .main-content{
     background-image: url('../static/img/robot.svg');
@@ -57,7 +57,7 @@ export default {
     margin: 0 10%;
     background-color: #fff;
     box-shadow: -4px 0px 8px 0px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-    /* box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); */
+    background-color: #e3e3e3;
   }
   .application.theme--light {
     background-color: white;
@@ -80,7 +80,7 @@ export default {
   @media (max-width: 950px) {
     .main-content__wrapper{
       margin: 0;
-      background-color: #fff;
+      background-color: #e3e3e3;
       box-shadow: -4px 0px 8px 0px rgba(193,193,193,0.82), 4px 0px 8px 0px rgba(193,193,193,0.82);
     }
     .card_text{
@@ -93,7 +93,7 @@ export default {
     }
     .main-content__wrapper{
       margin: 0;
-      background-color: #fff;
+      background-color: #e3e3e3;
       box-shadow: none;
     }
   }

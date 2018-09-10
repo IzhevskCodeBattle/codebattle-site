@@ -4,37 +4,45 @@
     <div id="events" class="anchor"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
-      <div v-if="!events" class="event__timepad-error">
+      <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      <div class="event"
-           @mouseover="showMark(event.id)" 
-           v-bind:class="{ pastevent: isEventPast(event.starts_at) }" 
-           v-for="event in events" :key="event.id" v-on:click="redirect(event.id)"
-       >
-        <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
-        <div class="event__info" id="">
-          <p class="event__name">{{ event.name }}</p>
-          <div class="event__line"></div>
-          <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
-        </div>
-        <!-- <div class="past-mark" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()"></div> -->
-        <div v-if="isEventPast(event.starts_at)" class="panzer" v-bind:id="event.id">
-          <div class="banner">Событие завершено</div>
+      
+      <div class="comming-events">
+        <div class="event" v-on:click="redirect(commingEvent.id)">
+          <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
+          <div class="event__info">
+            <p class="event__name">{{ commingEvent.name }}</p>
+            <div class="event__line"></div>
+            <p class="event__date">{{ commingEvent.starts_at | TimeFilter }} {{ commingEvent.starts_at | DateFilter }}</p>
+          </div>
         </div>
       </div>
-      <div class="event__dummy"></div>
-      <div class="event__dummy"></div>
-      <div class="event__dummy"></div>
+      
+      <div class="past-events">
+        <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
+          <img class="past-event__background" v-bind:src="event.poster_image.uploadcare_url">
+          <div class="past-event__info">
+            <div class="past-event__name">{{ event.name }}</div>
+            <div class="past-event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</div>
+            <div class="past-event__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo consequuntur voluptatibus.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
+
 import timePadService from '@/service/timePadService'
+
 export default {
   data: () => ({
-    events: []
+    commingEvent: {},
+    pastEvents: []
   }),
   filters: {
     TimeFilter (val) {
@@ -45,20 +53,18 @@ export default {
     }
   },
   created: function () {
-    this.createEventList()
+    this.getCommingEvent()
+    this.getTwoPastEvents()
   },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
     },
-    createEventList () {
-      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()]).then(res => { this.events = res[0].values.concat(res[1].values) })
+    getCommingEvent () {
+      timePadService.getEventList().then((res) => { this.commingEvent = res.values[0] })
     },
-    showMark (id) {
-      document.getElementById(id).style.display = 'block'
-    },
-    isEventPast (date) {
-      return new Date(date) < new Date()
+    getTwoPastEvents () {
+      timePadService.getPastEventList().then((res) => { this.pastEvents = res.values })
     }
   }
 }
@@ -71,69 +77,33 @@ export default {
     align-items: center;
     padding: 0 10%;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
+  }
+  .comming-events {
+    padding-right: 3%;
+    border-right: 1px solid black;
+    width: 40%;
+    height: auto;
   }
   .event {
     position: relative;
     overflow: hidden;
-    width: 300px;
-    height: 300px;
     position: relative;
+    max-width: 400px;
+    max-height: 400px;
     cursor: pointer;
-    margin: 20px;
     transition: all .4s cubic-bezier(.25,.8,.25,1);
     transition-property: box-shadow;
-  }
-  .pastevent {
-    opacity: .6;
-  }
-  .past-mark {
-    display: none;
-    content: "";
-    position: absolute;
-    z-index: 5;
-    top: 150px;
-    left: 150px;
-    width: 150px;
-    height: 150px;
-    background: url("../../static/img/done.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: showMark 1s forwards;
-    transform: translate(-50%, -50%)
-  }
-  .panzer {
-    display: none; 
-    content: "";
-    position: absolute;
-    z-index: 5;
-    width: 50px;
-    height: 50px;
-    top: 250px;
-    left: 0;
-    background: url("../../static/img/panzer.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: panzer 2s forwards;
-  }
-  .banner {
-    width: 240px;
-    height: 40px;
-    margin-left: -240px;
-    background-color: #D35D47;
-    opacity: 1;
-    padding-left: 30px;
-    font-size: 1.2em;
-    font-weight: bold;
   }
   .event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .event__background{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     opacity: 0.4;
+    
   }
   .event__line{
     width: 80%;
@@ -151,8 +121,8 @@ export default {
     align-items: center;
   }
   .event__name{
-    width: 100%;
-    margin: 30px 0;
+    width: 90%;
+    margin: 26% 0;
     padding: 0;
     text-align: center;
     font-size: 40px;
@@ -163,6 +133,46 @@ export default {
     margin: 30px 0;
     font-size: 20px;
   }
+
+  .past-events {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    height: 400px;
+  }
+
+  .past-event {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  .past-event:hover{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  }
+  .past-event__background {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+  .past-event__info {
+    margin-left: 20px;
+  }
+  .past-event__name {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 0;
+  }
+  .past-event__date {
+    margin: 0;
+  }
+  .past-event__description {
+    max-width: 300px;
+  }
+
+
+
   .event__timepad-error{
     height: 200px;
     margin: 5% auto;
@@ -170,10 +180,7 @@ export default {
     text-align: center;
     color: #D35D47;
   }
-  .event__dummy{
-    width: 300px;
-    margin: 20px;
-  }
+
   @media (max-width: 600px) {
     .events__wrapper{
       justify-content: space-around;
