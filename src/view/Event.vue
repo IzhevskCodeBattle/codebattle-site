@@ -5,11 +5,11 @@
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
-        <button class="reg-button" id='twf' v-if="!(new Date(currentEvent.starts_at) < new Date())" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         <button class="game-button">ПОСМОТРЕТЬ ИГРУ</button>
       </div>  
     </div>
-    <div class="event-date__wrapper">    
+    <div class="event-date__wrapper">
       <div class="event-date">
           <div class="event-date__item">
             Начало мероприятия: <br>{{ currentEvent.starts_at | TimeFilter }}
@@ -35,7 +35,13 @@
       </div>
     </div>
     <!-- <EventPage/> -->
-  
+    <div class="event-video" v-if="currentEvent.id == 658608">
+      <div class="video__wrapper">
+        <video class="video" controls preload="auto">
+          <source src="/static/media/codebattle.webm" type="video/webm">
+        </video>
+       </div>
+    </div>
   </v-content>
 </template>
 <script>
@@ -64,6 +70,11 @@ export default {
     timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res }).then(() => console.log(this.currentEvent))
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
     window.scrollTo(0, 0)
+  },
+  methods: {
+    isEventPast (date) {
+      return new Date(date) < new Date()
+    }
   }
 }
 </script>
@@ -159,7 +170,10 @@ export default {
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;
-      width: 33%;
+      width: 30%;
+    }
+    .event-date__item:last-child {
+      width: 40%;
     }
     .event-date__item:last-child {
       border: none;
@@ -171,6 +185,17 @@ export default {
       width: 70%;
       margin: 0 auto;
       margin-bottom: 10%;
+    }
+    .event-video {
+      margin-bottom: 10%;
+    }
+    .video {
+      width: 80%;
+    }
+    .video__wrapper{
+      display: flex;
+      justify-content: space-around;
+     align-items: flex-start;
     }
     .event-main__description {
       width: 70%;
@@ -215,9 +240,6 @@ export default {
         width: 100%;
         font-size: 2em;
         text-align: left;
-      }
-      .event-registration__buttons {
-       
       }
       .reg-button {
         font-size: .65em;

@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @marselkhisamov Sign out
-1
-0 0 IzhevskCodeBattle/codebattle-site
- Code  Issues 0  Pull requests 4  Projects 1  Wiki  Insights
-codebattle-site/src/view/Game.vue
-be7308a  an hour ago
-@NikaClemente NikaClemente Re game page v0.5
-@NikaClemente @IzhevskCodeBattle
-     
-285 lines (275 sloc)  8.3 KB
 <template>
   <v-content>
     <a name="content"></a>
@@ -140,7 +122,6 @@ export default {
       left: 5%;
     }
     .game__name {
-      width: 400px;
       display: flex;
       align-items: center;
       justify-content: flex-start;

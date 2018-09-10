@@ -1,7 +1,6 @@
 <template>
   <v-content>
-    <router-view></router-view>
-    <CommingSoon/>
+    <!-- <router-view></router-view> -->
     <About/>
     <Events/>
     <Games/>

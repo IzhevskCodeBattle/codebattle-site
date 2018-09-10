@@ -6,10 +6,11 @@
     <div class="games__wrapper">
       <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
         <img class="game__image" v-bind:src="card.src">
-        <div class="game__info">
-          <p class="game__name">{{card.title}}</p>
-          <div class="game__line"></div>
-          <p class="game__status">{{card.status}}</p>
+        <div v-if="!card.isComplite" class="shadow"></div>
+        <div v-if="!card.isComplite" class="game__status">
+          {{ card.title }} <br>
+          <img src="../../static/img/settings.png" alt="in_dev_icon"> <br>
+          {{ card.status }}
         </div>
       </div>
       <div class="game__dummy"></div>
@@ -23,17 +24,19 @@
 export default {
   data: () => ({
     cards: [
+      { id: 1,
+        title: 'Bomberman',
+        src: '/static/img/games/bomber.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      },
       { id: 2,
         title: 'Танчики',
         src: '/static/img/games/battle-city.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'В разработке..'
-      },
-      { id: 3,
-        title: 'Bomberman',
-        src: '/static/img/games/bomberman.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'Игра готова'
+        status: 'В разработке...',
+        isComplite: false
       }
     ]
   }),
@@ -78,19 +81,16 @@ export default {
     transition: all .4s cubic-bezier(.25,.8,.25,1);
     transition-property: box-shadow;
   }
-  .game:hover{
+  .game:hover {
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
-  .game__image{
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    opacity: 0.3;
+  .devgame {
+    opacity: .3;
   }
-  .game__info{
-    height: 100%;
+  .shadow {
+    position: absolute;
     width: 100%;
-    position: absolute; 
+    height: 100%;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -116,23 +116,29 @@ export default {
     margin: 30px 0;
     font-size: 30px;
     font-weight: 400;
+    left: 0;
+    background-color: white;
+    opacity: .7; 
   }
-  .game__author{
-    text-align: right;
-    font-size: 15px;
-    font-style: italic;
-    margin: 10px;
+  .game__image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
   }
-  .game__description{
-    text-align: justify;
-    padding: 0 5px;
+  .game__status {
+    position: absolute;
+    top: 70px;
+    left: 75px;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    
   }
-  .game__line{
-    width: 80%;
-    border-bottom: 1px solid #464547;
-    opacity: 0.38;
+  .game__status img {
+    height: 50px;
+    width: 50px;
   }
-  .game__dummy{
+  .game__dummy {
     width: 300px;
     margin: 20px;
   }

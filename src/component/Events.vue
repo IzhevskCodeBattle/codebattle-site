@@ -4,30 +4,45 @@
     <div id="events" class="anchor"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
-      <div v-if="!events" class="event__timepad-error">
+      <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      <div class="event" v-bind:class="{ pastevent: new Date(event.starts_at) < new Date() }" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
-        <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
-        <div class="event__info">
-          <p class="event__name">{{ event.name }}</p>
-          <div class="event__line"></div>
-          <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
+      
+      <div class="comming-events">
+        <div class="event" v-on:click="redirect(commingEvent.id)">
+          <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
+          <div class="event__info">
+            <p class="event__name">{{ commingEvent.name }}</p>
+            <div class="event__line"></div>
+            <p class="event__date">{{ commingEvent.starts_at | TimeFilter }} {{ commingEvent.starts_at | DateFilter }}</p>
+          </div>
         </div>
-        <div class="past-mark" v-if=" new Date(event.starts_at) < new Date()"></div>
       </div>
-      <div class="event__dummy"></div>
-      <div class="event__dummy"></div>
-      <div class="event__dummy"></div>
+      
+      <div class="past-events">
+        <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
+          <img class="past-event__background" v-bind:src="event.poster_image.uploadcare_url">
+          <div class="past-event__info">
+            <div class="past-event__name">{{ event.name }}</div>
+            <div class="past-event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</div>
+            <div class="past-event__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo consequuntur voluptatibus.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
+
 import timePadService from '@/service/timePadService'
+
 export default {
   data: () => ({
-    events: []
+    commingEvent: {},
+    pastEvents: []
   }),
   filters: {
     TimeFilter (val) {
@@ -38,14 +53,18 @@ export default {
     }
   },
   created: function () {
-    this.createEventList()
+    this.getCommingEvent()
+    this.getTwoPastEvents()
   },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
     },
-    createEventList () {
-      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()]).then(res => { this.events = res[0].values.concat(res[1].values) })
+    getCommingEvent () {
+      timePadService.getEventList().then((res) => { this.commingEvent = res.values[0] })
+    },
+    getTwoPastEvents () {
+      timePadService.getPastEventList().then((res) => { this.pastEvents = res.values })
     }
   }
 }
@@ -58,41 +77,33 @@ export default {
     align-items: center;
     padding: 0 10%;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
+  }
+  .comming-events {
+    padding-right: 3%;
+    border-right: 1px solid black;
+    width: 40%;
+    height: auto;
   }
   .event {
     position: relative;
-    width: 300px;
-    height: 300px;
+    overflow: hidden;
     position: relative;
+    max-width: 400px;
+    max-height: 400px;
     cursor: pointer;
-    margin: 20px;
     transition: all .4s cubic-bezier(.25,.8,.25,1);
     transition-property: box-shadow;
-  }
-  .pastevent {
-    opacity: .6;
-  }
-  .past-mark {
-    content: "";
-    position: absolute;
-    z-index: 5;
-    top: 20px;
-    left: 240px;
-    width: 40px;
-    height: 40px;
-    background: url("../../static/img/done.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
   }
   .event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .event__background{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     opacity: 0.4;
+    
   }
   .event__line{
     width: 80%;
@@ -110,8 +121,8 @@ export default {
     align-items: center;
   }
   .event__name{
-    width: 100%;
-    margin: 30px 0;
+    width: 90%;
+    margin: 26% 0;
     padding: 0;
     text-align: center;
     font-size: 40px;
@@ -122,6 +133,46 @@ export default {
     margin: 30px 0;
     font-size: 20px;
   }
+
+  .past-events {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    height: 400px;
+  }
+
+  .past-event {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  .past-event:hover{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  }
+  .past-event__background {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+  .past-event__info {
+    margin-left: 20px;
+  }
+  .past-event__name {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 0;
+  }
+  .past-event__date {
+    margin: 0;
+  }
+  .past-event__description {
+    max-width: 300px;
+  }
+
+
+
   .event__timepad-error{
     height: 200px;
     margin: 5% auto;
@@ -129,13 +180,21 @@ export default {
     text-align: center;
     color: #D35D47;
   }
-  .event__dummy{
-    width: 300px;
-    margin: 20px;
-  }
+
   @media (max-width: 600px) {
     .events__wrapper{
       justify-content: space-around;
     }
+  }
+
+  @keyframes showMark {
+    0% {width: 0; height: 0;}
+    25% {width: 200px; height: 200px;}
+		50% {width: 100px; height: 100px;}
+    75% {top: 150px; left: 150px;}
+    /* 100% {top:50px; left: 250px; width: 50px; height: 50px;} */
+  }
+  @keyframes panzer {
+    100% {margin-left: 240px;}
   }
 </style>

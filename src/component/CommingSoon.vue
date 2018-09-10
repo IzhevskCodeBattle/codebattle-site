@@ -4,7 +4,7 @@
       <source src="/static/media/codebattle.webm" type="video/webm">
     </video>
   </div> -->
-</template>
+</template> */
 
 <script>
 // import Countdown from 'vuejs-countdown'
