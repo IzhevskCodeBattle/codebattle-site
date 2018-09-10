@@ -7,7 +7,11 @@
       <div v-if="!events" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      <div class="event" @mouseover="showMark(event.id)" @mouseout="hideMark(event.id)" v-bind:class="{ pastevent: new Date(event.starts_at) < new Date() }" v-for="event in events" :key="event.id" v-on:click="redirect(event.id)">
+      <div class="event"
+           @mouseover="showMark(event.id)" 
+           v-bind:class="{ pastevent: isEventPast(event.starts_at) }" 
+           v-for="event in events" :key="event.id" v-on:click="redirect(event.id)"
+       >
         <img class="event__background" v-bind:src="event.poster_image.uploadcare_url">
         <div class="event__info" id="">
           <p class="event__name">{{ event.name }}</p>
@@ -15,7 +19,7 @@
           <p class="event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</p>
         </div>
         <!-- <div class="past-mark" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()"></div> -->
-        <div class="panzer" v-bind:id="event.id" v-if=" new Date(event.starts_at) < new Date()">
+        <div v-if="isEventPast(event.starts_at)" class="panzer" v-bind:id="event.id">
           <div class="banner">Событие завершено</div>
         </div>
       </div>
@@ -53,8 +57,8 @@ export default {
     showMark (id) {
       document.getElementById(id).style.display = 'block'
     },
-    hideMark (id) {
-      // document.getElementById(id).style.display = 'none'
+    isEventPast (date) {
+      return new Date(date) < new Date()
     }
   }
 }
