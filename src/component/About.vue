@@ -5,6 +5,7 @@
     <div class="about__image"></div>
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
+      <div class="event-info">29 сентября в 13.30 кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
       <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">зарегистрироваться</button>
     </div>
     <p class="about__description">
@@ -45,6 +46,12 @@ export default {
 </script>
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+  .event-info {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 3%;
+    text-align: center;
+  }
   .about__image {
     position: relative;
     height: 500px;
@@ -77,7 +84,7 @@ export default {
   }
   .about__wrapper img {
     width: auto;
-    height: 380px;
+    height: 320px;
   }
   .about__title {
     margin-top: 5%;
@@ -160,6 +167,9 @@ export default {
    .about__title {
     font-size: 5em;
    }
+   .event-info {
+     font-size: 1.5em;
+   }
    .xsize{
     font-size: 50px;
     margin: 0;
@@ -169,7 +179,7 @@ export default {
     font-size: .8em;
   }
   .about__image {
-    height: 320px;
+    height: 400px;
   }
   .about__wrapper img {
     width: 90%;
@@ -186,6 +196,7 @@ export default {
    .about__image {
      width: 100%;
      margin: 0;
+     height: 390px;
    }
    .about__wrapper img {
     width: 80%;
@@ -194,11 +205,15 @@ export default {
  }
 
  @media (max-width: 650px) {
+  .event-info {
+    font-size: 1.2em;
+    text-align: center;
+  }
   .about__title {
     font-size: 3em;
   }
   .about__image {
-    height: 300px;
+    height: 350px;
     width: 100%;
   }
   .about__wrapper img {

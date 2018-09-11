@@ -39,8 +39,8 @@ export default {
         isComplite: false
       },
       { id: 3,
-        title: 'Танчики',
-        src: '/static/img/games/battle-city.png',
+        title: 'LodeRunner',
+        src: '/static/img/games/loderunner.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'В разработке...',
         isComplite: false
@@ -128,6 +128,9 @@ export default {
   @media (max-width: 600px) {
     .games__wrapper{
       justify-content: space-around;
+    }
+    .game__dummy {
+      display: none;
     }
   }
 </style>
