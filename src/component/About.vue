@@ -6,7 +6,7 @@
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
       <div class="event-info">29 сентября в 13.30 кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
-      <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">зарегистрироваться</button>
+      <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</button>
     </div>
     <p class="about__description">
       Это мини-хакатон для тех, кто любит программирование, 
@@ -57,7 +57,7 @@ export default {
     height: 500px;
     width: 125.5%;
     margin-left: -13%;
-    background-image: url('../../static/img/main-banner.jpg');
+    background-image: url('../../static/img/panzer.jpg');
     background-size: cover;
     background-position: 0 15%;
     box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);   
@@ -255,5 +255,8 @@ export default {
     width: 120%;
     height: 120%;
   }
+  .registration-button {
+      font-size: 1em;
+  }   
 }
 </style>
