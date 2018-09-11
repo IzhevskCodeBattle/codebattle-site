@@ -5,5 +5,14 @@ import routes from './routes'
 Vue.use(VueRouter)
 export default new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return { selector: to.hash }
+    }
+    if (savedPosition) {
+      return savedPosition
+    }
+    return false
+  }
 })
