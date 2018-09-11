@@ -59,7 +59,7 @@ export default {
     margin-left: -13%;
     background-image: url('../../static/img/panzer.jpg');
     background-size: cover;
-    background-position: 0 15%;
+    background-position: 0 44%;
     box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);   
   }
   .about__wrapper {
