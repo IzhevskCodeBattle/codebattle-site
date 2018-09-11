@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="past-events">
         <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
           <img class="past-event__background" v-bind:src="event.poster_image.uploadcare_url">
@@ -31,6 +31,9 @@
           </div>
         </div>
       </div>
+
+      <button class="show-old-events" @click="showOldEvents()">показать прошедшие события</button>
+
     </div>
   </section>
 </template>
@@ -65,6 +68,11 @@ export default {
     },
     getTwoPastEvents () {
       timePadService.getPastEventList().then((res) => { this.pastEvents = res.values })
+    },
+    showOldEvents () {
+      document.querySelector('.past-events').style.display = 'block'
+      document.querySelector('.show-old-events').style.display = 'none'
+      // document.querySelector('.events-wrapper').style.pastEvents = '190%'
     }
   }
 }
@@ -170,9 +178,6 @@ export default {
   .past-event__description {
     max-width: 300px;
   }
-
-
-
   .event__timepad-error{
     height: 200px;
     margin: 5% auto;
@@ -180,21 +185,78 @@ export default {
     text-align: center;
     color: #D35D47;
   }
+  .show-old-events {
+    display: none;
+  }
+
+  @media (max-width: 760px) {
+    .comming-events {
+      padding: 0;
+    }
+    .past-events {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .past-event {
+      margin-top: 5%;
+      margin-left: 0;
+    }
+    .past-event:first-child {
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: 3%;
+    }
+    .past-event:last-child {
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      padding-bottom: 3%;
+    }
+    .show-old-events {
+      display: block;
+      margin-top: 5%;
+      font-size: 1em;
+      border: 1px solid black;
+      padding: 3px 10px;
+      background-color: gray;
+    }
+    .show-old-events:focus {
+      outline: none;
+    }
+    .events__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    .comming-events {
+      width: 100%;
+      border-right: none;
+    }
+    .event {
+      width: 300px;  
+      height: 300px;
+      margin: 0 auto;
+    }
+ }
 
   @media (max-width: 600px) {
     .events__wrapper{
-      justify-content: space-around;
+      justify-content: center;
+      align-items: center;
+    }
+    .event {
+      width: 250px;  
+      height: 250px;
+      margin: 0 auto;
+    }
+    .event__name {
+      font-size: 35px;
+      margin: 4% 0;
+    }
+    .past-event__background {
+      height: 100px;
+      width: 100px;
+    }
+    .past-event__info {
+      font-size: 0.8em;
     }
   }
 
-  @keyframes showMark {
-    0% {width: 0; height: 0;}
-    25% {width: 200px; height: 200px;}
-		50% {width: 100px; height: 100px;}
-    75% {top: 150px; left: 150px;}
-    /* 100% {top:50px; left: 250px; width: 50px; height: 50px;} */
-  }
-  @keyframes panzer {
-    100% {margin-left: 240px;}
-  }
 </style>
