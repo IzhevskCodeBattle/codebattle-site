@@ -99,6 +99,30 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .game__info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .game__name{
+    width: 100%;
+    margin: 30px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #464547;
+  }
+  .game__status{
+    color: #464547;
+    margin: 30px 0;
+    font-size: 30px;
+    font-weight: 400;
     left: 0;
     background-color: white;
     opacity: .7; 

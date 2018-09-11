@@ -1,9 +1,9 @@
 <template>
-  <v-content>
+  <v-content v-bind:style="{ backgroundImage : currentEvent.background }">
     <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
-      <div class="event-registration__name">{{ currentEvent.name }}</div>
+      <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
         <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         <button class="game-button">ПОСМОТРЕТЬ ИГРУ</button>
@@ -11,19 +11,19 @@
     </div>
     <div class="event-date__wrapper">
       <div class="event-date">
-          <div class="event-date__item">
+          <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Начало мероприятия: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
-          <div class="event-date__item">
+          <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Дата: <br>{{ currentEvent.starts_at | DateFilter}}
           </div>
-          <div class="event-date__item">
+          <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Место проведения: <br>{{ currentEvent.location.address }}
           </div>  
       </div>  
     </div>
     <div class="event-main">
-      <div class="event-main__description"> 
+      <div class="event-main__description" v-bind:style="{ color : currentEvent.fontColor }"> 
         <i>{{ currentEvent.description_short }}</i>
       </div>
       <div class="event-main__map-wrapper">
@@ -52,7 +52,19 @@ import timePadService from '@/service/timePadService'
 export default {
   data: () => ({
     currentEvent: {},
-    registrationLink: ''
+    registrationLink: '',
+    background: [
+      { id: 798207,
+        src: "url('../static/img/mettal_27.jpg')",
+        fontColor: 'white'
+      },
+      { id: 658608,
+        src: '/static/img/games/bomberman.png'
+      },
+      { id: 607445,
+        src: '/static/img/games/bomberman.png'
+      }
+    ]
   }),
   name: 'Event',
   components: {
@@ -67,7 +79,7 @@ export default {
     }
   },
   created () {
-    timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res }).then(() => console.log(this.currentEvent))
+    timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res; this.currentEvent.background = this.background.find(item => { return item.id === res.id }).src; this.currentEvent.fontColor = this.background.find(item => { return item.id === res.id }).fontColor }).then(() => console.log(this.currentEvent))
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
     window.scrollTo(0, 0)
   },
@@ -91,7 +103,7 @@ export default {
 
     .event-registration {
       position: absolute;
-      top: 8%;
+      top: 2%;
       left: 5%;
     }
     .event-registration__name {
@@ -104,6 +116,7 @@ export default {
       text-align: left;
       padding-left: 0;
       color: #464547;
+      height: 252px;
     }
     .event-registration__logo {
       width: 30%;
@@ -157,7 +170,9 @@ export default {
       width: 100%;
       background-color: #f9f9f9;
       margin-bottom: 3%;
-      border-top: 1px solid #39c2d7;
+      border-top: 1px solid darkgrey;
+      border-bottom: 1px solid darkgrey;
+      background: rgba(249, 249, 249, 0);
     }
     .event-date__item {
       display: flex;

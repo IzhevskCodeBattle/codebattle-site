@@ -52,7 +52,7 @@
         <a class="github" href="">
           <v-icon>fab fa-github-alt</v-icon>
         </a>
-        <a class="google" href="http://10.27.13.116:3000/auth/google">
+        <a class="google" href="http://localhost:3000/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
       </v-layout>
