@@ -1,6 +1,7 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
-  <section id="about">
+  <section>
+    <div id="about" class="anchor"></div>
     <div class="about__image"></div>
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">

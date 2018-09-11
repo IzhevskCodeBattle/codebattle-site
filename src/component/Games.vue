@@ -37,6 +37,13 @@ export default {
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'В разработке...',
         isComplite: false
+      },
+      { id: 3,
+        title: 'Танчики',
+        src: '/static/img/games/battle-city.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'В разработке...',
+        isComplite: false
       }
     ]
   }),
@@ -71,8 +78,8 @@ export default {
     justify-content: space-around;
   }
   .game {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     position: relative;
     cursor: pointer;
     margin: 10px;
@@ -97,14 +104,14 @@ export default {
     opacity: .7; 
   }
   .game__image {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
   }
   .game__status {
     position: absolute;
-    top: 70px;
-    left: 75px;
+    top: 55px;
+    left: 55px;
     font-size: 2em;
     color: black;
     text-align: center;
@@ -123,23 +130,4 @@ export default {
       justify-content: space-around;
     }
   }
-  /* @media (max-width: 850px) {
-    .game{
-      width: 100%;
-      justify-content: center;
-    }
-  }
-  @media (max-width: 600px) {
-    .game__image{
-      height: 100px;
-      margin-right: 5px;
-    }
-    .game{
-      width: 100%;
-      justify-content: center;
-    }
-    .game__author, .game__description {
-      display: none;
-    }
-  } */
 </style>
