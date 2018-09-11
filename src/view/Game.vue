@@ -1,14 +1,71 @@
 <template>
-  <v-content>
+  <v-content v-bind:style="{ backgroundImage : game.background }">
     <a name="content"></a>
-    <img class="game-image" :src="img" alt='Картинка мероприятия'>
+    <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
     <div class="game">
       <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
-      <div class="game__name">{{ name }}</div>
+      <div class="game__name">{{ game.name }}</div>
     </div>
     <div class="game__main">
       <div class="game__description">
-        <h5 class="description__tittle">Правила игры</h5>
+      </div>
+      <div class="game__gallery">
+        <swiper :options="swiperOption" class="swiper">
+          <swiper-slide v-for="pic in pictures" :key="pic.title">
+            <img class="pictures" :src="pic.src" :alt="pic.title" />
+          </swiper-slide>
+           <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
+      </div>
+    </div>
+  </v-content>
+</template>
+
+
+<script>
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+export default {
+  name: 'Game',
+  components: {
+    swiper,
+    swiperSlide
+  },
+  data: () => ({
+    games: [{
+      id: 1,
+      name: 'Bomberman',
+      img: '/static/img/bomberman_banner.jpg',
+      background: '',
+      pictures: [
+        { title: 'Картинка 1',
+          src: '/static/img/games/bomberman/map3.jpg'
+        },
+        { title: 'Картинка 2',
+          src: '/static/img/games/bomberman/bomberman.png'
+        },
+        { title: 'Картинка 3',
+          src: '/static/img/games/bomberman/map1.jpg'
+        },
+        { title: 'Картинка 4',
+          src: '/static/img/games/bomberman/map2.jpg'
+        },
+        { title: 'Картинка 5',
+          src: '/static/img/games/bomberman/map4.jpg'
+        },
+        { title: 'Картинка 6',
+          src: '/static/img/games/bomberman/map5.jpg'
+        },
+        { title: 'Картинка 7',
+          src: '/static/img/games/bomberman/map6.jpg'
+        },
+        { title: 'Картинка 8',
+          src: '/static/img/games/bomberman/map7.jpg'
+        }
+      ],
+      description: `<h2 class="description__tittle">Правила игры</h2>
         <div class="description__main">
           Каждый участник разрабатывает своего бота-бомбермена. 
         </div>
@@ -44,47 +101,26 @@
         <div class="description__main">
         Побеждает игрок набравший максимальное количество очков к концу игры. Длительность игры будет 
         определена на месте ведущим.
-        </div>
-      </div>
-      
-      <div class="game__gallery">
-        <swiper :options="swiperOption" class="swiper">
-          <swiper-slide v-for="pic in pictures" :key="pic.title">
-            <img class="pictures" :src="pic.src" :alt="pic.title" />
-          </swiper-slide>
-           <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
-      </div>
-    </div>
-  </v-content>
-</template>
-
-
-<script>
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-export default {
-  name: 'Game',
-  components: {
-    swiper,
-    swiperSlide
-  },
-  data: () => ({
-    name: 'Bomberman',
-    img: '/static/img/games/fon.jpg',
-    pictures: [
-      { title: 'Картинка 1',
-        src: '/static/img/games/mit1.jpg'
-      },
-      { title: 'Картинка 2',
-        src: '/static/img/games/mit2.jpg'
-      },
-      { title: 'Картинка 3',
-        src: '/static/img/games/mit3.jpg'
-      }
-    ],
+        </div>`
+    },
+    {
+      id: 2,
+      name: 'Танчики',
+      img: '/static/img/panzer.jpg',
+      background: '',
+      description: `<h2 class="description__tittle">Правила игры</h2>
+        <div class="description__main">
+          Тут длинное описание игры Танчики..
+        </div>`
+    },
+    {
+      id: 3,
+      name: 'LodeRunner',
+      img: '/static/img/main-banner.jpg',
+      background: '',
+      description: `<h2 class="description__tittle">Игра находится в разработке</h2>`
+    }],
+    pictures: [],
     swiperOption: {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -101,7 +137,14 @@ export default {
     }
   }),
   created () {
+    this.gameId = this.$route.params.id
+    this.game = this.games.find(game => game.id === this.gameId)
+    this.pictures = this.game.pictures
     window.scrollTo(0, 0)
+  },
+  mounted () {
+    let gameDescription = document.querySelector('.game__description')
+    gameDescription.innerHTML = this.game.description
   }
 }
 </script>
@@ -125,7 +168,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      font-size: 4em;
+      font-size: 6em;
       font-weight: bold;
       text-align: left;
       padding-left: 0;
@@ -142,6 +185,7 @@ export default {
       display: flex;
       margin: 0 auto;
       opacity: .5;
+      object-fit: cover;
     }
     .game__main{
       display: block;
@@ -153,25 +197,6 @@ export default {
       font-size: 1.6em;
       font-family: 'Play', sans-serif;
       color: #464547; 
-    }
-    .game__description{
-      padding: 15px;
-      width: 100%;
-    }
-    .description__tittle{
-      font-size: 1.4em;
-      text-align: center;
-      font-weight: bold;
-    }
-    .description__main{
-      text-align: justify;
-      text-align-last:left;
-      text-indent: 15px;
-    }
-    .description__main__section{
-      margin: 20px 15px 0 15px;
-      text-decoration-line: underline;
-      font-weight: bold;
     }
     /* ГАЛЕРЕЯ */
     .game__gallery{
