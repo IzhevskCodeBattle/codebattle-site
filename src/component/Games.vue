@@ -99,10 +99,13 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    opacity: .7;
   }
   .game__info{
     height: 100%;
@@ -120,12 +123,9 @@ export default {
   }
   .game__status{
     color: #464547;
-    margin: 30px 0;
     font-size: 30px;
     font-weight: 400;
-    left: 0;
-    background-color: white;
-    opacity: .7; 
+    left: 0; 
   }
   .game__image {
     width: 250px;
