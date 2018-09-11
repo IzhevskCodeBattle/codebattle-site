@@ -45,7 +45,7 @@ export default {
     ],
     swiperOption: {
       spaceBetween: 30,
-      slidesPerView: 4,
+      slidesPerView: 3,
       loop: true,
       loopFillGroupWithBlank: true,
       centeredSlides: true,
@@ -74,6 +74,7 @@ export default {
     height: 200px;
     object-fit: cover;
     cursor: pointer;
+    margin: 0 auto;
   }
   .swiper-wrapper {
     width: 80%;
