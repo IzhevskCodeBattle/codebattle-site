@@ -1,34 +1,22 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="games">
-    <h2 class="toolbar">Games</h2>
-    <v-container fluid grid-list-md>
-      <v-layout row wrap >
-        <v-flex class='xs12 sm4 md3 lg2' v-for="card in cards" :key="card.id">
-          <v-card :to="{ name: 'game', params: { id: card.id }}" hover tile>
-            <v-card-media :src="card.src" :height="imageHeight" contain/>
-            <v-card-title primary-title>
-              {{card.title}}
-              <v-layout d-inline style="text-align: right">by {{card.author}}</v-layout>
-            </v-card-title>
-            <v-card-text class="title_all">
-              {{card.title_all}}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon small><v-icon>favorite</v-icon></v-btn>
-              <v-btn icon small class="margin-left"><v-icon>bookmark</v-icon></v-btn>
-              <v-btn icon small class="margin-left"><v-icon>share</v-icon></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+  <section>
+    <div id="games" class="anchor"></div>
+    <h2 class="toolbar">Игры</h2>
+    <div class="games__wrapper">
+      <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
+        <img class="game__image" v-bind:src="card.src">
+        <div v-if="!card.isComplite" class="shadow"></div>
+        <div v-if="!card.isComplite" class="game__status">
+          {{ card.title }} <br>
+          <img src="../../static/img/settings.png" alt="in_dev_icon"> <br>
+          {{ card.status }}
+        </div>
+      </div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+      <div class="game__dummy"></div>
+    </div>
   </section>
 </template>
 <!-- код, который относится непосредственно к компоненту -->
@@ -37,112 +25,31 @@ export default {
   data: () => ({
     cards: [
       { id: 1,
-        title: 'Название игры №1',
-        src: '/static/img/games/2048.png',
+        title: 'Bomberman',
+        src: '/static/img/games/bomber.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
+        status: 'Игра готова',
+        isComplite: true
       },
       { id: 2,
-        title: 'Название игры №2',
+        title: 'Танчики',
         src: '/static/img/games/battle-city.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
+        status: 'В разработке...',
+        isComplite: false
       },
       { id: 3,
-        title: 'Название игры №3',
-        src: '/static/img/games/bomberman.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 4,
-        title: 'Название игры №4',
-        src: '/static/img/games/collapse.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 5,
-        title: 'Название игры №5',
-        src: '/static/img/games/fifthteen.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 6,
-        title: 'Название игры №6',
-        src: '/static/img/games/hex.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 7,
-        title: 'Название игры №6',
-        src: '/static/img/games/kubik.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 8,
-        title: 'Название игры №6',
+        title: 'LodeRunner',
         src: '/static/img/games/loderunner.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 9,
-        title: 'Название игры №6',
-        src: '/static/img/games/minesweeper.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 10,
-        title: 'Название игры №6',
-        src: '/static/img/games/moebius.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 11,
-        title: 'Название игры №6',
-        src: '/static/img/games/puzzlebox.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 12,
-        title: 'Название игры №6',
-        src: '/static/img/games/quake2d.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 13,
-        title: 'Название игры №6',
-        src: '/static/img/games/reversi.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 14,
-        title: 'Название игры №6',
-        src: '/static/img/games/snake.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 15,
-        title: 'Название игры №6',
-        src: '/static/img/games/snakebattle.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 17,
-        title: 'Название игры №6',
-        src: '/static/img/games/spacerace.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
-      },
-      { id: 18,
-        title: 'Название игры №6',
-        src: '/static/img/games/sudoku.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        author: 'Cool Man'
+        status: 'В разработке...',
+        isComplite: false
       }
     ]
   }),
   computed: {
     imageHeight () {
-      console.log(this.$vuetify.breakpoint.name)
+      // console.log(this.$vuetify.breakpoint.name)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
         case 'sm': return '300px'
@@ -151,43 +58,103 @@ export default {
         case 'xl': return '300px'
       }
     }
+  },
+  methods: {
+    redirect: function (id) {
+      this.$router.push({name: 'game', params: { id }})
+    }
   }
 }
 </script>
 
-
-
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
-  img{
+  .games__wrapper{
+    padding: 0 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+  }
+  .game {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    transition: all .4s cubic-bezier(.25,.8,.25,1);
+    transition-property: box-shadow;
+  }
+  .game:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  }
+  .devgame {
+    opacity: .3;
+  }
+  .shadow {
+    position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: .7;
   }
-  .games{
-    padding-top: 25px;
-    padding-bottom: 50px;
+  .game__info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
-  h2{
+  .game__name{
+    width: 100%;
+    margin: 30px 0;
+    padding: 0;
     text-align: center;
-    font-size: 3em;
-    padding-bottom: 15px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #464547;
   }
-  .card{
-    overflow: hidden;
-    margin: 2px;
-  }  
-  .title_all{
-    text-align: justify;
-    font-size: 1em;
+  .game__status{
+    color: #464547;
+    font-size: 30px;
+    font-weight: 400;
+    left: 0; 
   }
-  .v-card__actions .v-btn  + .v-btn {
-    margin-left: 0px;
+  .game__image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
   }
-  .margin-left {
-    margin-left: 8px!important;
+  .game__status {
+    position: absolute;
+    top: 55px;
+    left: 55px;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    
   }
-  .v-btn__content .v-icon {
-    font-size: 1.5em;
+  .game__status img {
+    height: 50px;
+    width: 50px;
   }
-
+  .game__dummy {
+    width: 250px;
+    margin: 10px;
+  }
+  @media (max-width: 600px) {
+    .games__wrapper{
+      justify-content: space-around;
+    }
+    .game__dummy {
+      display: none;
+    }
+  }
 </style>

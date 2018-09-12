@@ -1,90 +1,318 @@
 <template>
-  <v-content>
+  <v-content v-bind:style="{ backgroundImage : game.background }">
     <a name="content"></a>
-    <v-layout style="margin-top: 25px; margin-bottom: 25px;">
-      <v-flex xs12 sm4 md3 lg2>
-        <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-        <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-        <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-        <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-        <v-btn icon small class="small"><v-icon>star_border</v-icon></v-btn>
-      </v-flex>
-      <v-flex xs12 sm4 md6 lg8 >
-        <p class="game_name">{{name}}</p>
-      </v-flex>
-      <v-flex xs12 sm4 md3 lg2 style="text-align: right;">
-        <v-btn icon>
-          <v-icon>favorite</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>bookmark</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>share</v-icon>
-        </v-btn>
-      </v-flex>
-    </v-layout>
-    <v-layout py-3 px-5 justify-center>
-      <h1>Сервер для тренировки: <a :href='link'>http://codenjoy.juja.com.ua/codenjoy-contest/</a></h1>
-    </v-layout>
-    <v-layout py-3 px-5 justify-center>
-      <p class="description">{{description}}</p>
-    </v-layout>
-    <game-gallery/>
-    <v-divider/>
-    <h2>Top 10 участников</h2>
-    <game-players/>
-    <v-divider/>
-    <game-events/>
+    <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
+    <div class="game">
+      <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
+      <div class="game__name">{{ game.name }}</div>
+    </div>
+    <div class="game__main">
+      <div class="game__description">
+      </div>
+      <div class="game__gallery">
+        <swiper :options="swiperOption" class="swiper">
+          <swiper-slide v-for="pic in pictures" :key="pic.title">
+            <img class="pictures" :src="pic.src" :alt="pic.title" />
+          </swiper-slide>
+           <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
+      </div>
+    </div>
   </v-content>
 </template>
+
+
 <script>
-import GamePlayers from '@/component/GamePlayers'
-import GameEvents from '@/component/GameEvents'
-import GameGallery from '@/component/GameGallery'
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'Game',
   components: {
-    GamePlayers,
-    GameEvents,
-    GameGallery
+    swiper,
+    swiperSlide
   },
   data: () => ({
-    name: 'Название игры',
-    link: 'http://codenjoy.juja.com.ua/codenjoy-contest/',
-    description: 'Воля по природе своей до такой степени свободна, что ее никогда нельзя принудить. Из двух видов мыслей, которые я различал в душе, одни являются действиями воли, другие же - страстями в широком смысле слова, включая все виды восприятий. Первые полностью зависят от воли и только косвенно могут быть изменены под влиянием тела; последние, наоборот, зависят исключительно от действий, их порождающих, и только косвенно могут быть изменены душой, за исключением тех случаев, когда она сама является их причиной. Всякое действие души заключается в том, что она, желая чего-нибудь, тем самым заставляет маленькую железу, с которой она тесно связана, двигаться так, как это необходимо для того, чтобы вызвать действие, соответствующее этому желанию.'
-  })
+    games: [{
+      id: 1,
+      name: 'Bomberman',
+      img: '/static/img/bomberman_banner.jpg',
+      background: '',
+      pictures: [
+        { title: 'Картинка 1',
+          src: '/static/img/games/bomberman/map3.jpg'
+        },
+        { title: 'Картинка 2',
+          src: '/static/img/games/bomberman/bomberman.png'
+        },
+        { title: 'Картинка 3',
+          src: '/static/img/games/bomberman/map1.jpg'
+        },
+        { title: 'Картинка 4',
+          src: '/static/img/games/bomberman/map2.jpg'
+        },
+        { title: 'Картинка 5',
+          src: '/static/img/games/bomberman/map4.jpg'
+        },
+        { title: 'Картинка 6',
+          src: '/static/img/games/bomberman/map5.jpg'
+        },
+        { title: 'Картинка 7',
+          src: '/static/img/games/bomberman/map6.jpg'
+        },
+        { title: 'Картинка 8',
+          src: '/static/img/games/bomberman/map7.jpg'
+        }
+      ],
+      description: `<h2 class="description__tittle">Правила игры</h2>
+        <div class="description__main">
+          Каждый участник разрабатывает своего бота-бомбермена. 
+        </div>
+        <div class="description__main__section">Поле</div>
+        <div class="description__main">
+          Поле поделено на ячейки. В каждой ячейке может находится один объект: 
+          разрушаемая стенка, неразрушаемая стенка, бомба, бомбермен, митчопер, 
+          либо ячейка может быть свободной. Все участники мероприятия играют одновременно на одном поле. 
+        </div>
+        <div class="description__main__section">Ход</div>
+        <div class="description__main">
+          За время одного тика (1 секунда) бомбермен может выполнить одно действие: 
+          передвинуться в соседнюю свободную ячейку, установить бомбу и 
+          переместиться на свободную ячейку или остаться на месте. 
+        </div>
+        <div class="description__main__section">Бомба</div>
+        <div class="description__main">
+          Бомба взрывается через 5 тиков (секунд). Взрывная волна уничтожает разрушаемые стенки, 
+          бомберменов и митчоперов. Размер взрывной волны — 4 ячейки. Каждый объект, уничтоженный взрывом, 
+          восстанавливается в случайной свободной ячейке поля в следующий ход. 
+          Подорваться можно и на своей, и на чужой бомбе.
+        </div>
+        <div class="description__main__section">Митчопер</div>
+        <div class="description__main">
+          На своем пути герой может повстречать митчопера — красный воздушный шарик, который преследует и 
+          уничтожает бомберменов. 
+        </div>
+        <div class="description__main__section">Порядок начисления очков</div>
+        <div class="description__main">
+          Очки начисляются за уничтожение объектов: разрушаемая стенка — 10 очков, митчопер — 100 очков, 
+          другой бомбермен — 1000 очков. Очки суммируются. За гибель бомбермена очки не снимаются. 
+        </div>
+        <div class="description__main">
+        Побеждает игрок набравший максимальное количество очков к концу игры. Длительность игры будет 
+        определена на месте ведущим.
+        </div>`
+    },
+    {
+      id: 2,
+      name: 'Танчики',
+      img: '/static/img/panzer.jpg',
+      background: '',
+      description: `<h2 class="description__tittle">Правила игры</h2>
+        <div class="description__main">
+          Тут длинное описание игры Танчики..
+        </div>`
+    },
+    {
+      id: 3,
+      name: 'LodeRunner',
+      img: '/static/img/main-banner.jpg',
+      background: '',
+      description: `<h2 class="description__tittle">Игра находится в разработке</h2>`
+    }],
+    pictures: [],
+    swiperOption: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      // pagination: {
+      //   el: '.swiper-pagination'
+      // },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    }
+  }),
+  created () {
+    this.gameId = this.$route.params.id
+    this.game = this.games.find(game => game.id === this.gameId)
+    this.pictures = this.game.pictures
+    window.scrollTo(0, 0)
+  },
+  mounted () {
+    let gameDescription = document.querySelector('.game__description')
+    gameDescription.innerHTML = this.game.description
+  }
 }
 </script>
 
 
-
-
 <style scoped>
-  .v-toolbar__content .v-btn--icon, .v-toolbar__extension .v-btn--icon {
-    margin: 0.1vw;
-    font-size: 1.4vw;
+    @font-face {
+      font-family: SourceSansPro;
+      src: url(../../static/fonts/SourceSansPro-BoldIt.otf);
+    }
+    @font-face {
+      font-family: SourceSansPro-lt;
+      src: url(../../static/fonts/SourceSansPro-It.otf);
+    }
+    .game{
+      position: absolute;
+      top: 5%;
+      left: 5%;
+    }
+    .game__name {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 6em;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 0;
+      color: #464547;
+    }
+    .game__logo {
+      width: 30%;
+      height: 10%;
+    }
+    .game-image {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      margin: 0 auto;
+      opacity: .5;
+      object-fit: cover;
+    }
+    .game__main{
+      display: block;
+      align-items: top;
+      margin: 0 auto;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      width: 90%;
+      font-size: 1.6em;
+      font-family: 'Play', sans-serif;
+      color: #464547; 
+    }
+    /* ГАЛЕРЕЯ */
+    .game__gallery{
+      padding: 15px;
+      width: 100%;
+    }
+    
+    .pictures{
+    max-height: 500px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 0 auto;
   }
-
-  .game_name{
-    text-align: center; 
-    width: 100%;
-    font-size: 3em;
-  }
-
-  .description{
-    text-align: justify; 
-    padding-right: 40px;
-    font-size: 1.5em;
-  }
-
-  h2{
+  .swiper{
     text-align: center;
-    font-size: 3em;
-    margin-bottom: 25px;
-    background-color: rgba(235, 235, 235);
-    margin-top: 50px; 
-    margin-bottom: 25px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
-
+  .swiper-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+  }
+  .swiper-slide{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+  }
+  .swiper-button-prev{
+    filter: opacity(70%) grayscale(.80) 
+  }
+  .swiper-button-next{
+    filter: opacity(70%) grayscale(.80)
+  }
+    @media (max-width: 850px) {
+      .game__main{
+        display: block;
+      }
+      .game{
+        top: 5%;
+        left: 4%;
+      } 
+      .game-image {
+      height: 300px;
+      }
+      .game__description{
+        width: 100%;
+      }
+      .game__gallery{
+        width: 100%;
+      }
+      .pictures{
+        max-height: 400px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
+    }
+    @media (max-width: 600px) {
+      .game{
+        top: 1%;
+        left: 2%;
+      } 
+      .game-image {
+      height: 170px;
+      }
+      .game__name {
+        font-size: 2.3em;
+        justify-content: flex-start;
+        padding-left: 15px; 
+      }
+      .game__main{
+        display: block;
+      }
+      .game__description{
+        width: 100%;
+      }
+      .game__gallery{
+        width: 100%;
+      }
+      .pictures{
+        max-height: 150px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
+    }
 </style>
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
