@@ -27,8 +27,8 @@
           <div class="past-event__info">
             <div class="past-event__name">{{ event.name }}</div>
             <div class="past-event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</div>
-            <div class="past-event__description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo consequuntur voluptatibus.
+            <div id="event.id" class="past-event__description">
+              {{ getEventDescription(event.id) }}
             </div>
           </div>
         </div>
@@ -47,7 +47,8 @@ import timePadService from '@/service/timePadService'
 export default {
   data: () => ({
     commingEvent: {},
-    pastEvents: []
+    pastEvents: [],
+    text: ''
   }),
   filters: {
     TimeFilter (val) {
@@ -57,7 +58,7 @@ export default {
       return val.toString().split('').splice(0, 10).join('')
     }
   },
-  beforeMount: function () {
+  mounted: function () {
     this.downloadEvents()
   },
   methods: {
@@ -76,6 +77,13 @@ export default {
     showOldEvents () {
       document.querySelector('.past-events').style.display = 'block'
       document.querySelector('.show-old-events').style.display = 'none'
+    },
+    getEventDescription (id) {
+      // return timePadService.getEventById(id).then(res => { this.text = res.description_short })
+      switch (id) {
+        case 658608: return 'Первый студенческий баттл для учащихся всех ВУЗов!'
+        case 607445: return '18 ноября состоится хардкорное мероприятие для разработчиков Ижевска под названием Code Battle.'
+      }
     },
     hideSpinner () {
       document.querySelector('.spinner').style.display = 'none'
