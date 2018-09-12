@@ -4,6 +4,8 @@
     <div id="events" class="anchor"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
+      <img  class="spinner" @click="hideSpinner()" src="../../static/img/spinner.gif" alt="loading">
+
       <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
@@ -55,24 +57,28 @@ export default {
       return val.toString().split('').splice(0, 10).join('')
     }
   },
-  created: function () {
-    this.getCommingEvent()
-    this.getTwoPastEvents()
+  beforeMount: function () {
+    this.downloadEvents()
   },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
     },
-    getCommingEvent () {
-      timePadService.getEventList().then((res) => { this.commingEvent = res.values[0] })
+    downloadEvents () {
+      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()])
+        .then((res) => { this.commingEvent = res[0].values[0]; this.pastEvents = res[1].values; return true })
+        .then((res) => { this.showEvents(); this.hideSpinner() })
     },
-    getTwoPastEvents () {
-      timePadService.getPastEventList().then((res) => { this.pastEvents = res.values })
+    showEvents () {
+      document.querySelector('.comming-events').style.display = 'block'
+      document.querySelector('.past-events').style.display = 'flex'
     },
     showOldEvents () {
       document.querySelector('.past-events').style.display = 'block'
       document.querySelector('.show-old-events').style.display = 'none'
-      // document.querySelector('.events-wrapper').style.pastEvents = '190%'
+    },
+    hideSpinner () {
+      document.querySelector('.spinner').style.display = 'none'
     }
   }
 }
@@ -80,7 +86,19 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+   .spinner {
+     display: block;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 5;
+     height: 50px;
+     width: 50px;
+   }
+
    .events__wrapper{
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -88,6 +106,7 @@ export default {
     justify-content: flex-start;
   }
   .comming-events {
+    display: none;
     padding-right: 3%;
     border-right: 1px solid black;
     width: 40%;
@@ -143,7 +162,7 @@ export default {
   }
 
   .past-events {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
