@@ -77,6 +77,25 @@ export default {
   .application .theme--light.v-footer, .theme--light .v-footer{
     background-color: #fff;
   }
+  .game__description{
+    padding: 15px;
+    width: 100%;
+  }
+  .description__tittle{
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: bold;
+  }
+  .description__main{
+    text-align: justify;
+    text-align-last:left;
+    text-indent: 15px;
+  }
+  .description__main__section{
+    margin: 20px 15px 0 15px;
+    text-decoration-line: underline;
+    font-weight: bold;
+  }
   @media (max-width: 950px) {
     .main-content__wrapper{
       margin: 0;

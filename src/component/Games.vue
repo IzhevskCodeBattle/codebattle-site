@@ -146,8 +146,8 @@ export default {
     width: 50px;
   }
   .game__dummy {
-    width: 300px;
-    margin: 20px;
+    width: 250px;
+    margin: 10px;
   }
   @media (max-width: 600px) {
     .games__wrapper{
