@@ -108,7 +108,7 @@ export default {
   .comming-events {
     display: none;
     padding-right: 3%;
-    border-right: 1px solid black;
+    border-right: 1px solid #a9a9a9 ;
     width: 40%;
     height: auto;
   }
