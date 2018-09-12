@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="footer">
     <div class="footer__wrapper">
         <div class="icons-wrapper">
           <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
@@ -38,9 +38,13 @@ export default {
 </script>
 
 <style scoped>
+.footer {
+  margin-top: -88px;
+}
 .footer__wrapper{
   background-color: #464547;
   margin: 0 10%;
+  height: 88px;
 }
 .footer__links a{
   color: #008ACE;
@@ -67,7 +71,7 @@ export default {
   margin: 0 auto;
   width: auto;
   text-align: center;
-  padding-bottom: 1%;
+  padding-bottom: 5px;
 }
 
 .scrollactive-item {
