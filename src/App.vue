@@ -52,12 +52,15 @@ export default {
     background-position: 50% 50%;
     background-repeat: repeat;
     background-color: #222222;
+    height: 100%;
   }
   .main-content__wrapper{
     margin: 0 10%;
     background-color: #fff;
     box-shadow: -4px 0px 8px 0px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background-color: #e3e3e3;
+    min-height: 100%;
+    padding-bottom: 88px;
   }
   .application.theme--light {
     background-color: white;
