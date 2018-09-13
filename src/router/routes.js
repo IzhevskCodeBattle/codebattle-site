@@ -3,7 +3,7 @@ import Game from '@/view/Game'
 import Event from '@/view/Event'
 import Account from '@/view/Account'
 import Main from '@/view/Main'
-import CommingSoon from '@/view/CommingSoon'
+// import CommingSoon from '@/view/CommingSoon'
 
 export default [
   { path: '/',
