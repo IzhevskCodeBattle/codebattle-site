@@ -116,7 +116,6 @@ export default {
       text-align: left;
       padding-left: 0;
       color: #464547;
-      height: 252px;
     }
     .event-registration__logo {
       width: 30%;
