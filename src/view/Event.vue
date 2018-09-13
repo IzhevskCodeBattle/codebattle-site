@@ -34,6 +34,18 @@
           </iframe>
       </div>
     </div>
+
+    <div class="game__gallery">
+      <swiper :options="swiperOption" class="swiper">
+        <swiper-slide v-for="pic in pictures" :key="pic.title">
+          <img class="pictures" :src="pic.src" :alt="pic.title" />
+        </swiper-slide>
+          <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </swiper>
+    </div>
+
     <!-- <EventPage/> -->
     <div class="event-video" v-if="currentEvent.id == 658608">
       <div class="video__wrapper">
@@ -42,13 +54,15 @@
         </video>
        </div>
     </div>
+    
   </v-content>
 </template>
 <script>
 
 import EventPage from '@/component/EventPage'
 import timePadService from '@/service/timePadService'
-
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   data: () => ({
     currentEvent: {},
@@ -64,11 +78,50 @@ export default {
       { id: 607445,
         src: '/static/img/games/bomberman.png'
       }
-    ]
+    ],
+    pictures: [
+      { title: 'Картинка 1',
+        src: '/static/img/games/bomberman/map3.jpg'
+      },
+      { title: 'Картинка 2',
+        src: '/static/img/games/bomberman/bomberman.png'
+      },
+      { title: 'Картинка 3',
+        src: '/static/img/games/bomberman/map1.jpg'
+      },
+      { title: 'Картинка 4',
+        src: '/static/img/games/bomberman/map2.jpg'
+      },
+      { title: 'Картинка 5',
+        src: '/static/img/games/bomberman/map4.jpg'
+      },
+      { title: 'Картинка 6',
+        src: '/static/img/games/bomberman/map5.jpg'
+      },
+      { title: 'Картинка 7',
+        src: '/static/img/games/bomberman/map6.jpg'
+      },
+      { title: 'Картинка 8',
+        src: '/static/img/games/bomberman/map7.jpg'
+      }
+    ],
+    swiperOption: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    }
   }),
   name: 'Event',
   components: {
-    EventPage
+    EventPage,
+    swiper,
+    swiperSlide
   },
   filters: {
     TimeFilter (val) {
@@ -230,6 +283,54 @@ export default {
       height: 300px;
     }
 
+    /* ГАЛЕРЕЯ */
+    .game__gallery{
+      display: flex;
+      padding: 15px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .pictures{
+    max-height: 500px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  .swiper{
+    text-align: center;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .swiper-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+  }
+  .swiper-slide{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+  }
+  .swiper-button-prev{
+    filter: opacity(70%) grayscale(.80) 
+  }
+  .swiper-button-next{
+    filter: opacity(70%) grayscale(.80)
+  }
+/* ////////////////////////////////// */
     @media (max-width: 1024px) {
       .event-registration__name {
         font-size: 3em;
@@ -288,6 +389,26 @@ export default {
         margin-top: 2%;
         margin-bottom: 50%;
       }
+      .pictures{
+        max-height: 400px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
+    }
+    @media (max-width: 600px) {
+      .pictures{
+        max-height: 150px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
     }
 
 </style>
