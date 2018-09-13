@@ -8,10 +8,10 @@
     <v-btn flat class="scrollactive-item" to="/home#partners">Наши партнеры</v-btn>
   </scrollactive>
   <v-spacer></v-spacer>
-  <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">
+  <!-- <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="!this.$store.getters.authenticated">
     <v-btn flat @click="$events.$emit('login-form:show')" class="scrollactive-item">Войти</v-btn>
     <v-btn flat @click="$events.$emit('signup-form:show')" class="scrollactive-item">Регистрация</v-btn>
-  </v-toolbar-items>
+  </v-toolbar-items> -->
   <v-toolbar-items class="right_menu hidden-sm-and-down" v-if="this.$store.getters.authenticated">
     <v-menu offset-y nudge-right="26px" max-width="212px">
       <v-btn flat slot="activator">

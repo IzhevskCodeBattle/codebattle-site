@@ -5,8 +5,8 @@
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
-        <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
         <button class="game-button">ПОСМОТРЕТЬ ИГРУ</button>
+        <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </div>  
     </div>
     <div class="event-date__wrapper">
@@ -116,7 +116,6 @@ export default {
       text-align: left;
       padding-left: 0;
       color: #464547;
-      height: 252px;
     }
     .event-registration__logo {
       width: 30%;
@@ -139,6 +138,7 @@ export default {
       font-weight: bold;
       border: none;
       border-radius: 3px;
+      margin-left: 2%;
     }
     .game-button {
       text-align: center;
@@ -148,7 +148,6 @@ export default {
       font-weight: bold;
       border: none;
       border-radius: 3px;
-      margin-left: 2%;
     }
     .reg-button:focus {
       outline: none;

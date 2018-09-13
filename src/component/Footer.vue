@@ -11,9 +11,11 @@
             <router-link to="/home#about" class="scrollactive-item">О НАС</router-link>
             <router-link to="/home#events" class="scrollactive-item">СОБЫТИЯ</router-link>
             <router-link to="/home#games" class="scrollactive-item">ИГРЫ</router-link>
-            <router-link to="/home#contacts" class="scrollactive-item">КОНТАКТЫ</router-link>
-            <router-link to="/home#help" class="scrollactive-item">ПОМОЩЬ</router-link>
+            <router-link to="/home#partners" class="scrollactive-item">НАШИ ПАРТНЕРЫ</router-link>
           </scrollactive>
+        </div>
+        <div class="footer__info">
+          <span>Появились вопросы? Напиши нам: <p class="info__email">nataliia_sidorova@epam.com</p></span>
         </div>
     </div>
     <v-divider d-block></v-divider>
@@ -87,6 +89,16 @@ export default {
 a {
   text-decoration: none;
   margin: 5px;
+}
+.footer__info{
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+.info__email{
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
 }
 
 @media only screen and (max-width: 950px) {

@@ -118,7 +118,7 @@ export default {
       name: 'LodeRunner',
       img: '/static/img/main-banner.jpg',
       background: '',
-      description: `<h2 class="description__tittle">Игра находится в разработке</h2>`
+      description: `<h2 class="description__tittle">Игра находится в разработке..</h2>`
     }],
     pictures: [],
     swiperOption: {
@@ -138,7 +138,7 @@ export default {
   }),
   created () {
     this.gameId = this.$route.params.id
-    this.game = this.games.find(game => game.id === this.gameId)
+    this.game = this.games.find(game => game.id === Number(this.gameId))
     this.pictures = this.game.pictures
     window.scrollTo(0, 0)
   },

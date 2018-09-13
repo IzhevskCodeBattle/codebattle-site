@@ -17,8 +17,8 @@
       <v-list-tile-avatar>
         <v-icon>fas fa-handshake</v-icon>
       </v-list-tile-avatar>Наши партнеры</v-btn>
-    <v-divider></v-divider>
-    <v-btn flat @click="$events.$emit('login-form:show')">
+    <!-- <v-divider></v-divider> -->
+    <!-- <v-btn flat @click="$events.$emit('login-form:show')">
       <v-list-tile-avatar>
         <v-icon>fas fa-sign-in-alt</v-icon>
       </v-list-tile-avatar>Вход</v-btn>
@@ -29,7 +29,7 @@
     <v-btn flat v-if="this.$store.getters.authenticated">
       <v-list-tile-avatar>
         <v-icon>fas fa-sign-out-alt</v-icon>
-      </v-list-tile-avatar>Sign out</v-btn>
+      </v-list-tile-avatar>Sign out</v-btn> -->
   </scrollactive>
 </v-navigation-drawer>
 </template>
