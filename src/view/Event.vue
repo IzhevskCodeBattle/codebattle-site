@@ -129,6 +129,7 @@ export default {
       display: flex;
       margin: 0 auto;
       opacity: .5;
+      object-fit: cover;
     }
 
     .reg-button {

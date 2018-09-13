@@ -5,7 +5,7 @@
     <div class="swiper-wrapper">
       <swiper :options="swiperOption" class="swiper">
         <swiper-slide v-for="partner in partners" :key="partner.title">
-          <img class="partner__logo" :href="partner.href" :src="partner.src" :alt="partner.title" />
+          <a target="_blank" :href="partner.href" ><img class="partner__logo":src="partner.src" :alt="partner.title" /></a>
         </swiper-slide>
       </swiper>
     </div>
@@ -41,6 +41,10 @@ export default {
       { title: 'GGPI',
         src: '/static/img/partners/ggpi_logo.png',
         href: 'http://www.ggpi.org/news.php'
+      },
+      { title: 'MechanIsMe',
+        src: '/static/img/partners/mechanisme.jpg',
+        href: 'https://vk.com/mechanisme'
       }
     ],
     swiperOption: {
