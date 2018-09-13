@@ -5,6 +5,7 @@
     <div class="game">
       <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="game__name">{{ game.name }}</div>
+      <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
     </div>
     <div class="game__main">
       <div class="game__description">
@@ -38,6 +39,7 @@ export default {
       id: 1,
       name: 'Bomberman',
       img: '/static/img/bomberman_banner.jpg',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-bomberman-clients',
       background: '',
       pictures: [
         { title: 'Картинка 1',
@@ -107,16 +109,62 @@ export default {
       id: 2,
       name: 'Танчики',
       img: '/static/img/panzer.jpg',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-battlecity-clients',
       background: '',
       description: `<h2 class="description__tittle">Правила игры</h2>
         <div class="description__main">
-          Тут длинное описание игры Танчики..
+          Каждый участник разрабатывает своего бота для танчиков, который обыграет других ботов по очкам.
+        </div>
+        <div class="description__main__section">Ход</div>
+        <div class="description__main">
+          Игра пошаговая, каждую такт (секунду) сервер посылает твоему клиенту (боту) состояние обновленного поля на текущий момент и ожидает ответа команды танку. 
+          За следующий такт игрок должен успеть дать команду танку. Если не успел — танк остается на месте.
+        </div>
+        <div class="description__main__section">Поле</div>
+        <div class="description__main">
+          Поле поделено на клетки. В каждой клетке может находится один объект:
+          <ul>
+            <li>танк игрока (свой)</li>
+            <li>вражеский танк</li>
+            <li>AI танк (если режим игры с AI)</li>
+            <li>неразрушаемая стена</li>
+            <li>разрушаемая стена</li>
+            <li>ёж (hedgehog - неразрушаемое препятствие через которое не может проехать танк,
+            но может через него стрелять, а также может быть подбит другим танков)</li>
+            <li>снаряд, выпущенный танком. Снаряд при попадании в танк отнимает 1 жизнь.
+            Если запас жизней танка = 0 - танк погибает. Каждый танк начинает игру с <strong>1</strong> жизнью.</li>
+            <li>препятствия (песок и ров - замедляющие ход танка на 1 ход,
+            болото - если танк оказался в болоте он больше <strong>не может</strong> двигаться по карте до момента гибели)</li>
+            <li>Доп. патроны (увеличивающие запас доступных снарядов танка на <strong>5</strong>.
+            Начальное кол-во патронов танка = <strong>10</strong>)</li>
+            <li>Доп. жизнь (увеличивает запас жизней танка на <strong>1</strong>)</li>
+            <li>Телепорт - при входе в телепорт танк будет перемещен в случайный другой телепорт на карте
+            (если выход из телепорт не занят других объектом).</li>
+          </ul>
+        </div>
+        <div class="description__main__section">Команды</div>
+        <div class="description__main">
+          <ul>
+            <li><em>UP</em>, <em>DOWN</em>, <em>LEFT</em>, <em>RIGHT</em> – приводят к повороту и передвижению танка в заданном направлении на 1 клетку</li>
+            <li><em>ACT</em> - выстрел снаряда. Команды движения можно комбинировать с командами выстрела,
+            разделяя их через запятую – это значит что за один такт игры будет выстрел, а потом движение (LEFT, ACT)
+            или наоборот (ACT, LEFT).</li>
+          </ul>
+        </div>
+        <div class="description__main__section">Порядок начисления очков</div>
+        <div class="description__main">
+          <ul>
+            <li>Очки прибавляются за уничтожение вражеского танка</li>
+            <li>Очки вычитаются за гибель своего танка</li>
+          </ul>
+        Побеждает игрок набравший максимальное количество очков к концу игры. Длительность игры и количество очков будут определены на месте ведущим.
         </div>`
     },
     {
       id: 3,
       name: 'LodeRunner',
       img: '/static/img/games/loderunner.jpg',
+      link: '',
       background: '',
       description: `<h2 class="description__tittle">Правила игры</h2>
         <div class="description__main">
@@ -208,6 +256,21 @@ export default {
       padding-left: 0;
       color: #464547;
     }
+    .game__link{
+      cursor: pointer;
+      width: 150px;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: px;
+      background-color: #464547; 
+    }
+    .game__link a{
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1em;
+    }
     .game__logo {
       width: 30%;
       height: 10%;
@@ -282,7 +345,7 @@ export default {
         display: block;
       }
       .game{
-        top: 5%;
+        top: 3%;
         left: 4%;
       } 
       .game-image {
@@ -315,7 +378,6 @@ export default {
       .game__name {
         font-size: 2.3em;
         justify-content: flex-start;
-        padding-left: 15px; 
       }
       .game__main{
         display: block;

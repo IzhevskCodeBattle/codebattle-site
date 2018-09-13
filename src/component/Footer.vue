@@ -8,7 +8,7 @@
         </div>  
         <div class="scrollactive">  
           <scrollactive ref="scrollactive" style="margin: 0 auto">
-            <router-link to="/home#about" class="scrollactive-item">О НАС</router-link>
+            <router-link to="/home#about" class="scrollactive-item">О ПРОЕКТЕ</router-link>
             <router-link to="/home#events" class="scrollactive-item">СОБЫТИЯ</router-link>
             <router-link to="/home#games" class="scrollactive-item">ИГРЫ</router-link>
             <router-link to="/home#partners" class="scrollactive-item">НАШИ ПАРТНЕРЫ</router-link>
