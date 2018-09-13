@@ -6,10 +6,10 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <video class="video" ref="video" muted loop autoplay preload="auto">
-      <source src="/static/media/codebattle.webm" type="video/webm">
+    <video class="video" ref="video" muted loop autoplay preload="none">
+      <source src="/static/media/codebattle.webm#t=15" type="video/webm">
     </video>
-    <v-card flat class="countdown" style="background-color: transparent">
+    <v-card flat class="countdown" style="background-color: transparent; height:100px">
       <v-card-media style="right:18%">
         <countdown end="September 29, 2018"/>
       </v-card-media>

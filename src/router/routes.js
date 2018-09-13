@@ -1,4 +1,4 @@
-// import Home from '@/view/Home'
+import Home from '@/view/Home'
 import Game from '@/view/Game'
 import Event from '@/view/Event'
 import Account from '@/view/Account'
@@ -9,7 +9,7 @@ export default [
   { path: '/',
     component: Main,
     children: [
-      { path: '', name: 'home', component: CommingSoon },
+      { path: '', name: 'home', component: Home },
       { path: 'game/:id', name: 'game', component: Game },
       { path: 'event/:id', name: 'event', component: Event },
       { path: 'user/:id', name: 'user', component: Account }
