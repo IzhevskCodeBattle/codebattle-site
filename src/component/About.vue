@@ -5,7 +5,8 @@
     <div class="about__image"></div>
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
-      <div class="event-info">29 сентября в 13.30 кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
+      <div class="event-info">29 сентября в 13.30</div>
+      <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
       <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</button>
     </div>
     <p class="about__description">
@@ -48,8 +49,7 @@ export default {
 <style scoped>
   .event-info {
     color: #fff;
-    font-size: 1.5em;
-    margin-top: 3%;
+    font-size: 1.8em;
     text-align: center;
   }
   .about__image {
@@ -84,7 +84,7 @@ export default {
   }
   .about__wrapper img {
     width: auto;
-    height: 320px;
+    height: 300px;
   }
   .about__title {
     margin-top: 5%;

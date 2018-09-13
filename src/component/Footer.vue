@@ -21,7 +21,7 @@
     <v-divider d-block></v-divider>
     <!-- &copy;2018 {{ 'app.title'|translate }} {{ $vuetify.t('locales.ru') }} -->
     <a href="https://github.com/IzhevskCodeBattle" class="link_git">
-      <img alt="link git" src="/static/img/fork-me.png" />
+      <img alt="link git" class="link-git__image" src="/static/img/fork-me.png" />
     </a>
   </footer>
 </template>
@@ -62,6 +62,7 @@ export default {
   position: fixed;
   right: -5px;
   bottom: -10px;
+  z-index: 100;
 }
 
 .icon {
@@ -94,6 +95,9 @@ a {
   font-size: 15px;
   color: #fff;
   text-align: center;
+  font-weight: 200;
+  padding: 10px 0;
+  margin: 0 15%;
 }
 .info__email{
   cursor: pointer;
@@ -110,6 +114,11 @@ a {
   .footer__wrapper {
     margin: 0;
     width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .link-git__image {
+    width: 110px;
   }
 }
 </style>
