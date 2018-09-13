@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <button class="show-old-events" @click="showOldEvents()">показать прошедшие события</button>
+      <!-- <button class="show-old-events" @click="showOldEvents()">показать прошедшие события</button> -->
 
     </div>
   </section>
@@ -234,7 +234,7 @@ export default {
       padding-top: 3%;
     }
     .past-event:last-child {
-      border-bottom: 1px solid rgba(0,0,0,.1);
+      /* border-bottom: 1px solid rgba(0,0,0,.1); */
       padding-bottom: 3%;
     }
     .show-old-events {

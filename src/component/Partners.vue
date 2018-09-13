@@ -112,6 +112,7 @@ export default {
   .swiper-slide{
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-right: 0;
   }
   @media (max-width: 1144px) {

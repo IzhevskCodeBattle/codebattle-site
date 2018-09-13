@@ -5,7 +5,7 @@
       <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
-        <button class="game-button">ПОСМОТРЕТЬ ИГРУ</button>
+        <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПОСМОТРЕТЬ ИГРУ</button>
         <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </div>  
     </div>
@@ -67,15 +67,18 @@ export default {
   data: () => ({
     currentEvent: {},
     registrationLink: '',
-    background: [
+    eventInfo: [
       { id: 798207,
+        gameId: '2',
         src: "url('../static/img/mettal_27.jpg')",
         fontColor: 'white'
       },
       { id: 658608,
+        gameId: '1',
         src: '/static/img/games/bomberman.png'
       },
       { id: 607445,
+        gameId: '1',
         src: '/static/img/games/bomberman.png'
       }
     ],
@@ -132,11 +135,20 @@ export default {
     }
   },
   created () {
-    timePadService.getEventById(this.$route.params.id).then(res => { this.currentEvent = res; this.currentEvent.background = this.background.find(item => { return item.id === res.id }).src; this.currentEvent.fontColor = this.background.find(item => { return item.id === res.id }).fontColor }).then(() => console.log(this.currentEvent))
+    timePadService.getEventById(this.$route.params.id)
+      .then(res => {
+        this.currentEvent = res
+        this.currentEvent.background = this.eventInfo.find(item => { return item.id === res.id }).src
+        this.currentEvent.fontColor = this.eventInfo.find(item => { return item.id === res.id }).fontColor
+        this.currentEvent.gameId = this.eventInfo.find(item => { return item.id === res.id }).gameId
+      })
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
     window.scrollTo(0, 0)
   },
   methods: {
+    redirect: function (id) {
+      this.$router.push({name: 'game', params: { id }})
+    },
     isEventPast (date) {
       return new Date(date) < new Date()
     }
