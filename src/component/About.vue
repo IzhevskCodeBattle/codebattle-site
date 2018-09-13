@@ -1,13 +1,16 @@
 <!-- содержимое секции компонента. Все содержимое необходимо размещать внутри тега section -->
 <template>
-  <section>
-    <div id="about" class="anchor"></div>
+  <section id="about">
     <div class="about__image"></div>
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
       <div class="event-info">29 сентября в 13.30</div>
       <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
-      <button class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</button>
+      <div style="display: block">
+        <v-btn class="registration-button" href="/game/2">Правила</v-btn>
+        <v-btn class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
+        <v-btn class="registration-button" href="/event/798207">О мероприятии</v-btn>
+      </div>
     </div>
     <p class="about__description">
       Это мини-хакатон для тех, кто любит программирование, 
@@ -72,12 +75,13 @@ export default {
     align-items: center;
   }
   .registration-button {
-    background-color: #730606;
+    background-color: #730606a6 !important;
     color: white;
     font-size: 1.8em;
     padding: 10px 20px;
     border: 2px solid white;
     margin-top: 2%;
+    height: auto !important;
   }
   .registration-button:focus {
     outline: none;

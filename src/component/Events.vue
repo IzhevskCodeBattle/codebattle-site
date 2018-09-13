@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section>
-    <div id="events" class="anchor"></div>
+  <section id="events">
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
       <img  class="spinner" @click="hideSpinner()" src="../../static/img/spinner.gif" alt="loading">
@@ -46,7 +45,29 @@ import timePadService from '@/service/timePadService'
 
 export default {
   data: () => ({
-    commingEvent: {},
+    commingEvent: {
+      'created_at': '2018-02-01T09:45:15+0300',
+      'starts_at': '2018-02-27T14:00:00+0300',
+      'ends_at': '2018-02-27T19:00:00+0300',
+      name: 'CODE BATTLE for students',
+      'description_short': '',
+      'description_html': '<p><strong>Что тебя ждет?</strong></p><p>Создание супер бота, который сможет решать головоломки и выйдет в финал!</p><p> </p><p><strong>Тебе понадобятся:</strong></p><p>- ноутбук (если у тебя его нет, мы предоставим)</p><p>- минимальные знания одного из языков программирования: C#, Java, JavaScript, С++, Python, Go</p><p>- желание победить!</p><p><em>Ход игры будет демонстрироваться на большом экране в режиме реального времени</em></p><p><em>Общая продолжительность мероприятия 4 часа с кофе-брейком и награждением победителей)</em></p><p> </p><p><span style="color:rgb(0,0,0);">Участие абсолютно бесплатное! </span><span style="color:rgb(0,0,0);">Количество мест ограничено!</span></p><p><strong>Если остались вопросы</strong> звони 8-919-918-59-97, следи за новостями здесь vk.com/izhcodebattle</p>',
+      url: '',
+      'poster_image': {
+        default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
+        uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+      },
+      locale: 'ru',
+      location: {
+        country: 'Россия',
+        city: 'Ижевск',
+        address: 'ДК Интеграл, ул. Студенческая, 7',
+        coordinates: [
+          '56.870976',
+          '53.174408'
+        ]
+      }
+    },
     pastEvents: [],
     text: ''
   }),

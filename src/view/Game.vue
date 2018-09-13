@@ -1,9 +1,15 @@
 <template>
   <v-content v-bind:style="{ backgroundImage : game.background }">
+    <div id="partners" class="anchor"></div>
+    <div id="about" class="anchor"></div>
+    <div id="events" class="anchor"></div>
+    <div id="games" class="anchor is_active"></div>
+    <div id="help" class="anchor"></div>
+    <div id="contacts" class="anchor"></div>
     <a name="content"></a>
     <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
     <div class="game">
-      <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
+      <!-- <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="game__name">{{ game.name }}</div>
       <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
     </div>
@@ -67,7 +73,7 @@ export default {
           src: '/static/img/games/bomberman/map7.jpg'
         }
       ],
-      description: `<h2 class="description__tittle">Правила игры</h2>
+      description: `<h2 class="description__tittle">Базовые правила игры</h2>
         <div class="description__main">
           Каждый участник разрабатывает своего бота-бомбермена. 
         </div>
@@ -111,14 +117,23 @@ export default {
       img: '/static/img/panzer.jpg',
       link: 'https://github.com/IzhevskCodeBattle/codebattle-battlecity-clients',
       background: '',
-      description: `<h2 class="description__tittle">Правила игры</h2>
+      pictures: [
+        { title: 'Картинка 1',
+          src: '/static/img/games/battle-city/image.png'
+        },
+        { title: 'Картинка 2',
+          src: '/static/img/games/battle-city/battle-city.png'
+        }
+      ],
+      description: `
+        <h2 class="description__tittle">Базовые правила игры</h2>
         <div class="description__main">
-          Каждый участник разрабатывает своего бота для танчиков, который обыграет других ботов по очкам.
+          Каждый участник разрабатывает код для управления танчиком. Такой код называется "ботом". Задача бота обыграть своих соперников по очкам. Количество очков, правила их начисления и длительность сессий задаются отдельно для каждого конкретного мероприятия.
         </div>
         <div class="description__main__section">Ход</div>
         <div class="description__main">
-          Игра пошаговая, каждую такт (секунду) сервер посылает твоему клиенту (боту) состояние обновленного поля на текущий момент и ожидает ответа команды танку. 
-          За следующий такт игрок должен успеть дать команду танку. Если не успел — танк остается на месте.
+          Игра пошаговая, каждую такт сервер посылает твоему клиенту (боту) состояние обновленного поля на текущий момент и ожидает команду от танку в рамках одного такта.
+          За следующий такт игрок должен успеть дать команду танку. Если сервер не получил команду по какой либо причине или команда не была послана ботом, то танк остается на месте.
         </div>
         <div class="description__main__section">Поле</div>
         <div class="description__main">
@@ -132,14 +147,13 @@ export default {
             <li>ёж (hedgehog - неразрушаемое препятствие через которое не может проехать танк,
             но может через него стрелять, а также может быть подбит другим танков)</li>
             <li>снаряд, выпущенный танком. Снаряд при попадании в танк отнимает 1 жизнь.
-            Если запас жизней танка = 0 - танк погибает. Каждый танк начинает игру с <strong>1</strong> жизнью.</li>
+            Если запас жизней танка = 0 - танк погибает. Каждый танк начинает игру с <strong>стартовым количеством</strong> жизней. Стартовое количество жизней задается правилами конкретного мероприятия или запуска</li>
             <li>препятствия (песок и ров - замедляющие ход танка на 1 ход,
             болото - если танк оказался в болоте он больше <strong>не может</strong> двигаться по карте до момента гибели)</li>
-            <li>Доп. патроны (увеличивающие запас доступных снарядов танка на <strong>5</strong>.
-            Начальное кол-во патронов танка = <strong>10</strong>)</li>
+            <li>Доп. патроны (увеличивающие запас доступных снарядов танка на <strong>количество, заданное правилами мероприятия</strong>.
+            Начальное кол-во патронов танка = <strong>задается правилами мероприятия</strong>)</li>
             <li>Доп. жизнь (увеличивает запас жизней танка на <strong>1</strong>)</li>
-            <li>Телепорт - при входе в телепорт танк будет перемещен в случайный другой телепорт на карте
-            (если выход из телепорт не занят других объектом).</li>
+            <li>Телепорт - при входе в телепорт танк будет перемещен в случайный телепорт на карте (если выход из телепорт не занят других объектом).</li>
           </ul>
         </div>
         <div class="description__main__section">Команды</div>
@@ -153,11 +167,12 @@ export default {
         </div>
         <div class="description__main__section">Порядок начисления очков</div>
         <div class="description__main">
+          Количество очков, начисляемых за перечисленные ниже события задаются правилами конкретного мероприятия:
           <ul>
-            <li>Очки прибавляются за уничтожение вражеского танка</li>
-            <li>Очки вычитаются за гибель своего танка</li>
+            <li>За уничтожение вражеского танка</li>
+            <li>За гибель своего танка</li>
           </ul>
-        Побеждает игрок набравший максимальное количество очков к концу игры. Длительность игры и количество очков будут определены на месте ведущим.
+        Побеждает игрок набравший максимальное количество очков к концу игры.
         </div>`
     },
     {
@@ -166,7 +181,7 @@ export default {
       img: '/static/img/games/loderunner.jpg',
       link: '',
       background: '',
-      description: `<h2 class="description__tittle">Правила игры</h2>
+      description: `<h2 class="description__tittle">Базовые правила игры</h2>
         <div class="description__main">
           Каждый участник должен написать своего бота для героя, который обыграет героев других игроков по очкам. 
         </div>

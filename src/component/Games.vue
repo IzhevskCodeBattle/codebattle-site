@@ -1,7 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section>
-    <div id="games" class="anchor"></div>
+  <section id="games">
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
       <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">

@@ -1,11 +1,10 @@
 <template>
-  <section class="partners">
-    <div id="partners" class="anchor"></div>
+  <section class="partners" id="partners">
     <h2 class="toolbar">Наши партнеры</h2>
     <div class="swiper-wrapper">
       <swiper :options="swiperOption" class="swiper">
         <swiper-slide v-for="partner in partners" :key="partner.title">
-          <a target="_blank" :href="partner.href" ><img class="partner__logo":src="partner.src" :alt="partner.title" /></a>
+          <a target="_blank" :href="partner.href" ><img class="partner__logo" :src="partner.src" :alt="partner.title" /></a>
         </swiper-slide>
       </swiper>
     </div>
@@ -23,7 +22,7 @@ export default {
   data: () => ({
     partners: [
       { title: 'EPAM Systems',
-        src: '/static/img/partners/epam_logo.jpg',
+        src: '/static/img/partners/epam_logo_1.png',
         href: 'http://epam.com'
       },
       { title: 'ISTU',

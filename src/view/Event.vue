@@ -1,8 +1,14 @@
 <template>
-  <v-content v-bind:style="{ backgroundImage : currentEvent.background }">
+  <v-content class="event-page" v-bind:style="{ backgroundImage : currentEvent.background }">
+    <div id="about" class="anchor"></div>
+    <div id="events" class="anchor"></div>
+    <div id="games" class="anchor"></div>
+    <div id="partners" class="anchor"></div>
+    <div id="help" class="anchor"></div>
+    <div id="contacts" class="anchor"></div>
     <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
-      <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo">
+      <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
         <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПОСМОТРЕТЬ ИГРУ</button>
@@ -22,39 +28,37 @@
           </div>  
       </div>  
     </div>
-    <div class="event-main">
-      <div class="event-main__description" v-bind:style="{ color : currentEvent.fontColor }"> 
-        <i>{{ currentEvent.description_short }}</i>
+    <v-layout class="event-content">
+      <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.description_html"/>
+      <h2 class="toolbar">Частные правила <v-btn v-on:click="redirect(currentEvent.gameId)">Общие правила</v-btn></h2>
+      <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.rules"/>
+      <h2 class="toolbar">Место проведения</h2>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"
+              width="100%"
+              height="40%"
+              frameborder="0">
+      </iframe>
+      <h2 class="toolbar">Галерея</h2>
+      <div class="game__gallery">
+        <swiper :options="swiperOption" class="swiper">
+          <swiper-slide v-for="pic in currentEvent.pictures" :key="pic.title">
+            <img class="pictures" :src="pic.src" :alt="pic.title" />
+          </swiper-slide>
+            <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
       </div>
-      <div class="event-main__map-wrapper">
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"
-                  width="100%"
-                  height="100%"
-                  frameborder="0">
-          </iframe>
+      <!-- <EventPage/> -->
+      <div class="event-video" v-if="currentEvent.id == 658608">
+        <div class="video__wrapper">
+          <video class="video" controls preload="auto">
+            <source src="/static/media/codebattle.webm" type="video/webm">
+          </video>
+        </div>
       </div>
-    </div>
 
-    <div class="game__gallery">
-      <swiper :options="swiperOption" class="swiper">
-        <swiper-slide v-for="pic in pictures" :key="pic.title">
-          <img class="pictures" :src="pic.src" :alt="pic.title" />
-        </swiper-slide>
-          <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
-    </div>
-
-    <!-- <EventPage/> -->
-    <div class="event-video" v-if="currentEvent.id == 658608">
-      <div class="video__wrapper">
-        <video class="video" controls preload="auto">
-          <source src="/static/media/codebattle.webm" type="video/webm">
-        </video>
-       </div>
-    </div>
-    
+    </v-layout>
   </v-content>
 </template>
 <script>
@@ -65,47 +69,99 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   data: () => ({
-    currentEvent: {},
+    currentEvent: {
+      'created_at': '2018-02-01T09:45:15+0300',
+      'starts_at': '2018-02-27T14:00:00+0300',
+      'ends_at': '2018-02-27T19:00:00+0300',
+      name: 'CODE BATTLE for students',
+      'description_short': '',
+      'description_html': '<p><strong>Что тебя ждет?</strong></p><p>Создание супер бота, который сможет решать головоломки и выйдет в финал!</p><p> </p><p><strong>Тебе понадобятся:</strong></p><p>- ноутбук (если у тебя его нет, мы предоставим)</p><p>- минимальные знания одного из языков программирования: C#, Java, JavaScript, С++, Python, Go</p><p>- желание победить!</p><p><em>Ход игры будет демонстрироваться на большом экране в режиме реального времени</em></p><p><em>Общая продолжительность мероприятия 4 часа с кофе-брейком и награждением победителей)</em></p><p> </p><p><span style="color:rgb(0,0,0);">Участие абсолютно бесплатное! </span><span style="color:rgb(0,0,0);">Количество мест ограничено!</span></p><p><strong>Если остались вопросы</strong> звони 8-919-918-59-97, следи за новостями здесь vk.com/izhcodebattle</p>',
+      url: '',
+      'poster_image': {
+        default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
+        uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+      },
+      locale: 'ru',
+      location: {
+        country: 'Россия',
+        city: 'Ижевск',
+        address: 'ДК Интеграл, ул. Студенческая, 7',
+        coordinates: [
+          '56.870976',
+          '53.174408'
+        ]
+      }
+    },
     registrationLink: '',
     eventInfo: [
       { id: 798207,
         gameId: '2',
         src: "url('../static/img/mettal_27.jpg')",
-        fontColor: 'white'
+        fontColor: 'white',
+        pictures: [],
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
       },
       { id: 658608,
         gameId: '1',
-        src: '/static/img/games/bomberman.png'
+        src: '/static/img/games/bomberman.png',
+        pictures: [
+          { title: 'Картинка 1',
+            src: '/static/img/games/bomberman/map3.jpg'
+          },
+          { title: 'Картинка 2',
+            src: '/static/img/games/bomberman/bomberman.png'
+          },
+          { title: 'Картинка 3',
+            src: '/static/img/games/bomberman/map1.jpg'
+          },
+          { title: 'Картинка 4',
+            src: '/static/img/games/bomberman/map2.jpg'
+          },
+          { title: 'Картинка 5',
+            src: '/static/img/games/bomberman/map4.jpg'
+          },
+          { title: 'Картинка 6',
+            src: '/static/img/games/bomberman/map5.jpg'
+          },
+          { title: 'Картинка 7',
+            src: '/static/img/games/bomberman/map6.jpg'
+          },
+          { title: 'Картинка 8',
+            src: '/static/img/games/bomberman/map7.jpg'
+          }
+        ],
+        rules: ''
       },
       { id: 607445,
         gameId: '1',
-        src: '/static/img/games/bomberman.png'
-      }
-    ],
-    pictures: [
-      { title: 'Картинка 1',
-        src: '/static/img/games/bomberman/map3.jpg'
-      },
-      { title: 'Картинка 2',
-        src: '/static/img/games/bomberman/bomberman.png'
-      },
-      { title: 'Картинка 3',
-        src: '/static/img/games/bomberman/map1.jpg'
-      },
-      { title: 'Картинка 4',
-        src: '/static/img/games/bomberman/map2.jpg'
-      },
-      { title: 'Картинка 5',
-        src: '/static/img/games/bomberman/map4.jpg'
-      },
-      { title: 'Картинка 6',
-        src: '/static/img/games/bomberman/map5.jpg'
-      },
-      { title: 'Картинка 7',
-        src: '/static/img/games/bomberman/map6.jpg'
-      },
-      { title: 'Картинка 8',
-        src: '/static/img/games/bomberman/map7.jpg'
+        src: '/static/img/games/bomberman.png',
+        pictures: [
+          { title: 'Картинка 1',
+            src: '/static/img/games/bomberman/map3.jpg'
+          },
+          { title: 'Картинка 2',
+            src: '/static/img/games/bomberman/bomberman.png'
+          },
+          { title: 'Картинка 3',
+            src: '/static/img/games/bomberman/map1.jpg'
+          },
+          { title: 'Картинка 4',
+            src: '/static/img/games/bomberman/map2.jpg'
+          },
+          { title: 'Картинка 5',
+            src: '/static/img/games/bomberman/map4.jpg'
+          },
+          { title: 'Картинка 6',
+            src: '/static/img/games/bomberman/map5.jpg'
+          },
+          { title: 'Картинка 7',
+            src: '/static/img/games/bomberman/map6.jpg'
+          },
+          { title: 'Картинка 8',
+            src: '/static/img/games/bomberman/map7.jpg'
+          }
+        ],
+        rules: ''
       }
     ],
     swiperOption: {
@@ -141,6 +197,8 @@ export default {
         this.currentEvent.background = this.eventInfo.find(item => { return item.id === res.id }).src
         this.currentEvent.fontColor = this.eventInfo.find(item => { return item.id === res.id }).fontColor
         this.currentEvent.gameId = this.eventInfo.find(item => { return item.id === res.id }).gameId
+        this.currentEvent.pictures = this.eventInfo.find(item => { return item.id === res.id }).pictures
+        this.currentEvent.rules = this.eventInfo.find(item => { return item.id === res.id }).rules
       })
     this.registrationLink = `{"event_id": ${this.$route.params.id}}`
     window.scrollTo(0, 0)
@@ -166,6 +224,15 @@ export default {
       src: url(../../static/fonts/SourceSansPro-It.otf);
     }
 
+    .event-page {
+      font-size: 1.2em;
+    }
+
+    .event-content {
+      width: 80%;
+      margin:0 auto;
+      display: block;
+    }
     .event-registration {
       position: absolute;
       top: 2%;
@@ -265,6 +332,7 @@ export default {
       width: 70%;
       margin: 0 auto;
       margin-bottom: 10%;
+      font-size: 1.6em;
     }
     .event-video {
       margin-bottom: 10%;
@@ -279,7 +347,6 @@ export default {
     }
     .event-main__description {
       width: 70%;
-      font-size: 1.6em;
       font-family: 'Play', sans-serif;
       font-weight: bold;
       color: #464547;
