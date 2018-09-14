@@ -1,6 +1,6 @@
 <template>
 <v-toolbar fixed app id="header" class="header__wrapper">
-  <v-toolbar-side-icon @click.stop="setDrawer" class="hidden-md-and-up"></v-toolbar-side-icon>
+  <v-toolbar-side-icon @click.stop="setDrawer" class="white--text hidden-md-and-up"></v-toolbar-side-icon>
     <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down" :always-track="true" v-on:itemchanged="onItemChanged">
       <v-btn flat class="scrollactive-item" to="/home#about">О проекте</v-btn>
       <v-btn flat class="scrollactive-item" to="/home#events">События</v-btn>

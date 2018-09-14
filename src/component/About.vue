@@ -7,9 +7,9 @@
       <div class="event-info">29 сентября в 13.30</div>
       <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
       <div class="event-button">
-        <v-btn class="registration-button" href="/game/2">Правила</v-btn>
-        <v-btn class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
-        <v-btn class="registration-button" href="/event/798207">О мероприятии</v-btn>
+        <v-btn class="registration-button white--text" href="/game/2">Правила</v-btn>
+        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
+        <v-btn class="registration-button white--text" href="/event/798207">О мероприятии</v-btn>
       </div>
     </div>
     <p class="about__description">
@@ -21,7 +21,7 @@
     <div class="about__card-wrapper">
           <div class="about__card">
             <v-icon class="xsize">extension</v-icon>
-            <div class="about__card-text">Программирование в виде игры</div>  
+            <div class="about__card-text">Программирование как игра</div>  
           </div>
           <div class="about__card">
             <v-icon class="xsize" >supervisor_account</v-icon>
@@ -78,6 +78,7 @@ export default {
     flex-direction: column;
     align-items: center;
   }
+
   .registration-button {
     background-color: #730606a6 !important;
     color: white;
@@ -87,6 +88,7 @@ export default {
     margin-top: 2%;
     height: auto !important;
   }
+
   .registration-button:focus {
     outline: none;
   }
