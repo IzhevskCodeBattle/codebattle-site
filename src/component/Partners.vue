@@ -42,7 +42,7 @@ export default {
         href: 'http://www.ggpi.org/news.php'
       },
       { title: 'MechanIsMe',
-        src: '/static/img/partners/mechanisme.jpg',
+        src: '/static/img/partners/MehanIsMe.png',
         href: 'https://vk.com/mechanisme'
       }
     ],

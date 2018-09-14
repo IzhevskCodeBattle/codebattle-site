@@ -46,6 +46,13 @@ export default {
   * {
     font-family: 'Oswald', sans-serif;
   }
+  .event__info p a{
+    display: inline-block;
+    color: #ffffff;
+  }
+  .map-container{
+    margin: 0 20%;
+  }
   .main-content{
     background-image: url('../static/img/robot.svg');
     background-size: 55px;
