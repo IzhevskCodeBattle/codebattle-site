@@ -30,7 +30,7 @@
     </div>
     <v-layout class="event-content">
       <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.description_html"/>
-      <h2 class="toolbar">Частные правила <v-btn v-on:click="redirect(currentEvent.gameId)">Общие правила</v-btn></h2>
+      <h2 class="toolbar">Частные правила <v-btn dark v-on:click="redirect(currentEvent.gameId)">Общие правила</v-btn></h2>
       <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.rules"/>
       <h2 class="toolbar">Место проведения</h2>
       <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"

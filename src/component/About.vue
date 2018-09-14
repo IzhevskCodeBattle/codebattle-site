@@ -6,7 +6,7 @@
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
       <div class="event-info">29 сентября в 13.30</div>
       <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
-      <div style="display: block">
+      <div class="event-button">
         <v-btn class="registration-button" href="/game/2">Правила</v-btn>
         <v-btn class="registration-button" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
         <v-btn class="registration-button" href="/event/798207">О мероприятии</v-btn>
@@ -54,6 +54,10 @@ export default {
     color: #fff;
     font-size: 1.8em;
     text-align: center;
+  }
+  .event-button {
+    display: inherit;
+
   }
   .about__image {
     position: relative;
@@ -145,10 +149,9 @@ export default {
     text-transform: uppercase;
     color: #222222;
   } 
-
   .icon{
     margin-top: 50px;
-    cursor: default;  
+    cursor: default;
   }
   .card{
     text-align: center;
@@ -165,7 +168,6 @@ export default {
     color: #464547;
     border-radius: 80px;
   }
-  
 
  @media (max-width: 1024px) {
    .about__title {
@@ -179,6 +181,11 @@ export default {
     margin: 0;
     padding: 0;
   }
+
+  .about__wrapper {
+    top: 0;
+  }
+
   .about__card-text {
     font-size: .8em;
   }
@@ -191,8 +198,8 @@ export default {
   }
   .registration-button {
     font-size: 1.4em;
-    padding: 10px 20px;
-    margin-top: 4%;
+    /* padding: 10px 20px; */
+    margin-top: 3%;
   }
  }
 
@@ -220,8 +227,11 @@ export default {
     height: 350px;
     width: 100%;
   }
+  .about__wrapper {
+    top: 0;
+  }
   .about__wrapper img {
-    width: 100%;
+    width: 70%;
     height: 100%;
   }
   .about__card-wrapper {
@@ -254,13 +264,28 @@ export default {
     flex-wrap: wrap;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .about__wrapper img {
-    width: 120%;
+    width: 90%;
     height: 120%;
   }
   .registration-button {
-      font-size: 1em;
+      font-size: .8em;
   }   
+}
+@media (max-width: 360px) {
+  .event-button {
+    display: grid;
+  }
+  .event-info {
+    font-size: 0.9em;
+  }
+  .about__wrapper {
+    top: 0;
+    width: 100%;
+  }
+  .about__wrapper img {
+    width: 70%;
+  }
 }
 </style>

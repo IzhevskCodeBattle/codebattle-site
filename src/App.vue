@@ -77,6 +77,9 @@ export default {
   .application .theme--light.v-footer, .theme--light .v-footer{
     background-color: #fff;
   }
+  .application .theme--light.v-btn, .theme--light .v-btn {
+    color: rgba(255,255,255,.87);
+  }
   .game__description{
     padding: 15px;
     width: 100%;
