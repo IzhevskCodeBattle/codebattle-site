@@ -1,5 +1,5 @@
 <template>
-  <v-content class="event-page" v-bind:style="{ backgroundImage : currentEvent.background }">
+  <div class="event-page" v-bind:style="{ backgroundImage : currentEvent.background, 'background-size' : 'cover' }">
     <div id="about" class="anchor"></div>
     <div id="events" class="anchor"></div>
     <div id="games" class="anchor"></div>
@@ -11,7 +11,7 @@
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
-        <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПОСМОТРЕТЬ ИГРУ</button>
+        <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПРАВИЛА ИГРЫ</button>
         <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </div>  
     </div>
@@ -29,37 +29,43 @@
       </div>  
     </div>
     <v-layout class="event-content">
-      <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.description_html"/>
-      <h2 class="toolbar">Частные правила <v-btn dark v-on:click="redirect(currentEvent.gameId)">Общие правила</v-btn></h2>
-      <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.rules"/>
-      <h2 class="toolbar">Место проведения</h2>
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"
-              width="100%"
-              height="40%"
-              frameborder="0">
-      </iframe>
-      <h2 class="toolbar">Галерея</h2>
-      <div class="game__gallery">
-        <swiper :options="swiperOption" class="swiper">
-          <swiper-slide v-for="pic in currentEvent.pictures" :key="pic.title">
-            <img class="pictures" :src="pic.src" :alt="pic.title" />
-          </swiper-slide>
-            <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+      <div class="event__info" v-html="currentEvent.description_html" v-bind:style="{ color : currentEvent.fontColor }">
       </div>
-      <!-- <EventPage/> -->
-      <div class="event-video" v-if="currentEvent.id == 658608">
-        <div class="video__wrapper">
-          <video class="video" controls preload="auto">
-            <source src="/static/media/codebattle.webm" type="video/webm">
-          </video>
-        </div>
-      </div>
-
+      <!-- <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.description_html"/> -->
     </v-layout>
-  </v-content>
+    <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Правила начисления очков</h2>
+    <v-container v-bind:style="{ color : currentEvent.fontColor, 'font-size' : '1.6em', 'width':'80%','margin' : '0 auto' }" v-html="currentEvent.rules"/>
+    <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Место проведения</h2>
+    <div class="map__container">
+      <div class="map__coords" v-bind:style="{ color : currentEvent.fontColor }">{{currentEvent.location.address}}</div>
+      <div class="map__wrapper">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"
+          width="300px"
+          height="300px"
+          frameborder="0">
+        </iframe>
+      </div>
+    </div>
+    <!-- <h2 class="event__title">Галерея</h2>
+    <div class="game__gallery">
+      <swiper :options="swiperOption" class="swiper">
+        <swiper-slide v-for="pic in currentEvent.pictures" :key="pic.title">
+          <img class="pictures" :src="pic.src" :alt="pic.title" />
+        </swiper-slide>
+          <div class="swiper-pagination"  slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </swiper>
+    </div> -->
+    <!-- <EventPage/> -->
+    <!-- <div class="event-video" v-if="currentEvent.id == 658608">
+      <div class="video__wrapper">
+        <video class="video" controls preload="auto">
+          <source src="/static/media/codebattle.webm" type="video/webm">
+        </video>
+      </div>
+    </div> -->
+  </div>
 </template>
 <script>
 
@@ -104,64 +110,14 @@ export default {
       { id: 658608,
         gameId: '1',
         src: '/static/img/games/bomberman.png',
-        pictures: [
-          { title: 'Картинка 1',
-            src: '/static/img/games/bomberman/map3.jpg'
-          },
-          { title: 'Картинка 2',
-            src: '/static/img/games/bomberman/bomberman.png'
-          },
-          { title: 'Картинка 3',
-            src: '/static/img/games/bomberman/map1.jpg'
-          },
-          { title: 'Картинка 4',
-            src: '/static/img/games/bomberman/map2.jpg'
-          },
-          { title: 'Картинка 5',
-            src: '/static/img/games/bomberman/map4.jpg'
-          },
-          { title: 'Картинка 6',
-            src: '/static/img/games/bomberman/map5.jpg'
-          },
-          { title: 'Картинка 7',
-            src: '/static/img/games/bomberman/map6.jpg'
-          },
-          { title: 'Картинка 8',
-            src: '/static/img/games/bomberman/map7.jpg'
-          }
-        ],
-        rules: ''
+        fontColor: '#464547',
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
       },
       { id: 607445,
         gameId: '1',
         src: '/static/img/games/bomberman.png',
-        pictures: [
-          { title: 'Картинка 1',
-            src: '/static/img/games/bomberman/map3.jpg'
-          },
-          { title: 'Картинка 2',
-            src: '/static/img/games/bomberman/bomberman.png'
-          },
-          { title: 'Картинка 3',
-            src: '/static/img/games/bomberman/map1.jpg'
-          },
-          { title: 'Картинка 4',
-            src: '/static/img/games/bomberman/map2.jpg'
-          },
-          { title: 'Картинка 5',
-            src: '/static/img/games/bomberman/map4.jpg'
-          },
-          { title: 'Картинка 6',
-            src: '/static/img/games/bomberman/map5.jpg'
-          },
-          { title: 'Картинка 7',
-            src: '/static/img/games/bomberman/map6.jpg'
-          },
-          { title: 'Картинка 8',
-            src: '/static/img/games/bomberman/map7.jpg'
-          }
-        ],
-        rules: ''
+        fontColor: '#464547',
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
       }
     ],
     swiperOption: {
@@ -223,20 +179,49 @@ export default {
       font-family: SourceSansPro-lt;
       src: url(../../static/fonts/SourceSansPro-It.otf);
     }
-
+    .map__container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      height: 300px;
+      margin: 0 auto;
+    }
+    .map__coords{
+      color: #ffffff;
+      font-size: 1.5em;
+      text-align: center;
+      margin-right: 7%;
+    }
+    .map__wrapper{
+      position: relative;
+    }
     .event-page {
       font-size: 1.2em;
     }
-
     .event-content {
       width: 80%;
       margin:0 auto;
       display: block;
     }
+    .event__info{ 
+      font-size: 1.6em;
+      font-weight: 300;
+      color: #fff;
+      text-align: justify;
+    }
+    .event__title{
+        text-align: center;
+        font-size: 30px;
+        font-weight: normal;
+        border-bottom: 1px solid darkgrey;
+        color: #fff;
+        margin: 30px 10% 20px;
+    }
     .event-registration {
       position: absolute;
-      top: 2%;
-      left: 5%;
+      top: 5%;
+      left: 15%;
     }
     .event-registration__name {
       width: 400px;
@@ -312,7 +297,7 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 1.1vw;
+      font-size: 1.6vw;
       color: #96979d;
       border-right: 1px solid darkgrey;
       padding: 3%;
@@ -425,7 +410,7 @@ export default {
     }
     @media (max-width: 780px) {
       .event-image {
-        height: 20%;
+        height: 300px;
       }
       .event-registration {
         top: 3%;
@@ -437,12 +422,12 @@ export default {
         text-align: left;
       }
       .reg-button {
-        font-size: .65em;
+        font-size: 1em;
       }
       .game-button {
         margin-left: 0;
         margin-top: 2%;
-        font-size: .65em;
+        font-size: 1em;
       }
       .event-date {
         flex-direction: column;
@@ -480,6 +465,22 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .map__container{
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 400px;
+      }
+      .map__coords{
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      .event-date__item:last-child {
+        width: 100%;
+      }
+      .event-registration{
+        top: 3%;
+        left: 5%;
+      }
       .pictures{
         max-height: 150px;
       }
