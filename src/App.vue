@@ -49,7 +49,7 @@ export default {
   }
   .event__info p a{
     display: inline-block;
-    color: #ffffff;
+    color: #2196f3;
   }
   .map-container{
     margin: 0 20%;

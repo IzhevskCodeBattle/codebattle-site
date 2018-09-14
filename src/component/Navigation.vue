@@ -57,7 +57,7 @@ export default {
   background-color: #EEEEEE;
 }
 
-.is-active {
+/* .is-active {
   color: #76cdd8;
-}
+} */
 </style>

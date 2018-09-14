@@ -33,17 +33,16 @@
       </div>
       <!-- <v-container v-bind:style="{ color : currentEvent.fontColor }" v-html="currentEvent.description_html"/> -->
     </v-layout>
-    <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Правила начисления очков</h2>
-    <v-container v-bind:style="{ color : currentEvent.fontColor, 'font-size' : '1.6em', 'width':'80%','margin' : '0 auto' }" v-html="currentEvent.rules"/>
+    <!-- <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Правила начисления очков</h2>
+    <v-container v-bind:style="{ color : currentEvent.fontColor, 'font-size' : '1.6em', 'width':'80%','margin' : '0 auto' }" v-html="currentEvent.rules"/> -->
     <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Место проведения</h2>
     <div class="map__container">
       <div class="map__coords" v-bind:style="{ color : currentEvent.fontColor }">{{currentEvent.location.address}}</div>
       <div class="map__wrapper">
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor"
+        <iframe v-bind:src="renderMap(currentEvent.id)"
           width="300px"
           height="300px"
-          frameborder="0">
-        </iframe>
+          frameborder="0"></iframe>
       </div>
     </div>
     <!-- <h2 class="event__title">Галерея</h2>
@@ -165,6 +164,13 @@ export default {
     },
     isEventPast (date) {
       return new Date(date) < new Date()
+    },
+    renderMap (id) {
+      switch (id) {
+        case 798207: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
+        case 658608: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
+        case 607445: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
+      }
     }
   }
 }
