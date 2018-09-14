@@ -75,7 +75,8 @@ export default {
   height: 64px;
 }
 
-.is-active {
+/* .is-active {
   color:#76cdd8;
 }
+*/
 </style>
