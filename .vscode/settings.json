@@ -5,6 +5,5 @@
   "files.exclude": {
     "node_modules": true
   },
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe",
-  "editor.fontSize": 12
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 }
