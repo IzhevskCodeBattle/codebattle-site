@@ -172,7 +172,7 @@ export default {
         case 658608: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
         case 607445: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
       }
-     }
+    }
   }
 }
 </script>
@@ -472,6 +472,9 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .game-button, .reg-button {
+        font-size: .9em;
+      }
       .map__container{
         flex-direction: column;
         justify-content: flex-start;
