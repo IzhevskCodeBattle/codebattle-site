@@ -1,9 +1,0 @@
-{
-  "editor.tabSize": 2,
-  "files.autoSave": "afterDelay",
-  "editor.renderWhitespace": "all",
-  "files.exclude": {
-    "node_modules": true
-  },
-  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
-}
