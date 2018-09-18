@@ -77,10 +77,6 @@ export default {
 
 /* .is-active {
   color:#76cdd8;
-<<<<<<< HEAD
-} */
-=======
 }
 */
->>>>>>> 0ab86ef7ffa3e0de4a6bf336c2cf6939bef17b27
 </style>
