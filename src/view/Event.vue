@@ -42,8 +42,7 @@
         <iframe v-bind:src="renderMap(currentEvent.id)"
           width="300px"
           height="300px"
-          frameborder="0">
-        </iframe>
+          frameborder="0"></iframe>
       </div>
     </div>
     <!-- <h2 class="event__title">Галерея</h2>
