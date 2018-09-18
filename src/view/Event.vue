@@ -471,6 +471,9 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .game-button, .reg-button {
+        font-size: .9em;
+      }
       .map__container{
         flex-direction: column;
         justify-content: flex-start;
