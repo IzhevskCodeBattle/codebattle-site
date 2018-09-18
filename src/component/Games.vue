@@ -49,7 +49,7 @@ export default {
         src: '/static/img/games/spacerace.png',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'В разработке...',
-        isComplite: false
+        isComplite: true
       }
     ]
   }),
