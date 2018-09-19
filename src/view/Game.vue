@@ -221,7 +221,7 @@ export default {
       id: 4,
       name: 'Лунолёт',
       img: '/static/img/games/moon.jpg',
-      link: '',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-lunolet-clients',
       background: '',
       description: `
         <div class="description__main">
