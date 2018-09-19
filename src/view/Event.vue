@@ -6,7 +6,7 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
+    <img class="event-image" v-bind:src="currentEvent.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
@@ -18,13 +18,13 @@
     <div class="event-date__wrapper">
       <div class="event-date">
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
-            Начало мероприятия: <br>{{ currentEvent.starts_at | TimeFilter }}
+            Начало: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Дата: <br>{{ currentEvent.starts_at | DateFilter}}
           </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
-            Место проведения: <br>{{ currentEvent.location.address }}
+            Место проведения: <br>{{ currentEvent.online?currentEvent.online:currentEvent.location.address }}
           </div>  
       </div>  
     </div>
@@ -35,7 +35,7 @@
     </v-layout>
     <!-- <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Правила начисления очков</h2>
     <v-container v-bind:style="{ color : currentEvent.fontColor, 'font-size' : '1.6em', 'width':'80%','margin' : '0 auto' }" v-html="currentEvent.rules"/> -->
-    <h2 class="event__title" v-bind:style="{ color : currentEvent.fontColor }">Место проведения</h2>
+    <h2 class="event__title" v-if="!currentEvent.online" v-bind:style="{ color : currentEvent.fontColor }">Место проведения</h2>
     <div class="map__container">
       <div class="map__coords" v-bind:style="{ color : currentEvent.fontColor }">{{currentEvent.location.address}}</div>
       <div class="map__wrapper">
@@ -73,14 +73,19 @@ import timePadService from '@/service/timePadService'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+  computed: {
+    registrationLink: function () {
+      return `{"event_id": ${this.$route.params.id}}`
+    }
+  },
   data: () => ({
     currentEvent: {
-      'created_at': '2018-02-01T09:45:15+0300',
-      'starts_at': '2018-02-27T14:00:00+0300',
-      'ends_at': '2018-02-27T19:00:00+0300',
-      name: 'CODE BATTLE for students',
+      'created_at': '',
+      'starts_at': '',
+      'ends_at': '',
+      name: '',
       'description_short': '',
-      'description_html': '<p><strong>Что тебя ждет?</strong></p><p>Создание супер бота, который сможет решать головоломки и выйдет в финал!</p><p> </p><p><strong>Тебе понадобятся:</strong></p><p>- ноутбук (если у тебя его нет, мы предоставим)</p><p>- минимальные знания одного из языков программирования: C#, Java, JavaScript, С++, Python, Go</p><p>- желание победить!</p><p><em>Ход игры будет демонстрироваться на большом экране в режиме реального времени</em></p><p><em>Общая продолжительность мероприятия 4 часа с кофе-брейком и награждением победителей)</em></p><p> </p><p><span style="color:rgb(0,0,0);">Участие абсолютно бесплатное! </span><span style="color:rgb(0,0,0);">Количество мест ограничено!</span></p><p><strong>Если остались вопросы</strong> звони 8-919-918-59-97, следи за новостями здесь vk.com/izhcodebattle</p>',
+      'description_html': '',
       url: '',
       'poster_image': {
         default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
@@ -88,35 +93,44 @@ export default {
       },
       locale: 'ru',
       location: {
-        country: 'Россия',
-        city: 'Ижевск',
-        address: 'ДК Интеграл, ул. Студенческая, 7',
+        country: '',
+        city: '',
+        address: '',
         coordinates: [
           '56.870976',
           '53.174408'
         ]
       }
     },
-    registrationLink: '',
     eventInfo: [
       { id: 798207,
         gameId: '2',
         src: "url('../static/img/mettal_27.jpg')",
         fontColor: 'white',
         pictures: [],
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
+        game_server: 'http://server.codebattle.ru:8080/codebattle'
       },
       { id: 658608,
         gameId: '1',
         src: '/static/img/games/bomberman.png',
         fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
+        game_server: 'http://server.codebattle.ru:8080/codebattle'
       },
       { id: 607445,
         gameId: '1',
         src: '/static/img/games/bomberman.png',
         fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.'
+        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
+        game_server: 'http://server.codebattle.ru:8080/codebattle'
+      },
+      { id: 810431,
+        gameId: '4',
+        src: '/static/img/games/moon.jpg',
+        fontColor: '#464547',
+        rules: '',
+        game_server: 'http://server.codebattle.ru:8080/codebattle'
       }
     ],
     swiperOption: {
@@ -139,10 +153,10 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.toString().split('').splice(11, 5).join('')
+      return val.toString().split('').splice(11, 5).join('') || ''
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 10).join('')
+      return val.toString().split('').splice(0, 10).join('') || ''
     }
   },
   created () {
@@ -152,10 +166,12 @@ export default {
         this.currentEvent.background = this.eventInfo.find(item => { return item.id === res.id }).src
         this.currentEvent.fontColor = this.eventInfo.find(item => { return item.id === res.id }).fontColor
         this.currentEvent.gameId = this.eventInfo.find(item => { return item.id === res.id }).gameId
+        this.currentEvent.game_server = this.eventInfo.find(item => { return item.id === res.id }).game_server
         this.currentEvent.pictures = this.eventInfo.find(item => { return item.id === res.id }).pictures
         this.currentEvent.rules = this.eventInfo.find(item => { return item.id === res.id }).rules
+        this.currentEvent.uploadcare_url = res.poster_image ? res.poster_image.uploadcare_url : this.currentEvent.background
+        this.currentEvent.online = res.location.address || true
       })
-    this.registrationLink = `{"event_id": ${this.$route.params.id}}`
     window.scrollTo(0, 0)
   },
   methods: {
