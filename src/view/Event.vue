@@ -24,7 +24,7 @@
             Дата: <br>{{ currentEvent.starts_at | DateFilter}}
           </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
-            Место проведения: <br>{{ currentEvent.online?currentEvent.online:currentEvent.location.address }}
+            Место проведения: <br>{{ currentEvent.online?'Online':currentEvent.location.address }}
           </div>  
       </div>  
     </div>
@@ -170,7 +170,7 @@ export default {
         this.currentEvent.pictures = this.eventInfo.find(item => { return item.id === res.id }).pictures
         this.currentEvent.rules = this.eventInfo.find(item => { return item.id === res.id }).rules
         this.currentEvent.uploadcare_url = res.poster_image ? res.poster_image.uploadcare_url : this.currentEvent.background
-        this.currentEvent.online = res.location.address || true
+        this.currentEvent.online = res.location.address === undefined
       })
     window.scrollTo(0, 0)
   },
