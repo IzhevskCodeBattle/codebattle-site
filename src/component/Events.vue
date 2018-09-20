@@ -102,8 +102,8 @@ export default {
     getEventDescription (id) {
       // return timePadService.getEventById(id).then(res => { this.text = res.description_short })
       switch (id) {
-        case 658608: return 'Первый студенческий баттл для учащихся всех ВУЗов!'
-        case 607445: return '18 ноября состоится хардкорное мероприятие для разработчиков Ижевска под названием Code Battle.'
+        case 812505: return 'Первый студенческий баттл для учащихся всех ВУЗов!'
+        case 812502: return '18 ноября состоится хардкорное мероприятие для разработчиков Ижевска под названием Code Battle.'
       }
     },
     hideSpinner () {
