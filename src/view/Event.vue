@@ -184,8 +184,8 @@ export default {
     renderMap (id) {
       switch (id) {
         case 798207: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
-        case 658608: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
-        case 607445: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
+        case 812505: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
+        case 812502: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
       }
     }
   }
@@ -210,7 +210,7 @@ export default {
       margin: 0 auto;
     }
     .map__coords{
-      color: #ffffff;
+      color: inherit;
       font-size: 1.5em;
       text-align: center;
       margin-right: 7%;
