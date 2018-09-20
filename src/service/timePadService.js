@@ -1,6 +1,6 @@
 
-const API_URL_UPCOME = `https://api.timepad.ru/v1/events?limit=10&skip=0&organization_ids=139349`
-const API_URL_PAST = `https://api.timepad.ru/v1/events?limit=10&skip=0&organization_ids=101198&keywords=Code%20Battle&starts_at_max=`
+const API_URL_UPCOME = `https://api.timepad.ru/v1/events?limit=1&skip=0&organization_ids=139349`
+const API_URL_PAST = `https://api.timepad.ru/v1/events?limit=10&skip=0&organization_ids=139349&keywords=Code%20Battle&limit=2&starts_at_max=`
 
 export default {
   getEventList () {

@@ -229,7 +229,7 @@ export default {
     .event__info{ 
       font-size: 1.6em;
       font-weight: 300;
-      color: #fff;
+      color: inherit;
       text-align: justify;
     }
     .event__title{
@@ -237,7 +237,7 @@ export default {
         font-size: 30px;
         font-weight: normal;
         border-bottom: 1px solid darkgrey;
-        color: #fff;
+        color: inherit;
         margin: 30px 10% 20px;
     }
     .event-registration {
