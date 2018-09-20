@@ -68,8 +68,7 @@ export default {
       game_server: '',
       pictures: '',
       rules: '',
-      online: '',
-      id: ''
+      online: ''
     }
   },
   getters: {
@@ -87,7 +86,6 @@ export default {
   },
   actions: {
     [CREATE_EVENT_OBJECT] ({ commit }, id) {
-      console.log(id)
       timePadService.getEventById(id).then(res => commit('mapRes', { res, id }))
     }
   }
