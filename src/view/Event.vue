@@ -69,70 +69,25 @@
 <script>
 
 import EventPage from '@/component/EventPage'
-import timePadService from '@/service/timePadService'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import store from '@/store'
+import {CREATE_EVENT_OBJECT} from '../store/actions'
+import { mapState } from 'vuex'
+
 export default {
   computed: {
     registrationLink: function () {
       return `{"event_id": ${this.$route.params.id}}`
-    }
+    },
+    ...mapState({
+      currentEvent: state => {
+        console.log(state)
+        return state.event.currentEvent
+      }
+    })
   },
   data: () => ({
-    currentEvent: {
-      'created_at': '',
-      'starts_at': '',
-      'ends_at': '',
-      name: '',
-      'description_short': '',
-      'description_html': '',
-      url: '',
-      'poster_image': {
-        default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-        uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
-      },
-      locale: 'ru',
-      location: {
-        country: '',
-        city: '',
-        address: '',
-        coordinates: [
-          '56.870976',
-          '53.174408'
-        ]
-      }
-    },
-    eventInfo: [
-      { id: 798207,
-        gameId: '2',
-        src: "url('../static/img/mettal_27.jpg')",
-        fontColor: 'white',
-        pictures: [],
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 658608,
-        gameId: '1',
-        src: '/static/img/games/bomberman.png',
-        fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 607445,
-        gameId: '1',
-        src: '/static/img/games/bomberman.png',
-        fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 810431,
-        gameId: '4',
-        src: '/static/img/games/moon.jpg',
-        fontColor: '#464547',
-        rules: '',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      }
-    ],
     swiperOption: {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -160,18 +115,7 @@ export default {
     }
   },
   created () {
-    timePadService.getEventById(this.$route.params.id)
-      .then(res => {
-        this.currentEvent = res
-        this.currentEvent.background = this.eventInfo.find(item => { return item.id === res.id }).src
-        this.currentEvent.fontColor = this.eventInfo.find(item => { return item.id === res.id }).fontColor
-        this.currentEvent.gameId = this.eventInfo.find(item => { return item.id === res.id }).gameId
-        this.currentEvent.game_server = this.eventInfo.find(item => { return item.id === res.id }).game_server
-        this.currentEvent.pictures = this.eventInfo.find(item => { return item.id === res.id }).pictures
-        this.currentEvent.rules = this.eventInfo.find(item => { return item.id === res.id }).rules
-        this.currentEvent.uploadcare_url = res.poster_image ? res.poster_image.uploadcare_url : this.currentEvent.background
-        this.currentEvent.online = res.location.address === undefined
-      })
+    store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
     window.scrollTo(0, 0)
   },
   methods: {
