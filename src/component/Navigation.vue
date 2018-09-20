@@ -60,5 +60,4 @@ export default {
 /* .is-active {
   color: #76cdd8;
 } */
-
 </style>

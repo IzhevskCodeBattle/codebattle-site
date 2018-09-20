@@ -33,7 +33,7 @@ export default {
         src: '/static/img/partners/udgu_logo.png',
         href: 'http://udsu.ru/'
       },
-      { title: 'KVANTORIUM',
+      { title: 'КВАНТОРИУМ',
         src: '/static/img/partners/kvantorium_logo.png',
         href: 'http://kvant18.ru/'
       },

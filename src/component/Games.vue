@@ -32,16 +32,23 @@ export default {
       },
       { id: 3,
         title: 'LodeRunner',
-        src: '/static/img/games/loderunner.png',
+        src: '/static/img/games/loderunner-min.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'В разработке...',
+        status: 'Игра готова',
         isComplite: true
       },
       { id: 2,
-        title: 'Танчики',
-        src: '/static/img/games/battle-city.png',
+        title: 'Battle City',
+        src: '/static/img/games/battlecity.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'В разработке...',
+        status: 'Игра готова',
+        isComplite: true
+      },
+      { id: 4,
+        title: 'Лунолёт',
+        src: '/static/img/games/lunolet.jpg',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
         isComplite: true
       }
     ]
@@ -124,7 +131,7 @@ export default {
     color: #464547;
     font-size: 30px;
     font-weight: 400;
-    left: 0; 
+    left: 0;
   }
   .game__image {
     width: 250px;
@@ -138,7 +145,7 @@ export default {
     font-size: 2em;
     color: black;
     text-align: center;
-    
+
   }
   .game__status img {
     height: 50px;
