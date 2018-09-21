@@ -39,7 +39,7 @@
     <div class="map__container">
       <div class="map__coords" v-bind:style="{ color : currentEvent.fontColor }">{{currentEvent.location.address}}</div>
       <div class="map__wrapper">
-        <iframe v-bind:src="renderMap(currentEvent.id)"
+        <iframe v-bind:src="currentEvent.map_url"
           width="300px"
           height="300px"
           frameborder="0"></iframe>
@@ -82,7 +82,6 @@ export default {
     },
     ...mapState({
       currentEvent: state => {
-        console.log(state)
         return state.event.currentEvent
       }
     })
@@ -117,7 +116,6 @@ export default {
   created () {
     store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
     window.scrollTo(0, 0)
-    console.warn(this.currentEvent.background)
   },
   methods: {
     redirect: function (id) {
@@ -125,13 +123,6 @@ export default {
     },
     isEventPast (date) {
       return new Date(date) < new Date()
-    },
-    renderMap (id) {
-      switch (id) {
-        case 798207: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
-        case 812505: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
-        case 812502: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
-      }
     }
   }
 }

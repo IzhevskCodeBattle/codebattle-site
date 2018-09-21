@@ -9,7 +9,8 @@ const eventInfo = [
     fontColor: 'white',
     pictures: [],
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-    game_server: 'http://server.codebattle.ru:8080/codebattle'
+    game_server: 'http://server.codebattle.ru:8080/codebattle',
+    map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
   },
   { id: 812505,
     gameId: '1',
@@ -20,7 +21,8 @@ const eventInfo = [
     'poster_image': {
       default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
       uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
-    }
+    },
+    map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
   },
   { id: 812502,
     gameId: '1',
@@ -31,7 +33,8 @@ const eventInfo = [
     'poster_image': {
       default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
       uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
-    }
+    },
+    map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
   },
   { id: 810431,
     gameId: '4',
