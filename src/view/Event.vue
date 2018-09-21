@@ -6,7 +6,7 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.uploadcare_url" alt='Картинка мероприятия'>
+    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
@@ -117,6 +117,7 @@ export default {
   created () {
     store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
     window.scrollTo(0, 0)
+    console.warn(this.currentEvent.background)
   },
   methods: {
     redirect: function (id) {

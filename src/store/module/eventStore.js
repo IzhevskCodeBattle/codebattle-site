@@ -5,24 +5,33 @@ const eventInfo = [
   { id: 798207,
     gameId: '2',
     src: "url('../static/img/mettal_27.jpg')",
+    background: "url('../static/img/mettal_27.jpg')",
     fontColor: 'white',
     pictures: [],
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
     game_server: 'http://server.codebattle.ru:8080/codebattle'
   },
-  { id: 658608,
+  { id: 812505,
     gameId: '1',
     src: '/static/img/games/bomberman.png',
     fontColor: '#464547',
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-    game_server: 'http://server.codebattle.ru:8080/codebattle'
+    game_server: 'http://server.codebattle.ru:8080/codebattle',
+    'poster_image': {
+      default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
+      uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+    }
   },
-  { id: 607445,
+  { id: 812502,
     gameId: '1',
     src: '/static/img/games/bomberman.png',
     fontColor: '#464547',
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-    game_server: 'http://server.codebattle.ru:8080/codebattle'
+    game_server: 'http://server.codebattle.ru:8080/codebattle',
+    'poster_image': {
+      default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
+      uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+    }
   },
   { id: 810431,
     gameId: '4',
@@ -62,7 +71,7 @@ export default {
           '53.174408'
         ]
       },
-      background: '',
+      background: 'inherit',
       fontColor: '',
       gameId: '',
       game_server: '',
