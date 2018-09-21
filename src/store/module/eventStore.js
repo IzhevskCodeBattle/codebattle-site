@@ -32,7 +32,7 @@ const eventInfo = [
     game_server: 'http://server.codebattle.ru:8080/codebattle',
     'poster_image': {
       default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-      uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+      uploadcare_url: '//ucare.timepad.ru/aa1a63d8-7118-41ed-9f30-aee122cd19d8/'
     },
     map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
   },
