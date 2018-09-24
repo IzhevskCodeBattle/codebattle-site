@@ -219,7 +219,7 @@ export default {
       padding: 0;
     }
     .past-events {
-      display: none;
+      display: flex;
       width: 100%;
       height: 100%;
     }
@@ -281,6 +281,9 @@ export default {
     }
     .past-event__info {
       font-size: 0.8em;
+    }
+    .past-event__description {
+    max-height: 33px;
     }
   }
 
