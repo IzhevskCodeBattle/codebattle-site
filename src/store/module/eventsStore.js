@@ -1,4 +1,4 @@
-import { CREATE_EVENT_LIST, CREATE_COMING_EVENT } from '../actions'
+import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT } from '../actions'
 import timePadService from '../../service/timePadService'
 
 export default {
@@ -34,21 +34,28 @@ export default {
     }
   },
   mutations: {
-    mapRes (state, { res }) {
-      state.pastEvents = res.values.map(item => {
-        timePadService.getEventById(item.id).then(res => { item.description = res.description_short; console.warn(item) })
-      })
+    mapRes (state, res) {
+      state.pastEvents = res
     },
-    mapCommingEvent (state, { res }) {
+    mapCommingEvent (state, res) {
       state.commingEvent = res.values
     }
   },
   actions: {
-    [CREATE_EVENT_LIST] ({ commit }) {
-      timePadService.getPastEventList().then(res => commit('mapRes', { res }))
+    [CREATE_EVENT_LIST] ({ dispatch }) {
+      timePadService.getPastEventList().then(res => dispatch(GET_DESCRIPTION_FOR_EVENT, res))
+    },
+    [GET_DESCRIPTION_FOR_EVENT] ({ commit }, { values }) {
+      const requests = values.map(item => {
+        return timePadService.getEventById(item.id).then(res => {
+          item.description = res.description_short
+          return item
+        })
+      })
+      Promise.all(requests).then(responses => commit('mapRes', responses))
     },
     [CREATE_COMING_EVENT] ({ commit }) {
-      timePadService.getEventList().then(res => commit('mapCommingEvent', { res }))
+      timePadService.getEventList().then(res => commit('mapCommingEvent', res))
     }
   }
 }

@@ -49,6 +49,7 @@ export default {
   computed: {
     ...mapState({
       pastEvents: state => {
+        console.log(state.events.pastEvent)
         return state.events.pastEvents
       },
       commingEvent: state => {
@@ -165,7 +166,7 @@ export default {
   }
 
   .past-events {
-    display: block;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
@@ -199,6 +200,8 @@ export default {
   }
   .past-event__description {
     max-width: 300px;
+    max-height: 40px;
+    overflow: hidden;
   }
   .event__timepad-error{
     height: 200px;
