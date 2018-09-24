@@ -184,7 +184,7 @@ export default {
     renderMap (id) {
       switch (id) {
         case 798207: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
-        case 812505: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
+        case 812505: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A76d0e95d73fdb6c8e6015ea1deaa20d3f516465b34c8a51b61baa472d79b0c2d&amp;source=constructor'
         case 812502: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
       }
     }
