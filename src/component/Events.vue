@@ -49,7 +49,6 @@ export default {
   computed: {
     ...mapState({
       pastEvents: state => {
-        console.log(state.events.pastEvent)
         return state.events.pastEvents
       },
       commingEvent: state => {
@@ -73,16 +72,15 @@ export default {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
     },
-    showEvents () {
+    renderEvents () {
+      console.log('render')
+      document.querySelector('.spinner').style.display = 'none'
       document.querySelector('.comming-events').style.display = 'block'
       document.querySelector('.past-events').style.display = 'flex'
     },
     showOldEvents () {
       document.querySelector('.past-events').style.display = 'block'
       document.querySelector('.show-old-events').style.display = 'none'
-    },
-    hideSpinner () {
-      document.querySelector('.spinner').style.display = 'none'
     }
   }
 }

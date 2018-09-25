@@ -54,7 +54,7 @@ export default {
   state: {
     currentEvent: {
       'created_at': '',
-      'starts_at': '',
+      'starts_at': '01.01.1999',
       'ends_at': '',
       name: '',
       'description_short': '',
