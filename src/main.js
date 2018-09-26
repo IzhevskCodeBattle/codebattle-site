@@ -5,7 +5,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import store from '@/store'
 
-import VueRouter from 'vue-router'
+// import VueRouter from 'vue-router'
 import router from '@/router'
 
 import Vuetify from 'vuetify'
@@ -35,7 +35,7 @@ Vue.filter('translate', (value) => {
 })
 
 Vue.use(Vuex)
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 Vue.use(Scrollactive)
 axios.defaults.baseURL = 'http://server.codebattle.ru:4333/api'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

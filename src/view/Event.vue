@@ -6,7 +6,7 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.uploadcare_url" alt='Картинка мероприятия'>
+    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
     <div class="event-registration">
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
@@ -39,7 +39,7 @@
     <div class="map__container">
       <div class="map__coords" v-bind:style="{ color : currentEvent.fontColor }">{{currentEvent.location.address}}</div>
       <div class="map__wrapper">
-        <iframe v-bind:src="renderMap(currentEvent.id)"
+        <iframe v-bind:src="currentEvent.map_url"
           width="300px"
           height="300px"
           frameborder="0"></iframe>
@@ -69,70 +69,24 @@
 <script>
 
 import EventPage from '@/component/EventPage'
-import timePadService from '@/service/timePadService'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import store from '@/store'
+import {CREATE_EVENT_OBJECT} from '../store/actions'
+import { mapState } from 'vuex'
+
 export default {
   computed: {
     registrationLink: function () {
       return `{"event_id": ${this.$route.params.id}}`
-    }
+    },
+    ...mapState({
+      currentEvent: state => {
+        return state.event.currentEvent
+      }
+    })
   },
   data: () => ({
-    currentEvent: {
-      'created_at': '',
-      'starts_at': '',
-      'ends_at': '',
-      name: '',
-      'description_short': '',
-      'description_html': '',
-      url: '',
-      'poster_image': {
-        default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-        uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
-      },
-      locale: 'ru',
-      location: {
-        country: '',
-        city: '',
-        address: '',
-        coordinates: [
-          '56.870976',
-          '53.174408'
-        ]
-      }
-    },
-    eventInfo: [
-      { id: 798207,
-        gameId: '2',
-        src: "url('../static/img/mettal_27.jpg')",
-        fontColor: 'white',
-        pictures: [],
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 658608,
-        gameId: '1',
-        src: '/static/img/games/bomberman.png',
-        fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 607445,
-        gameId: '1',
-        src: '/static/img/games/bomberman.png',
-        fontColor: '#464547',
-        rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      },
-      { id: 810431,
-        gameId: '4',
-        src: '/static/img/games/moon.jpg',
-        fontColor: '#464547',
-        rules: '',
-        game_server: 'http://server.codebattle.ru:8080/codebattle'
-      }
-    ],
     swiperOption: {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -160,18 +114,7 @@ export default {
     }
   },
   created () {
-    timePadService.getEventById(this.$route.params.id)
-      .then(res => {
-        this.currentEvent = res
-        this.currentEvent.background = this.eventInfo.find(item => { return item.id === res.id }).src
-        this.currentEvent.fontColor = this.eventInfo.find(item => { return item.id === res.id }).fontColor
-        this.currentEvent.gameId = this.eventInfo.find(item => { return item.id === res.id }).gameId
-        this.currentEvent.game_server = this.eventInfo.find(item => { return item.id === res.id }).game_server
-        this.currentEvent.pictures = this.eventInfo.find(item => { return item.id === res.id }).pictures
-        this.currentEvent.rules = this.eventInfo.find(item => { return item.id === res.id }).rules
-        this.currentEvent.uploadcare_url = res.poster_image ? res.poster_image.uploadcare_url : this.currentEvent.background
-        this.currentEvent.online = res.location.address === undefined
-      })
+    store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
     window.scrollTo(0, 0)
   },
   methods: {
@@ -180,13 +123,6 @@ export default {
     },
     isEventPast (date) {
       return new Date(date) < new Date()
-    },
-    renderMap (id) {
-      switch (id) {
-        case 798207: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
-        case 812505: return 'https://yandex.ru/map-widget/v1/?um=constructor%3A76d0e95d73fdb6c8e6015ea1deaa20d3f516465b34c8a51b61baa472d79b0c2d&amp;source=constructor'
-        case 812502: return 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
-      }
     }
   }
 }

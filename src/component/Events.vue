@@ -27,7 +27,7 @@
             <div class="past-event__name">{{ event.name }}</div>
             <div class="past-event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</div>
             <div id="event.id" class="past-event__description">
-              {{ getEventDescription(event.id) }}
+              {{ event.description }}
             </div>
           </div>
         </div>
@@ -41,36 +41,25 @@
 <!-- код, который относится непосредственно к компоненту -->
 <script>
 
-import timePadService from '@/service/timePadService'
+import store from '@/store'
+import { CREATE_COMING_EVENT, CREATE_EVENT_LIST } from '../store/actions'
+import { mapState } from 'vuex'
 
 export default {
-  data: () => ({
-    commingEvent: {
-      'created_at': '2018-02-01T09:45:15+0300',
-      'starts_at': '2018-02-27T14:00:00+0300',
-      'ends_at': '2018-02-27T19:00:00+0300',
-      name: 'CODE BATTLE for students',
-      'description_short': '',
-      'description_html': '',
-      url: '',
-      'poster_image': {
-        default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-        uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
+  computed: {
+    ...mapState({
+      pastEvents: state => {
+        return state.events.pastEvents
       },
-      locale: 'ru',
-      location: {
-        country: '',
-        city: '',
-        address: '',
-        coordinates: [
-          '56.870976',
-          '53.174408'
-        ]
+      commingEvent: state => {
+        return state.events.commingEvent[0]
       }
-    },
-    pastEvents: [],
-    text: ''
-  }),
+    })
+  },
+  created () {
+    store.dispatch(CREATE_COMING_EVENT)
+    store.dispatch(CREATE_EVENT_LIST)
+  },
   filters: {
     TimeFilter (val) {
       return val.toString().split('').splice(11, 5).join('')
@@ -79,35 +68,19 @@ export default {
       return val.toString().split('').splice(0, 10).join('')
     }
   },
-  mounted: function () {
-    this.downloadEvents()
-  },
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
     },
-    downloadEvents () {
-      Promise.all([timePadService.getEventList(), timePadService.getPastEventList()])
-        .then((res) => { this.commingEvent = res[0].values[0]; this.pastEvents = res[1].values; return true })
-        .then((res) => { this.showEvents(); this.hideSpinner() })
-    },
-    showEvents () {
+    renderEvents () {
+      console.log('render')
+      document.querySelector('.spinner').style.display = 'none'
       document.querySelector('.comming-events').style.display = 'block'
       document.querySelector('.past-events').style.display = 'flex'
     },
     showOldEvents () {
       document.querySelector('.past-events').style.display = 'block'
       document.querySelector('.show-old-events').style.display = 'none'
-    },
-    getEventDescription (id) {
-      // return timePadService.getEventById(id).then(res => { this.text = res.description_short })
-      switch (id) {
-        case 812505: return 'Первый студенческий баттл для учащихся всех ВУЗов!'
-        case 812502: return '18 ноября состоится хардкорное мероприятие для разработчиков Ижевска под названием Code Battle.'
-      }
-    },
-    hideSpinner () {
-      document.querySelector('.spinner').style.display = 'none'
     }
   }
 }
@@ -116,7 +89,7 @@ export default {
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
    .spinner {
-     display: block;
+     display: none;
      position: absolute;
      top: 50%;
      left: 50%;
@@ -135,7 +108,7 @@ export default {
     justify-content: flex-start;
   }
   .comming-events {
-    display: none;
+    display: block;
     padding-right: 3%;
     border-right: 1px solid #a9a9a9 ;
     width: 40%;
@@ -191,7 +164,7 @@ export default {
   }
 
   .past-events {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
@@ -225,6 +198,8 @@ export default {
   }
   .past-event__description {
     max-width: 300px;
+    max-height: 40px;
+    overflow: hidden;
   }
   .event__timepad-error{
     height: 200px;
@@ -242,7 +217,7 @@ export default {
       padding: 0;
     }
     .past-events {
-      display: none;
+      display: flex;
       width: 100%;
       height: 100%;
     }
@@ -304,6 +279,9 @@ export default {
     }
     .past-event__info {
       font-size: 0.8em;
+    }
+    .past-event__description {
+    max-height: 33px;
     }
   }
 
