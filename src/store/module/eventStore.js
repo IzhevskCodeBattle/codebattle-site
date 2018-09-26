@@ -80,7 +80,8 @@ export default {
       game_server: '',
       pictures: '',
       rules: '',
-      online: ''
+      online: '',
+      isPast: true
     }
   },
   getters: {
@@ -93,6 +94,11 @@ export default {
       state.currentEvent = {
         ...eventData[id],
         ...res
+      }
+      if (state.currentEvent.starts_at && new Date(state.currentEvent.starts_at.slice(0, 10)) < new Date()) {
+        state.currentEvent.isPast = true
+      } else {
+        state.currentEvent.isPast = false
       }
     }
   },

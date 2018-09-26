@@ -12,8 +12,8 @@
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
       <div class="event-registration__buttons">
         <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПРАВИЛА ИГРЫ</button>
-        <button class="reg-button" id='twf' v-if="!isEventPast(currentEvent.starts_at)" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-      </div>  
+        <button class="reg-button" id='twf' v-if="!currentEvent.isPast" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+      </div>
     </div>
     <div class="event-date__wrapper">
       <div class="event-date">
@@ -25,8 +25,8 @@
           </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Место проведения: <br>{{ currentEvent.online?'Online':currentEvent.location.address }}
-          </div>  
-      </div>  
+          </div>
+      </div>
     </div>
     <v-layout class="event-content">
       <div class="event__info" v-html="currentEvent.description_html" v-bind:style="{ color : currentEvent.fontColor }">
@@ -120,9 +120,6 @@ export default {
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'game', params: { id }})
-    },
-    isEventPast (date) {
-      return new Date(date) < new Date()
     }
   }
 }
@@ -162,7 +159,7 @@ export default {
       margin:0 auto;
       display: block;
     }
-    .event__info{ 
+    .event__info{
       font-size: 1.6em;
       font-weight: 300;
       color: inherit;
@@ -293,7 +290,7 @@ export default {
       font-family: 'Play', sans-serif;
       font-weight: bold;
       color: #464547;
-      padding-right: 3%; 
+      padding-right: 3%;
     }
     .event-main__description::before {
       content: '"';
@@ -313,7 +310,7 @@ export default {
       width: 100%;
       margin-bottom: 20px;
     }
-    
+
     .pictures{
     max-height: 500px;
     object-fit: cover;
@@ -348,7 +345,7 @@ export default {
     margin-right: 0;
   }
   .swiper-button-prev{
-    filter: opacity(70%) grayscale(.80) 
+    filter: opacity(70%) grayscale(.80)
   }
   .swiper-button-next{
     filter: opacity(70%) grayscale(.80)
@@ -373,7 +370,7 @@ export default {
       .event-registration {
         top: 3%;
         left: 6%;
-      } 
+      }
       .event-registration__name {
         width: 100%;
         font-size: 2em;
