@@ -3,13 +3,13 @@
   <section id="events">
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
-      <img  class="spinner" @click="hideSpinner()" src="../../static/img/spinner.gif" alt="loading">
+      <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
       <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
       
-      <div class="comming-events">
+      <div v-if="!spinner" class="comming-events">
         <div class="event" v-on:click="redirect(commingEvent.id)">
           <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
           <div class="event__info">
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="past-events">
+      <div v-if="!spinner" class="past-events">
         <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
           <img class="past-event__background" v-bind:src="event.poster_image.uploadcare_url">
           <div class="past-event__info">
@@ -53,6 +53,9 @@ export default {
       },
       commingEvent: state => {
         return state.events.commingEvent[0]
+      },
+      spinner: state => {
+        return state.events.spinner.isActive
       }
     })
   },
@@ -71,16 +74,6 @@ export default {
   methods: {
     redirect: function (id) {
       this.$router.push({name: 'event', params: { id }})
-    },
-    renderEvents () {
-      console.log('render')
-      document.querySelector('.spinner').style.display = 'none'
-      document.querySelector('.comming-events').style.display = 'block'
-      document.querySelector('.past-events').style.display = 'flex'
-    },
-    showOldEvents () {
-      document.querySelector('.past-events').style.display = 'block'
-      document.querySelector('.show-old-events').style.display = 'none'
     }
   }
 }
@@ -89,7 +82,7 @@ export default {
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
    .spinner {
-     display: none;
+     display: block;
      position: absolute;
      top: 50%;
      left: 50%;
