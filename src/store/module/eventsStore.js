@@ -3,6 +3,9 @@ import timePadService from '../../service/timePadService'
 
 export default {
   state: {
+    spinner: {
+      isActive: true
+    },
     commingEvent: {
       'created_at': '2018-02-01T09:45:15+0300',
       'starts_at': '2018-02-27T14:00:00+0300',
@@ -28,14 +31,10 @@ export default {
     },
     pastEvents: []
   },
-  getters: {
-    getCurrentEvent (state) {
-      return state.currentEvent
-    }
-  },
   mutations: {
     mapRes (state, res) {
       state.pastEvents = res
+      state.spinner.isActive = false
     },
     mapCommingEvent (state, res) {
       state.commingEvent = res.values
