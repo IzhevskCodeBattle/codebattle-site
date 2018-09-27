@@ -1,10 +1,10 @@
-import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT } from '../actions'
+import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT, SHOW_SPINNER, HIDE_SPINNER } from '../actions'
 import timePadService from '../../service/timePadService'
 
 export default {
   state: {
     spinner: {
-      isActive: true
+      isActive: false
     },
     commingEvent: {
       'created_at': '2018-02-01T09:45:15+0300',
@@ -34,10 +34,15 @@ export default {
   mutations: {
     mapRes (state, res) {
       state.pastEvents = res
-      state.spinner.isActive = false
     },
     mapCommingEvent (state, res) {
       state.commingEvent = res.values
+    },
+    showSpinner (state) {
+      state.spinner.isActive = true
+    },
+    hideSpinner (state) {
+      state.spinner.isActive = false
     }
   },
   actions: {
@@ -55,6 +60,12 @@ export default {
     },
     [CREATE_COMING_EVENT] ({ commit }) {
       timePadService.getEventList().then(res => commit('mapCommingEvent', res))
+    },
+    [SHOW_SPINNER] ({ commit }) {
+      commit('showSpinner')
+    },
+    [HIDE_SPINNER] ({ commit }) {
+      commit('hideSpinner')
     }
   }
 }
