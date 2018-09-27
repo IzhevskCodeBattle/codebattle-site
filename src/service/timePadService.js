@@ -1,16 +1,33 @@
+import store from '@/store'
+import { SHOW_SPINNER, HIDE_SPINNER } from '@/store/actions'
 
 const API_URL_UPCOME = `https://api.timepad.ru/v1/events?limit=1&skip=0&organization_ids=139349`
 const API_URL_PAST = `https://api.timepad.ru/v1/events?limit=10&skip=0&organization_ids=139349&keywords=Code%20Battle&limit=2&starts_at_max=`
 
 export default {
   getEventList () {
-    return fetch(API_URL_UPCOME).then((res) => { return res.json() })
+    store.dispatch(SHOW_SPINNER)
+    return fetch(API_URL_UPCOME)
+      .then((res) => {
+        store.dispatch(HIDE_SPINNER)
+        return res.json()
+      })
   },
   getEventById (id) {
-    return fetch(`https://api.timepad.ru/v1/events/${id}`).then((res) => { return res.json() })
+    store.dispatch(SHOW_SPINNER)
+    return fetch(`https://api.timepad.ru/v1/events/${id}`)
+      .then((res) => {
+        store.dispatch(HIDE_SPINNER)
+        return res.json()
+      })
   },
   getPastEventList () {
-    return fetch(`${API_URL_PAST}${new Date().toDateString()}`).then((res) => { return res.json() })
+    store.dispatch(SHOW_SPINNER)
+    return fetch(`${API_URL_PAST}${new Date().toDateString()}`)
+      .then((res) => {
+        store.dispatch(HIDE_SPINNER)
+        return res.json()
+      })
   }
 }
 // 139349 - codebattle
