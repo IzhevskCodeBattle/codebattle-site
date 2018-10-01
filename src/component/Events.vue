@@ -221,6 +221,7 @@ export default {
       display: flex;
       width: 100%;
       height: 100%;
+      border-left: none;
     }
     .past-event {
       margin-top: 5%;
