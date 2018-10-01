@@ -8,9 +8,10 @@
       <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      
-      <div v-if="!spinner" class="comming-events">
-        <div class="event" v-on:click="redirect(commingEvent.id)">
+
+      <div class="comming-events">
+        <div v-if="!isCommimgEvent" class="no-event-message">Нет предстоящих событий :(</div>
+        <div v-if="!spinner && isCommimgEvent" class="event" v-on:click="redirect(commingEvent.id)">
           <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
           <div class="event__info">
             <p class="event__name">{{ commingEvent.name }}</p>
@@ -56,6 +57,9 @@ export default {
       },
       spinner: state => {
         return state.events.spinner.isActive
+      },
+      isCommimgEvent: state => {
+        return state.isCommimgEvent
       }
     })
   },
@@ -103,9 +107,12 @@ export default {
   .comming-events {
     display: block;
     padding-right: 3%;
-    border-right: 1px solid #a9a9a9 ;
     width: 40%;
     height: auto;
+  }
+  .no-event-message{
+    text-align: center;
+    font-size: 1.9em;
   }
   .event {
     position: relative;
@@ -125,7 +132,7 @@ export default {
     height: 400px;
     object-fit: cover;
     opacity: 0.4;
-    
+
   }
   .event__line{
     width: 80%;
@@ -135,7 +142,7 @@ export default {
   .event__info{
     height: 100%;
     width: 100%;
-    position: absolute; 
+    position: absolute;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -162,6 +169,7 @@ export default {
     justify-content: space-between;
     width: 60%;
     height: 400px;
+    border-left: 1px solid #a9a9a9 ;
   }
 
   .past-event {
@@ -246,7 +254,7 @@ export default {
       border-right: none;
     }
     .event {
-      width: 300px;  
+      width: 300px;
       height: 300px;
       margin: 0 auto;
     }
@@ -258,7 +266,7 @@ export default {
       align-items: center;
     }
     .event {
-      width: 250px;  
+      width: 250px;
       height: 250px;
       margin: 0 auto;
     }

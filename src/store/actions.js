@@ -13,4 +13,5 @@ export const GET_DESCRIPTION_FOR_EVENT = 'EVENT_GET_DESCRIPTION_FOR_EVENT'
 
 export const SHOW_SPINNER = 'SHOW_SPINNER'
 export const HIDE_SPINNER = 'HIDE_SPINNER'
+export const SET_NO_EVENTS = 'SET_NO_EVENTS'
 /* eslint-enable */

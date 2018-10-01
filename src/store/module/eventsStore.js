@@ -1,4 +1,4 @@
-import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT, SHOW_SPINNER, HIDE_SPINNER } from '../actions'
+import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT, SHOW_SPINNER, HIDE_SPINNER, SET_NO_EVENTS } from '../actions'
 import timePadService from '../../service/timePadService'
 
 export default {
@@ -6,6 +6,7 @@ export default {
     spinner: {
       isActive: false
     },
+    isCommingEvent: true,
     commingEvent: {
       'created_at': '2018-02-01T09:45:15+0300',
       'starts_at': '2018-02-27T14:00:00+0300',
@@ -43,6 +44,9 @@ export default {
     },
     hideSpinner (state) {
       state.spinner.isActive = false
+    },
+    setNoEvents (state) {
+      state.isCommingEvent = false
     }
   },
   actions: {
@@ -66,6 +70,9 @@ export default {
     },
     [HIDE_SPINNER] ({ commit }) {
       commit('hideSpinner')
+    },
+    [SET_NO_EVENTS] ({ commit }) {
+      commit('setNoEvents')
     }
   }
 }
