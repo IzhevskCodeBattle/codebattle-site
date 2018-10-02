@@ -12,7 +12,7 @@ export default {
         let result = ''
         if (!res.lenght) {
           store.dispatch(HIDE_SPINNER)
-          stop.dispatch(SET_NO_EVENTS)
+          store.dispatch(SET_NO_EVENTS)
         } else {
           store.dispatch(HIDE_SPINNER)
           result = res.json()
