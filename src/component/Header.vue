@@ -52,9 +52,6 @@ export default {
       // console.log(event)
       // console.log(currentItem)
       // console.log(lastActiveItem)
-    },
-    azaza () {
-      this.$router.push('#azazazaza')
     }
   }
 }
