@@ -1,7 +1,7 @@
 <template>
 <v-toolbar fixed app id="header" class="header__wrapper">
   <v-toolbar-side-icon @click.stop="setDrawer" class="white--text hidden-md-and-up"></v-toolbar-side-icon>
-    <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down" :always-track="true" :offset="70" v-on:itemchanged="onItemChanged">
+    <scrollactive ref="scrollactive" class="left_menu hidden-sm-and-down" :always-track="true" :offset="70" :modifyUrl="true" v-on:itemchanged="onItemChanged">
       <v-btn flat class="scrollactive-item" to="/home#about">О проекте</v-btn>
       <v-btn flat class="scrollactive-item" to="/home#events">События</v-btn>
       <v-btn flat class="scrollactive-item" to="/home#games">Игры</v-btn>
@@ -52,6 +52,9 @@ export default {
       // console.log(event)
       // console.log(currentItem)
       // console.log(lastActiveItem)
+    },
+    azaza () {
+      this.$router.push('#azazazaza')
     }
   }
 }
@@ -75,8 +78,8 @@ export default {
   height: 64px;
 }
 
-/* .is-active {
+.is-active {
   color:#76cdd8;
 }
-*/
+
 </style>

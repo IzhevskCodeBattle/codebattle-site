@@ -118,7 +118,6 @@ export default {
   },
   created () {
     store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
-    window.scrollTo(0, 0)
   },
   methods: {
     redirect: function (id) {

@@ -67,6 +67,7 @@ export default {
   },
   methods: {
     redirect: function (id) {
+      this.$router.push('#games')
       this.$router.push({name: 'game', params: { id }})
     }
   }
