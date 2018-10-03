@@ -69,10 +69,10 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.toString().split('').splice(11, 5).join('')
+      return val.substring(11, 16)
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 10).join('')
+      return val.substring(0, 10)
     }
   },
   methods: {
