@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer id="footer">
     <div class="footer__wrapper">
         <div class="icons-wrapper">
           <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>

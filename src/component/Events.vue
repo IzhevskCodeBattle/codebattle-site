@@ -9,7 +9,7 @@
         В настоящий момент TimePad недоступен :(
       </div>
 
-      <div class="comming-events">
+      <div class="comming-events"> 
         <div v-if="!isCommimgEvent" class="no-event-message">Нет предстоящих событий :(</div>
         <div v-if="!spinner && isCommimgEvent" class="event" v-on:click="redirect(commingEvent.id)">
           <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
@@ -69,14 +69,15 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.toString().split('').splice(11, 5).join('')
+      return val.substring(11, 16)
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 10).join('')
+      return val.substring(0, 10)
     }
   },
   methods: {
     redirect: function (id) {
+      this.$router.push('#events')
       this.$router.push({name: 'event', params: { id }})
     }
   }
@@ -103,6 +104,7 @@ export default {
     padding: 0 10%;
     flex-wrap: wrap;
     justify-content: flex-start;
+    min-height: 490px;
   }
   .comming-events {
     display: block;

@@ -13,6 +13,7 @@ import About from '@/component/About'
 import Events from '@/component/Events'
 import Games from '@/component/Games'
 import Partners from '@/component/Partners'
+var scrollToElement = require('scroll-to-element')
 
 export default {
   name: 'Home',
@@ -21,6 +22,9 @@ export default {
     Events,
     Games,
     Partners
+  },
+  mounted () {
+    scrollToElement(this.$route.hash, { offset: -70 })
   }
 }
 </script>

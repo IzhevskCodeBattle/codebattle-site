@@ -7,9 +7,9 @@
       <div class="event-info">29 сентября в 13.30</div>
       <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
       <div class="event-button">
-        <v-btn class="registration-button white--text" href="/game/2">Правила</v-btn>
-        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
-        <v-btn class="registration-button white--text" href="/event/798207">О мероприятии</v-btn>
+        <v-btn class="registration-button white--text" href="/game/2" @click="changeHash()">Правила</v-btn>
+        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink" @click="changeHash()">Принять участие</v-btn>
+        <v-btn class="registration-button white--text" href="/event/798207" @click="changeHash()">О мероприятии</v-btn>
       </div>
     </div>
     <p class="about__description">
@@ -45,7 +45,12 @@ export default {
   name: 'About',
   data: () => ({
     registrationLink: `{"event_id": 798207}`
-  })
+  }),
+  methods: {
+    changeHash () {
+      this.$router.push('#about')
+    }
+  }
 }
 </script>
 <!-- стили, которые относятся непосредственно к компоненту -->
