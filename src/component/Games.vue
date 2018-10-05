@@ -1,4 +1,5 @@
 <!-- содержимое секции компонента. -->
+import { mapState } from '../../../../../../Users/Marsel_Khisamov/Desktop/codebattle-site/node_modules/vuex/types';
 <template>
   <section id="games">
     <h2 class="toolbar">Игры</h2>
@@ -20,42 +21,17 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
-  data: () => ({
-    cards: [
-      { id: 1,
-        title: 'Bomberman',
-        src: '/static/img/games/bomber.png',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'Игра готова',
-        isComplite: true
-      },
-      { id: 3,
-        title: 'LodeRunner',
-        src: '/static/img/games/loderunner-min.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'Игра готова',
-        isComplite: true
-      },
-      { id: 2,
-        title: 'Battle City',
-        src: '/static/img/games/battlecity.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'Игра готова',
-        isComplite: true
-      },
-      { id: 4,
-        title: 'Лунолёт',
-        src: '/static/img/games/lunolet.jpg',
-        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
-        status: 'Игра готова',
-        isComplite: true
-      }
-    ]
-  }),
   computed: {
+    ...mapState({
+      cards: state => {
+        return state.games.cards
+      }
+    }),
     imageHeight () {
-      // console.log(this.$vuetify.breakpoint.name)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
         case 'sm': return '300px'
