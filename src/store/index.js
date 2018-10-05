@@ -4,6 +4,8 @@ import auth from '@/store/module/auth'
 import navigation from '@/store/module/navigation'
 import eventStore from '@/store/module/eventStore'
 import eventsStore from '@/store/module/eventsStore'
+import partnersStore from '@/store/module/partnersStore'
+import gamesStore from '@/store/module/gamesStore'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -13,7 +15,9 @@ export default new Vuex.Store({
     'auth': auth,
     'navigation': navigation,
     'event': eventStore,
-    'events': eventsStore
+    'events': eventsStore,
+    'partners': partnersStore,
+    'games': gamesStore
   },
   plugins: process.env.NODE_ENV !== 'production' ? [createLogger()] : []
 })
