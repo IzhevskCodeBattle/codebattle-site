@@ -1,5 +1,4 @@
 <!-- содержимое секции компонента. -->
-import { mapState } from '../../../../../../Users/Marsel_Khisamov/Desktop/codebattle-site/node_modules/vuex/types';
 <template>
   <section id="games">
     <h2 class="toolbar">Игры</h2>
