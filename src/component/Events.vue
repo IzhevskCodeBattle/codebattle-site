@@ -59,7 +59,7 @@ export default {
         return state.events.spinner.isActive
       },
       isCommimgEvent: state => {
-        return state.isCommimgEvent
+        return state.events.isCommimgEvent
       }
     })
   },
