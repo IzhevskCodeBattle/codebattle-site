@@ -18,13 +18,13 @@
             <v-flex xs10>
               <v-text-field prepend-inner-icon="lock" v-model="credentials.password" label="Пароль" type="password" required></v-text-field>
             </v-flex>
-            <v-flex xs10>
+            <!-- <v-flex xs10>
               <span>
                 <input type="checkbox" id="checkbox">
                 <label for="checkbox">Запомнить меня</label>
               </span>
               <a class="forgot">Забыли пароль?</a>
-            </v-flex>
+            </v-flex> -->
           </v-layout>
         </v-container>
       </v-card-text>
@@ -37,7 +37,7 @@
         Не зарегистрированы?
         <a class="create-account" @click="show=false; $events.$emit('signup-form:show')">Создать аккаунт</a>
       </v-card-text>
-      <v-card-title class="justify-center">
+      <!-- <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
       <v-layout flex justify-center style="padding-bottom: 16px">
@@ -59,7 +59,7 @@
         <a class="google" href="/api/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-layout>
+      </v-layout> -->
     </v-card>
   </form>
 </v-dialog>
@@ -144,7 +144,7 @@ export default {
   width: 100%;
   height: 100%;
 }
- 
+
 .forgot {
   margin-left: 1%;
 }

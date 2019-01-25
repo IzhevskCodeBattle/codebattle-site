@@ -1,17 +1,21 @@
 <!-- содержимое секции компонента. -->
 <template>
   <section id="events">
+    <div class="anchor" id="events"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
       <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
-      <div v-if="!(pastEvents || commingEvent)" class="event__timepad-error">
+      <div v-if="!pastEvents && !commingEvent" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      
-      <div v-if="!spinner" class="comming-events">
+
+      <div v-if="!commingEvent" class="comming-events__error">
+        События планируются..
+      </div>
+
+      <div v-if="!spinner && commingEvent" class="comming-events">
         <div class="event" v-on:click="redirect(commingEvent.id)">
-          <img class="event__background" v-bind:src="commingEvent.poster_image.uploadcare_url">
           <div class="event__info">
             <p class="event__name">{{ commingEvent.name }}</p>
             <div class="event__line"></div>
@@ -20,15 +24,14 @@
         </div>
       </div>
 
-      <div v-if="!spinner" class="past-events">
+      <div v-if="!spinner && pastEvents" class="past-events">
         <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
-          <img class="past-event__background" v-bind:src="event.poster_image.uploadcare_url">
           <div class="past-event__info">
             <div class="past-event__name">{{ event.name }}</div>
             <div class="past-event__date">{{ event.starts_at | TimeFilter }} {{ event.starts_at | DateFilter }}</div>
-            <div id="event.id" class="past-event__description">
+            <p id="event.id" class="past-event__description">
               {{ event.description }}
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -49,7 +52,9 @@ export default {
   computed: {
     ...mapState({
       pastEvents: state => {
-        return state.events.pastEvents
+        return state.events.pastEvents.sort(function (a, b) {
+          return new Date(b.starts_at) - new Date(a.starts_at)
+        })
       },
       commingEvent: state => {
         return state.events.commingEvent[0]
@@ -65,10 +70,10 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.toString().split('').splice(11, 5).join('')
+      return val ? val.toString().split('').splice(11, 5).join('') : ''
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 10).join('')
+      return val ? val.toString().split('').splice(0, 10).join('') : ''
     }
   },
   methods: {
@@ -81,6 +86,10 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+    .anchor{
+      height: 20px;
+      position: relative;
+    }
    .spinner {
      display: block;
      position: absolute;
@@ -98,14 +107,18 @@ export default {
     align-items: center;
     padding: 0 10%;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   .comming-events {
     display: block;
     padding-right: 3%;
-    border-right: 1px solid #a9a9a9 ;
     width: 40%;
     height: auto;
+  }
+  .comming-events__error{
+    width: 40%;
+    text-align: center;
+    font-size: 2em;
   }
   .event {
     position: relative;
@@ -125,7 +138,7 @@ export default {
     height: 400px;
     object-fit: cover;
     opacity: 0.4;
-    
+
   }
   .event__line{
     width: 80%;
@@ -135,7 +148,7 @@ export default {
   .event__info{
     height: 100%;
     width: 100%;
-    position: absolute; 
+    position: absolute;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -159,16 +172,24 @@ export default {
   .past-events {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    border-left: 1px solid #a9a9a9 ;
     width: 60%;
     height: 400px;
   }
 
   .past-event {
     margin-left: 20px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
   }
+
+  .past-event:last-child {
+    margin-bottom: 0;
+  }
+
   .past-event:hover{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
@@ -190,9 +211,10 @@ export default {
     margin: 0;
   }
   .past-event__description {
-    max-width: 300px;
-    max-height: 40px;
+    max-width: 325px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .event__timepad-error{
     height: 200px;
@@ -213,6 +235,7 @@ export default {
       display: flex;
       width: 100%;
       height: 100%;
+      border-left: none;
     }
     .past-event {
       margin-top: 5%;
@@ -243,10 +266,12 @@ export default {
     }
     .comming-events {
       width: 100%;
-      border-right: none;
+    }
+    .comming-events__error {
+      width: 100%;
     }
     .event {
-      width: 300px;  
+      width: 300px;
       height: 300px;
       margin: 0 auto;
     }
@@ -258,7 +283,7 @@ export default {
       align-items: center;
     }
     .event {
-      width: 250px;  
+      width: 250px;
       height: 250px;
       margin: 0 auto;
     }
@@ -274,7 +299,8 @@ export default {
       font-size: 0.8em;
     }
     .past-event__description {
-    max-height: 33px;
+      max-width: 260px;
+      max-height: 33px;
     }
   }
 

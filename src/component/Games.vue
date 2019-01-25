@@ -1,6 +1,7 @@
 <!-- содержимое секции компонента. -->
 <template>
   <section id="games">
+    <div class="anchor" id="games"></div>
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
       <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
@@ -50,6 +51,13 @@ export default {
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'Игра готова',
         isComplite: true
+      },
+      { id: 5,
+        title: 'StarMarines',
+        src: '/static/img/games/spaceship.jpg',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
       }
     ]
   }),
@@ -75,6 +83,10 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+  .anchor{
+    height: 20px;
+    position: relative;
+  }
   .games__wrapper{
     padding: 0 10%;
     display: flex;

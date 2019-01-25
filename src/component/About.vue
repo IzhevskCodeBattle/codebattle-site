@@ -4,38 +4,38 @@
     <div class="about__image"></div>
     <div class="about__wrapper">
       <img src="../../static/img/logo_with_text.png" alt="main_logo">
-      <div class="event-info">29 сентября в 13.30</div>
-      <div class="event-info">Кофейня "MechanIsMe" (ул.30 лет Победы, д.43)</div>
+      <div class="event-info">2 марта в 13.30</div>
+      <div class="event-info">Ресторан Welten (ул. Пушкинская, 130а)</div>
       <div class="event-button">
-        <v-btn class="registration-button white--text" href="/game/2">Правила</v-btn>
-        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
-        <v-btn class="registration-button white--text" href="/event/798207">О мероприятии</v-btn>
+        <v-btn class="registration-button white--text" href="/game/5">Правила</v-btn>
+        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink" disabled>Принять участие</v-btn>
+        <v-btn class="registration-button white--text" href="/event/798207" disabled>О мероприятии</v-btn>
       </div>
     </div>
     <p class="about__description">
-      Это мини-хакатон для тех, кто любит программирование, 
-      искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален: 
-      любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками. 
+      Это мини-хакатон для тех, кто любит программирование,
+      искусственный интеллект и сражения ботов. Порог вхождения в Code Battle минимален:
+      любой может прийти и уже через 45 минут запустить своего бота сражаться с соперниками.
       Все сражения демонстрируются на большом экране в режиме реального времени.
     </p>
     <div class="about__card-wrapper">
           <div class="about__card">
             <v-icon class="xsize">extension</v-icon>
-            <div class="about__card-text">Программирование как игра</div>  
+            <div class="about__card-text">Программирование как игра</div>
           </div>
           <div class="about__card">
             <v-icon class="xsize" >supervisor_account</v-icon>
-            <div class="about__card-text">Новые знакомства</div>  
+            <div class="about__card-text">Новые знакомства</div>
           </div>
           <div class="about__card">
             <v-icon class="xsize" >code</v-icon>
-            <div class="about__card-text">Практика, а не теория</div>  
+            <div class="about__card-text">Практика, а не теория</div>
           </div>
           <div class="about__card">
             <v-icon class="xsize" >thumb_up</v-icon>
-            <div class="about__card-text">Море эмоций</div>  
+            <div class="about__card-text">Море эмоций</div>
           </div>
-          
+
         </div>
   </section>
 </template>
@@ -52,7 +52,7 @@ export default {
 <style scoped>
   .event-info {
     color: #fff;
-    font-size: 1.8em;
+    font-size: 2.3em;
     text-align: center;
   }
   .event-button {
@@ -61,17 +61,18 @@ export default {
   }
   .about__image {
     position: relative;
-    height: 500px;
+    height: 600px;
     width: 125.5%;
     margin-left: -13%;
-    background-image: url('../../static/img/panzer.jpg');
+    background-image: url('../../static/img/games/spaceship_bg.jpg');
     background-size: cover;
     background-position: 0 44%;
-    box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);   
+    box-shadow: 0px 10px 33px -6px rgba(0,0,0,1);
   }
   .about__wrapper {
+    width: 100%;
     position: absolute;
-    top: 1%;
+    top: 3%;
     left: 50%;
     transform: translate(-50%, 0);
     display: flex;
@@ -80,12 +81,12 @@ export default {
   }
 
   .registration-button {
-    background-color: #730606a6 !important;
+    background-color: #0054e6a6 !important;
     color: white;
     font-size: 1.8em;
     padding: 10px 20px;
     border: 2px solid white;
-    margin-top: 2%;
+    margin-top: 3%;
     height: auto !important;
   }
 
@@ -129,7 +130,7 @@ export default {
     width: 80%;
     padding-top: 50px;
   }
-  
+
   /* --------------- */
   h2{
     text-align: center;
@@ -150,7 +151,7 @@ export default {
     font-size: 4.5em;
     text-transform: uppercase;
     color: #222222;
-  } 
+  }
   .icon{
     margin-top: 50px;
     cursor: default;
@@ -272,8 +273,8 @@ export default {
     height: 120%;
   }
   .registration-button {
-      font-size: .8em;
-  }   
+    font-size: .8em;
+  }
 }
 @media (max-width: 360px) {
   .event-button {
