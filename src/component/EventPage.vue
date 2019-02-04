@@ -31,7 +31,7 @@
           </template>
         </v-list>
       </v-card>
-    
+
     </v-flex>
     <v-flex xs12 sm6 md6 lg6 xl6>
       <v-card>
@@ -166,7 +166,4 @@ export default {
   })
 }
 </script>
-<style scoped>
-
-</style>
 

@@ -37,7 +37,7 @@
         Не зарегистрированы?
         <a class="create-account" @click="show=false; $events.$emit('signup-form:show')">Создать аккаунт</a>
       </v-card-text>
-      <!-- <v-card-title class="justify-center">
+      <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
       <v-layout flex justify-center style="padding-bottom: 16px">
@@ -56,10 +56,10 @@
         <a class="github" href="/api/auth/github">
           <v-icon>fab fa-github-alt</v-icon>
         </a>
-        <a class="google" href="/api/auth/google">
+        <a class="google" href="http://localhost:3000/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-layout> -->
+      </v-layout>
     </v-card>
   </form>
 </v-dialog>

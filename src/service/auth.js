@@ -10,6 +10,8 @@ const CURRENT_USER_URL = `${API_URL}/profile`
 const REFRESH_TOKEN_URL = `${API_URL}/refresh`
 */
 
+// const URL = 'http://epruizhsa0001t2:9999/auth/oauth/authorize?response_type=code&client_id=codebattle&scope=read&state=-m44o65KExomvi7jqRUyGd2cypnrltdDICygcy6SdQw%3D&redirect_uri=http://localhost:8080'
+
 const REGISTRATION_URL = `/signup`
 const SESSION_URL = `/signin`
 const CURRENT_USER_URL = `/profile`
@@ -86,4 +88,11 @@ export default {
         console.error(error)
       })
   }
+
+  // codebattle (context) {
+  //   return context.$http.get(URL, {}, {headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' }})
+  //     .then(resp => {
+  //       console.log(resp)
+  //     })
+  // }
 }

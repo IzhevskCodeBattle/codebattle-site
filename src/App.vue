@@ -42,10 +42,12 @@ export default {
   }
 }
 </script>
-
 <style>
   * {
     font-family: 'Oswald', sans-serif;
+  }
+  .v-content__wrap {
+    position: static;
   }
   .event__info p a{
     display: inline-block;
@@ -60,12 +62,12 @@ export default {
     background-position: 50% 50%;
     background-color: #222222;
   }
-  .main-content__wrapper{
+  /* .main-content__wrapper{
     margin: 0 10%;
     background-color: #fff;
     box-shadow: -4px 0px 8px 0px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background-color: #e3e3e3cc;
-  }
+  } */
   .application.theme--light {
     background-color: white;
   }
@@ -112,6 +114,7 @@ export default {
     text-decoration-line: underline;
     font-weight: bold;
   }
+
   @media (max-width: 950px) {
     .main-content__wrapper{
       margin: 0;

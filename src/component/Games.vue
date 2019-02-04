@@ -1,6 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="games">
+  <section class="games__margin-wrapper">
     <div class="anchor" id="games"></div>
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
@@ -54,7 +54,7 @@ export default {
       },
       { id: 5,
         title: 'StarMarines',
-        src: '/static/img/games/spaceship.jpg',
+        src: '/static/img/games/hsm.PNG',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'Игра готова',
         isComplite: true
@@ -86,6 +86,11 @@ export default {
   .anchor{
     height: 20px;
     position: relative;
+  }
+  .games__margin-wrapper{
+    margin: 0 10%;
+    background-color: #fff;
+    background-color: #e3e3e3cc;
   }
   .games__wrapper{
     padding: 0 10%;
@@ -167,12 +172,20 @@ export default {
     width: 250px;
     margin: 10px;
   }
+  @media (max-width: 950px) {
+    .games__margin-wrapper{
+      margin: 0;
+    }
+  }
   @media (max-width: 600px) {
     .games__wrapper{
       justify-content: space-around;
     }
     .game__dummy {
       display: none;
+    }
+    .games__margin-wrapper{
+      margin: 0;
     }
   }
 </style>

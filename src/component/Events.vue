@@ -1,6 +1,6 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="events">
+  <section class="events__margin-wrapper">
     <div class="anchor" id="events"></div>
     <h2 class="toolbar">События</h2>
     <div class="events__wrapper">
@@ -100,7 +100,11 @@ export default {
      height: 50px;
      width: 50px;
    }
-
+  .events__margin-wrapper{
+    margin: 0 10%;
+    background-color: #fff;
+    background-color: #e3e3e3cc;
+  }
    .events__wrapper{
     position: relative;
     display: flex;
@@ -226,6 +230,11 @@ export default {
   .show-old-events {
     display: none;
   }
+  @media (max-width: 950px) {
+    .events__margin-wrapper{
+      margin: 0;
+    }
+  }
 
   @media (max-width: 760px) {
     .comming-events {
@@ -301,6 +310,9 @@ export default {
     .past-event__description {
       max-width: 260px;
       max-height: 33px;
+    }
+    .events__margin-wrapper{
+      margin: 0;
     }
   }
 
