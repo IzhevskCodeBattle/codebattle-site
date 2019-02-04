@@ -59,7 +59,7 @@ export default {
       Promise.all(requests).then(responses => commit('mapRes', responses))
     },
     [CREATE_COMING_EVENT] ({ commit }) {
-      timePadService.getEventList().then()
+      timePadService.getEventList().then(res => console.log(res))
     },
     [SHOW_SPINNER] ({ commit }) {
       commit('showSpinner')

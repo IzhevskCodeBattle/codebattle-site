@@ -9,8 +9,8 @@
       <div class="event-info">(ул. Пушкинская, 130а)</div>
       <div class="event-button">
         <v-btn class="registration-button white--text" href="/game/5">Правила</v-btn>
-        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink" disabled>Принять участие</v-btn>
-        <v-btn class="registration-button white--text" href="/event/798207" disabled>О мероприятии</v-btn>
+        <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
+        <v-btn class="registration-button white--text" href="/event/901674" disabled>О мероприятии</v-btn>
       </div>
     </div>
     <div class="abount__margin-wrapper">
@@ -46,7 +46,7 @@
 export default {
   name: 'About',
   data: () => ({
-    registrationLink: `{"event_id": 798207}`
+    registrationLink: `{"event_id": 901674}`
   })
 }
 </script>
