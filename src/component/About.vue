@@ -10,7 +10,7 @@
       <div class="event-button">
         <v-btn class="registration-button white--text" href="/game/5">Правила</v-btn>
         <v-btn class="registration-button white--text" id="twf" v-bind:data-twf-target-state="this.registrationLink">Принять участие</v-btn>
-        <v-btn class="registration-button white--text" href="/event/901674" disabled>О мероприятии</v-btn>
+        <v-btn class="registration-button white--text" href="/event/901674">О мероприятии</v-btn>
       </div>
     </div>
     <div class="abount__margin-wrapper">

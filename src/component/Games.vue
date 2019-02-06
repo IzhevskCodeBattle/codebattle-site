@@ -54,7 +54,7 @@ export default {
       },
       { id: 5,
         title: 'StarMarines',
-        src: '/static/img/games/hsm.PNG',
+        src: '/static/img/games/star_marines.PNG',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'Игра готова',
         isComplite: true

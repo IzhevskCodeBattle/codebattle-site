@@ -82,7 +82,6 @@ export default {
     },
     ...mapState({
       currentEvent: state => {
-        console.log(state.event.currentEvent)
         return state.event.currentEvent
       }
     })
@@ -154,6 +153,9 @@ export default {
     }
     .event-page {
       font-size: 1.2em;
+      margin: 0 10%;
+      background-color: #fff;
+      background-color: #e3e3e3cc;
     }
     .event-content {
       width: 80%;

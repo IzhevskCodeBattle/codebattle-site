@@ -77,7 +77,7 @@ export default {
 
 .scrollactive-item{
   color: #ffffff;
-  height: 64px;
+  height: 70px;
 }
 
 /* .is-active {

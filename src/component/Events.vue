@@ -6,7 +6,7 @@
     <div class="events__wrapper">
       <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
-      <div v-if="!pastEvents && !commingEvent" class="event__timepad-error">
+      <div v-if="!pastEvents && !commingEvent.values[0]" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
 
@@ -64,7 +64,7 @@ export default {
       }
     })
   },
-  created () {
+  beforeCreate () {
     store.dispatch(CREATE_COMING_EVENT)
     store.dispatch(CREATE_EVENT_LIST)
   },
@@ -152,7 +152,6 @@ export default {
   .event__info{
     height: 100%;
     width: 100%;
-    position: absolute;
     top: 0;
     display: flex;
     flex-direction: column;

@@ -37,6 +37,15 @@ const eventInfo = [
     fontColor: '#464547',
     rules: '',
     game_server: 'http://server.codebattle.ru:8080/codebattle'
+  },
+  { id: 901674,
+    gameId: '5',
+    src: '/static/img/games/sm_banner.jpg',
+    fontColor: '#464547',
+    rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
+    game_server: 'http://server.codebattle.ru:8080/codebattle',
+    header_image: '/static/img/games/sm_banner.jpg',
+    map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Ae7bc1ea2b46583793e2196d40aea02cb59f0e256a03d88abbae8b690162a7e72&amp;source=constructor'
   }
 ]
 
