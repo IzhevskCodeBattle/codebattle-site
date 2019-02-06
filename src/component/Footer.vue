@@ -5,8 +5,8 @@
           <v-btn :href="icon.href" v-for="icon in icons" :key="icon.icon" icon>
             <v-icon class="icon" size="25px">{{ icon.icon }}</v-icon>
           </v-btn>
-        </div>  
-        <div class="scrollactive">  
+        </div>
+        <div class="scrollactive">
           <scrollactive ref="scrollactive" style="margin: 0 auto">
             <router-link to="/home#about" class="scrollactive-item">О ПРОЕКТЕ</router-link>
             <router-link to="/home#events" class="scrollactive-item">СОБЫТИЯ</router-link>
@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .footer__wrapper{
-  background-color: #464547;
+  background-color: #464547a6;
   margin: 0 10%;
 }
 .footer__links a{

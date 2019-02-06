@@ -6,7 +6,7 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
+    <img class="event-image" v-bind:src="currentEvent.header_image" alt='Картинка мероприятия'>
     <div class="event-registration">
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
@@ -110,10 +110,10 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.substring(11, 16)
+      return val ? val.toString().split('').splice(11, 5).join('') : ''
     },
     DateFilter (val) {
-      return val.substring(0, 10)
+      return val ? val.toString().split('').splice(0, 10).join('') : ''
     }
   },
   created () {
@@ -141,7 +141,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       width: 80%;
-      height: 300px;
+      height: 350px;
       margin: 0 auto;
     }
     .map__coords{
@@ -155,6 +155,9 @@ export default {
     }
     .event-page {
       font-size: 1.2em;
+      margin: 0 10%;
+      background-color: #fff;
+      background-color: #e3e3e3cc;
     }
     .event-content {
       width: 80%;
@@ -173,7 +176,7 @@ export default {
         font-weight: normal;
         border-bottom: 1px solid darkgrey;
         color: inherit;
-        margin: 30px 10% 20px;
+        margin: 30px 10% 0;
     }
     .event-registration {
       position: absolute;

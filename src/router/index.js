@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
+import store from '@/store'
 
 Vue.use(VueRouter)
-export default new VueRouter({
+const router = new VueRouter({
   routes,
   mode: 'history',
   scrollBehavior: (to, from, savedPosition) => {
@@ -18,3 +19,11 @@ export default new VueRouter({
     }
   }
 })
+
+router.beforeEach((to, from, next) => {
+  const {dispatch} = to.meta
+  if (dispatch) store.dispatch(dispatch)
+  next()
+})
+
+export default router

@@ -1,6 +1,7 @@
 <!-- содержимое секции компонента. -->
 <template>
-  <section id="games">
+  <section class="games__margin-wrapper">
+    <div class="anchor" id="games"></div>
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
       <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
@@ -24,6 +25,45 @@
 import { mapState } from 'vuex'
 
 export default {
+  data: () => ({
+    cards: [
+      { id: 1,
+        title: 'Bomberman',
+        src: '/static/img/games/bomber.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      },
+      { id: 3,
+        title: 'LodeRunner',
+        src: '/static/img/games/loderunner-min.jpg',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      },
+      { id: 2,
+        title: 'Battle City',
+        src: '/static/img/games/battlecity.jpg',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      },
+      { id: 4,
+        title: 'Лунолёт',
+        src: '/static/img/games/lunolet.jpg',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      },
+      { id: 5,
+        title: 'StarMarines',
+        src: '/static/img/games/star_marines.PNG',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
+      }
+    ]
+  }),
   computed: {
     ...mapState({
       cards: state => {
@@ -51,6 +91,15 @@ export default {
 
 <!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
+  .anchor{
+    height: 20px;
+    position: relative;
+  }
+  .games__margin-wrapper{
+    margin: 0 10%;
+    background-color: #fff;
+    background-color: #e3e3e3cc;
+  }
   .games__wrapper{
     padding: 0 10%;
     display: flex;
@@ -131,12 +180,20 @@ export default {
     width: 250px;
     margin: 10px;
   }
+  @media (max-width: 950px) {
+    .games__margin-wrapper{
+      margin: 0;
+    }
+  }
   @media (max-width: 600px) {
     .games__wrapper{
       justify-content: space-around;
     }
     .game__dummy {
       display: none;
+    }
+    .games__margin-wrapper{
+      margin: 0;
     }
   }
 </style>

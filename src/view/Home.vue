@@ -28,3 +28,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+ .v-content{
+   padding: 0 !important;
+ }
+</style>

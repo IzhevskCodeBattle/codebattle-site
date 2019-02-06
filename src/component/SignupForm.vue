@@ -33,7 +33,7 @@
         Уже зарегистрированы?
         <a class="login" @click="show=false; $events.$emit('login-form:show')">Войти</a>
       </v-card-text>
-      <v-card-title class="justify-center">
+      <!-- <v-card-title class="justify-center">
         <span class="headline">Войти через:</span>
       </v-card-title>
       <v-layout justify-center flex style="padding-bottom: 16px">
@@ -55,7 +55,7 @@
         <a class="google" href="http://localhost:3000/auth/google">
           <v-icon>fab fa-google</v-icon>
         </a>
-      </v-layout>
+      </v-layout> -->
     </v-card>
   </form>
 </v-dialog>
