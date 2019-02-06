@@ -9,7 +9,7 @@
       <div v-if="!pastEvents && !commingEvent.values[0]" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-
+      
       <div v-if="!commingEvent" class="comming-events__error">
         События планируются..
       </div>
@@ -61,6 +61,9 @@ export default {
       },
       spinner: state => {
         return state.events.spinner.isActive
+      },
+      isCommimgEvent: state => {
+        return state.events.isCommimgEvent
       }
     })
   },
@@ -78,6 +81,7 @@ export default {
   },
   methods: {
     redirect: function (id) {
+      this.$router.push('#events')
       this.$router.push({name: 'event', params: { id }})
     }
   }
@@ -179,6 +183,7 @@ export default {
     border-left: 1px solid #a9a9a9 ;
     width: 60%;
     height: 400px;
+    border-left: 1px solid #a9a9a9 ;
   }
 
   .past-event {
@@ -197,8 +202,8 @@ export default {
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .past-event__background {
-    max-width: 180px;
-    max-height: 180px;
+    max-width: 120px;
+    max-height: 120px;
     object-fit: cover;
     opacity: 0.4;
   }

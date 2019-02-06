@@ -18,6 +18,9 @@
     <div class="event-date__wrapper">
       <div class="event-date">
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
+            г.{{ currentEvent.location.city }}
+          </div>        
+          <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Начало: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
@@ -115,7 +118,6 @@ export default {
   },
   created () {
     store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
-    window.scrollTo(0, 0)
   },
   methods: {
     redirect: function (id) {
@@ -163,7 +165,7 @@ export default {
       display: block;
     }
     .event__info{
-      font-size: 1.6em;
+      font-size: 1.3em;
       font-weight: 300;
       color: inherit;
       text-align: justify;
@@ -255,7 +257,7 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 1.6vw;
+      font-size: 16px;
       color: #96979d;
       border-right: 1px solid darkgrey;
       padding: 3%;
@@ -423,6 +425,9 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .event-image {
+        height: 250px;
+      }
       .game-button, .reg-button {
         font-size: .9em;
       }
@@ -434,6 +439,9 @@ export default {
       .map__coords{
         margin: 0;
         margin-bottom: 20px;
+      }
+      .event__info {
+        font-size: 1em;
       }
       .event-date__item:last-child {
         width: 100%;

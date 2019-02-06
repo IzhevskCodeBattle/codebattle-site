@@ -21,6 +21,9 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
   data: () => ({
     cards: [
@@ -62,8 +65,12 @@ export default {
     ]
   }),
   computed: {
+    ...mapState({
+      cards: state => {
+        return state.games.cards
+      }
+    }),
     imageHeight () {
-      // console.log(this.$vuetify.breakpoint.name)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
         case 'sm': return '300px'
@@ -75,6 +82,7 @@ export default {
   },
   methods: {
     redirect: function (id) {
+      this.$router.push('#games')
       this.$router.push({name: 'game', params: { id }})
     }
   }
