@@ -6,7 +6,7 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.poster_image.uploadcare_url" alt='Картинка мероприятия'>
+    <img class="event-image" v-bind:src="currentEvent.header_image" alt='Картинка мероприятия'>
     <div class="event-registration">
       <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
       <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
@@ -17,6 +17,9 @@
     </div>
     <div class="event-date__wrapper">
       <div class="event-date">
+          <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
+            г.{{ currentEvent.location.city }}
+          </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Начало: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
@@ -67,14 +70,12 @@
   </div>
 </template>
 <script>
-
 import EventPage from '@/component/EventPage'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import store from '@/store'
 import {CREATE_EVENT_OBJECT} from '../store/actions'
 import { mapState } from 'vuex'
-
 export default {
   computed: {
     registrationLink: function () {
@@ -107,15 +108,14 @@ export default {
   },
   filters: {
     TimeFilter (val) {
-      return val.toString().split('').splice(11, 5).join('') || ''
+      return val ? val.toString().split('').splice(11, 5).join('') : ''
     },
     DateFilter (val) {
-      return val.toString().split('').splice(0, 10).join('') || ''
+      return val ? val.toString().split('').splice(0, 10).join('') : ''
     }
   },
   created () {
     store.dispatch(CREATE_EVENT_OBJECT, this.$route.params.id)
-    window.scrollTo(0, 0)
   },
   methods: {
     redirect: function (id) {
@@ -139,7 +139,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       width: 80%;
-      height: 300px;
+      height: 350px;
       margin: 0 auto;
     }
     .map__coords{
@@ -153,6 +153,9 @@ export default {
     }
     .event-page {
       font-size: 1.2em;
+      margin: 0 10%;
+      background-color: #fff;
+      background-color: #e3e3e3cc;
     }
     .event-content {
       width: 80%;
@@ -160,7 +163,7 @@ export default {
       display: block;
     }
     .event__info{
-      font-size: 1.6em;
+      font-size: 1.3em;
       font-weight: 300;
       color: inherit;
       text-align: justify;
@@ -171,7 +174,7 @@ export default {
         font-weight: normal;
         border-bottom: 1px solid darkgrey;
         color: inherit;
-        margin: 30px 10% 20px;
+        margin: 30px 10% 0;
     }
     .event-registration {
       position: absolute;
@@ -202,7 +205,6 @@ export default {
       opacity: .5;
       object-fit: cover;
     }
-
     .reg-button {
       text-align: center;
       padding: 10px;
@@ -252,7 +254,7 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 1.6vw;
+      font-size: 16px;
       color: #96979d;
       border-right: 1px solid darkgrey;
       padding: 3%;
@@ -302,7 +304,6 @@ export default {
       width: 40%;
       height: 300px;
     }
-
     /* ГАЛЕРЕЯ */
     .game__gallery{
       display: flex;
@@ -310,7 +311,6 @@ export default {
       width: 100%;
       margin-bottom: 20px;
     }
-
     .pictures{
     max-height: 500px;
     object-fit: cover;
@@ -359,9 +359,8 @@ export default {
         font-size: 1.2em;
       }
       .event-date__item {
-        font-size: 1em;
+        font-size: 0.9em;
       }
-
     }
     @media (max-width: 780px) {
       .event-image {
@@ -420,6 +419,9 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .event-image {
+        height: 250px;
+      }
       .game-button, .reg-button {
         font-size: .9em;
       }
@@ -431,6 +433,9 @@ export default {
       .map__coords{
         margin: 0;
         margin-bottom: 20px;
+      }
+      .event__info {
+        font-size: 1em;
       }
       .event-date__item:last-child {
         width: 100%;
@@ -450,4 +455,9 @@ export default {
        }
     }
 
+    @media (max-width: 780px) {
+      .event-page {
+        margin: 0;
+      }
+    }
 </style>

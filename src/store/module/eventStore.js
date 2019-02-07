@@ -4,12 +4,13 @@ import timePadService from '../../service/timePadService'
 const eventInfo = [
   { id: 798207,
     gameId: '2',
-    src: "url('../static/img/mettal_27.jpg')",
-    background: "url('../static/img/mettal_27.jpg')",
-    fontColor: 'white',
+    src: '',
+    background: '',
+    fontColor: '#464547',
     pictures: [],
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
     game_server: 'http://server.codebattle.ru:8080/codebattle',
+    header_image: '/static/img/main-banner.jpg',
     map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3A686aa3c26e946fed512332a4a716efeb1ce27bccb73f4550ad0b767cf3649e92&amp;source=constructor'
   },
   { id: 812505,
@@ -18,10 +19,7 @@ const eventInfo = [
     fontColor: '#464547',
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
     game_server: 'http://server.codebattle.ru:8080/codebattle',
-    'poster_image': {
-      default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-      uploadcare_url: '//ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/'
-    },
+    header_image: '/static/img/Banner.jpg',
     map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
   },
   { id: 812502,
@@ -30,10 +28,7 @@ const eventInfo = [
     fontColor: '#464547',
     rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
     game_server: 'http://server.codebattle.ru:8080/codebattle',
-    'poster_image': {
-      default_url: 'https:\\ucare.timepad.ru/d704ad13-aab8-47d5-b264-da7c2a395762/-/preview/308x600/-/format/jpeg/poster_event_658608.jpg',
-      uploadcare_url: '//ucare.timepad.ru/aa1a63d8-7118-41ed-9f30-aee122cd19d8/'
-    },
+    header_image: '/static/img/Banner.jpg',
     map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af91f267cc332016e1a2339a50dc15ef8b6f4eb8b56b989111417ea332fcce1e6&amp;source=constructor'
   },
   { id: 810431,
@@ -42,6 +37,15 @@ const eventInfo = [
     fontColor: '#464547',
     rules: '',
     game_server: 'http://server.codebattle.ru:8080/codebattle'
+  },
+  { id: 901674,
+    gameId: '5',
+    src: '/static/img/games/spaceship_bg.jpg',
+    fontColor: '#464547',
+    rules: 'Порядок начисления очков и правила расчета для данного мероприятия находятся в разработке.',
+    game_server: 'http://server.codebattle.ru:8080/codebattle',
+    header_image: '/static/img/games/spaceship_bg.jpg',
+    map_url: 'https://yandex.ru/map-widget/v1/?um=constructor%3Ae7bc1ea2b46583793e2196d40aea02cb59f0e256a03d88abbae8b690162a7e72&amp;source=constructor'
   }
 ]
 

@@ -70,7 +70,10 @@ export default {
 </script>
 <style scoped>
   .partners {
-    margin-bottom: 4%;
+    margin: 0 10%;
+    background-color: #fff;
+    background-color: #e3e3e3cc;
+    padding-bottom: 4%;
   }
   .partner__logo{
     width: 200px;
@@ -78,6 +81,9 @@ export default {
     object-fit: cover;
     cursor: pointer;
     margin: 0 auto;
+  }
+  .toolbar{
+    margin: 0 10% 50px
   }
   .swiper-wrapper {
     width: 80%;
@@ -97,7 +103,6 @@ export default {
     -ms-flex-align: center;
     align-items: center;
   }
-
   .swiper-container {
     height: 200px;
     width: 100%;
@@ -123,6 +128,11 @@ export default {
       height: 100px;
     }
   }
+  @media (max-width: 950px) {
+    .partners{
+      margin: 0;
+    }
+  }
   @media (max-width: 600px) {
     .swiper-container{
       height: 100px;
@@ -130,6 +140,9 @@ export default {
     .partner__logo{
       width: 60px;
       height: 60px;
+    }
+    .partners{
+      margin: 0;
     }
   }
 </style>
