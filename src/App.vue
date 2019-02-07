@@ -110,6 +110,7 @@ export default {
     text-decoration-line: underline;
     font-weight: bold;
   }
+
   @media (max-width: 950px) {
     .main-content__wrapper{
       margin: 0;

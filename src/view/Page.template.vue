@@ -17,6 +17,8 @@ export default {
 
 <!-- стили конкретной страницы -->
 <style scoped>
-
+ .v-content{
+   padding: 0 !important;
+ }
 </style>
 
