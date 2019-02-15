@@ -52,9 +52,7 @@ export default {
   computed: {
     ...mapState({
       pastEvents: state => {
-        return state.events.pastEvents.sort(function (a, b) {
-          return new Date(b.starts_at) - new Date(a.starts_at)
-        })
+        return state.events.pastEvents
       },
       commingEvent: state => {
         return state.events.commingEvent[0]
