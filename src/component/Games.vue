@@ -21,9 +21,7 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
-
 import { mapState } from 'vuex'
-
 export default {
   data: () => ({
     cards: [
@@ -57,7 +55,7 @@ export default {
       },
       { id: 5,
         title: 'StarMarines',
-        src: '/static/img/games/star_marines.PNG',
+        src: '/static/img/games/star_marines.jpg',
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'Игра готова',
         isComplite: true
@@ -170,7 +168,6 @@ export default {
     font-size: 2em;
     color: black;
     text-align: center;
-
   }
   .game__status img {
     height: 50px;

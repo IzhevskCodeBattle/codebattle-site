@@ -53,18 +53,15 @@ export default {
   display: block;
   text-align: center;
 }
-
 .link_git{
   position: fixed;
   right: -5px;
   bottom: -10px;
   z-index: 100;
 }
-
 .icon {
   color: white!important;
 }
-
 .scrollactive {
   display: flex;
   margin: 0 auto;
@@ -72,17 +69,14 @@ export default {
   text-align: center;
   padding-bottom: 5px;
 }
-
 .scrollactive-item {
   color: white;
 }
-
 .icons-wrapper {
   width: 185px;
   margin: 0 auto;
   padding-top: 1%;
 }
-
 a {
   text-decoration: none;
   margin: 5px;
@@ -100,7 +94,6 @@ a {
   display: inline-block;
   margin: 0;
 }
-
 @media only screen and (max-width: 950px) {
   .footer-layout {
     width: 100%;

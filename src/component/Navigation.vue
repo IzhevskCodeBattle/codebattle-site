@@ -1,6 +1,6 @@
 <template>
 <v-navigation-drawer v-model="drawer" width="240" disable-resize-watcher fixed floating temporary>
-  <!-- <scrollactive ref="scrollactive">
+  <scrollactive ref="scrollactive">
     <v-btn flat class="scrollactive-item" to="/home#about">
       <v-list-tile-avatar>
         <v-icon>far fa-question-circle</v-icon>
@@ -30,7 +30,7 @@
       <v-list-tile-avatar>
         <v-icon>fas fa-sign-out-alt</v-icon>
       </v-list-tile-avatar>Sign out</v-btn> -->
-  <!-- </scrollactive> --> -->
+</scrollactive>
 </v-navigation-drawer>
 </template>
 

@@ -324,8 +324,8 @@ export default {
       id: 5,
       name: 'StarMarines',
       img: '/static/img/games/spaceship_bg.jpg',
-      link: 'https://git.epam.com/epm-izh/codebattle/star-marines-clients',
-      background: '',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-starmarines',
+      background: '/static/img/games/spaceship_bg.jpg',
       description: `
         <div class="description__main">
           <p>Сбылась мечта мальчишки из когда-то популярного в давно уже забытом СССР фильма - «Вкалывают роботы, а не человек». Гигантская корпорация «Abyss», созданная в начале 22 века путём слияния Apple, BMW, Yandex, Sony и Стройотряд №69, выпустила на рынок вооружений суперновинку — боевого меха «Destro». После того, как стальные воины были взяты на вооружение США, Россией, Паназиатской коалицией и Евросоюзом, у меньших стран просто не осталось выбора. У многих он исчез вместе с независимостью.</p>
@@ -549,18 +549,185 @@ export default {
       font-family: SourceSansPro-lt;
       src: url(../../static/fonts/SourceSansPro-It.otf);
     }
-    
+    .game{
+      position: absolute;
+      top: 200px;
+      left: 200px;
+    }
+    .game-page {
+      font-size: 1.2em;
+      margin: 0 10%;
+      background-color: #fff;
+      background-color: #e3e3e3cc;
+    }
+    .game__name {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 6em;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 0;
+      color: #464547;
+    }
+    .game__link{
+      cursor: pointer;
+      width: 150px;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: px;
+      background-color: #464547;
+    }
+    .game__link a{
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1em;
+    }
+    .game__logo {
+      width: 30%;
+      height: 10%;
+    }
+    .game-image {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      margin: 0 auto;
+      opacity: .5;
+      object-fit: cover;
+    }
+    .game__main{
+      display: block;
+      align-items: top;
+      margin: 0 auto;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      width: 90%;
+      font-size: 1.6em;
+      font-family: 'Play', sans-serif;
+      color: #464547;
+    }
+    /* ГАЛЕРЕЯ */
+    .game__gallery{
+      padding: 15px;
+      width: 100%;
+    }
+    .pictures{
+    max-height: 500px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  .swiper{
+    text-align: center;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .swiper-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+  }
+  .swiper-slide{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+  }
+  .swiper-button-prev{
+    filter: opacity(70%) grayscale(.80)
+  }
+  .swiper-button-next{
+    filter: opacity(70%) grayscale(.80)
+  }
+  @media (max-width: 1024px) {
+    .game{
+      top: 200px;
+      left: 150px;
+    }
+  }
+  @media (max-width: 960px) {
+    .game{
+      top: 200px;
+      left: 150px;
+    }
+  }
+    @media (max-width: 850px) {
+      .game__main{
+        display: block;
+      }
+      .game{
+        top: 100px;
+        left: 50px;
+      }
+      .game-image {
+      height: 300px;
+      }
+      .game__description{
+        width: 100%;
+      }
+      .game__gallery{
+        width: 100%;
+      }
+      .pictures{
+        max-height: 400px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
+      .game-page{
+        margin: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .game{
+        top: 100px;
+        left: 50px;
+      }
+      .game-image {
+        height: 170px;
+      }
+      .game__name {
+        font-size: 2.3em;
+        justify-content: flex-start;
+      }
+      .game__main{
+        display: block;
+      }
+      .game__description{
+        width: 100%;
+      }
+      .game__gallery{
+        width: 100%;
+      }
+      .game-page {
+        margin: 0;
+      }
+      .pictures{
+        max-height: 150px;
+      }
+      .swiper-button-prev{
+        filter: opacity(0%)
+      }
+      .swiper-button-next{
+        filter: opacity(0%)
+       }
+    }
 </style>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
+
