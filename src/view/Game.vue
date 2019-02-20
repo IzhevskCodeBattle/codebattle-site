@@ -35,7 +35,6 @@
   </v-content>
 </template>
 
-
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -330,8 +329,8 @@ export default {
       id: 5,
       name: 'StarMarines',
       img: '/static/img/games/spaceship_bg.jpg',
-      link: 'https://git.epam.com/epm-izh/codebattle/star-marines-clients',
-      background: '',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-starmarines',
+      background: '/static/img/games/spaceship_bg.jpg',
       description: `
         <div class="description__main">
           <p>Сбылась мечта мальчишки из когда-то популярного в давно уже забытом СССР фильма - «Вкалывают роботы, а не человек». Гигантская корпорация «Abyss», созданная в начале 22 века путём слияния Apple, BMW, Yandex, Sony и Стройотряд №69, выпустила на рынок вооружений суперновинку — боевого меха «Destro». После того, как стальные воины были взяты на вооружение США, Россией, Паназиатской коалицией и Евросоюзом, у меньших стран просто не осталось выбора. У многих он исчез вместе с независимостью.</p>
@@ -544,8 +543,10 @@ export default {
 </script>
 
 
-<style scoped>
-    @font-face {
+<style leng="less" scoped>
+@import url('../style/blocks/game.less');
+
+   @font-face {
       font-family: SourceSansPro;
       src: url(../../static/fonts/SourceSansPro-BoldIt.otf);
     }
@@ -632,7 +633,6 @@ export default {
       padding: 15px;
       width: 100%;
     }
-
     .pictures{
     max-height: 500px;
     object-fit: cover;
@@ -767,16 +767,4 @@ export default {
        }
     }
 </style>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
+

@@ -9,7 +9,6 @@
       <div v-if="!pastEvents && !commingEvent.values[0]" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
-      
       <div v-if="!commingEvent" class="comming-events__error">
         События планируются..
       </div>
@@ -43,11 +42,9 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
-
 import store from '@/store'
 import { CREATE_COMING_EVENT, CREATE_EVENT_LIST } from '../store/actions'
 import { mapState } from 'vuex'
-
 export default {
   computed: {
     ...mapState({
@@ -144,7 +141,6 @@ export default {
     height: 400px;
     object-fit: cover;
     opacity: 0.4;
-
   }
   .event__line{
     width: 80%;
@@ -173,7 +169,6 @@ export default {
     margin: 30px 0;
     font-size: 20px;
   }
-
   .past-events {
     display: flex;
     flex-direction: column;
@@ -183,7 +178,6 @@ export default {
     height: 400px;
     border-left: 1px solid #a9a9a9 ;
   }
-
   .past-event {
     margin-left: 20px;
     margin-bottom: 40px;
@@ -191,7 +185,6 @@ export default {
     flex-direction: row;
     cursor: pointer;
   }
-
   .past-event:last-child {
     margin-bottom: 0;
   }
@@ -237,7 +230,6 @@ export default {
       margin: 0;
     }
   }
-
   @media (max-width: 760px) {
     .comming-events {
       padding: 0;
@@ -287,7 +279,6 @@ export default {
       margin: 0 auto;
     }
  }
-
   @media (max-width: 600px) {
     .events__wrapper{
       justify-content: center;
@@ -317,5 +308,4 @@ export default {
       margin: 0;
     }
   }
-
 </style>
