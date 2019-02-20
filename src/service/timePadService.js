@@ -10,7 +10,7 @@ export default {
     return fetch(API_URL_UPCOME)
       .then((res) => {
         let result = ''
-        if (!res.lenght) {
+        if (!res.ok) {
           store.dispatch(HIDE_SPINNER)
           store.dispatch(SET_NO_EVENTS)
         } else {

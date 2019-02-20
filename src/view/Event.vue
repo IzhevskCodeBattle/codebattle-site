@@ -19,7 +19,7 @@
       <div class="event-date">
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             г.{{ currentEvent.location.city }}
-          </div>        
+          </div>
           <div class="event-date__item" v-bind:style="{ color : currentEvent.fontColor }">
             Начало: <br>{{ currentEvent.starts_at | TimeFilter }}
           </div>
@@ -70,14 +70,12 @@
   </div>
 </template>
 <script>
-
 import EventPage from '@/component/EventPage'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import store from '@/store'
 import {CREATE_EVENT_OBJECT} from '../store/actions'
 import { mapState } from 'vuex'
-
 export default {
   computed: {
     registrationLink: function () {
@@ -207,7 +205,6 @@ export default {
       opacity: .5;
       object-fit: cover;
     }
-
     .reg-button {
       text-align: center;
       padding: 10px;
@@ -307,7 +304,6 @@ export default {
       width: 40%;
       height: 300px;
     }
-
     /* ГАЛЕРЕЯ */
     .game__gallery{
       display: flex;
@@ -315,7 +311,6 @@ export default {
       width: 100%;
       margin-bottom: 20px;
     }
-
     .pictures{
     max-height: 500px;
     object-fit: cover;
@@ -364,9 +359,8 @@ export default {
         font-size: 1.2em;
       }
       .event-date__item {
-        font-size: 1em;
+        font-size: 0.9em;
       }
-
     }
     @media (max-width: 780px) {
       .event-image {
@@ -461,4 +455,9 @@ export default {
        }
     }
 
+    @media (max-width: 780px) {
+      .event-page {
+        margin: 0;
+      }
+    }
 </style>

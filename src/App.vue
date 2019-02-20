@@ -1,4 +1,3 @@
-
 <!-- данный компонент является базовым и размещать в нем какое либо содержание не надо
 в данном компоненте можно подключать базовые для всего приложения компоненты, стили, поведение
 -->
@@ -23,7 +22,6 @@ import LoginForm from '@/component/LoginForm'
 import SignupForm from '@/component/SignupForm'
 import Navigation from '@/component/Navigation'
 import Footer from '@/component/Footer'
-
 export default {
   name: 'app',
   components: {
@@ -86,7 +84,6 @@ export default {
   .application .theme--light.v-btn, .theme--light .v-btn {
     color: rgba(255,255,255,.87);
   }
-
   aside .application .theme--light.v-btn, .theme--light .v-btn {
     color: rgba(0,0,0,.87);
   }
@@ -94,7 +91,6 @@ export default {
   .application .theme--light.v-btn.v-btn--disabled:not(.v-btn--icon):not(.v-btn--flat), .theme--light .v-btn.v-btn--disabled:not(.v-btn--icon):not(.v-btn--flat) {
     background-color: #97a7c3a6!important
   }
-
   .game__description{
     padding: 15px;
     width: 100%;
@@ -135,7 +131,6 @@ export default {
       box-shadow: none;
     }
   }
-
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -149,4 +144,3 @@ export default {
       border-radius: 10px;
   }
 </style>
-

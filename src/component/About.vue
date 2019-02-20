@@ -47,7 +47,7 @@ export default {
   name: 'About',
   data: () => ({
     registrationLink: `{"event_id": 901674}`
-  })
+  }),
   methods: {
     changeHash () {
       this.$router.push('#about')
@@ -82,14 +82,13 @@ export default {
   .about__wrapper {
     height: 475px;
     position: absolute;
-    top: 6%;
-    left: 75%;
+    top: 200px;
+    right: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
-
   .registration-button {
     background-color: #0054e6a6 !important;
     color: white;
@@ -99,7 +98,6 @@ export default {
     margin-top: 10%;
     height: auto !important;
   }
-
   .registration-button:focus {
     outline: none;
   }
@@ -136,7 +134,6 @@ export default {
     width: 80%;
     padding-top: 50px;
   }
-
   /* --------------- */
   h2{
     text-align: center;
@@ -177,7 +174,6 @@ export default {
     color: #464547;
     border-radius: 80px;
   }
-
  @media (max-width: 1024px) {
   .about__image {
     height: 400px;
@@ -193,12 +189,11 @@ export default {
     margin: 0;
     padding: 0;
   }
-
   .about__wrapper {
-    top: 2.5%;
+    top: 80px;
+    right: 50px;
     height: 300px;
   }
-
   .about__card-text {
     font-size: .8em;
   }
@@ -208,11 +203,10 @@ export default {
     margin-top: 3%;
   }
  }
-
  @media (max-width: 950px) {
   .about__wrapper {
-    left: 70%;
-    top: 2%;
+    top: 60px;
+    right: 50px;
     height: 300px;
   }
   .about__image {
@@ -224,7 +218,6 @@ export default {
     margin: 0;
   }
  }
-
  @media (max-width: 650px) {
   .event-info {
     font-size: 1.2em;
@@ -239,8 +232,8 @@ export default {
     background-position: 50% 0;
   }
   .about__wrapper {
-    top: -7%;
-    left: 0%;
+    top: -215px;
+    left: 0;
     width: 100%;
     height: 500px;
     transform: none;
@@ -295,7 +288,7 @@ export default {
     font-size: 0.9em;
   }
   .about__wrapper {
-    top: -7%;
+    top: -215px;
   }
 }
 </style>
