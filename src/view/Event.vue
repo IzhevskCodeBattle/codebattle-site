@@ -6,13 +6,17 @@
     <div id="partners" class="anchor"></div>
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
-    <img class="event-image" v-bind:src="currentEvent.header_image" alt='Картинка мероприятия'>
-    <div class="event-registration">
-      <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
-      <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
-      <div class="event-registration__buttons">
-        <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПРАВИЛА ИГРЫ</button>
-        <button class="reg-button" id='twf' v-if="!currentEvent.isPast" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+    <div class="content">
+      <img class="event-image" v-bind:src="currentEvent.header_image" alt='Картинка мероприятия'>
+      <div class="text-background">
+        <div class="event-registration">
+          <!-- <img class="event-registration__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
+          <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
+          <div class="event-registration__buttons">
+            <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПРАВИЛА ИГРЫ</button>
+            <button class="reg-button" id='twf' v-if="!currentEvent.isPast" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="event-date__wrapper">
@@ -134,6 +138,7 @@ export default {
       font-family: SourceSansPro-lt;
       src: url(../../static/fonts/SourceSansPro-It.otf);
     }
+
     .map__container{
       display: flex;
       justify-content: space-between;
@@ -176,6 +181,19 @@ export default {
         color: inherit;
         margin: 30px 10% 0;
     }
+    .content{
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+    .text-background {
+      position: absolute;
+      top: 150px;
+      left: 0;
+      width: 500px;
+      height: 230px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
     .event-registration {
       position: absolute;
       top: 5%;
@@ -186,7 +204,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      font-size: 4em;
+      font-size: 3em;
       font-weight: bold;
       text-align: left;
       padding-left: 0;
@@ -230,6 +248,14 @@ export default {
     .game-button:focus {
       outline: none;
     }
+    .event-date__wrapper {
+      width: 100%;
+      background-color: #f9f9f9;
+      margin-bottom: 3%;
+      border-top: 1px solid darkgrey;
+      border-bottom: 1px solid darkgrey;
+      background: rgba(249, 249, 249, 0);
+    }
     .event-date {
       width: 70%;
       height: 15%;
@@ -240,21 +266,14 @@ export default {
       align-items: center;
       justify-content: space-around;
     }
-    .event-date__wrapper {
-      width: 100%;
-      background-color: #f9f9f9;
-      margin-bottom: 3%;
-      border-top: 1px solid darkgrey;
-      border-bottom: 1px solid darkgrey;
-      background: rgba(249, 249, 249, 0);
-    }
     .event-date__item {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 16px;
+      font-size: 20px;
+      font-weight: bold;
       color: #96979d;
       border-right: 1px solid darkgrey;
       padding: 3%;
@@ -363,6 +382,13 @@ export default {
       }
     }
     @media (max-width: 780px) {
+      .text-background {
+        width: 450px;
+        height: 130px;
+      }
+      .content{
+        height: 300px;
+      }
       .event-image {
         height: 300px;
       }
@@ -419,6 +445,14 @@ export default {
        }
     }
     @media (max-width: 600px) {
+      .text-background {
+        width: 400px;
+        top: 100px;
+        height: 130px;
+      }
+      .content{
+        height: 300px;
+      }
       .event-image {
         height: 250px;
       }

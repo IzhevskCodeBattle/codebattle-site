@@ -7,11 +7,16 @@
     <div id="help" class="anchor"></div>
     <div id="contacts" class="anchor"></div>
     <a name="content"></a>
-    <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
-    <div class="game">
-      <!-- <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
-      <div class="game__name">{{ game.name }}</div>
-      <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
+    
+    <div class="content">
+      <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
+      <div class="text-background">
+        <div class="game">
+          <!-- <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
+          <div class="game__name">{{ game.name }}</div>
+          <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
+        </div>
+      </div>
     </div>
     <div class="game__main">
       <div class="game__description">
@@ -551,8 +556,8 @@ export default {
     }
     .game{
       position: absolute;
-      top: 200px;
-      left: 200px;
+      /* top: 100px; */
+      left: 75px;
     }
     .game-page {
       font-size: 1.2em;
@@ -560,15 +565,37 @@ export default {
       background-color: #fff;
       background-color: #e3e3e3cc;
     }
+    .content{
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+    .game-image {
+      width: 100%;
+      height: 400px;
+      display: flex;
+      margin: 0 auto;
+      opacity: .5;
+      object-fit: fill;
+    }
+    .text-background {
+      position: absolute;
+      top: 190px;
+      left: 0;
+      width: 600px;
+      height: 190px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
     .game__name {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      font-size: 6em;
+      justify-content: left;
+      font-size: 5em;
       font-weight: bold;
       text-align: left;
       padding-left: 0;
-      color: #464547;
+      color: #353535;
+      /* text-shadow: 1px 1px 0 rgb(255, 255, 255), -1px -1px 0 white; */
     }
     .game__link{
       cursor: pointer;
@@ -577,7 +604,8 @@ export default {
       padding: 10px;
       border: none;
       border-radius: px;
-      background-color: #464547;
+      background-color: #424242;
+      /* border: 1px solid rgb(194, 193, 193); */
     }
     .game__link a{
       cursor: pointer;
@@ -588,15 +616,6 @@ export default {
     .game__logo {
       width: 30%;
       height: 10%;
-    }
-    .game-image {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      display: flex;
-      margin: 0 auto;
-      opacity: .5;
-      object-fit: cover;
     }
     .game__main{
       display: block;
@@ -655,14 +674,13 @@ export default {
   }
   @media (max-width: 1024px) {
     .game{
-      top: 200px;
-      left: 150px;
+      /* top: 150px; */
+      left: 50px;
     }
   }
   @media (max-width: 960px) {
     .game{
-      top: 200px;
-      left: 150px;
+      left: 50px;
     }
   }
     @media (max-width: 850px) {
@@ -670,11 +688,23 @@ export default {
         display: block;
       }
       .game{
-        top: 100px;
+        /* top: 100px; */
         left: 50px;
+      }
+      .content{
+        height: 300px;
+      }
+      .text-background {
+        top: 100px;
+        width: 500px;
+        height: 170px;
       }
       .game-image {
       height: 300px;
+      }
+      .game__name {
+        font-size: 4em;
+        justify-content: flex-start;
       }
       .game__description{
         width: 100%;
@@ -697,14 +727,21 @@ export default {
     }
     @media (max-width: 600px) {
       .game{
-        top: 100px;
-        left: 50px;
+        left: 40px;
+      }
+      .content{
+        height: 270px;
+      }
+      .text-background {
+        top: 110px;
+        width: 400px;
+        height: 130px;
       }
       .game-image {
-        height: 170px;
+        height: 270px;
       }
       .game__name {
-        font-size: 2.3em;
+        font-size: 3em;
         justify-content: flex-start;
       }
       .game__main{

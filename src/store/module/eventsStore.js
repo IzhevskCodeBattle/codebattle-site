@@ -60,7 +60,9 @@ export default {
           return item
         })
       })
-      Promise.all(requests).then(responses => commit('mapRes', responses))
+      Promise.all(requests).then(responses => commit('mapRes', responses.sort(function (a, b) {
+        return new Date(b.starts_at) - new Date(a.starts_at)
+      })))
     },
     [CREATE_COMING_EVENT] ({ commit }) {
       timePadService.getEventList().then(res => commit('mapCommingEvent', res))
