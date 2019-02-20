@@ -30,7 +30,6 @@
   </v-content>
 </template>
 
-
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -539,8 +538,10 @@ export default {
 </script>
 
 
-<style scoped>
-    @font-face {
+<style leng="less" scoped>
+@import url('../style/blocks/game.less');
+
+   @font-face {
       font-family: SourceSansPro;
       src: url(../../static/fonts/SourceSansPro-BoldIt.otf);
     }
@@ -729,3 +730,4 @@ export default {
        }
     }
 </style>
+
