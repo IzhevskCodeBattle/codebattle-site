@@ -30,7 +30,7 @@
       <v-list-tile-avatar>
         <v-icon>fas fa-sign-out-alt</v-icon>
       </v-list-tile-avatar>Sign out</v-btn> -->
-  <!-- </scrollactive> --> 
+  </scrollactive> 
 </v-navigation-drawer>
 </template>
 

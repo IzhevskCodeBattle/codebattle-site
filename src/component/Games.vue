@@ -21,7 +21,9 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
-import { mapState } from 'vuex'
+
+// import { mapState } from 'vuex'
+
 export default {
   data: () => ({
     cards: [
@@ -63,11 +65,11 @@ export default {
     ]
   }),
   computed: {
-    ...mapState({
-      cards: state => {
-        return state.games.cards
-      }
-    }),
+    // ...mapState({
+    //   cards: state => {
+    //     return state.games.cards
+    //   }
+    // }),
     imageHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
