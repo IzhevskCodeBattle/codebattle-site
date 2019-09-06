@@ -272,8 +272,7 @@ export default {
       justify-content: center;
       text-align: center;
       font-family: Roboto;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 14px;
       color: #96979d;
       border-right: 1px solid darkgrey;
       padding: 3%;
