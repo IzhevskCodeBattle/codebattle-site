@@ -10,11 +10,9 @@
     
     <div class="content">
       <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
-      <div class="text-background">
-        <div class="game">
-          <div class="game__name">{{ game.name }}</div>
-          <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
-        </div>
+      <div class="game">
+        <div class="game__name">{{ game.name }}</div>
+        <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
       </div>
     </div>
     <div class="game__main">
@@ -542,9 +540,7 @@ export default {
 </script>
 
 
-<style leng="less" scoped>
-@import url('../style/blocks/game.less');
-
+<style scoped>
    @font-face {
       font-family: SourceSansPro;
       src: url(../../static/fonts/SourceSansPro-BoldIt.otf);
@@ -555,11 +551,11 @@ export default {
     }
     .game{
       position: absolute;
-      /* top: 100px; */
+      top: 0;
       left: 75px;
     }
     .game-page {
-      font-size: 1.2em;
+      font-size: 1em;
       margin: 0 10%;
       background-color: #fff;
       background-color: #e3e3e3cc;
@@ -568,6 +564,7 @@ export default {
       position: relative;
       width: 100%;
       height: 400px;
+      top: -6px;
     }
     .game-image {
       width: 100%;
@@ -589,7 +586,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: left;
-      font-size: 5em;
+      font-size: 4em;
       font-weight: bold;
       text-align: left;
       padding-left: 0;

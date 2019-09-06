@@ -2,7 +2,7 @@
 <template>
   <section class="events__margin-wrapper">
     <div class="anchor" id="events"></div>
-    <h2 class="toolbar">События</h2>
+    <h3 class="toolbar">События</h3>
     <div class="events__wrapper">
       <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
@@ -179,8 +179,8 @@ export default {
     border-left: 1px solid #a9a9a9 ;
   }
   .past-event {
-    margin-left: 20px;
-    margin-bottom: 40px;
+    padding: 10px;
+    /* margin: 10px; */
     display: flex;
     flex-direction: row;
     cursor: pointer;
@@ -193,17 +193,15 @@ export default {
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .past-event__background {
-    max-width: 120px;
-    max-height: 120px;
+    /* max-width: 120px;
+    max-height: 120px; */
     object-fit: cover;
     opacity: 0.4;
   }
-  .past-event__info {
-    margin-left: 20px;
-  }
+ 
   .past-event__name {
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.2em;
     margin-bottom: 0;
   }
   .past-event__date {
@@ -225,6 +223,9 @@ export default {
   .show-old-events {
     display: none;
   }
+  P {
+    margin: 0;
+  }
   @media (max-width: 950px) {
     .events__margin-wrapper{
       margin: 0;
@@ -239,10 +240,6 @@ export default {
       width: 100%;
       height: 100%;
       border-left: none;
-    }
-    .past-event {
-      margin-top: 5%;
-      margin-left: 0;
     }
     .past-event:first-child {
       border-top: 1px solid rgba(0,0,0,.1);
