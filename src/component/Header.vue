@@ -72,6 +72,7 @@ export default {
   padding-right: 30%;
   padding-left: 30%;
   z-index: 5;
+  height: 56px;
 }
 .scrollactive-item{
   color: #ffffff;

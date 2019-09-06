@@ -12,7 +12,6 @@
       <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
       <div class="text-background">
         <div class="game">
-          <!-- <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
           <div class="game__name">{{ game.name }}</div>
           <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
         </div>

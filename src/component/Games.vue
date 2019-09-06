@@ -4,7 +4,7 @@
     <div class="anchor" id="games"></div>
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
-      <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
+      <div class="game" v-for="card in cards" :key="card.id" @click="redirect(card.id)">
         <img class="game__image" v-bind:src="card.src">
         <div v-if="!card.isComplite" class="shadow"></div>
         <div v-if="!card.isComplite" class="game__status">
