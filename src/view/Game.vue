@@ -180,7 +180,7 @@ export default {
       id: 3,
       name: 'LodeRunner',
       img: '/static/img/games/loderunner.jpg',
-      link: '',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-loderunner-clients',
       background: '',
        pictures: [
         { title: 'Картинка 1',
