@@ -14,7 +14,7 @@
           <div class="event-registration__name" v-bind:style="{ color : currentEvent.fontColor }">{{ currentEvent.name }}</div>
           <div class="event-registration__buttons">
             <button class="game-button" v-on:click="redirect(currentEvent.gameId)">ПРАВИЛА ИГРЫ</button>
-            <button class="reg-button" id='twf' v-if="!currentEvent.isPast" v-bind:data-twf-target-state="this.registrationLink">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+            <button class="reg-button" v-if="!currentEvent.isPast"><a :href="this.registrationLink" target="_blank">ЗАРЕГИСТРИРОВАТЬСЯ</a></button>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     registrationLink: function () {
-      return `{"event_id": ${this.$route.params.id}}`
+      return 'https://events.epam.com/events/codebattle-for-students-4/guest-registration'
     },
     ...mapState({
       currentEvent: state => {
@@ -137,6 +137,11 @@ export default {
     @font-face {
       font-family: SourceSansPro-lt;
       src: url(../../static/fonts/SourceSansPro-It.otf);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .map__container{
@@ -273,7 +278,7 @@ export default {
       text-align: center;
       font-family: Roboto;
       font-size: 14px;
-      color: #96979d;
+      color: #3a3a3a;
       border-right: 1px solid darkgrey;
       padding: 3%;
       height: 80px;

@@ -1,4 +1,3 @@
-<!-- содержимое секции компонента. -->
 <template>
   <section class="events__margin-wrapper">
     <div class="anchor" id="events"></div>
@@ -16,6 +15,7 @@
       <div v-if="!spinner && commingEvent" class="comming-events">
         <div class="event" v-on:click="redirect(commingEvent.id)">
           <div class="event__info">
+            <div class="event__background" v-bind:style="{ background: `url(${commingEvent.header_image})`}"></div>
             <p class="event__name">{{ commingEvent.name }}</p>
             <div class="event__line"></div>
             <p class="event__date">{{ commingEvent.starts_at | TimeFilter }} {{ commingEvent.starts_at | DateFilter }}</p>
@@ -40,7 +40,7 @@
     </div>
   </section>
 </template>
-<!-- код, который относится непосредственно к компоненту -->
+
 <script>
 import store from '@/store'
 import { CREATE_COMING_EVENT, CREATE_EVENT_LIST } from '../store/actions'
@@ -52,7 +52,7 @@ export default {
         return state.events.pastEvents
       },
       commingEvent: state => {
-        return state.events.commingEvent[0]
+        return state.events.commingEvent
       },
       spinner: state => {
         return state.events.spinner.isActive
@@ -83,7 +83,6 @@ export default {
 }
 </script>
 
-<!-- стили, которые относятся непосредственно к компоненту -->
 <style scoped>
     .anchor{
       height: 20px;
@@ -137,10 +136,12 @@ export default {
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   }
   .event__background{
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-    opacity: 0.4;
+    opacity: .6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
   }
   .event__line{
     width: 80%;
@@ -234,6 +235,7 @@ export default {
   @media (max-width: 760px) {
     .comming-events {
       padding: 0;
+      margin-bottom: 30px;
     }
     .past-events {
       display: flex;

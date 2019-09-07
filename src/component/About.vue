@@ -5,7 +5,7 @@
             <div class="about__buttons-wrapper">
                 <div class="about__buttons">
                     <div class="about__button" @click="redirectToGame()">Правила</div>
-                    <div class="about__button">Принять участие</div>
+                    <div class="about__button"><a :href="this.registrationLink" target="_blank">Принять участие</a></div>
                     <div class="about__button" @click="redirectToEvent()">О мероприятии</div>
                 </div>
             </div>
@@ -47,10 +47,10 @@
         name: 'About',
 
         data: () => ({
-            registrationLink: `{"event_id": 901674}`,
+            registrationLink: `https://events.epam.com/events/codebattle-for-students-4/guest-registration `,
             location: '05 октября в 13:00 Рестопаб "Устинов" (ул. Автозаводская, 2)',
             actualGameId: 3,
-            actualEventId: null
+            actualEventId: 1
         }),
 
         methods: {
@@ -63,7 +63,7 @@
             },
 
             redirectToEvent: function () {
-                this.$router.push(`/game/${this.actualEventId}`)
+                this.$router.push(`/event/${this.actualEventId}`)
             }
 
         }

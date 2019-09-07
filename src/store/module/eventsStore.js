@@ -1,5 +1,6 @@
 import { CREATE_EVENT_LIST, CREATE_COMING_EVENT, GET_DESCRIPTION_FOR_EVENT, SHOW_SPINNER, HIDE_SPINNER, SET_NO_EVENTS } from '../actions'
 import timePadService from '../../service/timePadService'
+import staticDataService from '../../service/staticDataService'
 
 export default {
   state: {
@@ -37,7 +38,7 @@ export default {
       state.pastEvents = res
     },
     mapCommingEvent (state, res) {
-      state.commingEvent = res.values
+      state.commingEvent = res
     },
     showSpinner (state) {
       state.spinner.isActive = true
@@ -65,7 +66,7 @@ export default {
       })))
     },
     [CREATE_COMING_EVENT] ({ commit }) {
-      timePadService.getEventList().then(res => commit('mapCommingEvent', res))
+      staticDataService.getEventList().then(res => commit('mapCommingEvent', res))
     },
     [SHOW_SPINNER] ({ commit }) {
       commit('showSpinner')

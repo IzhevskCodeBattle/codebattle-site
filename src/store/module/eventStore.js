@@ -1,5 +1,6 @@
 import {CREATE_EVENT_OBJECT} from '../actions'
 import timePadService from '../../service/timePadService'
+import staticDataService from '../../service/staticDataService'
 
 const eventInfo = [
   { id: 798207,
@@ -108,7 +109,16 @@ export default {
   },
   actions: {
     [CREATE_EVENT_OBJECT] ({ commit }, id) {
-      timePadService.getEventById(id).then(res => commit('mapRes', { res, id }))
+      timePadService.getEventById(id).then(res => {
+        console.log(res)
+        if (res && res.id) {
+          commit('mapRes', { res, id })
+        } else {
+          staticDataService.getEventList().then(res => {
+            commit('mapRes', { res, id })
+          })
+        }
+      })
     }
   }
 }
