@@ -1,6 +1,5 @@
 <template>
   <v-content>
-    <!-- <router-view></router-view> -->
     <About/>
     <Events/>
     <Games/>
@@ -9,7 +8,7 @@
 </template>
 
 <script>
-import About from '@/component/About'
+import About from '@/component/About.vue'
 import Events from '@/component/Events'
 import Games from '@/component/Games'
 import Partners from '@/component/Partners'

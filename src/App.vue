@@ -71,7 +71,7 @@ export default {
   }
   .toolbar{
     text-align: center;
-    font-size: 60px;
+    font-size: 42px;
     font-weight: normal;
     border-bottom: 1px solid darkgrey;
     color: #464547;

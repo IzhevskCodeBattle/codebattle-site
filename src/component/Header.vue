@@ -62,23 +62,23 @@ export default {
 }
 </script>
 <style scoped>
-.btn {
-  padding-left: 25px;
-  padding-right: 25px;
-  color: white;
-}
-.header__wrapper{
-  background-color: #464547a6;
-  padding-right: 30%;
-  padding-left: 30%;
-  z-index: 5;
-}
-.scrollactive-item{
-  color: #ffffff;
-  height: 70px;
-}
- /*
-.is-active {
-  color:#76cdd8;
-} */
+  .btn {
+      padding-left: 25px;
+      padding-right: 25px;
+      color: white;
+  }
+  .header__wrapper{
+      background-color: #464547;
+      padding-right: 30%;
+      padding-left: 30%;
+      z-index: 5;
+      height: 58px;
+  }
+  .scrollactive-item{
+      color: #ffffff;
+      height: 58px;
+      position: relative;
+      top: -3px;
+  }
+
 </style>

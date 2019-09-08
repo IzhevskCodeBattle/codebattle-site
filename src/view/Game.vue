@@ -10,12 +10,9 @@
     
     <div class="content">
       <img class="game-image" :src="game.img" alt='Картинка мероприятия'>
-      <div class="text-background">
-        <div class="game">
-          <!-- <img class="game__logo" src=../../static/img/EPAM_LOGO.png alt="epam_logo"> -->
-          <div class="game__name">{{ game.name }}</div>
-          <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
-        </div>
+      <div class="game">
+        <div class="game__name">{{ game.name }}</div>
+        <div class="game__link" v-if="game.link"><a :href="game.link" target="_blank">ПРИМЕРЫ БОТОВ</a></div>
       </div>
     </div>
     <div class="game__main">
@@ -183,11 +180,19 @@ export default {
       id: 3,
       name: 'LodeRunner',
       img: '/static/img/games/loderunner.jpg',
-      link: '',
+      link: 'https://github.com/IzhevskCodeBattle/codebattle-loderunner-clients',
       background: '',
+       pictures: [
+        { title: 'Картинка 1',
+          src: '/static/img/games/loderunner.png'
+        },
+        { title: 'Картинка 2',
+          src: '/static/img/games/Loderunner-scrot.png'
+        }
+      ],
       description: `<h2 class="description__tittle">Базовые правила игры</h2>
         <div class="description__main">
-          Каждый участник должен написать своего бота для героя, который обыграет героев других игроков по очкам.
+          Надо написать своего бота для героя, который обыграет героев других игроков по очкам.
         </div>
         <div class="description__main__section">Поле</div>
         <div class="description__main">
@@ -195,10 +200,9 @@ export default {
           Герой может передвигаться по свободным ячейкам во все четыре стороны.
           Герой может вскарабкаться по лестнице (ввер/вниз), а так же передвигаться по трубе (влево/вправо).
           С трубы можно спрыгнуть вниз. Герой падает до тех пор, пока не приземлится.
-        </div>
-        <div class="description__main__section">Враг</div>
-        <div class="description__main">
-          Враг - это охотник, беленький бот, который следит за жертвой, пока ее не настигнет - в этот момент герой отправляется в байтовый рай.
+          За каждую новую кучку золота герой получает немного больше очков, чем за предыдущую.
+          Счетчик сбрасывается при потере героя - выгодно собирать золото и не терять героя. Очки суммируются.
+          Побеждает игрок с большим числом очков (до условленного времени).
         </div>
         <div class="description__main__section">Ямка</div>
         <div class="description__main">
@@ -211,14 +215,23 @@ export default {
           На своем пути герой может повстречать золото и врага.
           За золото герой получит бонусные очки. За врага - штрафные :).
         </div>
+        <div class="description__main__section">Враг</div>
+        <div class="description__main">
+          Враг - это охотник, беленький бот, который следит за жертвой, пока ее не настигнет - в этот момент герой отправляется в байтовый рай.
+        </div>
         <div class="description__main">
           Штрафные очки так же предусмотрены за падение самого героя в свою или чужую ямку из которой он не сможет выбраться.
           Если ямка чужая - конкурент-участник получит очки.
         </div>
+        <div class="description__main__section">Игровой процесс</div>
         <div class="description__main">
-          За каждую новую кучку золота герой получает немного больше очков, чем за предыдущую.
-          Счетчик сбрасывается при потере героя - выгодно собирать золото и не терять героя. Очки суммируются.
-          Побеждает игрок с большим числом очков (до условленного времени).
+          Игра пошаговая, каждую секунду сервер посылает твоему клиенту (боту) состояние обновленного поля на текущий момент и ожидает ответа команды герою.
+          За следующую секунду игрок должен успеть дать команду герою. Если не успел — герой стоит на месте.
+          Команд несколько: UP, DOWN, LEFT, RIGHT – приводят к движению героя в заданном направлении на 1 клетку;
+          ACT - просверлить дырку в направлении, куда смотрит герой. Команды движения можно комбинировать с командой ACT,
+          разделяя их через запятую – это укажет в какую сторону надо просверлить дырку (без передвижения героя). Порядок (LEFT, ACT) или (ACT, LEFT) - не имеет значения - будет просверлена дырка слева. Если игрок будет использовать только одну команду ACT то дырка просверлится в направлении, куда смотрит герой.
+          Первая задача – написать websocket клиента, который подключится к серверу. Затем заставить героя слушаться команды.
+          Таким образом, игрок подготовится к основной игре. Основная задача – вести осмысленную игру и победить.
         </div>`
     },
     {
@@ -543,9 +556,7 @@ export default {
 </script>
 
 
-<style leng="less" scoped>
-@import url('../style/blocks/game.less');
-
+<style scoped>
    @font-face {
       font-family: SourceSansPro;
       src: url(../../static/fonts/SourceSansPro-BoldIt.otf);
@@ -556,11 +567,11 @@ export default {
     }
     .game{
       position: absolute;
-      /* top: 100px; */
+      top: 0;
       left: 75px;
     }
     .game-page {
-      font-size: 1.2em;
+      font-size: 1em;
       margin: 0 10%;
       background-color: #fff;
       background-color: #e3e3e3cc;
@@ -569,6 +580,7 @@ export default {
       position: relative;
       width: 100%;
       height: 400px;
+      top: -6px;
     }
     .game-image {
       width: 100%;
@@ -590,7 +602,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: left;
-      font-size: 5em;
+      font-size: 4em;
       font-weight: bold;
       text-align: left;
       padding-left: 0;

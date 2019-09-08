@@ -4,7 +4,7 @@
     <div class="anchor" id="games"></div>
     <h2 class="toolbar">Игры</h2>
     <div class="games__wrapper">
-      <div class="game" v-for="card in cards" :key="card.id" v-on:click="redirect(card.id)">
+      <div class="game" v-for="card in cards" :key="card.id" @click="redirect(card.id)">
         <img class="game__image" v-bind:src="card.src">
         <div v-if="!card.isComplite" class="shadow"></div>
         <div v-if="!card.isComplite" class="game__status">
@@ -21,7 +21,9 @@
 </template>
 <!-- код, который относится непосредственно к компоненту -->
 <script>
-import { mapState } from 'vuex'
+
+// import { mapState } from 'vuex'
+
 export default {
   data: () => ({
     cards: [
@@ -63,11 +65,11 @@ export default {
     ]
   }),
   computed: {
-    ...mapState({
-      cards: state => {
-        return state.games.cards
-      }
-    }),
+    // ...mapState({
+    //   cards: state => {
+    //     return state.games.cards
+    //   }
+    // }),
     imageHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return '300px'
