@@ -15,7 +15,10 @@
       <div v-if="!spinner && commingEvent" class="comming-events">
         <div class="event" v-on:click="redirect(commingEvent.id)">
           <div class="event__info">
-            <div class="event__background" v-bind:style="{ background: `url(${commingEvent.header_image})`}"></div>
+            <div 
+                class="event__background" 
+                v-bind:style="{ background: `url(${commingEvent.preview_image})`}">
+            </div>
             <p class="event__name">{{ commingEvent.name }}</p>
             <div class="event__line"></div>
             <p class="event__date">{{ commingEvent.starts_at | TimeFilter }} {{ commingEvent.starts_at | DateFilter }}</p>
@@ -88,88 +91,91 @@ export default {
       height: 20px;
       position: relative;
     }
-   .spinner {
-     display: block;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     z-index: 2;
-     height: 50px;
-     width: 50px;
-   }
-  .events__margin-wrapper{
-    margin: 0 10%;
-    background-color: #fff;
-    background-color: #e3e3e3cc;
-  }
-   .events__wrapper{
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .comming-events {
-    display: block;
-    padding-right: 3%;
-    width: 40%;
-    height: auto;
-  }
-  .comming-events__error{
-    width: 40%;
-    text-align: center;
-    font-size: 2em;
-  }
-  .event {
-    position: relative;
-    overflow: hidden;
-    position: relative;
-    max-width: 400px;
-    max-height: 400px;
-    cursor: pointer;
-    transition: all .4s cubic-bezier(.25,.8,.25,1);
-    transition-property: box-shadow;
-  }
-  .event:hover{
-    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-  }
-  .event__background{
-    opacity: .6;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-  }
-  .event__line{
-    width: 80%;
-    border-bottom: 1px solid #464547;
-    opacity: 0.38;
-  }
-  .event__info{
-    height: 100%;
-    width: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  .event__name{
-    width: 90%;
-    margin: 26% 0;
-    padding: 0;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bolder;
-    color: #464547;
-  }
-  .event__date{
-    margin: 30px 0;
-    font-size: 20px;
-  }
+    .spinner {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        height: 50px;
+        width: 50px;
+    }
+    .events__margin-wrapper{
+        margin: 0 10%;
+        background-color: #fff;
+        background-color: #e3e3e3cc;
+    }
+    .events__wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 10%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .comming-events {
+        display: block;
+        padding-right: 3%;
+        width: 40%;
+        height: auto;
+    }
+    .comming-events__error{
+        width: 40%;
+        text-align: center;
+        font-size: 2em;
+    }
+    .event {
+        position: relative;
+        overflow: hidden;
+        position: relative;
+        max-width: 400px;
+        max-height: 400px;
+        cursor: pointer;
+        transition: all .4s cubic-bezier(.25,.8,.25,1);
+        transition-property: box-shadow;
+    }
+    .event:hover{
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    }
+    .event__background{
+        opacity: .4;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-position: 50% -46% !important;
+    }
+    .event__line{
+        width: 80%;
+        border-bottom: 1px solid #464547;
+        opacity: 0.38;
+    }
+    .event__info{
+        height: 100%;
+        width: 100%;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .event__name{
+        width: 90%;
+        margin: 26% 0;
+        padding: 0;
+        text-align: center;
+        font-size: 40px;
+        font-weight: bolder;
+        color: #000000;
+        z-index: 5;
+    }
+    .event__date{
+        margin: 30px 0;
+        font-size: 20px;
+        z-index: 5;
+    }
   .past-events {
     display: flex;
     flex-direction: column;
