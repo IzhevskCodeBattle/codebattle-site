@@ -24,6 +24,10 @@ export default {
       { title: 'MechanIsMe',
         src: '/static/img/partners/MehanIsMe.png',
         href: 'https://vk.com/mechanisme'
+      },
+      { title: 'АРКИТ УР',
+        src: '/static/img/partners/arkitlogo.png',
+        href: 'http://arkitur.ru/'
       }
     ]
   }
