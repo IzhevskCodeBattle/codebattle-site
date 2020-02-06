@@ -49,7 +49,7 @@
         data: () => ({
             registrationLink: `https://epa.ms/CB5`,
             location: '29 февраля 13:00 Рестопаб "Устинов" (ул. М. Горького, д84)',
-            actualGameId: 3,
+            actualGameId: 6,
             actualEventId: 1
         }),
 
@@ -137,7 +137,7 @@
         width: 60%;
         border-bottom: 1px solid #2f4e05;
     }
-    
+
 
     .about__description {
         background-color: #e3e3e3cc;
