@@ -5,7 +5,7 @@
     <div class="events__wrapper">
       <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
-      <div v-if="!pastEvents && !commingEvent.values[0]" class="event__timepad-error">
+      <div v-if="!pastEvents" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
       </div>
       <div v-if="!commingEvent" class="comming-events__error">

@@ -83,7 +83,7 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     registrationLink: function () {
-      return 'https://events.epam.com/events/codebattle-for-students-4/guest-registration'
+      return 'https://epa.ms/CB5'
     },
     ...mapState({
       currentEvent: state => {

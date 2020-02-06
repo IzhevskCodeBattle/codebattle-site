@@ -1,7 +1,7 @@
 <template>
     <section id="about">
         <div class="about__banner-wrapper">
-            <img class="about__banner" src="../../static/img/loderunner_banner.jpg">
+            <img class="about__banner" src="../../static/img/snake_banner.jpg">
             <div class="about__buttons-wrapper">
                 <div class="about__buttons">
                     <div class="about__button" @click="redirectToGame()">Правила</div>
@@ -47,8 +47,8 @@
         name: 'About',
 
         data: () => ({
-            registrationLink: `https://events.epam.com/events/codebattle-for-students-4/guest-registration `,
-            location: '05 октября в 13:00 Рестопаб "Устинов" (ул. Автозаводская, 2)',
+            registrationLink: `https://epa.ms/CB5`,
+            location: '29 февраля 13:00 Рестопаб "Устинов" (ул. М. Горького, д84)',
             actualGameId: 3,
             actualEventId: 1
         }),
@@ -90,7 +90,7 @@
     .about__buttons-wrapper {
         position: absolute;
         width: 100%;
-        color: #d4bf30;
+        color: #8cc540;
         display: flex;
         justify-content: space-around;
         bottom: 15px;
@@ -107,7 +107,7 @@
     .about__button {
         text-transform: uppercase;
         font-size: 150%;
-        border: 2px solid #d4bf30;
+        border: 2px solid #8cc540;
         padding: 5px;
         margin: 5px;
         display: flex;
@@ -117,14 +117,14 @@
     }
 
     .about__button:hover {
-        border: 1px solid #9f9026;
+        border: 1px solid #8cc540;
     }
 
     .about__info-wrapper {
         height: 30px;
         font-size: 130%;
         background-color: #e3e3e3cc;
-        margin: 0 10%;
+        margin: -4px 10% 0 10%;
         display: flex;
         align-items: baseline;
         justify-content: space-around;
@@ -135,8 +135,9 @@
         justify-content: space-around;
         padding: 10px 0;
         width: 60%;
-        border-bottom: 1px solid #9f9026;
+        border-bottom: 1px solid #2f4e05;
     }
+    
 
     .about__description {
         background-color: #e3e3e3cc;
