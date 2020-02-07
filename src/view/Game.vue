@@ -536,7 +536,7 @@ export default {
     },
     { id: 6,
       name: 'Snake',
-      img: '/static/img/games/spaceship_bg.jpg',
+      img: '/static/img/games/snake_game.jpg',
       link: 'https://github.com/IzhevskCodeBattle/codebattle-snakebattle-clients',
       background: '/static/img/games/spaceship_bg.jpg',
       description: `
