@@ -450,7 +450,7 @@ export default {
     }
     @media (max-width: 600px) {
       .text-background {
-        width: 400px;
+        width: 360px;
         top: 100px;
         height: 130px;
       }

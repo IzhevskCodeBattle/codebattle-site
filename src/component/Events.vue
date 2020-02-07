@@ -3,7 +3,6 @@
     <div class="anchor" id="events"></div>
     <h3 class="toolbar">События</h3>
     <div class="events__wrapper">
-      <img v-if="spinner" class="spinner" src="../../static/img/spinner.gif" alt="loading">
 
       <div v-if="!pastEvents" class="event__timepad-error">
         В настоящий момент TimePad недоступен :(
@@ -26,6 +25,9 @@
         </div>
       </div>
 
+        <!-- temp spinner -->
+      <img class="spinner" src="../../static/img/spinner.gif" alt="loading">
+      
       <div v-if="!spinner && pastEvents" class="past-events">
         <div class="past-event" v-for="event in pastEvents" :key="event.id" v-on:click="redirect(event.id)">
           <div class="past-event__info">
@@ -95,7 +97,7 @@ export default {
         display: block;
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: 70%;
         transform: translate(-50%, -50%);
         z-index: 2;
         height: 50px;
@@ -239,6 +241,10 @@ export default {
     }
   }
   @media (max-width: 760px) {
+
+    .spinner {
+        display: none;
+    }  
     .comming-events {
       padding: 0;
       margin-bottom: 30px;
