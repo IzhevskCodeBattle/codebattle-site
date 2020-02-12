@@ -61,6 +61,13 @@ export default {
         title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
         status: 'Игра готова',
         isComplite: true
+      },
+      { id: 6,
+        title: 'Snake',
+        src: '/static/img/games/snake.png',
+        title_all: 'Located two hours south of Sydney in the Southern Highlands of New South Wales, ...',
+        status: 'Игра готова',
+        isComplite: true
       }
     ]
   }),
